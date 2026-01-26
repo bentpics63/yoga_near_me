@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Near Me - Find Your Perfect Practice</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ===================================
+           CSS VARIABLES & DESIGN TOKENS
+        =================================== */
+        :root {
+            /* Brand Colors */
+            --color-sage: #5F7470;
+            --color-sage-light: rgba(95, 116, 112, 0.1);
+            --color-sage-medium: rgba(95, 116, 112, 0.6);
+            --color-terracotta: #FF5733;
+            --color-terracotta-hover: #E64A2A;
+            --color-teal: #61948B;
+            --color-teal-light: rgba(97, 148, 139, 0.15);
+
+            /* Neutral Colors */
+            --color-white: #FFFFFF;
+            --color-off-white: #FDFEFE;
+            --color-bg-light: #F8FAFA;
+            --color-bg-sage: rgba(95, 116, 112, 0.03);
+            --color-text-dark: #2C3E3A;
+            --color-text-medium: #6B7C78;
+            --color-text-light: #9EABA8;
+
+            /* Typography */
+            --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-accent: 'Crimson Pro', Georgia, serif;
+
+            /* Spacing Scale */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 40px;
+            --space-2xl: 64px;
+            --space-3xl: 96px;
+
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 20px;
+
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(95, 116, 112, 0.06);
+            --shadow-md: 0 4px 12px rgba(95, 116, 112, 0.08);
+            --shadow-lg: 0 8px 24px rgba(95, 116, 112, 0.12);
+            --shadow-hover: 0 12px 32px rgba(95, 116, 112, 0.16);
+
+            /* Transitions */
+            --transition-fast: 200ms ease-out;
+            --transition-medium: 300ms ease-out;
+            --transition-slow: 500ms ease-out;
+
+            /* Constraints */
+            --max-width: 100%;
+            --content-width: 1600px;
+        }
+
+        /* ===================================
+           RESET & BASE STYLES
+        =================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text-dark);
+            line-height: 1.7;
+            background-color: var(--color-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ===================================
+           TYPOGRAPHY
+        =================================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            line-height: 1.3;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--color-text-dark);
+        }
+
+        h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        h2 {
+            font-size: clamp(32px, 4vw, 42px);
+            margin-bottom: var(--space-lg);
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: clamp(24px, 3vw, 28px);
+            margin-bottom: var(--space-md);
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: var(--space-md);
+            color: var(--color-text-medium);
+        }
+
+        .subtitle {
+            font-size: clamp(18px, 2.5vw, 22px);
+            font-weight: 400;
+            color: var(--color-text-medium);
+            line-height: 1.6;
+        }
+
+        .accent-text {
+            font-family: var(--font-accent);
+            font-style: italic;
+            color: var(--color-sage);
+            font-size: 1.1em;
+        }
+
+        /* ===================================
+           LAYOUT UTILITIES
+        =================================== */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        .content-container {
+            max-width: var(--content-width);
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: var(--space-2xl) 0;
+            position: relative;
+        }
+
+        .section-alt {
+            background-color: var(--color-bg-light);
+        }
+
+        .section-sage {
+            background-color: var(--color-bg-sage);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ===================================
+           FAQ SECTION - ENHANCED WITH SEO
+        =================================== */
+        .faq-section {
+            background-color: #cbd4d0;
+            padding: var(--space-2xl) 0;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .faq-header h2 {
+            font-size: 2.5rem;
+            color: #5f7470;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .faq-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(95, 116, 112, 0.2);
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            transition: background 0.3s ease;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .faq-question h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 0;
+            font-weight: 600;
+            padding-right: 20px;
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            color: #61948B;
+            transition: transform 0.3s ease;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+            color: #ff5733;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 30px;
+        }
+
+        .faq-answer-content {
+            padding: 0 0 25px 0;
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+            padding: 0 30px;
+        }
+
+        .faq-answer a {
+            color: #61948B;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .faq-answer a:hover {
+            color: #ff5733;
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .faq-section {
+                padding: 40px 15px;
+            }
+
+            .faq-header h2 {
+                font-size: 2rem;
+            }
+
+            .faq-question {
+                padding: 20px 20px;
+            }
+
+            .faq-question h3 {
+                font-size: 1.05rem;
+            }
+
+            .faq-answer {
+                padding: 0 20px;
+            }
+
+            .faq-answer-content {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .faq-question {
+                padding: 18px 15px;
+            }
+
+            .faq-question h3 {
+                font-size: 1rem;
+            }
+
+            .faq-icon {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about finding yoga studios, booking classes, and starting your practice.</p>
+            </div>
+
+            <div class="faq-container">
+
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <h3>How Do I Find A Studio Near Me?</h3>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>To find a yoga studio near you, enter your city, address, or postal code into our search bar. You can also browse by region or city from our home page. Our directory uses your location (with permission) to show studios closest to you, making it easy to discover options in both the U.S. and Canada. Use our filters to refine results by style for a personalized experience.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <h3>What Types Of Yoga Styles Are Featured In The Directory?</h3>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Our directory features all major yoga styles including Hatha, Vinyasa, Ashtanga, Yin, Hot Yoga (26+2), Power Yoga, Restorative, Iyengar, Kundalini, Prenatal, Aerial, and Rocket Yoga. Each studio listing shows which styles they offer, and you can filter your search by specific styles to find exactly what you're looking for.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <h3>How Do I Book A Yoga Class Or Contact A Studio Through This Website?</h3>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Each studio listing includes direct contact information, website links, and phone numbers. Click on any studio to view their full profile, then use the provided contact methods to book classes directly with them. We connect you with studios but don't handle bookings ourselves - this ensures you get the most current pricing and availability directly from the source.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <h3>Are There Beginner-Friendly Yoga Classes And Studios Listed?</h3>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Yes! Many studios in our directory offer beginner-friendly classes. Look for styles like Hatha, Restorative, Yin, and Gentle Yoga which are particularly welcoming to newcomers. Studio profiles often indicate if they offer beginner classes, and you can contact studios directly to ask about introductory packages or trial classes designed for first-timers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <h3>What Should I Bring To My First Yoga Class?</h3>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>For your first class, bring: a yoga mat (though many studios provide these for rent or loan), comfortable clothing that allows movement, a water bottle, and a small towel if practicing hot yoga. Arrive 10-15 minutes early to complete any paperwork and introduce yourself to the instructor. Most studios provide props like blocks and straps, but check their website or call ahead to confirm what's included.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <h3>How Much Do Yoga Classes Typically Cost In Different Locations?</h3>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Pricing varies by location and studio type. Drop-in classes typically range from $15-30 per class. Monthly unlimited memberships range from $80-200. Urban studios in major cities tend to be pricier than suburban or smaller-town studios. Many studios offer intro packages (like 30 days for $30) that provide excellent value for new students. Check individual studio listings for current pricing and special offers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <h3>How Do I Leave A Review Or Feedback For A Studio?</h3>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>We encourage you to leave reviews on the studio's Google Business Profile, Yelp, or Facebook page - these help other students make informed decisions and support great studios. You can find links to these platforms on each studio's listing page. Your honest feedback helps build a stronger yoga community!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 8 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <h3>How Is Information On Your Directory Updated And Kept Accurate?</h3>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>We regularly update our directory with information from studios, user reports, and public sources. Studios can claim their listings to update their information directly. If you notice outdated information, please contact us so we can verify and update the listing. We're committed to providing the most accurate, current information possible to help you find the perfect yoga practice.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Schema Markup for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How Do I Find A Studio Near Me?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To find a yoga studio near you, enter your city, address, or postal code into our search bar. You can also browse by region or city from our home page. Our directory uses your location (with permission) to show studios closest to you, making it easy to discover options in both the U.S. and Canada."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What Types Of Yoga Styles Are Featured In The Directory?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our directory features all major yoga styles including Hatha, Vinyasa, Ashtanga, Yin, Hot Yoga (26+2), Power Yoga, Restorative, Iyengar, Kundalini, Prenatal, Aerial, and Rocket Yoga. Each studio listing shows which styles they offer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How Do I Book A Yoga Class Or Contact A Studio Through This Website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each studio listing includes direct contact information, website links, and phone numbers. Click on any studio to view their full profile, then use the provided contact methods to book classes directly with them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are There Beginner-Friendly Yoga Classes And Studios Listed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Many studios in our directory offer beginner-friendly classes. Look for styles like Hatha, Restorative, Yin, and Gentle Yoga which are particularly welcoming to newcomers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What Should I Bring To My First Yoga Class?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For your first class, bring: a yoga mat, comfortable clothing that allows movement, a water bottle, and a small towel if practicing hot yoga. Arrive 10-15 minutes early to introduce yourself to the instructor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How Much Do Yoga Classes Typically Cost In Different Locations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Drop-in classes typically range from $15-30 per class. Monthly unlimited memberships range from $80-200. Many studios offer intro packages that provide excellent value for new students."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How Do I Leave A Review Or Feedback For A Studio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We encourage you to leave reviews on the studio's Google Business Profile, Yelp, or Facebook page. You can find links to these platforms on each studio's listing page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How Is Information On Your Directory Updated And Kept Accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We regularly update our directory with information from studios, user reports, and public sources. Studios can claim their listings to update their information directly."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script>
+    // FAQ Accordion Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+
+            question.addEventListener('click', function() {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                // Toggle current item
+                const isActive = item.classList.contains('active');
+                if (isActive) {
+                    item.classList.remove('active');
+                    question.setAttribute('aria-expanded', 'false');
+                } else {
+                    item.classList.add('active');
+                    question.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+    });
+    </script>
+
+</body>
+</html>

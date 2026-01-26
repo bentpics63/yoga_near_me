@@ -1,0 +1,80 @@
+# ============================================
+# YogaNearMe.info - publisher.txt
+# ============================================
+# Publisher identity and verification details
+# for YogaNearMe.info
+# ============================================
+
+##############################################
+# PUBLISHER IDENTITY
+##############################################
+Publisher-Name: Yoga Near Me
+Publisher-Domain: https://yoganearme.info
+Publisher-Type: Independent digital publisher and directory
+Publisher-Headquarters: Los Angeles, California, USA
+
+Publisher-Description:
+Yoga Near Me publishes a North American yoga studio directory, yoga education content, and business resources for yoga teachers and studio owners. Content is researched, edited, and maintained by a small expert team with deep experience in yoga practice and small-business strategy.
+
+##############################################
+# OWNERSHIP AND RESPONSIBLE PARTIES
+##############################################
+Owner-1-Name: Edward (Ed) Bates
+Owner-1-Role: Founder, Business and Operations Lead
+
+Owner-2-Name: Lisa Marie Morse
+Owner-2-Role: Co-Founder, Yoga Education Lead
+
+Editorial-Responsibility:
+- Yoga education and practice content: Led by Lisa Marie Morse.
+- Business, marketing, and operations content: Led by Edward Bates.
+- Directory and product updates: Coordinated by Edward Bates with review from Lisa Marie Morse.
+
+##############################################
+# COVERAGE AND SCOPE
+##############################################
+Geographic-Coverage:
+- United States
+- Canada
+
+Primary-Topics:
+- Yoga studios, classes, and local search
+- Yoga styles, benefits, and practice guides
+- Yoga terminology and glossary education
+- Yoga studio business, marketing, and operations
+- AI, automation, and systems for small wellness studios
+
+##############################################
+# EDITORIAL STANDARDS
+##############################################
+Editorial-Principles:
+- Accuracy: Information is checked against primary studio sources whenever possible.
+- Transparency: Clear authorship and roles are documented in author.txt and authors.json.
+- Inclusivity: Content is written with attention to diverse bodies, abilities, and identities.
+- Practicality: Business and SEO guidance is oriented toward small, independent studios.
+
+Review-Process:
+- Yoga education content is drafted or reviewed by a certified yoga teacher (Lisa Marie).
+- Business content is drafted or reviewed by a business and operations specialist (Ed).
+- Articles may be periodically updated for accuracy, clarity, and search relevance.
+
+##############################################
+# CONTACT AND VERIFICATION
+##############################################
+General-Contact-Email: info@yoganearme.info
+Media-Contact-Email: info@yoganearme.info
+Website: https://yoganearme.info
+
+Preferred-Attribution:
+- Name: Yoga Near Me
+- URL: https://yoganearme.info
+- Example-Format: "According to Yoga Near Me (YogaNearMe.info)..."
+
+##############################################
+# LAST UPDATED
+##############################################
+Last-Updated: 2025-12-07
+
+##############################################
+# END OF FILE
+##############################################

@@ -1,0 +1,3183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Near Me - Find Your Perfect Practice</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ===================================
+           CSS VARIABLES & DESIGN TOKENS
+        =================================== */
+        :root {
+            /* Brand Colors */
+            --color-sage: #5F7470;
+            --color-sage-light: rgba(95, 116, 112, 0.1);
+            --color-sage-medium: rgba(95, 116, 112, 0.6);
+            --color-terracotta: #FF5733;
+            --color-terracotta-hover: #E64A2A;
+            --color-teal: #61948B;
+            --color-teal-light: rgba(97, 148, 139, 0.15);
+
+            /* Neutral Colors */
+            --color-white: #FFFFFF;
+            --color-off-white: #FDFEFE;
+            --color-bg-light: #F8FAFA;
+            --color-bg-sage: rgba(95, 116, 112, 0.03);
+            --color-text-dark: #2C3E3A;
+            --color-text-medium: #6B7C78;
+            --color-text-light: #9EABA8;
+
+            /* Typography */
+            --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-accent: 'Crimson Pro', Georgia, serif;
+
+            /* Spacing Scale */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 40px;
+            --space-2xl: 64px;
+            --space-3xl: 96px;
+
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 20px;
+
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(95, 116, 112, 0.06);
+            --shadow-md: 0 4px 12px rgba(95, 116, 112, 0.08);
+            --shadow-lg: 0 8px 24px rgba(95, 116, 112, 0.12);
+            --shadow-hover: 0 12px 32px rgba(95, 116, 112, 0.16);
+
+            /* Transitions */
+            --transition-fast: 200ms ease-out;
+            --transition-medium: 300ms ease-out;
+            --transition-slow: 500ms ease-out;
+
+            /* Constraints */
+            --max-width: 100%;
+            --content-width: 1600px;
+        }
+
+        /* ===================================
+           RESET & BASE STYLES
+        =================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text-dark);
+            line-height: 1.7;
+            background-color: var(--color-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ===================================
+           TYPOGRAPHY
+        =================================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            line-height: 1.3;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--color-text-dark);
+        }
+
+        h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        h2 {
+            font-size: clamp(32px, 4vw, 42px);
+            margin-bottom: var(--space-lg);
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: clamp(24px, 3vw, 28px);
+            margin-bottom: var(--space-md);
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: var(--space-md);
+            color: var(--color-text-medium);
+        }
+
+        .subtitle {
+            font-size: clamp(18px, 2.5vw, 22px);
+            font-weight: 400;
+            color: var(--color-text-medium);
+            line-height: 1.6;
+        }
+
+        .accent-text {
+            font-family: var(--font-accent);
+            font-style: italic;
+            color: var(--color-sage);
+            font-size: 1.1em;
+        }
+
+        /* ===================================
+           LAYOUT UTILITIES
+        =================================== */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        .content-container {
+            max-width: var(--content-width);
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: var(--space-2xl) 0;
+            position: relative;
+        }
+
+        .section-alt {
+            background-color: var(--color-bg-light);
+        }
+
+        .section-sage {
+            background-color: var(--color-bg-sage);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ===================================
+           HEADER & NAVIGATION
+        =================================== */
+        .header {
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            transition: var(--transition-medium);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-md) var(--space-lg);
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            transition: var(--transition-fast);
+        }
+
+        .logo-img:hover {
+            opacity: 0.85;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-xl);
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text-dark);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-sage);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-sage);
+            transition: var(--transition-fast);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-icon {
+            margin-right: var(--space-sm);
+            font-size: 14px;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--color-sage);
+            cursor: pointer;
+        }
+
+        /* ===================================
+           BUTTONS
+        =================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: 14px 32px;
+            font-family: var(--font-heading);
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            letter-spacing: -0.01em;
+        }
+
+        .btn-primary {
+            background-color: var(--color-terracotta);
+            color: var(--color-white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-terracotta-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-sage);
+            border-color: var(--color-sage);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-sage);
+            color: var(--color-white);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            background-color: transparent;
+            color: var(--color-sage);
+            padding: 12px 24px;
+        }
+
+        .btn-ghost:hover {
+            color: var(--color-terracotta);
+        }
+
+        /* ===================================
+           HERO SECTION
+        =================================== */
+        .hero {
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://yoganearme.info/wp-content/uploads/2025/07/29.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            overflow: hidden;
+            margin-top: 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding: var(--space-2xl) var(--space-lg);
+        }
+
+        .hero-title {
+            color: var(--color-white);
+            margin-bottom: var(--space-lg);
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            color: var(--color-white);
+            margin-bottom: var(--space-xl);
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Search Box */
+        .search-container {
+            background-color: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-lg);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .search-form {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 16px 20px;
+            font-size: 16px;
+            border: 2px solid var(--color-bg-light);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            transition: var(--transition-fast);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--color-sage);
+            box-shadow: 0 0 0 3px var(--color-sage-light);
+        }
+
+        .search-input::placeholder {
+            color: var(--color-text-light);
+        }
+
+        .search-btn {
+            padding: 16px 40px;
+            white-space: nowrap;
+        }
+
+        /* Floating Animation - disabled for Elementor */
+        .floating {
+            animation: none;
+        }
+
+        /* ===================================
+           DIVIDER CURVES
+        =================================== */
+        .curve-divider {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .curve-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+
+        .curve-divider .shape-fill {
+            fill: var(--color-white);
+        }
+
+        /* ===================================
+           HOW IT WORKS SECTION
+        =================================== */
+        .how-it-works {
+            position: relative;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .step-card {
+            text-align: center;
+            padding: var(--space-xl);
+            background-color: var(--color-white);
+            border-radius: var(--radius-lg);
+            transition: var(--transition-medium);
+            border-top: 4px solid var(--color-teal);
+        }
+
+        a.step-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a.step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .step-card:nth-child(1) {
+            border-top-color: var(--color-terracotta);
+        }
+
+        .step-card:nth-child(2) {
+            border-top-color: var(--color-sage);
+        }
+
+        .step-card:nth-child(3) {
+            border-top-color: var(--color-teal);
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-sage), var(--color-teal));
+            color: var(--color-white);
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+        }
+
+        .step-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto var(--space-lg);
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-medium);
+        }
+
+        .step-card:hover .step-icon img {
+            transform: scale(1.05);
+        }
+
+        .step-card h3 {
+            color: var(--color-text-dark);
+        }
+
+        .step-card p {
+            color: var(--color-text-medium);
+            font-size: 15px;
+        }
+
+        /* ===================================
+           INTERACTIVE MAP SECTION
+        =================================== */
+        .map-section-wrapper {
+            padding: 40px 20px;
+        }
+
+        .map-section-container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .map-wrapper {
+            background: var(--color-white);
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(95, 116, 112, 0.12);
+            display: block;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 1600px;
+            background: linear-gradient(135deg, #F8FAFA 0%, #E8F0F0 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 8px rgba(95, 116, 112, 0.05);
+        }
+
+        .map-bg {
+            position: absolute;
+            top: calc(-30% - 110px);
+            left: 0;
+            width: 100%;
+            height: 180%;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .map-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center center;
+            opacity: 0.85;
+            user-select: none;
+            pointer-events: none;
+            transform: scale(1.5);
+        }
+
+        .city {
+            position: absolute;
+            cursor: pointer;
+            transition: all var(--transition-medium);
+            z-index: 10;
+            transform: translate(-50%, -50%);
+        }
+
+        .city-dot {
+            width: 14px;
+            height: 14px;
+            background: var(--color-terracotta);
+            border: 2px solid var(--color-white);
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(255, 87, 51, 0.4);
+            transition: all var(--transition-medium);
+        }
+
+        .city-dot::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 26px;
+            height: 26px;
+            border: 2px solid var(--color-terracotta);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all var(--transition-medium);
+        }
+
+        .city:hover .city-dot {
+            transform: scale(1.4);
+            background: var(--color-terracotta-hover);
+            box-shadow: 0 4px 16px rgba(255, 87, 51, 0.6);
+        }
+
+        .city:hover .city-dot::before {
+            opacity: 0.6;
+            width: 36px;
+            height: 36px;
+        }
+
+        .city-label {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            background: var(--color-white);
+            padding: 14px 18px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all var(--transition-medium);
+            z-index: 100;
+            border: 1px solid var(--color-sage-light);
+        }
+
+        .city:hover .city-label {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-16px);
+        }
+
+        .city-label h3 {
+            color: var(--color-sage);
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .city-label .studios {
+            color: var(--color-terracotta);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .city-label .state {
+            color: var(--color-sage);
+            opacity: 0.5;
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+
+        @keyframes cityPulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 87, 51, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(255, 87, 51, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 87, 51, 0);
+            }
+        }
+
+        .city.clicked .city-dot {
+            animation: cityPulse 1s ease-out;
+        }
+
+        .map-info-panel {
+            margin-top: var(--space-xl);
+            padding: var(--space-xl);
+            background: linear-gradient(135deg, rgba(95, 116, 112, 0.06), rgba(255, 87, 51, 0.06));
+            border-radius: var(--radius-xl);
+            display: none;
+            border: 1px solid var(--color-sage-light);
+        }
+
+        .map-info-panel.active {
+            display: block;
+            animation: slideUpMap 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideUpMap {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .map-info-panel h2 {
+            color: var(--color-sage);
+            margin-bottom: var(--space-lg);
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+
+        .map-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .map-info-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: var(--space-md);
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+        }
+
+        .map-info-item i {
+            color: var(--color-terracotta);
+            font-size: 1.6rem;
+        }
+
+        .map-info-item span {
+            color: var(--color-sage);
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .map-legend {
+            margin-top: var(--space-lg);
+            text-align: center;
+            color: var(--color-sage);
+            opacity: 0.6;
+            font-size: 0.95rem;
+        }
+
+        .map-legend i {
+            color: var(--color-terracotta);
+            font-size: 0.7rem;
+            margin-right: 6px;
+        }
+
+        /* Map responsive */
+        @media (max-width: 767px) {
+            .map-wrapper {
+                display: none;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .map-container {
+                height: 700px;
+            }
+
+            .map-wrapper {
+                padding: var(--space-lg);
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .map-container {
+                height: 1600px;
+            }
+        }
+
+        /* ===================================
+           FEATURED CITIES SECTION
+        =================================== */
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-2xl);
+        }
+
+        .city-card {
+            background-color: var(--color-white);
+            padding: var(--space-lg) var(--space-xl);
+            border-radius: var(--radius-md);
+            text-align: center;
+            text-decoration: none;
+            color: var(--color-text-dark);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-fast);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .city-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--color-sage), var(--color-teal));
+            opacity: 0;
+            transition: var(--transition-fast);
+        }
+
+        .city-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-sage-light);
+            background-color: var(--color-bg-sage);
+        }
+
+        .city-card:hover::before {
+            opacity: 1;
+        }
+
+        .city-name {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--color-text-dark);
+            transition: var(--transition-fast);
+        }
+
+        .city-card:hover .city-name {
+            color: var(--color-sage);
+        }
+
+        /* ===================================
+           FOR STUDIO OWNERS SECTION
+        =================================== */
+        .studio-owners-section {
+            background: linear-gradient(135deg, var(--color-sage) 0%, var(--color-teal) 100%);
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .studio-owners-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" fill="%23ffffff" fill-opacity="0.05" fill-rule="evenodd"/%3E%3C/svg%3E');
+            opacity: 0.3;
+        }
+
+        .studio-owners-section h2,
+        .studio-owners-section p {
+            color: var(--color-white);
+        }
+
+        .studio-owners-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .benefit-card {
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition-medium);
+        }
+
+        .benefit-card:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-4px);
+        }
+
+        .benefit-icon {
+            font-size: 42px;
+            margin-bottom: var(--space-lg);
+            display: block;
+        }
+
+        .benefit-card h3 {
+            color: var(--color-white);
+            font-size: 22px;
+        }
+
+        .benefit-card p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: var(--space-lg);
+            justify-content: center;
+            margin-top: var(--space-2xl);
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background-color: var(--color-white);
+            color: var(--color-sage);
+        }
+
+        .btn-white:hover {
+            background-color: var(--color-off-white);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-white {
+            background-color: transparent;
+            color: var(--color-white);
+            border-color: var(--color-white);
+        }
+
+        .btn-outline-white:hover {
+            background-color: var(--color-white);
+            color: var(--color-sage);
+        }
+
+        /* ===================================
+                 SOCIAL COMMUNITY SECTION
+        =================================== */
+    .social-community {
+        position: relative;
+        background-image: url('https://yoganearme.info/wp-content/uploads/2025/07/40.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+        }
+
+    .social-community::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.3);
+}
+
+    .social-community .container {
+        position: relative;
+        z-index: 2;
+}
+
+    .social-community h2 {
+        color: var(--color-white);
+        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+    .social-community p,
+    .social-community .subtitle {
+        color: var(--color-white);
+        text-shadow: 0 2px 15px rgba(0, 0, 0, 0.25);
+}
+/* ===================================
+   FAQ SECTION - ENHANCED VERSION
+=================================== */
+.faq-section {
+    background-color: #cbd4d0;
+    padding: var(--space-2xl) 0;
+}
+
+.faq-section h2 {
+    color: var(--color-text-dark);
+}
+
+.faq-section .subtitle {
+    color: var(--color-text-medium);
+}
+
+.faq-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: #FFFFFF !important;
+    background: #FFFFFF !important;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-fast);
+    overflow: hidden;
+}
+
+.faq-item:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.faq-question {
+    width: 100%;
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none;
+    padding: var(--space-lg) var(--space-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-lg);
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    transition: all var(--transition-fast);
+}
+
+.faq-question:hover {
+    color: var(--color-sage);
+}
+
+.faq-item.active .faq-question {
+    color: var(--color-terracotta);
+}
+
+.faq-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #61948B;
+    color: var(--color-white);
+    font-size: 16px;
+    transition: all var(--transition-fast);
+}
+
+.faq-item:hover .faq-icon {
+    background-color: var(--color-sage);
+}
+
+.faq-item.active .faq-icon {
+    background-color: var(--color-terracotta);
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    display: none;
+    padding: 0 var(--space-xl) var(--space-lg) var(--space-xl);
+    background-color: transparent;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-answer-inner {
+    padding-right: 60px;
+}
+
+.faq-answer p {
+    color: var(--color-text-medium);
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 0 0 var(--space-md) 0;
+}
+
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+.faq-answer ul {
+    margin: var(--space-md) 0;
+    padding-left: var(--space-lg);
+    color: var(--color-text-medium);
+}
+
+.faq-answer li {
+    margin-bottom: var(--space-sm);
+    line-height: 1.8;
+    color: var(--color-text-medium);
+    font-size: 15px;
+}
+
+.faq-answer li::marker {
+    color: var(--color-terracotta);
+}
+
+.faq-answer a {
+    color: var(--color-terracotta);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transition-fast);
+}
+
+.faq-answer a:hover {
+    border-bottom-color: var(--color-terracotta);
+}
+        /* ===================================
+           NEWSLETTER SECTION
+        =================================== */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--color-terracotta) 0%, #FF7F5C 100%);
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .newsletter-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .newsletter-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter-section h2,
+        .newsletter-section p {
+            color: var(--color-white);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            min-width: 280px;
+            padding: 18px 24px;
+            font-size: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            transition: var(--transition-fast);
+            color: var(--color-white);
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--color-white);
+            background-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+        }
+
+        .newsletter-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--color-white);
+            padding: 18px 40px;
+            font-weight: 600;
+            white-space: nowrap;
+            border: 2px solid var(--color-white);
+        }
+
+        .newsletter-btn:hover {
+            background-color: var(--color-white);
+            color: var(--color-terracotta);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .newsletter-features {
+            display: flex;
+            gap: var(--space-xl);
+            justify-content: center;
+            margin-top: var(--space-xl);
+            flex-wrap: wrap;
+        }
+
+        .newsletter-feature {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 14px;
+        }
+
+        .newsletter-feature i {
+            font-size: 18px;
+        }
+
+ /* ===================================
+   FOOTER - New Design v3
+=================================== */
+.footer {
+    background-color: #5F7470;
+    color: #fff;
+    padding: 64px 0 24px;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.footer-section h4 {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Column 1: Brand */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-brand-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.brand-tagline {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 16px;
+}
+
+.brand-stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.15);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    width: fit-content;
+}
+
+.brand-stat-badge svg {
+    width: 14px;
+    height: 14px;
+}
+
+.footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.footer-social a:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.footer-social svg {
+    width: 18px;
+    height: 18px;
+    fill: #fff;
+}
+
+/* Column 2: Explore */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+/* Column 3: For Studios + Popular Cities */
+.city-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.city-chip {
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 16px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.city-chip:hover {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+/* Column 4: Newsletter */
+.newsletter-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newsletter-form input[type="email"] {
+    padding: 12px 16px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    font-size: 14px;
+    width: 100%;
+}
+
+.newsletter-form input[type="email"]::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.newsletter-form input[type="email"]:focus {
+    outline: none;
+    border-color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.15);
+}
+
+.newsletter-form button {
+    padding: 12px 24px;
+    background: #FF5733;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.newsletter-form button:hover {
+    background: #e64d2e;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding: 24px 24px 0;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-bottom-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: #fff;
+}
+
+/* Footer Responsive */
+@media (max-width: 900px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .footer {
+        padding: 48px 0 24px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .footer-bottom-links {
+        justify-content: center;
+    }
+}
+        /* ===================================
+           ANIMATIONS
+        =================================== */
+
+        /* Scroll animations - simplified for Elementor */
+        .reveal {
+            opacity: 1;
+            transform: translateY(0);
+            transition: none;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===================================
+           RESPONSIVE DESIGN
+        =================================== */
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .cities-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-nav {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--color-white);
+                width: 100%;
+                padding: var(--space-xl);
+                box-shadow: var(--shadow-lg);
+                transition: var(--transition-medium);
+                gap: var(--space-lg);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .logo-img {
+                height: 40px;
+            }
+
+            .footer-logo {
+                height: 50px;
+            }
+
+            .hero {
+                min-height: 500px;
+                margin-top: 0;
+            }
+
+            .search-form {
+                flex-direction: column;
+            }
+
+            .search-input {
+                min-width: 100%;
+            }
+
+            .search-btn {
+                width: 100%;
+            }
+
+            /* Newsletter mobile */
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                min-width: 100%;
+            }
+
+            .newsletter-btn {
+                width: 100%;
+            }
+
+            .newsletter-features {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cities-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-sm);
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .section {
+                padding: var(--space-xl) 0;
+            }
+
+            .step-icon {
+                width: 100px;
+                height: 100px;
+            }
+
+            .footer-nav {
+                flex-direction: column;
+                gap: var(--space-lg);
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --space-xl: 24px;
+                --space-2xl: 40px;
+            }
+
+            .container {
+                padding: 0 var(--space-md);
+            }
+
+            .search-container {
+                padding: var(--space-md);
+            }
+
+            .step-icon {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    
+        /* STANDALONE MAP STYLES */
+.container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: var(--color-sage);
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            color: var(--color-sage);
+            opacity: 0.8;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .instructions {
+            color: var(--color-sage);
+            opacity: 0.6;
+            font-size: 1rem;
+        }
+
+        .map-wrapper {
+            background: var(--color-white);
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(95, 116, 112, 0.12);
+            display: block;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 1600px;
+            background: linear-gradient(135deg, #F8FAFA 0%, #E8F0F0 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 8px rgba(95, 116, 112, 0.05);
+        }
+
+        /* Map Background Image */
+        .map-bg {
+            position: absolute;
+            top: calc(-30% - 110px);
+            left: 0;
+            width: 100%;
+            height: 180%;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .map-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center center;
+            opacity: 0.85;
+            user-select: none;
+            pointer-events: none;
+            transform: scale(1.5);
+        }
+
+        /* City Markers */
+        .city {
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
+            transform: translate(-50%, -50%);
+        }
+
+        .city-dot {
+            width: 14px;
+            height: 14px;
+            background: var(--color-terracotta);
+            border: 2px solid var(--color-white);
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(255, 87, 51, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Pulse ring on hover */
+        .city-dot::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 26px;
+            height: 26px;
+            border: 2px solid var(--color-terracotta);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .city:hover .city-dot {
+            transform: scale(1.4);
+            background: var(--color-terracotta-light);
+            box-shadow: 0 4px 16px rgba(255, 87, 51, 0.6);
+        }
+
+        .city:hover .city-dot::before {
+            opacity: 0.6;
+            width: 36px;
+            height: 36px;
+        }
+
+        /* Tooltip */
+        .city-label {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            background: var(--color-white);
+            padding: 14px 18px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+            border: 1px solid rgba(95, 116, 112, 0.1);
+        }
+
+        .city:hover .city-label {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-16px);
+        }
+
+        .city-label h3 {
+            color: var(--color-sage);
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .city-label .studios {
+            color: var(--color-terracotta);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .city-label .state {
+            color: var(--color-sage);
+            opacity: 0.5;
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+
+        /* Click pulse animation */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 87, 51, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(255, 87, 51, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 87, 51, 0);
+            }
+        }
+
+        .city.clicked .city-dot {
+            animation: pulse 1s ease-out;
+        }
+
+        /* Info Panel */
+        .info-panel {
+            margin-top: 40px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(95, 116, 112, 0.06), rgba(255, 87, 51, 0.06));
+            border-radius: 20px;
+            display: none;
+            border: 1px solid rgba(95, 116, 112, 0.1);
+        }
+
+        .info-panel.active {
+            display: block;
+            animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .info-panel h2 {
+            color: var(--color-sage);
+            margin-bottom: 24px;
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px;
+            background: var(--color-white);
+            border-radius: 12px;
+        }
+
+        .info-item i {
+            color: var(--color-terracotta);
+            font-size: 1.6rem;
+        }
+
+        .info-item span {
+            color: var(--color-sage);
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .explore-btn {
+            display: inline-block;
+            padding: 16px 36px;
+            background: var(--color-terracotta);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(255, 87, 51, 0.25);
+        }
+
+        .explore-btn:hover {
+            background: var(--color-terracotta-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 87, 51, 0.35);
+        }
+
+        .explore-btn i {
+            margin-right: 8px;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 24px;
+            text-align: center;
+            color: var(--color-sage);
+            opacity: 0.6;
+            font-size: 0.95rem;
+        }
+
+        .legend i {
+            color: var(--color-terracotta);
+            font-size: 0.7rem;
+            margin-right: 6px;
+        }
+
+        /* Mobile - Hide map completely */
+        @media (max-width: 767px) {
+            .map-wrapper {
+                display: none;
+            }
+
+            .header {
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .instructions {
+                display: none;
+            }
+
+            .container::after {
+                content: "📱 The interactive map is available on desktop and tablet devices. Please visit on a larger screen to explore 46 cities across North America.";
+                display: block;
+                padding: 30px;
+                background: var(--color-white);
+                border-radius: 16px;
+                color: var(--color-sage);
+                text-align: center;
+                font-size: 1.05rem;
+                line-height: 1.6;
+                box-shadow: 0 4px 16px rgba(95, 116, 112, 0.1);
+            }
+        }
+
+        /* Tablet adjustments */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .map-container {
+                height: 700px;
+            }
+
+            .map-wrapper {
+                padding: 35px;
+            }
+
+            h1 {
+                font-size: 2.3rem;
+            }
+        }
+
+        /* Large desktop */
+        @media (min-width: 1400px) {
+            .map-container {
+                height: 1600px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="/" class="logo">
+                <img src="https://yoganearme.info/wp-content/uploads/2025/11/ChatGPT-Image-Nov-5-2025-at-01_51_54-PM.jpg"
+                     alt="Yoga Near Me - Find Yoga Studios and Classes"
+                     class="logo-img"
+                     loading="eager">
+                <span class="sr-only">Yoga Near Me</span>
+            </a>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="#how-it-works"><i class="nav-icon fas fa-compass"></i>How It Works</a></li>
+                <li><a href="/blog"><i class="nav-icon fas fa-book-open"></i>Blog</a></li>
+                <li><a href="/about"><i class="nav-icon fas fa-heart"></i>About</a></li>
+                <li><a href="#for-studios"><i class="nav-icon fas fa-store"></i>For Studios</a></li>
+                <li><a href="/login" class="btn-ghost">Login</a></li>
+                <li><a href="/register" class="btn btn-primary">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Peace Within Reach</h1>
+            <p class="subtitle hero-subtitle">
+                Find your perfect yoga practice. Connect with studios, teachers, and classes across North America.
+            </p>
+
+            <div class="search-container floating">
+                <form class="search-form" action="/search" method="GET">
+                    <input
+                        type="text"
+                        name="location"
+                        class="search-input"
+                        placeholder="Enter your city or zip code"
+                        aria-label="Location search"
+                    >
+                    <button type="submit" class="btn btn-primary search-btn">
+                        <i class="fas fa-search"></i>
+                        Find Studios
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Curve Divider -->
+        <div class="curve-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section id="how-it-works" class="section how-it-works">
+        <div class="container content-container">
+            <div class="text-center">
+                <h2 class="reveal">How It Works</h2>
+                <p class="subtitle reveal">Your complete guide to finding and living your yoga practice</p>
+            </div>
+
+            <div class="steps-grid">
+                <a href="https://yoganearme.info/yoga-styles" class="step-card reveal" style="text-decoration: none; color: inherit;">
+                    <div class="step-icon">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/05/124-e1746854411944.webp" alt="Find Your Style">
+                    </div>
+                    <h3>Find Your Style</h3>
+                    <p>Explore detailed guides on every yoga style—from energizing Vinyasa to restorative Yin. Understand what each practice offers and discover which aligns with your body, goals, and lifestyle.</p>
+                </a>
+
+                <div class="step-card reveal">
+                    <div class="step-icon">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/05/11-1-e1746851142858.webp" alt="Studio Visits & Reviews">
+                    </div>
+                    <h3>Studio Visits & Reviews</h3>
+                    <p>Compare local studios side-by-side. Read authentic reviews from real students, check schedules and pricing, and find the perfect welcoming space for your practice.</p>
+                </div>
+
+                <div class="step-card reveal">
+                    <div class="step-icon">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/05/13-1-e1746850973600.webp" alt="Yoga For Life">
+                    </div>
+                    <h3>Yoga For Life</h3>
+                    <p>Join a supportive community dedicated to lifelong practice. Access ongoing resources, tips, and inspiration to deepen your journey both on and off the mat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED CITIES SECTION -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="reveal">Explore Yoga Studios by City</h2>
+                <p class="subtitle reveal">Discover yoga communities across North America</p>
+            </div>
+
+            <div class="cities-grid">
+                <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=new+york+city&sgeo_lat=40.7127281&sgeo_lon=-74.0060152" class="city-card reveal">
+                    <div class="city-name">New York City</div>
+                </a>
+
+                <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=los+angeles&sgeo_lat=34.0522342&sgeo_lon=-118.2436849" class="city-card reveal">
+                    <div class="city-name">Los Angeles</div>
+                </a>
+
+                <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=san+francisco&sgeo_lat=37.7792588&sgeo_lon=-122.4193286" class="city-card reveal">
+                    <div class="city-name">San Francisco</div>
+                </a>
+
+                <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=chicago&sgeo_lat=41.8781136&sgeo_lon=-87.6297982" class="city-card reveal">
+                    <div class="city-name">Chicago</div>
+                </a>
+
+                <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=miami&sgeo_lat=25.7616798&sgeo_lon=-80.1917902" class="city-card reveal">
+                    <div class="city-name">Miami</div>
+                </a>
+
+                <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=austin&sgeo_lat=30.267153&sgeo_lon=-97.7430608" class="city-card reveal">
+                    <div class="city-name">Austin</div>
+                </a>
+
+                <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=denver&sgeo_lat=39.7392358&sgeo_lon=-104.990251" class="city-card reveal">
+                    <div class="city-name">Denver</div>
+                </a>
+
+                <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=seattle&sgeo_lat=47.6062095&sgeo_lon=-122.3320708" class="city-card reveal">
+                    <div class="city-name">Seattle</div>
+                </a>
+
+                <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=portland&sgeo_lat=45.5051064&sgeo_lon=-122.6750261" class="city-card reveal">
+                    <div class="city-name">Portland</div>
+                </a>
+
+                <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=san+diego&sgeo_lat=32.715738&sgeo_lon=-117.1610838" class="city-card reveal">
+                    <div class="city-name">San Diego</div>
+                </a>
+
+                <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=washington&sgeo_lat=38.9071923&sgeo_lon=-77.0368707" class="city-card reveal">
+                    <div class="city-name">Washington DC</div>
+                </a>
+
+                <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=boston&sgeo_lat=42.3600825&sgeo_lon=-71.0588801" class="city-card reveal">
+                    <div class="city-name">Boston</div>
+                </a>
+
+                <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=philadelphia&sgeo_lat=39.9525839&sgeo_lon=-75.1652215" class="city-card reveal">
+                    <div class="city-name">Philadelphia</div>
+                </a>
+
+                <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=oakland&sgeo_lat=37.8043637&sgeo_lon=-122.2711137" class="city-card reveal">
+                    <div class="city-name">Oakland</div>
+                </a>
+
+                <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=vancouver&sgeo_lat=49.2827291&sgeo_lon=-123.1207375" class="city-card reveal">
+                    <div class="city-name">Vancouver BC</div>
+                </a>
+
+                <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=north+vancouver&sgeo_lat=49.3163498&sgeo_lon=-123.0755931" class="city-card reveal">
+                    <div class="city-name">North Vancouver BC</div>
+                </a>
+
+                <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=victoria&sgeo_lat=48.4284207&sgeo_lon=-123.3656444" class="city-card reveal">
+                    <div class="city-name">Victoria BC</div>
+                </a>
+
+                <a href="https://yoganearme.info/places/" class="city-card reveal" style="background: linear-gradient(135deg, var(--color-sage), var(--color-teal)); border: none;">
+                    <div class="city-name" style="color: white; font-weight: 600;">View All Cities →</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE MAP SECTION -->
+    <div class="container">
+        <div class="header">
+            <h1>Explore 46 Cities Across North America</h1>
+            <p class="subtitle">Discover yoga studios from coast to coast</p>
+            <p class="instructions">Hover over any city to preview • Click to view detailed studio information</p>
+        </div>
+
+        <div class="map-wrapper">
+            <div class="map-container" id="mapContainer">
+                <!-- Map Background Image -->
+                <div class="map-bg">
+                    <img src="map-usa-canada.png" alt="Map of USA and Canada" loading="eager">
+                </div>
+
+                <!-- CITIES - All 46 positioned with % coordinates -->
+
+                <!-- San Francisco, CA --><div class="city" data-city="San Francisco" data-state="CA" data-studios="1,089" style="left: 24.684%; top: 73.499%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>San Francisco</h3>
+                        <div class="studios">1,089 Studios</div>
+                        <div class="state">California</div>
+                    </div>
+                </div>
+
+                <!-- Denver, CO --><div class="city" data-city="Denver" data-state="CO" data-studios="678" style="left: 44.5815%; top: 69.8124%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Denver</h3>
+                        <div class="studios">678 Studios</div>
+                        <div class="state">Colorado</div>
+                    </div>
+                </div>
+
+                <!-- Seattle, WA --><div class="city" data-city="Seattle" data-state="WA" data-studios="743" style="left: 29.8396%; top: 58.9366%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Seattle</h3>
+                        <div class="studios">743 Studios</div>
+                        <div class="state">Washington</div>
+                    </div>
+                </div>
+
+                <!-- Boston, MA --><div class="city" data-city="Boston" data-state="MA" data-studios="823" style="left: 88.0096%; top: 64.9993%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Boston</h3>
+                        <div class="studios">823 Studios</div>
+                        <div class="state">Massachusetts</div>
+                    </div>
+                </div>
+
+                <!-- Portland, OR --><div class="city" data-city="Portland" data-state="OR" data-studios="612" style="left: 29.6112%; top: 62.124%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Portland</h3>
+                        <div class="studios">612 Studios</div>
+                        <div class="state">Oregon</div>
+                    </div>
+                </div>
+
+                <!-- San Diego, CA --><div class="city" data-city="San Diego" data-state="CA" data-studios="734" style="left: 30.6908%; top: 83.7499%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>San Diego</h3>
+                        <div class="studios">734 Studios</div>
+                        <div class="state">California</div>
+                    </div>
+                </div>
+
+                <!-- Austin, TX --><div class="city" data-city="Austin" data-state="TX" data-studios="498" style="left: 57.4137%; top: 87.4996%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Austin</h3>
+                        <div class="studios">498 Studios</div>
+                        <div class="state">Texas</div>
+                    </div>
+                </div>
+
+                <!-- New York City, NY --><div class="city" data-city="New York City" data-state="NY" data-studios="1,247" style="left: 85.7428%; top: 68.249%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>New York City</h3>
+                        <div class="studios">1,247 Studios</div>
+                        <div class="state">New York</div>
+                    </div>
+                </div>
+
+                <!-- Washington, DC --><div class="city" data-city="Washington" data-state="DC" data-studios="456" style="left: 82.3795%; top: 72.8125%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Washington</h3>
+                        <div class="studios">456 Studios</div>
+                        <div class="state">District of Columbia</div>
+                    </div>
+                </div>
+
+                <!-- Minneapolis, MN --><div class="city" data-city="Minneapolis" data-state="MN" data-studios="389" style="left: 58.6596%; top: 61.9375%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Minneapolis</h3>
+                        <div class="studios">389 Studios</div>
+                        <div class="state">Minnesota</div>
+                    </div>
+                </div>
+
+                <!-- Miami, FL --><div class="city" data-city="Miami" data-state="FL" data-studios="512" style="left: 80.8389%; top: 94.3745%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Miami</h3>
+                        <div class="studios">512 Studios</div>
+                        <div class="state">Florida</div>
+                    </div>
+                </div>
+
+                <!-- Columbus, OH --><div class="city" data-city="Columbus" data-state="OH" data-studios="445" style="left: 71.1167%; top: 70.0615%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Columbus</h3>
+                        <div class="studios">445 Studios</div>
+                        <div class="state">Ohio</div>
+                    </div>
+                </div>
+
+                <!-- Oakland, CA --><div class="city" data-city="Oakland" data-state="CA" data-studios="678" style="left: 26.0562%; top: 74.1874%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Oakland</h3>
+                        <div class="studios">678 Studios</div>
+                        <div class="state">California</div>
+                    </div>
+                </div>
+
+                <!-- Atlanta, GA --><div class="city" data-city="Atlanta" data-state="GA" data-studios="589" style="left: 71.1444%; top: 81.7494%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Atlanta</h3>
+                        <div class="studios">589 Studios</div>
+                        <div class="state">Georgia</div>
+                    </div>
+                </div>
+
+                <!-- Tucson, AZ --><div class="city" data-city="Tucson" data-state="AZ" data-studios="198" style="left: 39.759%; top: 85.25%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Tucson</h3>
+                        <div class="studios">198 Studios</div>
+                        <div class="state">Arizona</div>
+                    </div>
+                </div>
+
+                <!-- Los Angeles, CA --><div class="city" data-city="Los Angeles" data-state="CA" data-studios="2,156" style="left: 29.2922%; top: 81%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Los Angeles</h3>
+                        <div class="studios">2,156 Studios</div>
+                        <div class="state">California</div>
+                    </div>
+                </div>
+
+                <!-- Chicago, IL --><div class="city" data-city="Chicago" data-state="IL" data-studios="892" style="left: 65.4362%; top: 66.3745%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Chicago</h3>
+                        <div class="studios">892 Studios</div>
+                        <div class="state">Illinois</div>
+                    </div>
+                </div>
+
+                <!-- Philadelphia, PA --><div class="city" data-city="Philadelphia" data-state="PA" data-studios="512" style="left: 83.282%; top: 70.8124%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Philadelphia</h3>
+                        <div class="studios">512 Studios</div>
+                        <div class="state">Pennsylvania</div>
+                    </div>
+                </div>
+
+                <!-- Phoenix, AZ --><div class="city" data-city="Phoenix" data-state="AZ" data-studios="521" style="left: 37.0453%; top: 82.1874%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Phoenix</h3>
+                        <div class="studios">521 Studios</div>
+                        <div class="state">Arizona</div>
+                    </div>
+                </div>
+
+                <!-- Dallas, TX --><div class="city" data-city="Dallas" data-state="TX" data-studios="567" style="left: 58.8102%; top: 83.5%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Dallas</h3>
+                        <div class="studios">567 Studios</div>
+                        <div class="state">Texas</div>
+                    </div>
+                </div>
+
+                <!-- Houston, TX --><div class="city" data-city="Houston" data-state="TX" data-studios="634" style="left: 60.7913%; top: 90.125%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Houston</h3>
+                        <div class="studios">634 Studios</div>
+                        <div class="state">Texas</div>
+                    </div>
+                </div>
+
+                <!-- San Jose, CA --><div class="city" data-city="San Jose" data-state="CA" data-studios="589" style="left: 25.5725%; top: 75.2499%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>San Jose</h3>
+                        <div class="studios">589 Studios</div>
+                        <div class="state">California</div>
+                    </div>
+                </div>
+
+                <!-- Sacramento, CA --><div class="city" data-city="Sacramento" data-state="CA" data-studios="312" style="left: 30.3005%; top: 72.3123%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Sacramento</h3>
+                        <div class="studios">312 Studios</div>
+                        <div class="state">California</div>
+                    </div>
+                </div>
+
+                <!-- Raleigh–Durham, NC --><div class="city" data-city="Raleigh–Durham" data-state="NC" data-studios="356" style="left: 79.2635%; top: 76.062%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Raleigh–Durham</h3>
+                        <div class="studios">356 Studios</div>
+                        <div class="state">North Carolina</div>
+                    </div>
+                </div>
+
+                <!-- Orlando, FL --><div class="city" data-city="Orlando" data-state="FL" data-studios="423" style="left: 79.576%; top: 90.8121%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Orlando</h3>
+                        <div class="studios">423 Studios</div>
+                        <div class="state">Florida</div>
+                    </div>
+                </div>
+
+                <!-- Tampa–St. Petersburg, FL --><div class="city" data-city="Tampa–St. Petersburg" data-state="FL" data-studios="389" style="left: 78.6658%; top: 92.1875%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Tampa–St. Petersburg</h3>
+                        <div class="studios">389 Studios</div>
+                        <div class="state">Florida</div>
+                    </div>
+                </div>
+
+                <!-- Missoula, MT --><div class="city" data-city="Missoula" data-state="MT" data-studios="134" style="left: 38.4984%; top: 59.8124%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Missoula</h3>
+                        <div class="studios">134 Studios</div>
+                        <div class="state">Montana</div>
+                    </div>
+                </div>
+
+                <!-- Portland, ME --><div class="city" data-city="Portland" data-state="ME" data-studios="187" style="left: 89.5117%; top: 61.6248%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Portland</h3>
+                        <div class="studios">187 Studios</div>
+                        <div class="state">Maine</div>
+                    </div>
+                </div>
+
+                <!-- Greensboro, NC --><div class="city" data-city="Greensboro" data-state="NC" data-studios="178" style="left: 76.4354%; top: 75.4373%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Greensboro</h3>
+                        <div class="studios">178 Studios</div>
+                        <div class="state">North Carolina</div>
+                    </div>
+                </div>
+
+                <!-- Scottsdale, AZ --><div class="city" data-city="Scottsdale" data-state="AZ" data-studios="234" style="left: 38.6582%; top: 81.7491%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Scottsdale</h3>
+                        <div class="studios">234 Studios</div>
+                        <div class="state">Arizona</div>
+                    </div>
+                </div>
+
+                <!-- Honolulu, HI --><div class="city" data-city="Honolulu" data-state="HI" data-studios="289" style="left: 4.48568%; top: 91.4998%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Honolulu</h3>
+                        <div class="studios">289 Studios</div>
+                        <div class="state">Hawaii</div>
+                    </div>
+                </div>
+
+                <!-- Boulder, CO --><div class="city" data-city="Boulder" data-state="CO" data-studios="312" style="left: 44.0315%; top: 68.125%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Boulder</h3>
+                        <div class="studios">312 Studios</div>
+                        <div class="state">Colorado</div>
+                    </div>
+                </div>
+
+                <!-- Asheville, NC --><div class="city" data-city="Asheville" data-state="NC" data-studios="234" style="left: 72.8742%; top: 77.062%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Asheville</h3>
+                        <div class="studios">234 Studios</div>
+                        <div class="state">North Carolina</div>
+                    </div>
+                </div>
+
+                <!-- Nashville, TN --><div class="city" data-city="Nashville" data-state="TN" data-studios="423" style="left: 68.1029%; top: 75.7495%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Nashville</h3>
+                        <div class="studios">423 Studios</div>
+                        <div class="state">Tennessee</div>
+                    </div>
+                </div>
+
+                <!-- Baltimore, MD --><div class="city" data-city="Baltimore" data-state="MD" data-studios="378" style="left: 82.9066%; top: 71.6875%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Baltimore</h3>
+                        <div class="studios">378 Studios</div>
+                        <div class="state">Maryland</div>
+                    </div>
+                </div>
+
+                <!-- CANADIAN CITIES -->
+
+                <!-- Vancouver, BC --><div class="city" data-city="Vancouver" data-state="BC" data-studios="456" style="left: 29.3557%; top: 56.4368%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Vancouver</h3>
+                        <div class="studios">456 Studios</div>
+                        <div class="state">British Columbia</div>
+                    </div>
+                </div>
+
+                <!-- Toronto, ON --><div class="city" data-city="Toronto" data-state="ON" data-studios="612" style="left: 82.5039%; top: 63.7496%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Toronto</h3>
+                        <div class="studios">612 Studios</div>
+                        <div class="state">Ontario</div>
+                    </div>
+                </div>
+
+                <!-- Montreal, QC --><div class="city" data-city="Montreal" data-state="QC" data-studios="398" style="left: 86.7849%; top: 58.1868%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Montreal</h3>
+                        <div class="studios">398 Studios</div>
+                        <div class="state">Quebec</div>
+                    </div>
+                </div>
+
+                <!-- Calgary, AB --><div class="city" data-city="Calgary" data-state="AB" data-studios="289" style="left: 38.4637%; top: 55.3124%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Calgary</h3>
+                        <div class="studios">289 Studios</div>
+                        <div class="state">Alberta</div>
+                    </div>
+                </div>
+
+                <!-- Ottawa, ON --><div class="city" data-city="Ottawa" data-state="ON" data-studios="234" style="left: 85.313%; top: 58.9993%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Ottawa</h3>
+                        <div class="studios">234 Studios</div>
+                        <div class="state">Ontario</div>
+                    </div>
+                </div>
+
+                <!-- Edmonton, AB --><div class="city" data-city="Edmonton" data-state="AB" data-studios="198" style="left: 37.3104%; top: 51.8119%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Edmonton</h3>
+                        <div class="studios">198 Studios</div>
+                        <div class="state">Alberta</div>
+                    </div>
+                </div>
+
+                <!-- Victoria, BC --><div class="city" data-city="Victoria" data-state="BC" data-studios="167" style="left: 28.0316%; top: 56.9373%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Victoria</h3>
+                        <div class="studios">167 Studios</div>
+                        <div class="state">British Columbia</div>
+                    </div>
+                </div>
+
+                <!-- Winnipeg, MB --><div class="city" data-city="Winnipeg" data-state="MB" data-studios="145" style="left: 48.8208%; top: 56.1249%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Winnipeg</h3>
+                        <div class="studios">145 Studios</div>
+                        <div class="state">Manitoba</div>
+                    </div>
+                </div>
+
+                <!-- Quebec City, QC --><div class="city" data-city="Quebec City" data-state="QC" data-studios="178" style="left: 86.6704%; top: 55.812%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Quebec City</h3>
+                        <div class="studios">178 Studios</div>
+                        <div class="state">Quebec</div>
+                    </div>
+                </div>
+
+                <!-- Hamilton, ON --><div class="city" data-city="Hamilton" data-state="ON" data-studios="145" style="left: 81.7633%; top: 64.6241%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Hamilton</h3>
+                        <div class="studios">145 Studios</div>
+                        <div class="state">Ontario</div>
+                    </div>
+                </div>
+
+                <!-- Halifax, NS --><div class="city" data-city="Halifax" data-state="NS" data-studios="134" style="left: 94.824%; top: 59.3121%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Halifax</h3>
+                        <div class="studios">134 Studios</div>
+                        <div class="state">Nova Scotia</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="legend">
+                <i class="fas fa-circle"></i> 46 cities across North America • Hover to preview • Click to explore
+            </div>
+
+            <!-- Info Panel - appears when clicking a city -->
+            <div class="info-panel" id="infoPanel">
+                <h2 id="cityName"></h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <i class="fas fa-om"></i>
+                        <span id="studioCount"></span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="cityState"></span>
+                    </div>
+                </div>
+                <a href="#" class="explore-btn" id="exploreBtn">
+                    <i class="fas fa-search"></i> Explore Studios in <span id="exploreCityName"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+    <!-- FOR STUDIO OWNERS SECTION -->
+    <section id="for-studios" class="section studio-owners-section">
+        <div class="container studio-owners-content">
+            <div class="text-center">
+                <h2 class="reveal">Grow Your Independent Studio</h2>
+                <p class="subtitle reveal">
+                    Empower your business with visibility tools, SEO insights, and practical education—without the high costs of traditional marketing agencies.
+                </p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card reveal">
+                    <span class="benefit-icon"><i class="fas fa-chart-line"></i></span>
+                    <h3>Increase Visibility</h3>
+                    <p>Get found by students searching for yoga classes in your area. Boost your local SEO and ranking with our directory listing and backlink support.</p>
+                </div>
+
+                <div class="benefit-card reveal">
+                    <span class="benefit-icon"><i class="fas fa-search"></i></span>
+                    <h3>SEO Intelligence</h3>
+                    <p>Access keyword research, content briefs, and studio-specific SEO reports. Compete confidently with the tools typically reserved for larger organizations.</p>
+                </div>
+
+                <div class="benefit-card reveal">
+                    <span class="benefit-icon"><i class="fas fa-graduation-cap"></i></span>
+                    <h3>Business Education</h3>
+                    <p>Learn practical marketing strategies, student retention techniques, and growth tactics designed specifically for independent yoga studios.</p>
+                </div>
+            </div>
+
+            <div class="cta-buttons reveal">
+                <a href="/add-studio" class="btn btn-white">
+                    <i class="fas fa-plus-circle"></i>
+                    Claim Your Studio
+                </a>
+                <a href="/studio-owners" class="btn btn-outline-white">
+                    <i class="fas fa-info-circle"></i>
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL COMMUNITY SECTION -->
+    <section class="section social-community">
+        <div class="container content-container">
+            <div class="text-center">
+                <h2 class="reveal">Join Our Growing Community</h2>
+                <p class="subtitle reveal">Connect with thousands of yoga students and studios across North America</p>
+
+                <div style="margin-top: var(--space-2xl);">
+                    <a href="/add-studio" class="btn btn-primary reveal">
+                        <i class="fas fa-plus-circle"></i>
+                        Claim Your Studio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION - ENHANCED VERSION -->
+    <section id="faq" class="section faq-section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="reveal">Frequently Asked Questions</h2>
+                <p class="subtitle reveal">Find answers to common questions about finding yoga studios, booking classes, and starting your practice.</p>
+            </div>
+
+            <div class="faq-accordion" style="margin-top: var(--space-2xl);">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How Do I Find A Studio Near Me?</span>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>To find a yoga studio near you, enter your city, address, or postal code into our search bar. You can also browse by region or city from our home page. Our directory uses your location (with permission) to show studios closest to you, making it easy to discover options in both the U.S. and Canada. Use our filters to refine results by style for a personalized experience.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What Types Of Yoga Styles Are Featured In The Directory?</span>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Our directory features all major yoga styles including Hatha, Vinyasa, Ashtanga, Yin, Hot Yoga (26+2), Power Yoga, Restorative, Iyengar, Kundalini, Prenatal, Aerial, and Rocket Yoga. Each studio listing shows which styles they offer, and you can filter your search by specific styles to find exactly what you're looking for.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How Do I Book A Yoga Class Or Contact A Studio Through This Website?</span>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Each studio listing includes direct contact information, website links, and phone numbers. Click on any studio to view their full profile, then use the provided contact methods to book classes directly with them. We connect you with studios but don't handle bookings ourselves - this ensures you get the most current pricing and availability directly from the source.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Are There Beginner-Friendly Yoga Classes And Studios Listed?</span>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Yes! Many studios in our directory offer beginner-friendly classes. Look for styles like Hatha, Restorative, Yin, and Gentle Yoga which are particularly welcoming to newcomers. Studio profiles often indicate if they offer beginner classes, and you can contact studios directly to ask about introductory packages or trial classes designed for first-timers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What Should I Bring To My First Yoga Class?</span>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>For your first class, bring: a yoga mat (though many studios provide these for rent or loan), comfortable clothing that allows movement, a water bottle, and a small towel if practicing hot yoga. Arrive 10-15 minutes early to complete any paperwork and introduce yourself to the instructor. Most studios provide props like blocks and straps, but check their website or call ahead to confirm what's included.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How Much Do Yoga Classes Typically Cost In Different Locations?</span>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Pricing varies by location and studio type. Drop-in classes typically range from $15-30 per class. Monthly unlimited memberships range from $80-200. Urban studios in major cities tend to be pricier than suburban or smaller-town studios. Many studios offer intro packages (like 30 days for $30) that provide excellent value for new students. Check individual studio listings for current pricing and special offers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How Do I Leave A Review Or Feedback For A Studio?</span>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>We encourage you to leave reviews on the studio's Google Business Profile, Yelp, or Facebook page - these help other students make informed decisions and support great studios. You can find links to these platforms on each studio's listing page. Your honest feedback helps build a stronger yoga community!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 8 -->
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How Is Information On Your Directory Updated And Kept Accurate?</span>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>We regularly update our directory with information from studios, user reports, and public sources. Studios can claim their listings to update their information directly. If you notice outdated information, please contact us so we can verify and update the listing. We're committed to providing the most accurate, current information possible to help you find the perfect yoga practice.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Schema Markup -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How Do I Find A Studio Near Me?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "To find a yoga studio near you, enter your city, address, or postal code into our search bar. You can also browse by region or city from our home page. Our directory uses your location (with permission) to show studios closest to you, making it easy to discover options in both the U.S. and Canada. Use our filters to refine results by style for a personalized experience."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What Types Of Yoga Styles Are Featured In The Directory?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our directory features all major yoga styles including Hatha, Vinyasa, Ashtanga, Yin, Hot Yoga (26+2), Power Yoga, Restorative, Iyengar, Kundalini, Prenatal, Aerial, and Rocket Yoga. Each studio listing shows which styles they offer, and you can filter your search by specific styles to find exactly what you're looking for."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How Do I Book A Yoga Class Or Contact A Studio Through This Website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Each studio listing includes direct contact information, website links, and phone numbers. Click on any studio to view their full profile, then use the provided contact methods to book classes directly with them. We connect you with studios but don't handle bookings ourselves - this ensures you get the most current pricing and availability directly from the source."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are There Beginner-Friendly Yoga Classes And Studios Listed?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Many studios in our directory offer beginner-friendly classes. Look for styles like Hatha, Restorative, Yin, and Gentle Yoga which are particularly welcoming to newcomers. Studio profiles often indicate if they offer beginner classes, and you can contact studios directly to ask about introductory packages or trial classes designed for first-timers."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What Should I Bring To My First Yoga Class?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For your first class, bring: a yoga mat (though many studios provide these for rent or loan), comfortable clothing that allows movement, a water bottle, and a small towel if practicing hot yoga. Arrive 10-15 minutes early to complete any paperwork and introduce yourself to the instructor. Most studios provide props like blocks and straps, but check their website or call ahead to confirm what's included."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How Much Do Yoga Classes Typically Cost In Different Locations?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pricing varies by location and studio type. Drop-in classes typically range from $15-30 per class. Monthly unlimited memberships range from $80-200. Urban studios in major cities tend to be pricier than suburban or smaller-town studios. Many studios offer intro packages (like 30 days for $30) that provide excellent value for new students. Check individual studio listings for current pricing and special offers."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How Do I Leave A Review Or Feedback For A Studio?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We encourage you to leave reviews on the studio's Google Business Profile, Yelp, or Facebook page - these help other students make informed decisions and support great studios. You can find links to these platforms on each studio's listing page. Your honest feedback helps build a stronger yoga community!"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How Is Information On Your Directory Updated And Kept Accurate?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We regularly update our directory with information from studios, user reports, and public sources. Studios can claim their listings to update their information directly. If you notice outdated information, please contact us so we can verify and update the listing. We're committed to providing the most accurate, current information possible to help you find the perfect yoga practice."
+              }
+            }
+          ]
+        }
+        </script>
+    </section>
+
+    <!-- NEWSLETTER SECTION -->
+    <section class="section newsletter-section">
+        <div class="newsletter-content">
+            <h2>Stay Connected</h2>
+            <p class="subtitle">Get weekly tips, studio recommendations, and exclusive offers delivered to your inbox.</p>
+
+            <form class="newsletter-form" action="/subscribe" method="POST">
+                <input
+                    type="email"
+                    name="email"
+                    class="newsletter-input"
+                    placeholder="Enter your email"
+                    required
+                    aria-label="Email address"
+                >
+                <button type="submit" class="btn newsletter-btn">
+                    <i class="fas fa-envelope"></i>
+                    Subscribe
+                </button>
+            </form>
+
+            <div class="newsletter-features">
+                <div class="newsletter-feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Weekly yoga tips</span>
+                </div>
+                <div class="newsletter-feature">
+                    <i class="fas fa-gift"></i>
+                    <span>Exclusive studio deals</span>
+                </div>
+                <div class="newsletter-feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Unsubscribe anytime</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER - New Design v3 -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <!-- COL 1: Brand -->
+            <div class="footer-section footer-brand">
+                <div class="footer-brand-name">Yoga Near Me</div>
+                <p class="brand-tagline">Connecting practitioners with studios, teachers, and encyclopedic knowledge of yoga.</p>
+                <div class="brand-stat-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    30,000+ studios
+                </div>
+                <div class="footer-social">
+                    <a href="https://facebook.com/yoganearme" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://instagram.com/yoganearme" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://twitter.com/yoganearme" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://youtube.com/yoganearme" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- COL 2: Explore -->
+            <div class="footer-section">
+                <h4>Explore</h4>
+                <ul class="footer-links">
+                    <li><a href="/places/">Find Studios</a></li>
+                    <li><a href="/yoga-styles/">Yoga Styles</a></li>
+                    <li><a href="/glossary/">Glossary</a></li>
+                    <li><a href="/about/">About Us</a></li>
+                </ul>
+            </div>
+
+            <!-- COL 3: For Studios + Popular Cities -->
+            <div class="footer-section">
+                <h4>For Studios</h4>
+                <ul class="footer-links">
+                    <li><a href="/add-studio/">Add Your Studio</a></li>
+                    <li><a href="/claim/">Claim Listing</a></li>
+                </ul>
+                <h4 style="margin-top: 24px;">Popular Cities</h4>
+                <div class="city-chips">
+                    <a href="/places/?geodir_search=1&stype=gd_place&s=&snear=Los+Angeles%2C+CA" class="city-chip">Los Angeles</a>
+                    <a href="/places/?geodir_search=1&stype=gd_place&s=&snear=New+York%2C+NY" class="city-chip">New York</a>
+                    <a href="/places/?geodir_search=1&stype=gd_place&s=&snear=Chicago%2C+IL" class="city-chip">Chicago</a>
+                    <a href="/places/?geodir_search=1&stype=gd_place&s=&snear=Austin%2C+TX" class="city-chip">Austin</a>
+                    <a href="/places/?geodir_search=1&stype=gd_place&s=&snear=Denver%2C+CO" class="city-chip">Denver</a>
+                    <a href="/places/?geodir_search=1&stype=gd_place&s=&snear=Seattle%2C+WA" class="city-chip">Seattle</a>
+                </div>
+            </div>
+
+            <!-- COL 4: Newsletter -->
+            <div class="footer-section">
+                <h4>Stay Connected</h4>
+                <p class="newsletter-text">Get studio tips, yoga insights, and community updates.</p>
+                <form class="newsletter-form" action="#" method="post">
+                    <input type="email" name="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>&copy; 2025 Yoga Near Me</div>
+            <nav class="footer-bottom-links" aria-label="Legal">
+                <a href="/privacy-policy/">Privacy</a>
+                <a href="/terms/">Terms</a>
+                <a href="/contact/">Contact</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Organization Schema Markup for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Yoga Near Me",
+      "url": "https://yoganearme.info",
+      "logo": "https://yoganearme.info/wp-content/uploads/2025/11/ChatGPT-Image-Nov-5-2025-at-01_51_54-PM.jpg",
+      "description": "Find yoga studios and classes across North America. Connect with teachers, explore different yoga styles, and discover your perfect practice.",
+      "sameAs": [
+        "https://facebook.com/yoganearme",
+        "https://instagram.com/yoganearme",
+        "https://twitter.com/yoganearme"
+      ]
+    }
+    </script>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            mobileMenuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // FAQ Accordion
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const faqItem = question.parentElement;
+                    const isActive = faqItem.classList.contains('active');
+
+                    // Close all FAQ items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    });
+
+                    // Open clicked item if it wasn't active
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                        question.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Interactive Map Functionality
+            const cities = document.querySelectorAll('.city');
+            const infoPanel = document.getElementById('infoPanel');
+
+            if (cities.length > 0 && infoPanel) {
+                const cityName = document.getElementById('cityName');
+                const studioCount = document.getElementById('studioCount');
+                const cityState = document.getElementById('cityState');
+                const exploreBtn = document.getElementById('exploreBtn');
+                const exploreCityName = document.getElementById('exploreCityName');
+
+                cities.forEach(city => {
+                    city.addEventListener('click', function(e) {
+                        e.preventDefault();
+
+                        // Remove clicked class from all cities
+                        cities.forEach(c => c.classList.remove('clicked'));
+
+                        // Add clicked class to this city
+                        this.classList.add('clicked');
+
+                        // Get city data
+                        const name = this.dataset.city;
+                        const state = this.dataset.state;
+                        const studios = this.dataset.studios;
+
+                        // Update info panel
+                        cityName.textContent = name;
+                        studioCount.textContent = studios + ' Yoga Studios';
+                        cityState.textContent = name + ', ' + state;
+                        exploreCityName.textContent = name;
+
+                        // Update explore button link
+                        const citySlug = name.toLowerCase().replace(/\s+/g, '-').replace(/–/g, '-');
+                        exploreBtn.href = '/search?city=' + encodeURIComponent(citySlug) + '&state=' + state;
+
+                        // Show info panel
+                        infoPanel.classList.add('active');
+
+                        // Scroll to info panel smoothly
+                        setTimeout(() => {
+                            infoPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }, 100);
+                    });
+                });
+            }
+        }); // End DOMContentLoaded
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cities = document.querySelectorAll('.city');
+            const infoPanel = document.getElementById('infoPanel');
+            const cityName = document.getElementById('cityName');
+            const studioCount = document.getElementById('studioCount');
+            const cityState = document.getElementById('cityState');
+            const exploreBtn = document.getElementById('exploreBtn');
+            const exploreCityName = document.getElementById('exploreCityName');
+
+            console.log('Interactive map initialized with', cities.length, 'cities');
+
+            cities.forEach(city => {
+                city.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    // Remove clicked class from all cities
+                    cities.forEach(c => c.classList.remove('clicked'));
+
+                    // Add clicked class to this city
+                    this.classList.add('clicked');
+
+                    // Get city data
+                    const name = this.dataset.city;
+                    const state = this.dataset.state;
+                    const studios = this.dataset.studios;
+
+                    // Update info panel
+                    cityName.textContent = name;
+                    studioCount.textContent = studios + ' Yoga Studios';
+                    cityState.textContent = name + ', ' + state;
+                    exploreCityName.textContent = name;
+
+                    // Update explore button link
+                    exploreBtn.href = '/search?city=' + encodeURIComponent(name.toLowerCase().replace(/\s+/g, '-')) + '&state=' + state;
+
+                    // Show info panel
+                    infoPanel.classList.add('active');
+
+                    // Scroll to info panel smoothly
+                    setTimeout(() => {
+                        infoPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 100);
+
+                    console.log('Clicked:', name + ', ' + state);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

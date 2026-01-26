@@ -1,0 +1,256 @@
+/**
+ * ELEMENTOR WIDGET-SPECIFIC FIXES
+ * Targets Elementor Button widgets, Share Buttons, and GeoDirectory widgets
+ * Add this to WordPress Customizer → Additional CSS (at the very bottom)
+ */
+
+/* ============================================
+   FIX 1: ELEMENTOR BUTTON WIDGETS
+   ============================================ */
+
+/* "Book a Class" button - Orange with white text */
+body.single-gd_place .elementor-button,
+body.single-gd_place .elementor-button-link,
+body.single-gd_place a.elementor-button,
+body.single-gd_place .elementor-widget-button .elementor-button,
+body.single-gd_place .elementor-widget-button a.elementor-button {
+    background-color: #FF5733 !important;
+    background: #FF5733 !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border-color: #FF5733 !important;
+}
+
+body.single-gd_place .elementor-button:hover {
+    background-color: #E64A2A !important;
+    background: #E64A2A !important;
+}
+
+body.single-gd_place .elementor-button svg,
+body.single-gd_place .elementor-button-link svg {
+    fill: #FFFFFF !important;
+    fill: white !important;
+}
+
+/* "Save" button - Teal with white text */
+body.single-gd_place .elementor-widget-button:nth-of-type(2) .elementor-button,
+body.single-gd_place .elementor-widget-button:has-text("Save") .elementor-button {
+    background-color: #61948B !important;
+    background: #61948B !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border-color: #61948B !important;
+}
+
+body.single-gd_place .elementor-widget-button:nth-of-type(2) .elementor-button:hover {
+    background-color: #4F7A73 !important;
+}
+
+body.single-gd_place .elementor-widget-button:nth-of-type(2) .elementor-button svg {
+    fill: #FFFFFF !important;
+    fill: white !important;
+}
+
+/* All Elementor buttons - ensure white text if background is colored */
+body.single-gd_place .elementor-button[style*="background"],
+body.single-gd_place .elementor-button.elementor-button-primary {
+    color: #FFFFFF !important;
+    color: white !important;
+}
+
+/* ============================================
+   FIX 2: ELEMENTOR SHARE BUTTONS WIDGET
+   ============================================ */
+
+/* Social buttons - Orange instead of pink */
+body.single-gd_place .elementor-share-buttons,
+body.single-gd_place .elementor-widget-share-buttons,
+body.single-gd_place .elementor-share-btn,
+body.single-gd_place .elementor-share-buttons__button {
+    background-color: rgba(255, 87, 51, 0.1) !important;
+    background: rgba(255, 87, 51, 0.1) !important;
+    border-color: rgba(255, 87, 51, 0.2) !important;
+    color: #FF5733 !important;
+}
+
+body.single-gd_place .elementor-share-btn svg,
+body.single-gd_place .elementor-share-buttons__button svg,
+body.single-gd_place .elementor-share-buttons__icon svg {
+    fill: #FF5733 !important;
+}
+
+body.single-gd_place .elementor-share-btn:hover,
+body.single-gd_place .elementor-share-buttons__button:hover {
+    background-color: #FF5733 !important;
+    background: #FF5733 !important;
+    color: #FFFFFF !important;
+}
+
+body.single-gd_place .elementor-share-btn:hover svg,
+body.single-gd_place .elementor-share-buttons__button:hover svg {
+    fill: #FFFFFF !important;
+    fill: white !important;
+}
+
+/* ============================================
+   FIX 3: GEODIRECTORY WIDGETS
+   ============================================ */
+
+/* GD Post Title - ensure proper styling */
+body.single-gd_place .geodir-post-title,
+body.single-gd_place .elementor-widget-geodir-post-title .geodir-post-title {
+    color: #222222 !important;
+    font-weight: 700 !important;
+}
+
+/* GD Post Rating - ensure gold stars */
+body.single-gd_place .geodir-post-rating,
+body.single-gd_place .elementor-widget-geodir-post-rating .geodir-post-rating,
+body.single-gd_place .geodir-rating svg,
+body.single-gd_place .geodir-stars svg {
+    fill: #F5A623 !important;
+}
+
+/* GD Post Address - remove pink text */
+body.single-gd_place .geodir-post-address,
+body.single-gd_place .elementor-widget-geodir-post-address,
+body.single-gd_place .geodir-address,
+body.single-gd_place [class*="geodir-address"] {
+    color: #222222 !important;
+    color: black !important;
+}
+
+/* ============================================
+   FIX 4: YOGA STYLES (if using Elementor widgets)
+   ============================================ */
+
+body.single-gd_place .elementor-widget-text-editor .style-tag,
+body.single-gd_place .elementor-widget-html .style-tag,
+body.single-gd_place [class*="yoga-style"],
+body.single-gd_place [class*="style-tag"] {
+    color: #222222 !important;
+    color: black !important;
+    background: #FFFFFF !important;
+    border: 2px solid #61948B !important;
+}
+
+body.single-gd_place [class*="style-tag"]:hover {
+    background: #61948B !important;
+    color: #FFFFFF !important;
+    color: white !important;
+}
+
+/* ============================================
+   FIX 5: SCHEDULE TABS (if using Elementor)
+   ============================================ */
+
+body.single-gd_place .elementor-tabs .elementor-tab-title.elementor-active,
+body.single-gd_place .elementor-tabs .elementor-tab-title.active {
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+    color: white !important;
+}
+
+body.single-gd_place .elementor-tabs .elementor-tab-title {
+    color: #222222 !important;
+}
+
+/* ============================================
+   FIX 6: REVIEWS SECTION BUTTONS
+   ============================================ */
+
+/* "Write a Review" button */
+body.single-gd_place .elementor-widget-button:has-text("Write a Review") .elementor-button,
+body.single-gd_place [class*="write-review"] .elementor-button {
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border-color: #61948B !important;
+}
+
+/* "Load More Reviews" button */
+body.single-gd_place .elementor-widget-button:has-text("Load More") .elementor-button,
+body.single-gd_place [class*="load-more"] .elementor-button {
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border-color: #61948B !important;
+}
+
+/* "Was this helpful?" button */
+body.single-gd_place .elementor-widget-button:has-text("Yes") .elementor-button,
+body.single-gd_place [class*="helpful"] .elementor-button {
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border-color: #61948B !important;
+}
+
+/* ============================================
+   FIX 7: CLAIM BUTTON
+   ============================================ */
+
+body.single-gd_place .elementor-widget-button:has-text("Claim") .elementor-button,
+body.single-gd_place [class*="claim"] .elementor-button {
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border-color: #FF5733 !important;
+}
+
+/* ============================================
+   FIX 8: REMOVE PINK TEXT EVERYWHERE
+   ============================================ */
+
+body.single-gd_place .elementor-widget-text-editor,
+body.single-gd_place .elementor-widget-html,
+body.single-gd_place .elementor-text-editor,
+body.single-gd_place [class*="elementor-widget"] {
+    color: #222222 !important;
+}
+
+/* But preserve links */
+body.single-gd_place .elementor-widget-text-editor a,
+body.single-gd_place .elementor-widget-html a {
+    color: #61948B !important;
+}
+
+/* ============================================
+   FIX 9: REMOVE SVG ICONS FROM HEADINGS
+   ============================================ */
+
+body.single-gd_place .elementor-heading-title svg,
+body.single-gd_place .elementor-widget-heading .elementor-heading-title svg {
+    display: none !important;
+}
+
+/* Keep dots */
+body.single-gd_place .elementor-heading-title::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    margin-right: 12px !important;
+}
+
+body.single-gd_place .elementor-heading-title {
+    position: relative !important;
+    padding-left: 24px !important;
+}
+
+/* ============================================
+   OVERRIDE INLINE STYLES
+   ============================================ */
+
+body.single-gd_place [style*="color: pink"],
+body.single-gd_place [style*="color: #FF"][style*="background"],
+body.single-gd_place .elementor-button[style*="color: pink"] {
+    color: #222222 !important;
+}
+
+body.single-gd_place .elementor-button[style*="background: #FF5733"],
+body.single-gd_place .elementor-button[style*="background-color: #FF5733"] {
+    color: #FFFFFF !important;
+    color: white !important;
+}
+

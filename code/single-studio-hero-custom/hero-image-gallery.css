@@ -1,0 +1,339 @@
+/**
+ * Single Studio - Hero Image Gallery (70/30 Layout)
+ * Add to WordPress Customizer > Additional CSS
+ *
+ * Features:
+ * - 70% hero image / 30% thumbnail column
+ * - Auto-rotating thumbnails (paid tier)
+ * - Lightbox gallery on click
+ * - Free tier: 2 images + upgrade CTA
+ * - Paid tier: Full 12-image gallery
+ */
+
+/* =====================================================
+   HERO GALLERY - 70/30 LAYOUT
+   ===================================================== */
+
+.studio-hero-gallery {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 0.75rem;
+    height: 400px;
+    margin-bottom: 1.5rem;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+/* Main Hero Image (70%) */
+.studio-hero-gallery .hero-main {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 16px 0 0 16px;
+}
+
+.studio-hero-gallery .hero-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.studio-hero-gallery .hero-main:hover img {
+    transform: scale(1.02);
+}
+
+/* Thumbnail Column (30%) */
+.studio-hero-gallery .hero-thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    height: 100%;
+    position: relative;
+}
+
+/* Individual Thumbnail Slots */
+.studio-hero-gallery .thumbnail-slot {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.studio-hero-gallery .thumbnail-slot:first-child {
+    border-radius: 0 16px 0 0;
+}
+
+.studio-hero-gallery .thumbnail-slot:last-child {
+    border-radius: 0 0 16px 0;
+}
+
+.studio-hero-gallery .thumbnail-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.studio-hero-gallery .thumbnail-slot:hover img {
+    transform: scale(1.05);
+}
+
+/* Auto-rotation progress indicator */
+.studio-hero-gallery .thumbnail-slot.rotating::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: #e95c4b;
+    animation: gallery-progress 4s linear infinite;
+    z-index: 2;
+}
+
+@keyframes gallery-progress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+/* Image count badge */
+.studio-hero-gallery .image-count {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 0.375rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    backdrop-filter: blur(4px);
+    z-index: 2;
+}
+
+/* View All Photos Button */
+.studio-hero-gallery .view-all-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+    padding: 2.5rem 1rem 1rem;
+    display: flex;
+    justify-content: center;
+    z-index: 3;
+}
+
+.studio-hero-gallery .view-all-btn a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    color: #101828;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.studio-hero-gallery .view-all-btn a:hover {
+    background: #101828;
+    color: white;
+}
+
+/* =====================================================
+   FREE TIER - UPGRADE OVERLAY
+   ===================================================== */
+
+.studio-hero-gallery.free-tier .thumbnail-slot.upgrade-slot img {
+    filter: blur(3px);
+}
+
+.studio-hero-gallery .upgrade-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(233, 92, 75, 0.9) 0%, rgba(189, 48, 0, 0.9) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    z-index: 2;
+}
+
+.studio-hero-gallery .upgrade-overlay:hover {
+    background: linear-gradient(135deg, rgba(189, 48, 0, 0.95) 0%, rgba(150, 30, 0, 0.95) 100%);
+}
+
+.studio-hero-gallery .upgrade-overlay i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+.studio-hero-gallery .upgrade-overlay .upgrade-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.25rem;
+}
+
+.studio-hero-gallery .upgrade-overlay .upgrade-count {
+    font-size: 0.6875rem;
+    opacity: 0.85;
+}
+
+/* Alternative: Locked Style */
+.studio-hero-gallery .upgrade-overlay.locked-style {
+    background: linear-gradient(135deg, rgba(16, 24, 40, 0.85) 0%, rgba(16, 24, 40, 0.95) 100%);
+}
+
+/* =====================================================
+   LIGHTBOX GALLERY
+   ===================================================== */
+
+.gallery-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-lightbox.active {
+    display: flex;
+}
+
+.gallery-lightbox .lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.gallery-lightbox .lightbox-content img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.gallery-lightbox .lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    z-index: 10;
+}
+
+.gallery-lightbox .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.gallery-lightbox .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.gallery-lightbox .lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.gallery-lightbox .lightbox-prev { left: 1rem; }
+.gallery-lightbox .lightbox-next { right: 1rem; }
+
+.gallery-lightbox .lightbox-counter {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* =====================================================
+   RESPONSIVE - MOBILE
+   ===================================================== */
+
+@media (max-width: 768px) {
+    .studio-hero-gallery {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .studio-hero-gallery .hero-main {
+        height: 250px;
+        border-radius: 16px 16px 0 0;
+    }
+
+    .studio-hero-gallery .hero-thumbnails {
+        flex-direction: row;
+        height: 100px;
+    }
+
+    .studio-hero-gallery .thumbnail-slot:first-child {
+        border-radius: 0 0 0 16px;
+    }
+
+    .studio-hero-gallery .thumbnail-slot:last-child {
+        border-radius: 0 0 16px 0;
+    }
+
+    .studio-hero-gallery .upgrade-overlay i {
+        font-size: 1.25rem;
+    }
+
+    .studio-hero-gallery .upgrade-overlay .upgrade-text {
+        font-size: 0.6875rem;
+    }
+
+    .studio-hero-gallery .view-all-btn {
+        padding: 1.5rem 0.75rem 0.75rem;
+    }
+
+    .studio-hero-gallery .view-all-btn a {
+        font-size: 0.75rem;
+        padding: 0.375rem 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .studio-hero-gallery .hero-main {
+        height: 200px;
+    }
+
+    .studio-hero-gallery .hero-thumbnails {
+        height: 80px;
+    }
+}

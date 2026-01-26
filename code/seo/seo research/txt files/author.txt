@@ -1,0 +1,134 @@
+# ============================================
+# YogaNearMe.info - author.txt
+# ============================================
+# Author identity, expertise, and content roles
+# for YogaNearMe.info
+# ============================================
+
+##############################################
+# SITE OWNERSHIP & EDITORIAL OVERVIEW
+##############################################
+Site-Name: Yoga Near Me
+Site-Domain: https://yoganearme.info
+Site-Description: The authoritative yoga studio directory for the U.S. and Canada, offering trusted educational content for yoga students, teachers, and studio owners.
+
+Site-Owners:
+- Edward (Ed) Bates - Founder, Business & Operations Lead
+- Lisa Marie Morse - Co-Founder, Yoga Education Lead
+
+Editorial-Model:
+- Yoga education, style guides, and glossary content are written or led by Lisa Marie Morse.
+- Business, marketing, and studio-operations content are written or led by Edward Bates.
+- All content is edited for clarity, accuracy, inclusivity, and practical usefulness for yoga students, teachers, and studio owners.
+
+Last-Updated: 2025-12-07
+
+
+##############################################
+# AUTHOR 1 - LISA MARIE MORSE
+##############################################
+Author-ID: lisa-marie-morse
+Author-Name: Lisa Marie Morse
+Author-Location: Los Angeles, California, USA
+Author-Roles:
+- Lead Yoga Writer
+- Yoga Style & Benefits Expert
+- Glossary & Education Contributor
+
+Author-Bio-Short:
+Lisa Marie Morse is a lifelong student of yoga with more than 20 years of consistent practice. She teaches Classical Hatha, Ashtanga Vinyasa, Iyengar, and creative Vinyasa — blending lineage, structure, and intuitive flow in every class and every article she writes.
+
+Author-Bio-Long:
+Lisa Marie is a lifelong student of yoga with over 20 years of consistent, devoted practice. She holds multiple certifications in yoga and meditation, and teaches Classical Hatha, Ashtanga Vinyasa, Iyengar, and creative Vinyasa yoga — blending ancient tradition with intuitive flow.
+
+In 2022, she opened Viveka Yoga Studio in the heart of Downtown Los Angeles with one mission: to create a space where breath meets truth, and movement becomes medicine. Today, she offers private yoga and meditation sessions both online and in person, weaving structure and soul in every class.
+
+A lifelong athlete, certified personal trainer, and barre instructor, Lisa Marie brings a unique balance of strength, discipline, and wild-hearted reverence to her work. She teaches from the body, the lineage, and the fire that comes from living yoga — not just performing it.
+
+Born and raised in Los Angeles, she now travels the world surfing, soaking in the elements, and honoring the sacred aliveness found in every wave, every inhale, and every unexpected moment of grace.
+
+Author-Expertise:
+- Yoga styles: Hatha, Vinyasa, Ashtanga, Iyengar, Yin, Restorative, Power, Rocket, Aerial, Prenatal, and more.
+- Meditation, pranayama, and nervous-system-supportive practices.
+- Alignment-focused, trauma-informed, and inclusive teaching for diverse bodies and abilities.
+
+Author-Responsible-For:
+- Yoga style guides (e.g., "What Is [Style]?" pages)
+- "12 Benefits" articles for each style
+- Yoga glossary definitions and concept explanations
+- Student- and teacher-facing educational content about practice, breath, and philosophy
+
+
+##############################################
+# AUTHOR 2 - EDWARD (ED) BATES
+##############################################
+Author-ID: edward-bates
+Author-Name: Edward (Ed) Bates
+Author-Location: Los Angeles, California, USA
+Author-Roles:
+- Founder, Yoga Near Me
+- Business & Operations Writer
+- Marketing, SEO & Automation Strategist
+
+Author-Bio-Short:
+Ed Bates is the founder of Yoga Near Me and a business strategist who helps yoga teachers and studio owners grow sustainable, profitable studios. He blends 30+ years of meditation practice with a deep background in marketing, operations, and AI-powered automation.
+
+Author-Bio-Long:
+Ed Bates partnered with Lisa Marie to create a space for yoga teachers and studio owners to find new students and get affordable business support. Thus, Yoga Near Me — the North American yoga studio directory — was born.
+
+Drawing on 30 years of meditation and mindfulness practice, Ed blends deep contemplative training — studying breathwork with Stan Grof and mindfulness with Jayne Gumpel — with the proven skills of a Silicon Beach media and operations executive.
+
+As an award-winning film & television producer whose films premiered at Sundance and generated over 200 million views worldwide, he understands how authentic storytelling and digital marketing connect brands with the audiences who need them.
+
+Ed has launched and scaled multiple small businesses in Los Angeles, from healthcare start-ups to community wellness hubs, mastering sustainable revenue models, search optimization, and efficient studio operations.
+
+Today Ed and Lisa Marie combine his business expertise with her knowledge of yoga and its community to help yoga teachers and studio owners thrive, so they can focus on healing and teaching. Whether you’re listing your studio on Yoga Near Me or seeking strategy for growth, their mission is simple: make yoga easier to find, easier to operate, and easier to sustain.
+
+Author-Education-and-Credentials:
+- BA in Marketing & Finance
+- Specialty in Business Management and Operations
+- Certifications in AI for Marketing & Finance, SEO, and automation building
+- Award-winning producer of three films that exhibited at the Sundance Film Festival
+
+Author-Expertise:
+- Small business strategy for yoga and wellness studios
+- Digital marketing, SEO, and SERP visibility
+- AI, automation, and systems for studio operations
+- Revenue models, pricing, and retention for independent studios
+
+Author-Responsible-For:
+- "The Bright Side" studio business blog and education hub
+- Articles on marketing, operations, pricing, automation, and SEO for yoga studios
+- Strategic content around directory growth, visibility tools, and studio profitability
+
+
+##############################################
+# CONTENT TYPES & RESPONSIBILITY
+##############################################
+Content-Type: Yoga Style Education
+Primary-Author: lisa-marie-morse
+Secondary-Review: edward-bates (for structure, SEO, and clarity)
+
+Content-Type: Yoga Benefits & Practice Guides
+Primary-Author: lisa-marie-morse
+
+Content-Type: Yoga Glossary & Definitions
+Primary-Author: lisa-marie-morse
+
+Content-Type: Studio Business, Marketing & Operations
+Primary-Author: edward-bates
+
+Content-Type: Directory, Product & Platform Updates
+Primary-Author: edward-bates
+Secondary-Review: lisa-marie-morse
+
+
+##############################################
+# CONTACT
+##############################################
+General-Contact: info@yoganearme.info
+Media-Contact: info@yoganearme.info
+
+##############################################
+# END OF FILE
+##############################################

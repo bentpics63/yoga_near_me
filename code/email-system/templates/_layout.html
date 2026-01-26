@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>YogaNearMe</title>
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+  <style>
+    /* Reset */
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+
+    /* Base */
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      background-color: #F8FAFA;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* Container */
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Typography */
+    h1, h2, h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      color: #2C3E3A;
+      margin: 0 0 16px 0;
+    }
+    h1 { font-size: 24px; line-height: 1.3; }
+    h2 { font-size: 20px; line-height: 1.3; }
+    h3 { font-size: 18px; line-height: 1.3; }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #2C3E3A;
+      margin: 0 0 16px 0;
+    }
+
+    a {
+      color: #61948B;
+      text-decoration: underline;
+    }
+
+    /* Button */
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff !important;
+      background-color: #bd371a;
+      border-radius: 8px;
+      text-decoration: none;
+      text-align: center;
+    }
+    .btn:hover {
+      background-color: #a62f16;
+    }
+
+    .btn-secondary {
+      background-color: #5F7470;
+    }
+
+    /* Card */
+    .card {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 24px;
+      margin: 0 0 16px 0;
+    }
+
+    /* Helper classes */
+    .text-muted { color: #6B7C78; }
+    .text-small { font-size: 14px; }
+    .text-center { text-align: center; }
+    .mb-0 { margin-bottom: 0; }
+    .mb-8 { margin-bottom: 8px; }
+    .mb-16 { margin-bottom: 16px; }
+    .mb-24 { margin-bottom: 24px; }
+
+    /* Responsive */
+    @media screen and (max-width: 600px) {
+      .email-container {
+        width: 100% !important;
+      }
+      .mobile-padding {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+      }
+    }
+  </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #F8FAFA;">
+
+  <!-- Preheader (hidden preview text) -->
+  <div style="display: none; max-height: 0; overflow: hidden;">
+    &#8199;&#65279;&#847;
+  </div>
+
+  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #F8FAFA;">
+    <tr>
+      <td style="padding: 24px 16px;">
+
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="email-container" style="max-width: 600px; margin: 0 auto;">
+
+          <!-- Header -->
+          <tr>
+            <td style="padding: 0 0 24px 0; text-align: center;">
+              <a href="https://yoganearme.info" style="text-decoration: none;">
+                <span style="font-family: Georgia, 'Times New Roman', serif; font-size: 24px; font-weight: 600; color: #5F7470;">YogaNearMe</span>
+              </a>
+            </td>
+          </tr>
+
+          <!-- Content -->
+          <tr>
+            <td class="card" style="background-color: #ffffff; border-radius: 8px; padding: 32px;">
+              {{content}}
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding: 24px 0 0 0; text-align: center;">
+              <p style="font-size: 14px; color: #6B7C78; margin: 0 0 8px 0;">
+                You're receiving this because you listed {{studio_name}} on YogaNearMe.
+              </p>
+              <p style="font-size: 14px; color: #9AABA6; margin: 0;">
+                <a href="{{preferences_url}}" style="color: #9AABA6;">Manage email preferences</a>
+                &nbsp;&middot;&nbsp;
+                <a href="{{unsubscribe_tips_url}}" style="color: #9AABA6;">Unsubscribe from tips</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

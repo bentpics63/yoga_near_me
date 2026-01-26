@@ -1,0 +1,330 @@
+<!--
+  STUDIO HEADER SECTION
+  For single studio pages - place below breadcrumb
+  Last Updated: January 15, 2026
+
+  ============================================
+  GEODIRECTORY SHORTCODES USED
+  ============================================
+
+  EXISTING FIELDS:
+  - [gd_post_title] - Studio name
+  - [gd_post_meta key="tagline"] - Tagline
+  - [gd_post_meta key="street"] - Address
+  - [gd_post_meta key="city"] - City
+  - [gd_post_meta key="region"] - State/Province
+  - [gd_post_meta key="phone"] - Phone number
+  - [gd_post_meta key="website"] - Website URL
+  - [gd_post_rating] - Rating display
+  - [gd_post_badge key="featured"] - Featured/Sponsored badge
+  - [gd_post_badge key="verified"] - Verified badge
+  - [gd_post_meta key="business_hours"] - Business hours
+
+  NEW FIELDS TO ADD TO GEODIRECTORY:
+  ============================================
+  Field Key            | Type          | Options/Notes
+  ---------------------|---------------|---------------------------
+  drop_in_price        | Text/Currency | e.g., "$25"
+  heated               | Select        | "Yes" / "No"
+  studio_size          | Select        | "Small (under 15)" / "Medium (15-30)" / "Large (30+)"
+  num_teachers         | Number        | Integer
+  levels_offered       | Select        | "Beginner" / "All Levels" / "Intermediate" / "Advanced"
+  virtual_classes      | Select        | "Available" / "Not Available"
+  established_year     | Text          | e.g., "2015"
+  yoga_alliance_cert   | Select        | "RYS-200" / "RYS-300" / "RYT-500" / "None"
+  google_rating        | Text          | Auto-populated or manual
+  google_review_count  | Number        | Auto-populated or manual
+  scheduling_api_url   | URL           | For Book a Class button (blank = inactive)
+  studio_logo          | Image         | PAID TIER ONLY - Custom logo upload
+
+  ============================================
+  CONDITIONAL LOGIC
+  ============================================
+
+  BOOK A CLASS BUTTON:
+  - If scheduling_api_url is empty → Show inactive/grayed button with tooltip
+  - If scheduling_api_url has value → Show active rust-colored button
+
+  STUDIO LOGO:
+  - If studio_logo is empty (free tier) → Show Om symbol placeholder
+  - If studio_logo has image (paid tier) → Show custom logo image
+
+  TRUST BADGES:
+  - Yelp: NOT INCLUDED (decision: skip to reduce complexity)
+  - Google: Show if google_rating has value
+  - Yoga Alliance: Show if yoga_alliance_cert is not "None"
+  - Verified: Show if verified badge is set
+
+  ============================================
+  CLAIM YOUR STUDIO BUTTON
+  ============================================
+  USE THIS: [ynm_claim_button]  (custom shortcode - single checkmark)
+  NOT THIS: [gd_claim_link]     (default GD widget - has two checkmarks)
+
+  Location: code/PHP ADDS/CLAIM-BUTTON-SHORTCODE.php
+  Must be added to functions.php
+
+  Options:
+  [ynm_claim_button]                           → "✓ Claim Your Studio"
+  [ynm_claim_button text="Claim This Listing"] → Custom text
+  [ynm_claim_button show_verified="false"]     → Hide badge when claimed
+-->
+
+<section class="ynm-studio-header">
+  <div class="ynm-studio-header-container">
+
+    <!-- Top Row: Logo + Title + Buttons -->
+    <div class="ynm-header-top">
+      <div class="ynm-header-left">
+        <!-- Studio Logo/Icon
+             FREE TIER: Shows Om symbol (default)
+             PAID TIER: Shows custom logo via [gd_post_meta key="studio_logo"]
+
+             Implementation options:
+             1. Use GD conditional shortcode: [gd_if field="studio_logo" condition="is_not_empty"]
+             2. Use PHP conditional in template
+             3. Use CSS to hide Om when .has-custom-logo class present
+        -->
+
+        <!-- DEFAULT: Om Symbol (Free Tier) -->
+        <div class="ynm-studio-logo">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+            <text x="4" y="20" font-size="20">ॐ</text>
+          </svg>
+          <!-- PAID TIER: Uncomment and use GD image shortcode
+          <img src="[gd_post_meta key='studio_logo' show='value-strip']" alt="Studio Logo" />
+          -->
+        </div>
+
+        <!-- Title + Tagline -->
+        <div class="ynm-title-block">
+          <h1 class="ynm-studio-name">[gd_post_title tag=""]</h1>
+          <p class="ynm-studio-tagline">"[gd_post_meta key="tagline" show="value-strip" no_wrap="1"]"</p>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="ynm-header-buttons">
+
+        <!-- BOOK A CLASS BUTTON
+             ACTIVE STATE: When scheduling_api_url has value
+             INACTIVE STATE: When scheduling_api_url is empty (grayed out + tooltip)
+
+             Implementation: Use GD conditional shortcode or PHP
+             [gd_if field="scheduling_api_url" condition="is_not_empty"]...active...[/gd_if]
+             [gd_if field="scheduling_api_url" condition="is_empty"]...inactive...[/gd_if]
+        -->
+
+        <!-- ACTIVE STATE (scheduling API connected) -->
+        <a href="[gd_post_meta key='scheduling_api_url' show='value-strip']" class="ynm-btn ynm-btn-primary" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+            <path d="M9 16l2 2 4-4"></path>
+          </svg>
+          Book a Class
+        </a>
+
+        <!-- INACTIVE STATE (no scheduling API - use this when scheduling_api_url is empty) -->
+        <!--
+        <div class="ynm-btn-inactive-wrapper">
+          <span class="ynm-btn ynm-btn-primary ynm-btn-inactive">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <path d="M9 16l2 2 4-4"></path>
+            </svg>
+            Book a Class
+          </span>
+          <span class="ynm-btn-tooltip">Online booking coming soon</span>
+        </div>
+        -->
+        <a href="[gd_post_meta key='website' show='value-strip']" target="_blank" class="ynm-btn ynm-btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          Website
+        </a>
+        <a href="tel:[gd_post_meta key='phone' show='value-strip']" class="ynm-btn ynm-btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          Call
+        </a>
+      </div>
+    </div>
+
+    <!-- Meta Row: Rating, Location, Hours -->
+    <div class="ynm-header-meta">
+      <div class="ynm-meta-item ynm-rating">
+        <div class="ynm-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#F5A623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#F5A623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#F5A623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#F5A623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#E0E0E0"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span class="ynm-rating-score"><strong>[gd_post_rating show="average"]</strong></span>
+        <span class="ynm-rating-count">([gd_post_rating show="count"] reviews)</span>
+      </div>
+
+      <span class="ynm-meta-dot">·</span>
+
+      <div class="ynm-meta-item ynm-location">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#e95c4b">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+        <span>[gd_post_meta key="city" show="value-strip"], [gd_post_meta key="region" show="value-strip"]</span>
+      </div>
+
+      <span class="ynm-meta-dot">·</span>
+
+      <div class="ynm-meta-item ynm-hours-status">
+        <span class="ynm-status-dot open"></span>
+        <span>[gd_post_meta key="business_hours" show="open-text"]</span>
+      </div>
+    </div>
+
+    <!-- Established Year (if available) -->
+    <div class="ynm-header-established">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </svg>
+      <span>Est. [gd_post_meta key="established_year" show="value-strip"]</span>
+    </div>
+
+    <!-- Trust Badges Row -->
+    <div class="ynm-header-badges">
+      <!-- Yoga Alliance Badge (if certified) -->
+      <div class="ynm-badge ynm-badge-yoga-alliance">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#e95c4b">
+          <text x="2" y="18" font-size="16">ॐ</text>
+        </svg>
+        <span>[gd_post_meta key="yoga_alliance_cert" show="value-strip"]</span>
+      </div>
+
+      <!-- Google Rating Badge -->
+      <div class="ynm-badge ynm-badge-google">
+        <svg width="14" height="14" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+        </svg>
+        <span>[gd_post_meta key="google_rating" show="value-strip"] ([gd_post_meta key="google_review_count" show="value-strip"])</span>
+      </div>
+
+      <!-- Sponsored Badge -->
+      <div class="ynm-badge ynm-badge-sponsored">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#e95c4b">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <span>Sponsored</span>
+      </div>
+
+      <!-- Verified Badge -->
+      <div class="ynm-badge ynm-badge-verified">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#10B981">
+          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#10B981" stroke-width="2" fill="none"/>
+        </svg>
+        <span>Verified</span>
+      </div>
+    </div>
+
+    <!-- Quick Info Bar -->
+    <div class="ynm-quick-info-bar">
+      <div class="ynm-quick-info-item">
+        <div class="ynm-quick-info-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5F7470" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12" y2="16"></line>
+            <text x="8" y="15" font-size="10" fill="#5F7470" stroke="none">$</text>
+          </svg>
+        </div>
+        <div class="ynm-quick-info-content">
+          <span class="ynm-quick-info-label">DROP-IN</span>
+          <span class="ynm-quick-info-value">[gd_post_meta key="drop_in_price" show="value-strip"]</span>
+        </div>
+      </div>
+
+      <div class="ynm-quick-info-item">
+        <div class="ynm-quick-info-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#e95c4b">
+            <path d="M12 2c-4 0-8 4-8 10s8 10 8 10 8-6 8-10-4-10-8-10zm0 14c-2 0-4-2-4-4s2-4 4-4 4 2 4 4-2 4-4 4z"/>
+          </svg>
+        </div>
+        <div class="ynm-quick-info-content">
+          <span class="ynm-quick-info-label">HEATED</span>
+          <span class="ynm-quick-info-value">[gd_post_meta key="heated" show="value-strip"]</span>
+        </div>
+      </div>
+
+      <div class="ynm-quick-info-item">
+        <div class="ynm-quick-info-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e95c4b" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </div>
+        <div class="ynm-quick-info-content">
+          <span class="ynm-quick-info-label">STUDIO SIZE</span>
+          <span class="ynm-quick-info-value">[gd_post_meta key="studio_size" show="value-strip"]</span>
+        </div>
+      </div>
+
+      <div class="ynm-quick-info-item">
+        <div class="ynm-quick-info-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e95c4b" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+        <div class="ynm-quick-info-content">
+          <span class="ynm-quick-info-label">TEACHERS</span>
+          <span class="ynm-quick-info-value">[gd_post_meta key="num_teachers" show="value-strip"] instructors</span>
+        </div>
+      </div>
+
+      <div class="ynm-quick-info-item">
+        <div class="ynm-quick-info-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#e95c4b">
+            <rect x="4" y="14" width="4" height="6" rx="1"/>
+            <rect x="10" y="10" width="4" height="10" rx="1"/>
+            <rect x="16" y="6" width="4" height="14" rx="1"/>
+          </svg>
+        </div>
+        <div class="ynm-quick-info-content">
+          <span class="ynm-quick-info-label">LEVELS</span>
+          <span class="ynm-quick-info-value">[gd_post_meta key="levels_offered" show="value-strip"]</span>
+        </div>
+      </div>
+
+      <div class="ynm-quick-info-item">
+        <div class="ynm-quick-info-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#e95c4b">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <circle cx="8" cy="12" r="2" fill="white"/>
+            <rect x="14" y="10" width="4" height="4" fill="white"/>
+          </svg>
+        </div>
+        <div class="ynm-quick-info-content">
+          <span class="ynm-quick-info-label">VIRTUAL</span>
+          <span class="ynm-quick-info-value">[gd_post_meta key="virtual_classes" show="value-strip"]</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

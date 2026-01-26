@@ -1,0 +1,187 @@
+/**
+ * AGGRESSIVE: Remove ALL Orange Dots from Footer
+ * This uses maximum specificity to override everything
+ * Add this to WordPress Customizer → Additional CSS (at the very bottom)
+ */
+
+/* ============================================
+   REMOVE DOTS FROM FOOTER - MAXIMUM SPECIFICITY
+   ============================================ */
+
+/* Target footer by every possible selector */
+body.single-gd_place footer *::before,
+body.single-gd_place footer h1::before,
+body.single-gd_place footer h2::before,
+body.single-gd_place footer h3::before,
+body.single-gd_place footer h4::before,
+body.single-gd_place footer h5::before,
+body.single-gd_place footer h6::before,
+body.single-gd_place footer .elementor-heading-title::before,
+body.single-gd_place footer .elementor-widget-heading::before,
+body.single-gd_place footer .elementor-widget-heading *::before,
+body.single-gd_place footer [class*="heading"]::before,
+body.single-gd_place footer [class*="title"]::before,
+body.single-gd_place footer [class*="widget"]::before,
+body.single-gd_place footer [class*="menu"]::before,
+body.single-gd_place footer [class*="link"]::before,
+body.single-gd_place footer a::before,
+body.single-gd_place footer li::before,
+body.single-gd_place footer ul::before,
+body.single-gd_place footer ol::before,
+body.single-gd_place footer div::before,
+body.single-gd_place footer span::before,
+body.single-gd_place footer p::before,
+body.single-gd_place .site-footer *::before,
+body.single-gd_place .site-footer h1::before,
+body.single-gd_place .site-footer h2::before,
+body.single-gd_place .site-footer h3::before,
+body.single-gd_place .site-footer h4::before,
+body.single-gd_place .site-footer h5::before,
+body.single-gd_place .site-footer h6::before,
+body.single-gd_place .site-footer .elementor-heading-title::before,
+body.single-gd_place [class*="footer"] *::before,
+body.single-gd_place [class*="Footer"] *::before,
+body.single-gd_place [id*="footer"] *::before,
+body.single-gd_place [id*="Footer"] *::before,
+body.single-gd_place .elementor-location-footer *::before,
+body.single-gd_place .elementor-location-footer h1::before,
+body.single-gd_place .elementor-location-footer h2::before,
+body.single-gd_place .elementor-location-footer h3::before,
+body.single-gd_place .elementor-location-footer h4::before,
+body.single-gd_place .elementor-location-footer h5::before,
+body.single-gd_place .elementor-location-footer h6::before,
+body.single-gd_place .elementor-location-footer .elementor-heading-title::before {
+    display: none !important;
+    content: none !important;
+    visibility: hidden !important;
+}
+
+/* Remove padding that was added for dots */
+body.single-gd_place footer *,
+body.single-gd_place footer h1,
+body.single-gd_place footer h2,
+body.single-gd_place footer h3,
+body.single-gd_place footer h4,
+body.single-gd_place footer h5,
+body.single-gd_place footer h6,
+body.single-gd_place footer .elementor-heading-title,
+body.single-gd_place footer .elementor-widget-heading,
+body.single-gd_place footer .elementor-widget-heading *,
+body.single-gd_place footer [class*="heading"],
+body.single-gd_place footer [class*="title"],
+body.single-gd_place footer a,
+body.single-gd_place footer li,
+body.single-gd_place footer ul,
+body.single-gd_place footer ol,
+body.single-gd_place .site-footer *,
+body.single-gd_place .site-footer h1,
+body.single-gd_place .site-footer h2,
+body.single-gd_place .site-footer h3,
+body.single-gd_place .site-footer h4,
+body.single-gd_place .site-footer h5,
+body.single-gd_place .site-footer h6,
+body.single-gd_place .site-footer .elementor-heading-title,
+body.single-gd_place [class*="footer"] *,
+body.single-gd_place [class*="Footer"] *,
+body.single-gd_place [id*="footer"] *,
+body.single-gd_place [id*="Footer"] *,
+body.single-gd_place .elementor-location-footer *,
+body.single-gd_place .elementor-location-footer h1,
+body.single-gd_place .elementor-location-footer h2,
+body.single-gd_place .elementor-location-footer h3,
+body.single-gd_place .elementor-location-footer h4,
+body.single-gd_place .elementor-location-footer h5,
+body.single-gd_place .elementor-location-footer h6,
+body.single-gd_place .elementor-location-footer .elementor-heading-title {
+    padding-left: 0 !important;
+}
+
+/* ============================================
+   REMOVE DOTS FROM LINKS EVERYWHERE
+   ============================================ */
+
+body.single-gd_place a::before,
+body.single-gd_place a h2::before,
+body.single-gd_place a h3::before,
+body.single-gd_place a h4::before,
+body.single-gd_place a h5::before,
+body.single-gd_place a h6::before,
+body.single-gd_place a .elementor-heading-title::before {
+    display: none !important;
+    content: none !important;
+    visibility: hidden !important;
+}
+
+body.single-gd_place a h2,
+body.single-gd_place a h3,
+body.single-gd_place a h4,
+body.single-gd_place a h5,
+body.single-gd_place a h6 {
+    padding-left: 0 !important;
+}
+
+/* ============================================
+   REMOVE DOTS FROM LIST ITEMS
+   ============================================ */
+
+body.single-gd_place li::before,
+body.single-gd_place li h2::before,
+body.single-gd_place li h3::before,
+body.single-gd_place li h4::before,
+body.single-gd_place li h5::before,
+body.single-gd_place li h6::before,
+body.single-gd_place ul::before,
+body.single-gd_place ul h2::before,
+body.single-gd_place ul h3::before,
+body.single-gd_place ul h4::before,
+body.single-gd_place ol::before,
+body.single-gd_place ol h2::before,
+body.single-gd_place ol h3::before,
+body.single-gd_place ol h4::before {
+    display: none !important;
+    content: none !important;
+    visibility: hidden !important;
+}
+
+body.single-gd_place li h2,
+body.single-gd_place li h3,
+body.single-gd_place li h4,
+body.single-gd_place ul h2,
+body.single-gd_place ul h3,
+body.single-gd_place ul h4,
+body.single-gd_place ol h2,
+body.single-gd_place ol h3,
+body.single-gd_place ol h4 {
+    padding-left: 0 !important;
+}
+
+/* ============================================
+   REMOVE DOTS FROM WIDGET AREAS
+   ============================================ */
+
+body.single-gd_place .widget::before,
+body.single-gd_place .widget *::before,
+body.single-gd_place .widget-title::before,
+body.single-gd_place .widget h2::before,
+body.single-gd_place .widget h3::before,
+body.single-gd_place .widget h4::before,
+body.single-gd_place .sidebar::before,
+body.single-gd_place .sidebar *::before,
+body.single-gd_place .sidebar h2::before,
+body.single-gd_place .sidebar h3::before,
+body.single-gd_place .sidebar h4::before {
+    display: none !important;
+    content: none !important;
+    visibility: hidden !important;
+}
+
+body.single-gd_place .widget-title,
+body.single-gd_place .widget h2,
+body.single-gd_place .widget h3,
+body.single-gd_place .widget h4,
+body.single-gd_place .sidebar h2,
+body.single-gd_place .sidebar h3,
+body.single-gd_place .sidebar h4 {
+    padding-left: 0 !important;
+}
+

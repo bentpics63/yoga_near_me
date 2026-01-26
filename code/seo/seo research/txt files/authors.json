@@ -1,0 +1,94 @@
+{
+  "site": {
+    "name": "Yoga Near Me",
+    "domain": "https://yoganearme.info",
+    "description": "The authoritative yoga studio directory for the U.S. and Canada, offering trusted educational content for yoga students, teachers, and studio owners.",
+    "owners": [
+      {
+        "name": "Edward (Ed) Bates",
+        "role": "Founder, Business & Operations Lead"
+      },
+      {
+        "name": "Lisa Marie Morse",
+        "role": "Co-Founder, Yoga Education Lead"
+      }
+    ],
+    "contact_email": "info@yoganearme.info",
+    "last_updated": "2025-12-07"
+  },
+  "authors": [
+    {
+      "id": "lisa-marie-morse",
+      "name": "Lisa Marie Morse",
+      "location": "Los Angeles, California, USA",
+      "roles": [
+        "Lead Yoga Writer",
+        "Yoga Style and Benefits Expert",
+        "Glossary and Education Contributor"
+      ],
+      "bio_short": "Lisa Marie Morse is a lifelong student of yoga with more than 20 years of consistent practice. She teaches Classical Hatha, Ashtanga Vinyasa, Iyengar, and creative Vinyasa, blending lineage, structure, and intuitive flow in every class and article.",
+      "bio_long": "Lisa Marie is a lifelong student of yoga with over 20 years of consistent, devoted practice. She holds multiple certifications in yoga and meditation, and teaches Classical Hatha, Ashtanga Vinyasa, Iyengar, and creative Vinyasa yoga, blending ancient tradition with intuitive flow. In 2022, she opened Viveka Yoga Studio in Downtown Los Angeles to create a space where breath meets truth and movement becomes medicine. A lifelong athlete, certified personal trainer, and barre instructor, she brings a balance of strength, discipline, and wild-hearted reverence to her work.",
+      "expertise": [
+        "Yoga styles: Hatha, Vinyasa, Ashtanga, Iyengar, Yin, Restorative, Power, Rocket, Aerial, Prenatal",
+        "Meditation and pranayama",
+        "Nervous-system-supportive practices",
+        "Alignment-focused, trauma-informed, and inclusive teaching"
+      ],
+      "responsible_for": [
+        "Yoga style guides (What Is [Style] pages)",
+        "12 Benefits article series",
+        "Yoga glossary definitions",
+        "Educational content on breath, alignment, and philosophy"
+      ]
+    },
+    {
+      "id": "edward-bates",
+      "name": "Edward (Ed) Bates",
+      "location": "Los Angeles, California, USA",
+      "roles": [
+        "Founder, Yoga Near Me",
+        "Business and Operations Writer",
+        "Marketing, SEO and Automation Strategist"
+      ],
+      "bio_short": "Ed Bates is the founder of Yoga Near Me and a business strategist who helps yoga teachers and studio owners grow sustainable, profitable studios. He blends 30+ years of meditation practice with deep experience in marketing, operations, and AI-powered automation.",
+      "bio_long": "Ed Bates partnered with Lisa Marie to create Yoga Near Me, a North American yoga studio directory and business education hub. Drawing on 30 years of meditation and mindfulness practice, including breathwork training with Stan Grof and mindfulness with Jayne Gumpel, he combines contemplative depth with the skills of a Silicon Beach media and operations executive. As an award-winning film and television producer whose films premiered at Sundance and generated over 200 million views worldwide, he understands how authentic storytelling and digital marketing connect brands with the audiences who need them.",
+      "education_and_credentials": [
+        "BA in Marketing and Finance",
+        "Specialty in Business Management and Operations",
+        "Certifications in AI for Marketing and Finance, SEO, and automation building",
+        "Award-winning producer of three films exhibited at the Sundance Film Festival"
+      ],
+      "expertise": [
+        "Yoga and wellness studio business strategy",
+        "Digital marketing, SEO, and SERP optimization",
+        "AI and automation systems for studio operations",
+        "Revenue models, pricing, and retention"
+      ],
+      "responsible_for": [
+        "The Bright Side studio business blog",
+        "Marketing, operations, and pricing content",
+        "Automation and SEO guides for studios",
+        "Directory and platform strategy updates"
+      ]
+    }
+  ],
+  "content_ownership": {
+    "yoga_style_education": {
+      "primary_author": "lisa-marie-morse",
+      "secondary_review": "edward-bates"
+    },
+    "yoga_benefits_and_practice_guides": {
+      "primary_author": "lisa-marie-morse"
+    },
+    "yoga_glossary_and_definitions": {
+      "primary_author": "lisa-marie-morse"
+    },
+    "studio_business_marketing_operations": {
+      "primary_author": "edward-bates"
+    },
+    "directory_product_platform_updates": {
+      "primary_author": "edward-bates",
+      "secondary_review": "lisa-marie-morse"
+    }
+  }
+}

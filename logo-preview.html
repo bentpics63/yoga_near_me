@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YogaNearMe Logo Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      background: #F8FAFA;
+      padding: 40px;
+    }
+
+    .variant {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .label {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: #6B7C78;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+
+    /* Main Logo - Stacked Version */
+    .logo {
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      line-height: 0.85;
+      text-align: center;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-yoga {
+      color: #1E2952;
+      font-size: 48px;
+    }
+
+    .logo-nearme {
+      color: #FF5733;
+      font-size: 72px;
+    }
+
+    .logo-info {
+      color: #1E2952;
+      font-size: 48px;
+    }
+
+    /* Inline Version */
+    .logo-inline {
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 36px;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-inline .yoga,
+    .logo-inline .info {
+      color: #1E2952;
+    }
+
+    .logo-inline .nearme {
+      color: #FF5733;
+    }
+
+    /* Compact Two-Line Version */
+    .logo-compact {
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      line-height: 0.9;
+      text-align: center;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-compact .top-line {
+      font-size: 28px;
+    }
+
+    .logo-compact .bottom-line {
+      font-size: 42px;
+      color: #FF5733;
+    }
+
+    .logo-compact .yoga,
+    .logo-compact .info {
+      color: #1E2952;
+    }
+
+    /* Dark background preview */
+    .dark-bg {
+      background: #1E2952;
+      padding: 40px 60px;
+      border-radius: 8px;
+    }
+
+    .dark-bg .yoga,
+    .dark-bg .info {
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="variant">
+    <div class="label">Primary - Stacked</div>
+    <div class="logo">
+      <div class="logo-yoga">YOGA</div>
+      <div class="logo-nearme">NEARME</div>
+      <div class="logo-info">.INFO</div>
+    </div>
+  </div>
+
+  <div class="variant">
+    <div class="label">Inline Version</div>
+    <div class="logo-inline">
+      <span class="yoga">YOGA</span><span class="nearme">NEARME</span><span class="info">.INFO</span>
+    </div>
+  </div>
+
+  <div class="variant">
+    <div class="label">Compact Two-Line</div>
+    <div class="logo-compact">
+      <div class="top-line"><span class="yoga">YOGA</span><span class="info">.INFO</span></div>
+      <div class="bottom-line">NEARME</div>
+    </div>
+  </div>
+
+  <div class="variant">
+    <div class="label">On Dark Background</div>
+    <div class="dark-bg">
+      <div class="logo-inline">
+        <span class="yoga">YOGA</span><span class="nearme">NEARME</span><span class="info">.INFO</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

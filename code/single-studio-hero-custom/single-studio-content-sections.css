@@ -1,0 +1,636 @@
+/**
+ * Single Studio Page - Content Sections Custom CSS
+ * Add this to WordPress → Appearance → Customize → Additional CSS
+ * Or add via Elementor → Settings → Custom CSS
+ * 
+ * This styles the content sections (About, Yoga Styles, Amenities, etc.)
+ */
+
+/* ============================================
+   CONTENT SECTIONS BASE STYLES
+   ============================================ */
+
+/* Main Content Container */
+.studio-content-section,
+.elementor-location-single .elementor-section:not(:first-child) {
+    background: #FFFFFF;
+    padding: 40px 0;
+    margin-bottom: 24px;
+}
+
+.studio-content-section:first-of-type {
+    padding-top: 48px;
+}
+
+/* ============================================
+   SECTION HEADINGS WITH ICONS
+   ============================================ */
+
+/* Section Headings (H2, H3) */
+.studio-content-section h2,
+.studio-content-section h3,
+.elementor-widget-heading h2.elementor-heading-title,
+.elementor-widget-heading h3.elementor-heading-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.3;
+    color: #2C3E3A;
+    margin-bottom: 24px;
+    position: relative;
+    padding-left: 24px;
+}
+
+/* Orange dot/star icon before section headings */
+.studio-content-section h2::before,
+.studio-content-section h3::before,
+.elementor-widget-heading h2.elementor-heading-title::before,
+.elementor-widget-heading h3.elementor-heading-title::before {
+    content: "●";
+    display: inline-block;
+    color: #FF5733;
+    font-size: 12px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 12px;
+    line-height: 1;
+}
+
+/* Alternative: Use star icon if preferred */
+.studio-content-section h2.star-icon::before,
+.studio-content-section h3.star-icon::before {
+    content: "★";
+    color: #FF5733;
+    font-size: 16px;
+}
+
+/* Alternative: Use Font Awesome star icon */
+.studio-content-section h2.fa-star::before,
+.studio-content-section h3.fa-star::before {
+    content: "\f005";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #FF5733;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .studio-content-section h2,
+    .studio-content-section h3,
+    .elementor-widget-heading h2.elementor-heading-title,
+    .elementor-widget-heading h3.elementor-heading-title {
+        font-size: 24px;
+        padding-left: 20px;
+    }
+    
+    .studio-content-section h2::before,
+    .studio-content-section h3::before {
+        font-size: 10px;
+        left: 0;
+    }
+}
+
+/* ============================================
+   YOGA STYLES PILL BADGES
+   ============================================ */
+
+/* Yoga Styles Container */
+.yoga-styles-container,
+.studio-yoga-styles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+/* Individual Yoga Style Pill Badge */
+.yoga-style-badge,
+.studio-yoga-style {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 2px solid #61948B;
+    background: #FFFFFF;
+    color: #61948B;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Small star icon inside yoga style badges */
+.yoga-style-badge::before,
+.studio-yoga-style::before {
+    content: "★";
+    color: #61948B;
+    font-size: 12px;
+    line-height: 1;
+}
+
+/* Hover effect for yoga style badges */
+.yoga-style-badge:hover,
+.studio-yoga-style:hover {
+    background: #F8FAFA;
+    color: #61948B;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(97, 148, 139, 0.15);
+}
+
+/* Star icon changes to white on hover */
+.yoga-style-badge:hover::before,
+.studio-yoga-style:hover::before {
+    color: #61948B;
+}
+
+/* Active/Selected state */
+.yoga-style-badge.active,
+.studio-yoga-style.active {
+    background: #F8FAFA;
+    color: #61948B;
+    border-color: #61948B;
+}
+
+.yoga-style-badge.active::before,
+.studio-yoga-style.active::before {
+    color: #61948B;
+}
+
+/* GeoDirectory category badges styling */
+.geodir-post-categories a,
+.geodir-category-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 2px solid #61948B;
+    background: #FFFFFF;
+    color: #61948B;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-right: 12px;
+    margin-bottom: 12px;
+}
+
+/* Star icon in GeoDirectory category badges */
+.geodir-post-categories a::before,
+.geodir-category-badge::before {
+    content: "★";
+    color: #61948B;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.geodir-post-categories a:hover,
+.geodir-category-badge:hover {
+    background: #F8FAFA;
+    color: #61948B;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(97, 148, 139, 0.15);
+}
+
+/* ============================================
+   AMENITIES ICON GRID
+   ============================================ */
+
+/* Amenities Container */
+.amenities-container,
+.studio-amenities {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+/* Individual Amenity Item */
+.amenity-item,
+.studio-amenity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.amenity-item:hover,
+.studio-amenity:hover {
+    background: #F8FAFA;
+}
+
+/* Amenity Icon */
+.amenity-item .amenity-icon,
+.studio-amenity .amenity-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #61948B;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+/* Font Awesome icons for amenities */
+.amenity-item .amenity-icon i,
+.studio-amenity .amenity-icon i {
+    color: #61948B;
+    font-size: 20px;
+}
+
+/* Common amenity icons */
+.amenity-item[data-amenity="parking"] .amenity-icon::before {
+    content: "\f1b9"; /* Font Awesome car icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.amenity-item[data-amenity="wifi"] .amenity-icon::before {
+    content: "\f1eb"; /* Font Awesome wifi icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.amenity-item[data-amenity="showers"] .amenity-icon::before {
+    content: "\f2cd"; /* Font Awesome shower icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.amenity-item[data-amenity="lockers"] .amenity-icon::before {
+    content: "\f023"; /* Font Awesome lock icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.amenity-item[data-amenity="retail"] .amenity-icon::before {
+    content: "\f07a"; /* Font Awesome shopping bag icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.amenity-item[data-amenity="cafe"] .amenity-icon::before {
+    content: "\f0f4"; /* Font Awesome coffee icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+/* Amenity Text */
+.amenity-item .amenity-text,
+.studio-amenity .amenity-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #2C3E3A;
+    font-weight: 400;
+    flex: 1;
+}
+
+/* GeoDirectory custom fields as amenities */
+.geodir-post-custom-fields .geodir-field-amenities,
+.geodir-custom-field-amenities {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.geodir-post-custom-fields .geodir-field-amenities .geodir-field-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.geodir-post-custom-fields .geodir-field-amenities .geodir-field-icon {
+    color: #61948B;
+    font-size: 20px;
+    width: 24px;
+    text-align: center;
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 1024px) {
+    .amenities-container,
+    .studio-amenities,
+    .geodir-post-custom-fields .geodir-field-amenities,
+    .geodir-custom-field-amenities {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 768px) {
+    .amenities-container,
+    .studio-amenities,
+    .geodir-post-custom-fields .geodir-field-amenities,
+    .geodir-custom-field-amenities {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .amenity-item,
+    .studio-amenity {
+        padding: 10px;
+    }
+}
+
+/* ============================================
+   CARD REFINEMENT
+   ============================================ */
+
+/* Card Base Styles */
+.studio-card,
+.elementor-widget-container,
+.geodir-post-content,
+.elementor-element,
+.elementor-widget-container .elementor-widget-container {
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+}
+
+/* Two-column layout for main content */
+.studio-main-content-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+@media (max-width: 1024px) {
+    .studio-main-content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* Card Hover Effect */
+.studio-card:hover,
+.elementor-widget-container:hover,
+.geodir-post-content:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Spacing */
+.studio-card + .studio-card,
+.elementor-widget-container + .elementor-widget-container {
+    margin-top: 24px;
+}
+
+/* Card Header */
+.studio-card-header,
+.card-header {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+/* Card Title */
+.studio-card-title,
+.card-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #2C3E3A;
+    margin-bottom: 8px;
+}
+
+/* Card Content */
+.studio-card-content,
+.card-content {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #2C3E3A;
+}
+
+/* Card Footer */
+.studio-card-footer,
+.card-footer {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #E5E7EB;
+}
+
+/* Specific Card Types */
+
+/* Info Cards */
+.info-card {
+    background: #F8FAFA;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* Highlight Cards */
+.highlight-card {
+    background: linear-gradient(135deg, #F8FAFA 0%, #FFFFFF 100%);
+    border: 2px solid #61948B;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+/* ============================================
+   CONTENT SECTION SPACING
+   ============================================ */
+
+/* Section Spacing */
+.studio-content-section + .studio-content-section {
+    margin-top: 32px;
+}
+
+/* Paragraph Spacing */
+.studio-content-section p {
+    margin-bottom: 16px;
+    line-height: 1.7;
+    color: #2C3E3A;
+}
+
+.studio-content-section p:last-child {
+    margin-bottom: 0;
+}
+
+/* List Styling */
+.studio-content-section ul,
+.studio-content-section ol {
+    margin-bottom: 16px;
+    padding-left: 24px;
+}
+
+.studio-content-section li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+    color: #2C3E3A;
+}
+
+.studio-content-section ul li::marker {
+    color: #61948B;
+}
+
+/* ============================================
+   ELEMENTOR SPECIFIC OVERRIDES
+   ============================================ */
+
+/* Elementor Section Spacing */
+.elementor-section.elementor-section-boxed {
+    padding: 40px 0;
+}
+
+.elementor-section.elementor-section-boxed:first-of-type {
+    padding-top: 48px;
+}
+
+/* Elementor Widget Spacing */
+.elementor-widget:not(:last-child) {
+    margin-bottom: 24px;
+}
+
+/* Elementor Heading Widget */
+.elementor-widget-heading .elementor-heading-title {
+    margin-bottom: 24px;
+}
+
+/* Elementor Text Editor */
+.elementor-widget-text-editor {
+    line-height: 1.7;
+}
+
+.elementor-widget-text-editor p {
+    margin-bottom: 16px;
+    color: #2C3E3A;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+    .studio-content-section {
+        padding: 32px 0;
+    }
+    
+    .studio-card,
+    .elementor-widget-container {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .yoga-styles-container,
+    .studio-yoga-styles {
+        gap: 8px;
+    }
+    
+    .yoga-style-badge,
+    .studio-yoga-style {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .studio-content-section {
+        padding: 24px 0;
+    }
+    
+    .studio-card,
+    .elementor-widget-container {
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+    
+    .yoga-style-badge,
+    .studio-yoga-style {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Spacing Utilities */
+.mb-16 {
+    margin-bottom: 16px;
+}
+
+.mb-24 {
+    margin-bottom: 24px;
+}
+
+.mb-32 {
+    margin-bottom: 32px;
+}
+
+.mt-16 {
+    margin-top: 16px;
+}
+
+.mt-24 {
+    margin-top: 24px;
+}
+
+.mt-32 {
+    margin-top: 32px;
+}
+
+/* Text Utilities */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.studio-card,
+.amenity-item,
+.yoga-style-badge {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Stagger animation delays */
+.studio-card:nth-child(1) { animation-delay: 0.1s; }
+.studio-card:nth-child(2) { animation-delay: 0.2s; }
+.studio-card:nth-child(3) { animation-delay: 0.3s; }
+.studio-card:nth-child(4) { animation-delay: 0.4s; }
+
+.amenity-item:nth-child(1) { animation-delay: 0.1s; }
+.amenity-item:nth-child(2) { animation-delay: 0.15s; }
+.amenity-item:nth-child(3) { animation-delay: 0.2s; }
+.amenity-item:nth-child(4) { animation-delay: 0.25s; }
+.amenity-item:nth-child(5) { animation-delay: 0.3s; }
+.amenity-item:nth-child(6) { animation-delay: 0.35s; }
+

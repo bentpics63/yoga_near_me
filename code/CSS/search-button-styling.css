@@ -1,0 +1,220 @@
+/**
+ * YogaNearMe - Search Button Styling
+ *
+ * Adds rust color and paper plane icon to search buttons
+ *
+ * INSTALLATION: Add to WordPress Customizer > Additional CSS
+ */
+
+/* ==========================================================================
+   SEARCH BUTTON - Base Styling
+   ========================================================================== */
+
+/* Target GeoDirectory search buttons */
+.geodir_submit_search,
+button.geodir_submit_search,
+input.geodir_submit_search,
+.geodir-listing-search .geodir_submit_search,
+.geodir-search-container button[type="submit"],
+.geodir-search-container input[type="submit"],
+.geodir-search-form button[type="submit"],
+.geodir-search-form input[type="submit"],
+.gd-search-bar button[type="submit"],
+.gd-search-bar input[type="submit"],
+button.geodir-search-submit,
+input.geodir-search-submit,
+.geodir-search button,
+.gd-search button,
+#geodir-wrapper button[type="submit"],
+.elementor-widget-geodir-search button[type="submit"] {
+    background: #FF5733 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    padding: 12px 24px !important;
+    padding-right: 50% !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    min-width: 120px !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    box-shadow: 0 2px 8px rgba(255, 87, 51, 0.3) !important;
+}
+
+/* Hover state */
+.geodir_submit_search:hover,
+button.geodir_submit_search:hover,
+input.geodir_submit_search:hover,
+.geodir-listing-search .geodir_submit_search:hover,
+.geodir-search-container button[type="submit"]:hover,
+.geodir-search-container input[type="submit"]:hover,
+.geodir-search-form button[type="submit"]:hover,
+.geodir-search-form input[type="submit"]:hover,
+.gd-search-bar button[type="submit"]:hover,
+.gd-search-bar input[type="submit"]:hover,
+button.geodir-search-submit:hover,
+input.geodir-search-submit:hover,
+.geodir-search button:hover,
+.gd-search button:hover {
+    background: #E64A2E !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(255, 87, 51, 0.4) !important;
+}
+
+/* Active/pressed state */
+.geodir_submit_search:active,
+button.geodir_submit_search:active,
+.geodir-search-container button[type="submit"]:active,
+.geodir-search-form button[type="submit"]:active,
+button.geodir-search-submit:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 4px rgba(255, 87, 51, 0.3) !important;
+}
+
+/* ==========================================================================
+   PAPER PLANE ICON (CSS-based, no Font Awesome needed)
+   ========================================================================== */
+
+/* Add paper plane icon before button text */
+.geodir_submit_search::before,
+button.geodir_submit_search::before,
+input.geodir_submit_search::before,
+.geodir-listing-search .geodir_submit_search::before,
+.geodir-search-container button[type="submit"]::before,
+.geodir-search-container input[type="submit"]::before,
+.geodir-search-form button[type="submit"]::before,
+.geodir-search-form input[type="submit"]::before,
+.gd-search-bar button[type="submit"]::before,
+button.geodir-search-submit::before,
+.geodir-search button::before,
+.gd-search button::before {
+    content: '' !important;
+    display: inline-block !important;
+    width: 18px !important;
+    height: 18px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 2L11 13'/%3E%3Cpath d='M22 2L15 22L11 13L2 9L22 2Z'/%3E%3C/svg%3E") !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    flex-shrink: 0 !important;
+}
+
+/* ==========================================================================
+   ALTERNATIVE: If using Font Awesome (uncomment if FA is loaded)
+   ========================================================================== */
+
+/*
+.geodir-search-container button[type="submit"]::before,
+.geodir-search-form button[type="submit"]::before,
+button.geodir-search-submit::before {
+    content: '\f1d8' !important;
+    font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free', FontAwesome !important;
+    font-weight: 900 !important;
+    font-size: 14px !important;
+    margin-right: 8px !important;
+}
+*/
+
+/* ==========================================================================
+   HERO SEARCH (Homepage) - Larger styling
+   ========================================================================== */
+
+.hero-search button[type="submit"],
+.ynm-hero-search button[type="submit"],
+.elementor-section:first-of-type .geodir-search-form button[type="submit"],
+#hero-search button {
+    padding: 14px 28px !important;
+    font-size: 16px !important;
+    min-width: 140px !important;
+    border-radius: 0 8px 8px 0 !important;
+}
+
+/* Hero search icon slightly larger */
+.hero-search button[type="submit"]::before,
+.ynm-hero-search button[type="submit"]::before {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+/* ==========================================================================
+   SIDEBAR/FILTER SEARCH - Compact styling
+   ========================================================================== */
+
+.geodir-search-container.sidebar button[type="submit"],
+aside .geodir-search-form button[type="submit"],
+.widget .geodir-search-form button[type="submit"] {
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+    width: 100% !important;
+    margin-top: 12px !important;
+}
+
+/* ==========================================================================
+   MOBILE OPTIMIZATIONS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .geodir-search-container button[type="submit"],
+    .geodir-search-form button[type="submit"],
+    button.geodir-search-submit {
+        padding: 12px 20px !important;
+        font-size: 14px !important;
+        width: 100% !important;
+        min-width: unset !important;
+    }
+
+    .geodir-search-container button[type="submit"]::before,
+    .geodir-search-form button[type="submit"]::before {
+        width: 16px !important;
+        height: 16px !important;
+    }
+}
+
+/* ==========================================================================
+   INPUT FIELD STYLING (Optional - to match button)
+   ========================================================================== */
+
+/* Style the search input to complement the button */
+.geodir-search-container input[type="text"],
+.geodir-search-container input[type="search"],
+.geodir-search-form input[type="text"],
+.geodir-search-form input[type="search"],
+.gd-search-bar input[type="text"] {
+    border: 2px solid #E5E7EB !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+    font-size: 15px !important;
+    transition: border-color 0.2s ease !important;
+}
+
+.geodir-search-container input[type="text"]:focus,
+.geodir-search-container input[type="search"]:focus,
+.geodir-search-form input[type="text"]:focus,
+.geodir-search-form input[type="search"]:focus {
+    border-color: #FF5733 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(255, 87, 51, 0.1) !important;
+}
+
+/* Connected input + button (no gap) */
+.geodir-search-container .search-input-group,
+.geodir-search-form .input-group {
+    display: flex !important;
+}
+
+.geodir-search-container .search-input-group input,
+.geodir-search-form .input-group input {
+    border-radius: 8px 0 0 8px !important;
+    border-right: none !important;
+}
+
+.geodir-search-container .search-input-group button,
+.geodir-search-form .input-group button {
+    border-radius: 0 8px 8px 0 !important;
+}

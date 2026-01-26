@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Hero - 70/30 Image Gallery Layout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --accent-coral: #e95c4b;
+            --accent-coral-dark: #bd3000;
+            --accent-green: #12B76A;
+            --white: #FFFFFF;
+            --gray-50: #F9FAFB;
+            --gray-100: #F2F4F7;
+            --gray-200: #E4E7EC;
+            --gray-900: #101828;
+            --text-primary: #101828;
+            --text-secondary: #475467;
+            --border-light: #E4E7EC;
+            --shadow-sm: 0 1px 3px rgba(16, 24, 40, 0.1);
+            --shadow-md: 0 4px 12px rgba(16, 24, 40, 0.08);
+            --shadow-lg: 0 12px 24px rgba(16, 24, 40, 0.15);
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-50);
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: var(--accent-coral);
+            color: white;
+            padding: 0.375rem 0.75rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        /* =====================================================
+           HERO IMAGE GALLERY - 70/30 LAYOUT
+           ===================================================== */
+
+        .hero-gallery {
+            display: grid;
+            grid-template-columns: 70% 30%;
+            gap: 0.75rem;
+            height: 400px;
+            margin-bottom: 2rem;
+        }
+
+        /* Main Hero Image (70%) */
+        .hero-main {
+            position: relative;
+            border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .hero-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-main:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Thumbnail Column (30%) */
+        .hero-thumbnails {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            height: 100%;
+            position: relative;
+        }
+
+        /* Individual Thumbnail */
+        .thumbnail-slot {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .thumbnail-slot:first-child {
+            border-radius: 0 var(--radius-xl) 0 0;
+        }
+
+        .thumbnail-slot:last-child {
+            border-radius: 0 0 var(--radius-xl) 0;
+        }
+
+        .thumbnail-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail-slot:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Auto-rotating thumbnail indicator */
+        .thumbnail-slot.rotating::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: var(--accent-coral);
+            animation: progress 4s linear infinite;
+        }
+
+        @keyframes progress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        /* Image counter badge on last thumbnail */
+        .thumbnail-slot .image-count {
+            position: absolute;
+            bottom: 0.75rem;
+            right: 0.75rem;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.375rem 0.75rem;
+            border-radius: var(--radius-md);
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            backdrop-filter: blur(4px);
+        }
+
+        /* View All Photos Button */
+        .view-all-btn {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+            padding: 2rem 1rem 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .view-all-btn a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .view-all-btn a:hover {
+            background: var(--gray-900);
+            color: white;
+        }
+
+        /* =====================================================
+           FREE TIER VARIANT (2 images + upgrade CTA)
+           ===================================================== */
+
+        .hero-gallery.free-tier .thumbnail-slot:last-child {
+            position: relative;
+        }
+
+        .upgrade-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(233, 92, 75, 0.9) 0%, rgba(189, 48, 0, 0.9) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+            color: white;
+            border-radius: 0 0 var(--radius-xl) 0;
+        }
+
+        .upgrade-overlay i {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .upgrade-overlay .upgrade-text {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 0.25rem;
+        }
+
+        .upgrade-overlay .upgrade-count {
+            font-size: 0.6875rem;
+            opacity: 0.85;
+        }
+
+        .upgrade-overlay:hover {
+            background: linear-gradient(135deg, rgba(189, 48, 0, 0.95) 0%, rgba(150, 30, 0, 0.95) 100%);
+        }
+
+        /* =====================================================
+           LIGHTBOX
+           ===================================================== */
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: var(--radius-md);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            z-index: 10;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-prev { left: 1rem; }
+        .lightbox-next { right: 1rem; }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .lightbox-thumbnails {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: var(--radius-md);
+        }
+
+        .lightbox-thumb {
+            width: 48px;
+            height: 48px;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.2s;
+        }
+
+        .lightbox-thumb.active,
+        .lightbox-thumb:hover {
+            opacity: 1;
+        }
+
+        .lightbox-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 768px) {
+            .hero-gallery {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-main {
+                height: 250px;
+                border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+            }
+
+            .hero-thumbnails {
+                flex-direction: row;
+                height: 100px;
+            }
+
+            .thumbnail-slot:first-child {
+                border-radius: 0 0 0 var(--radius-xl);
+            }
+
+            .thumbnail-slot:last-child {
+                border-radius: 0 0 var(--radius-xl) 0;
+            }
+
+            .upgrade-overlay {
+                border-radius: 0 0 var(--radius-xl) 0;
+            }
+
+            .upgrade-overlay i {
+                font-size: 1.25rem;
+            }
+
+            .upgrade-overlay .upgrade-text {
+                font-size: 0.6875rem;
+            }
+        }
+
+        /* =====================================================
+           DEMO SECTIONS
+           ===================================================== */
+
+        .demo-section {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ============================================
+             PAID TIER: Full Gallery (12 images)
+             ============================================ -->
+        <div class="demo-section">
+            <span class="section-label">Paid Tier</span>
+            <h2>Hero Gallery - Full Version (12 Photos)</h2>
+            <p class="description">70/30 split with auto-rotating thumbnails. Click any image to open lightbox gallery.</p>
+
+            <div class="hero-gallery" id="paidGallery">
+                <!-- Main Hero (70%) -->
+                <div class="hero-main" onclick="openLightbox(0, 'paid')">
+                    <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1200&h=800&fit=crop" alt="Yoga Studio Main" id="paidHeroImg">
+                </div>
+
+                <!-- Thumbnails (30%) -->
+                <div class="hero-thumbnails">
+                    <div class="thumbnail-slot rotating" onclick="openLightbox(1, 'paid')">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop" alt="Studio Interior" id="paidThumb1">
+                    </div>
+                    <div class="thumbnail-slot" onclick="openLightbox(2, 'paid')">
+                        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=300&fit=crop" alt="Yoga Class" id="paidThumb2">
+                        <span class="image-count"><i class="fas fa-images"></i> +10 more</span>
+                    </div>
+                    <div class="view-all-btn">
+                        <a href="#" onclick="openLightbox(0, 'paid'); return false;">
+                            <i class="fas fa-images"></i> View all 12 photos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             FREE TIER: 2 Images + Upgrade CTA
+             ============================================ -->
+        <div class="demo-section">
+            <span class="section-label">Free Tier</span>
+            <h2>Hero Gallery - Free Version (2 Photos + Upgrade)</h2>
+            <p class="description">Limited to hero + 1 thumbnail. Second slot shows upgrade CTA.</p>
+
+            <div class="hero-gallery free-tier" id="freeGallery">
+                <!-- Main Hero (70%) -->
+                <div class="hero-main" onclick="openLightbox(0, 'free')">
+                    <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1200&h=800&fit=crop" alt="Yoga Studio Main">
+                </div>
+
+                <!-- Thumbnails (30%) -->
+                <div class="hero-thumbnails">
+                    <div class="thumbnail-slot" onclick="openLightbox(1, 'free')">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop" alt="Studio Interior">
+                    </div>
+                    <div class="thumbnail-slot">
+                        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=300&fit=crop" alt="Placeholder" style="filter: blur(3px);">
+                        <a href="/upgrade/" class="upgrade-overlay">
+                            <i class="fas fa-camera"></i>
+                            <span class="upgrade-text">Add More Photos</span>
+                            <span class="upgrade-count">Upgrade for 12 photos</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             ALTERNATE FREE TIER: Locked Style
+             ============================================ -->
+        <div class="demo-section">
+            <span class="section-label">Free Tier Alt</span>
+            <h2>Hero Gallery - Free Version (Locked Style)</h2>
+            <p class="description">Alternative design with lock icon and clearer upgrade messaging.</p>
+
+            <div class="hero-gallery free-tier">
+                <!-- Main Hero (70%) -->
+                <div class="hero-main">
+                    <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1200&h=800&fit=crop" alt="Yoga Studio Main">
+                </div>
+
+                <!-- Thumbnails (30%) -->
+                <div class="hero-thumbnails">
+                    <div class="thumbnail-slot">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop" alt="Studio Interior">
+                    </div>
+                    <div class="thumbnail-slot">
+                        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=300&fit=crop" alt="Placeholder" style="filter: blur(4px) grayscale(50%);">
+                        <a href="/upgrade/" class="upgrade-overlay" style="background: linear-gradient(135deg, rgba(16, 24, 40, 0.85) 0%, rgba(16, 24, 40, 0.95) 100%);">
+                            <i class="fas fa-lock"></i>
+                            <span class="upgrade-text">Unlock Gallery</span>
+                            <span class="upgrade-count">Show 12 photos to visitors</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ============================================
+         LIGHTBOX MODAL
+         ============================================ -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="Gallery Image" id="lightboxImage">
+        </div>
+        <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="lightbox-counter" id="lightboxCounter">1 / 12</div>
+    </div>
+
+    <script>
+        // Gallery images data
+        const galleries = {
+            paid: [
+                'https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1200&h=800&fit=crop',
+                'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&h=800&fit=crop',
+                'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1200&h=800&fit=crop',
+                'https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=1200&h=800&fit=crop',
+                'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&h=800&fit=crop',
+                'https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=1200&h=800&fit=crop',
+                'https://images.unsplash.com/photo-1510894347713-fc3ed6fdf539?w=1200&h=800&fit=crop',
+                'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=800&fit=crop',
+                'https://images.unsplash.com/photo-1552196563-55cd4e45efb3?w=1200&h=800&fit=crop',
+                'https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=1200&h=800&fit=crop',
+                'https://images.unsplash.com/photo-1588286840104-8957b019727f?w=1200&h=800&fit=crop',
+                'https://images.unsplash.com/photo-1573590330099-d6c7355ec595?w=1200&h=800&fit=crop'
+            ],
+            free: [
+                'https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1200&h=800&fit=crop',
+                'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&h=800&fit=crop'
+            ]
+        };
+
+        let currentGallery = 'paid';
+        let currentIndex = 0;
+
+        // Auto-rotate thumbnails for paid gallery
+        let rotationIndex = 0;
+        const rotationImages = galleries.paid.slice(1, 6); // Use images 2-6 for rotation
+
+        function rotateThumb() {
+            const thumb1 = document.getElementById('paidThumb1');
+            if (thumb1) {
+                rotationIndex = (rotationIndex + 1) % rotationImages.length;
+                thumb1.style.opacity = '0';
+                setTimeout(() => {
+                    thumb1.src = rotationImages[rotationIndex];
+                    thumb1.style.opacity = '1';
+                }, 300);
+            }
+        }
+
+        // Start auto-rotation every 4 seconds
+        setInterval(rotateThumb, 4000);
+
+        // Lightbox functions
+        function openLightbox(index, gallery) {
+            currentGallery = gallery;
+            currentIndex = index;
+            updateLightbox();
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function navigateLightbox(direction) {
+            const images = galleries[currentGallery];
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            updateLightbox();
+        }
+
+        function updateLightbox() {
+            const images = galleries[currentGallery];
+            document.getElementById('lightboxImage').src = images[currentIndex];
+            document.getElementById('lightboxCounter').textContent = `${currentIndex + 1} / ${images.length}`;
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox.classList.contains('active')) return;
+
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
+
+        // Close lightbox on background click
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') closeLightbox();
+        });
+
+        // Add fade transition to rotating thumbnail
+        document.getElementById('paidThumb1').style.transition = 'opacity 0.3s ease';
+    </script>
+
+</body>
+</html>

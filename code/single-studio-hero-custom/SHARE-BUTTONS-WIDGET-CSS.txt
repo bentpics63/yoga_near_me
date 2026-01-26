@@ -1,0 +1,30 @@
+SHARE BUTTONS WIDGET CUSTOM CSS
+================================
+Paste this into the Share Buttons widget's Custom CSS panel in Elementor
+
+---
+
+.elementor-share-btn,
+.elementor-share-buttons__button {
+    background-color: rgba(255, 87, 51, 0.1) !important;
+    border-color: rgba(255, 87, 51, 0.2) !important;
+    color: #FF5733 !important;
+}
+
+.elementor-share-btn svg,
+.elementor-share-buttons__button svg,
+.elementor-share-buttons__icon svg {
+    fill: #FF5733 !important;
+}
+
+.elementor-share-btn:hover,
+.elementor-share-buttons__button:hover {
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+}
+
+.elementor-share-btn:hover svg,
+.elementor-share-buttons__button:hover svg {
+    fill: #FFFFFF !important;
+}
+

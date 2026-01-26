@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YogaNearMe Icon Style Guide - Hatha Mockup</title>
+    <style>
+        :root {
+            --primary-slate: #667085;
+            --primary-slate-dark: #475467;
+            --primary-slate-light: #98A2B3;
+            --accent-coral: #e95c4b;
+            --sage: #5F7470;
+            --teal: #61948B;
+            --gray-50: #F9FAFB;
+            --text-primary: #101828;
+            --text-secondary: #475467;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-50);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-slate-dark);
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--primary-slate-dark);
+            border-bottom: 2px solid var(--primary-slate-light);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            margin: 2rem 0 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Icon Display Grid */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .icon-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid #E4E7EC;
+        }
+
+        .icon-card svg {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 1rem;
+        }
+
+        .icon-card .label {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .icon-card .color-name {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Mockup */
+        .hero-mockup {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fb 50%, #fafbfc 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid #E4E7EC;
+            display: grid;
+            grid-template-columns: 1fr 200px;
+            gap: 2rem;
+            align-items: center;
+            margin: 2rem 0;
+        }
+
+        .hero-mockup h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-mockup .pronunciation {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .hero-mockup .description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .hero-mockup .hero-icon {
+            opacity: 0.15;
+        }
+
+        .hero-mockup .hero-icon svg {
+            width: 180px;
+            height: 180px;
+        }
+
+        /* Section Header Mockup */
+        .section-header-mockup {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-coral);
+        }
+
+        .section-header-mockup svg {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+
+        .section-header-mockup h3 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        /* Sanskrit Box */
+        .sanskrit-display {
+            background: linear-gradient(135deg, #F8FAFA 0%, #EEF1F0 100%);
+            border-left: 4px solid var(--sage);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .sanskrit-display .sanskrit-symbol {
+            font-size: 4rem;
+            color: var(--sage);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .sanskrit-display .sanskrit-text {
+            flex: 1;
+        }
+
+        .sanskrit-display .sanskrit-text strong {
+            color: var(--primary-slate-dark);
+        }
+
+        /* Style Rules Box */
+        .rules-box {
+            background: white;
+            border: 2px solid var(--primary-slate-light);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .rules-box h3 {
+            margin-top: 0;
+            color: var(--primary-slate-dark);
+        }
+
+        .rules-box ul {
+            margin: 1rem 0 0 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .rules-box li {
+            margin-bottom: 0.5rem;
+        }
+
+        .rules-box code {
+            background: var(--gray-50);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--accent-coral);
+        }
+
+        /* Color Swatches */
+        .color-swatches {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .swatch {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #E4E7EC;
+        }
+
+        .swatch-color {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+        }
+
+        .swatch-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* DO / DON'T comparison */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .do-box, .dont-box {
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .do-box {
+            background: #E8F5E9;
+            border: 2px solid #4CAF50;
+        }
+
+        .dont-box {
+            background: #FFEBEE;
+            border: 2px solid #F44336;
+        }
+
+        .do-box h4, .dont-box h4 {
+            margin-bottom: 1rem;
+        }
+
+        .do-box h4 { color: #2E7D32; }
+        .dont-box h4 { color: #C62828; }
+
+        .emoji-example {
+            font-size: 3rem;
+            margin: 1rem 0;
+        }
+
+        /* Reference image */
+        .reference-box {
+            background: white;
+            border: 2px dashed var(--primary-slate-light);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .reference-box img {
+            max-width: 200px;
+            margin: 1rem auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .hero-mockup {
+                grid-template-columns: 1fr;
+            }
+            .hero-mockup .hero-icon {
+                display: none;
+            }
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Icon & Emoji Style Guide</h1>
+        <p class="subtitle">Line art icons for Yoga Near Me glossary pages — Based on Asana Image foundation</p>
+
+        <!-- REFERENCE IMAGE -->
+        <div class="reference-box">
+            <h3 style="margin-top: 0;">Reference: Asana Image Foundation</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">All icons should match this quality level — smooth curves, anatomical contours, body mass (not stick figures)</p>
+            <img src="/website design/website art/icon art/Asana Image.png" alt="Asana reference image" style="border: 1px solid #E4E7EC; border-radius: 8px;">
+        </div>
+
+        <!-- STYLE RULES -->
+        <div class="rules-box">
+            <h3>Core Style Rules</h3>
+            <ul>
+                <li><strong>Smooth contoured line drawing</strong> — anatomical shapes with body mass, NOT stick figures</li>
+                <li><strong>Uniform stroke weight</strong> — 1.5-2px standard</li>
+                <li><strong>No facial features</strong> — blank oval heads only</li>
+                <li><strong>One color per icon</strong> — from brand palette only</li>
+                <li><strong>Curved, flowing lines</strong> — shoulders, torso curves, natural limb shapes</li>
+                <li><strong>Sanskrit symbols</strong> — use when concept is abstract (prana, chakra, om)</li>
+            </ul>
+        </div>
+
+        <!-- APPROVED COLORS -->
+        <h2>Approved Icon Colors</h2>
+        <div class="color-swatches">
+            <div class="swatch">
+                <div class="swatch-color" style="background: #667085;"></div>
+                <span class="swatch-label">Primary Slate <code>#667085</code></span>
+            </div>
+            <div class="swatch">
+                <div class="swatch-color" style="background: #98A2B3;"></div>
+                <span class="swatch-label">Slate Light <code>#98A2B3</code></span>
+            </div>
+            <div class="swatch">
+                <div class="swatch-color" style="background: #e95c4b;"></div>
+                <span class="swatch-label">Coral (CTA) <code>#e95c4b</code></span>
+            </div>
+            <div class="swatch">
+                <div class="swatch-color" style="background: #5F7470;"></div>
+                <span class="swatch-label">Sage (Sanskrit) <code>#5F7470</code></span>
+            </div>
+        </div>
+
+        <!-- DO / DON'T -->
+        <h2>Do vs. Don't</h2>
+        <div class="comparison">
+            <div class="do-box">
+                <h4>DO: Contoured line art with body shape</h4>
+                <!-- Proper seated figure matching Asana Image style -->
+                <svg viewBox="0 0 100 100" width="100" height="100">
+                    <!-- Head - smooth oval -->
+                    <ellipse cx="50" cy="18" rx="9" ry="11" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Neck -->
+                    <path d="M45 28 Q50 30 55 28" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Shoulders and upper torso -->
+                    <path d="M45 28 Q38 32 30 38 Q28 42 32 48" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M55 28 Q62 32 70 38 Q72 42 68 48" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Torso sides -->
+                    <path d="M42 32 Q40 42 42 52" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M58 32 Q60 42 58 52" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Arms curved down to hands -->
+                    <path d="M32 48 Q28 55 30 62 Q34 68 42 70" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M68 48 Q72 55 70 62 Q66 68 58 70" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Hands in lap (simplified mudra) -->
+                    <ellipse cx="42" cy="72" rx="6" ry="4" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <ellipse cx="58" cy="72" rx="6" ry="4" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Crossed legs -->
+                    <path d="M42 52 Q35 58 25 68 Q22 75 28 82 Q38 88 50 85" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M58 52 Q65 58 75 68 Q78 75 72 82 Q62 88 50 85" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Feet -->
+                    <ellipse cx="32" cy="80" rx="8" ry="5" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <ellipse cx="68" cy="80" rx="8" ry="5" fill="none" stroke="#667085" stroke-width="1.5"/>
+                </svg>
+                <p style="color: #2E7D32; font-size: 0.9rem;">Anatomical contours, smooth curves, body mass</p>
+            </div>
+            <div class="dont-box">
+                <h4>DON'T: Multi-color emojis or stick figures</h4>
+                <div class="emoji-example">🧘‍♀️</div>
+                <p style="color: #C62828; font-size: 0.9rem;">Off-brand, has face, multiple colors</p>
+            </div>
+        </div>
+
+        <!-- HATHA-SPECIFIC ICONS -->
+        <h2>Hatha Yoga Icon Set</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">These icons represent the core concepts of Hatha yoga — developed line art with anatomical form.</p>
+
+        <div class="icon-grid">
+            <!-- Seated Meditation (Matching Asana Image style) -->
+            <div class="icon-card">
+                <svg viewBox="0 0 100 100">
+                    <!-- Head -->
+                    <ellipse cx="50" cy="16" rx="10" ry="12" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Neck curve -->
+                    <path d="M44 27 C47 29 53 29 56 27" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Shoulders flowing into arms -->
+                    <path d="M44 27 C38 30 28 36 24 44 C22 50 24 56 30 62 C36 66 44 68 48 68" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M56 27 C62 30 72 36 76 44 C78 50 76 56 70 62 C64 66 56 68 52 68" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Torso contour -->
+                    <path d="M44 27 C42 35 42 50 44 58" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M56 27 C58 35 58 50 56 58" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Hands resting (mudra suggestion) -->
+                    <path d="M48 68 C46 70 46 74 50 74 C54 74 54 70 52 68" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Crossed legs with volume -->
+                    <path d="M44 58 C38 62 26 68 22 76 C20 82 26 88 36 88 C46 88 50 84 50 80" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M56 58 C62 62 74 68 78 76 C80 82 74 88 64 88 C54 88 50 84 50 80" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Visible feet with form -->
+                    <ellipse cx="30" cy="84" rx="10" ry="6" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <ellipse cx="70" cy="84" rx="10" ry="6" fill="none" stroke="#667085" stroke-width="1.5"/>
+                </svg>
+                <div class="label">Seated Meditation</div>
+                <div class="color-name">Primary Slate #667085</div>
+            </div>
+
+            <!-- Mountain Pose (Tadasana) with body contours -->
+            <div class="icon-card">
+                <svg viewBox="0 0 100 100">
+                    <!-- Head -->
+                    <ellipse cx="50" cy="12" rx="8" ry="10" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Neck -->
+                    <path d="M46 21 C48 23 52 23 54 21" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Shoulders -->
+                    <path d="M46 21 C40 24 34 26 32 30" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M54 21 C60 24 66 26 68 30" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Torso - tapered waist -->
+                    <path d="M46 21 C44 30 42 45 44 55" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M54 21 C56 30 58 45 56 55" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Arms at sides with natural curve -->
+                    <path d="M32 30 C30 38 30 50 32 58 C33 62 35 66 38 68" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M68 30 C70 38 70 50 68 58 C67 62 65 66 62 68" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Hips -->
+                    <path d="M44 55 C42 58 40 60 40 62" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M56 55 C58 58 60 60 60 62" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Legs with calf shape -->
+                    <path d="M40 62 C38 70 38 80 40 92" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M44 62 C46 70 46 80 44 92" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M56 62 C54 70 54 80 56 92" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M60 62 C62 70 62 80 60 92" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Feet -->
+                    <path d="M38 92 L46 92" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M54 92 L62 92" fill="none" stroke="#667085" stroke-width="1.5"/>
+                </svg>
+                <div class="label">Mountain Pose (Tadasana)</div>
+                <div class="color-name">Primary Slate #667085</div>
+            </div>
+
+            <!-- Tree Pose (Vrksasana) -->
+            <div class="icon-card">
+                <svg viewBox="0 0 100 100">
+                    <!-- Head -->
+                    <ellipse cx="50" cy="10" rx="7" ry="9" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Neck -->
+                    <path d="M46 18 C48 20 52 20 54 18" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Raised arms in prayer/namaste above head -->
+                    <path d="M46 18 C42 16 40 10 42 4 C44 2 48 2 50 3" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M54 18 C58 16 60 10 58 4 C56 2 52 2 50 3" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Shoulders -->
+                    <path d="M46 18 C40 22 36 26 35 30" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M54 18 C60 22 64 26 65 30" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Torso -->
+                    <path d="M44 22 C42 32 42 45 44 55" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M56 22 C58 32 58 45 56 55" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Arms along torso -->
+                    <path d="M35 30 C34 36 35 42 38 46" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M65 30 C66 36 65 42 62 46" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Standing leg with form -->
+                    <path d="M46 55 C44 65 44 78 46 94" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M54 55 C52 60 50 65 50 70 C50 75 52 78 54 80" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Bent leg against inner thigh -->
+                    <path d="M54 55 C58 58 65 62 70 68 C72 72 70 76 66 78 C62 80 56 78 54 74" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Foot of bent leg -->
+                    <ellipse cx="56" cy="72" rx="5" ry="3" fill="none" stroke="#667085" stroke-width="1.5" transform="rotate(-20 56 72)"/>
+                    <!-- Standing foot -->
+                    <path d="M44 94 L56 94" fill="none" stroke="#667085" stroke-width="1.5"/>
+                </svg>
+                <div class="label">Tree Pose (Vrksasana)</div>
+                <div class="color-name">Primary Slate #667085</div>
+            </div>
+
+            <!-- Warrior I (Virabhadrasana I) -->
+            <div class="icon-card">
+                <svg viewBox="0 0 100 100">
+                    <!-- Head -->
+                    <ellipse cx="45" cy="10" rx="7" ry="9" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Neck -->
+                    <path d="M41 18 C43 20 47 20 49 18" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Arms raised overhead -->
+                    <path d="M41 18 C36 14 32 8 34 2" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M49 18 C54 14 58 8 56 2" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Shoulders -->
+                    <path d="M41 18 C36 22 32 26 30 32" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M49 18 C54 22 58 26 60 32" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Torso - slight twist -->
+                    <path d="M39 22 C37 32 36 42 38 50" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M51 22 C53 32 54 42 52 50" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Hips -->
+                    <path d="M38 50 C35 54 32 56 30 58" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M52 50 C55 54 60 56 65 56" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Front bent leg -->
+                    <path d="M30 58 C26 66 22 74 20 82 C18 88 22 92 28 92" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M38 58 C36 66 34 74 32 82 C30 88 32 92 36 92" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Back straight leg -->
+                    <path d="M65 56 C72 62 80 72 86 84" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M58 58 C64 64 72 74 78 86" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Feet -->
+                    <path d="M18 92 L38 92" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M78 86 L88 82" fill="none" stroke="#667085" stroke-width="1.5"/>
+                </svg>
+                <div class="label">Warrior I (Virabhadrasana)</div>
+                <div class="color-name">Primary Slate #667085</div>
+            </div>
+
+            <!-- Downward Dog (Adho Mukha Svanasana) -->
+            <div class="icon-card">
+                <svg viewBox="0 0 100 100">
+                    <!-- Head hanging -->
+                    <ellipse cx="22" cy="58" rx="6" ry="8" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Neck into shoulders -->
+                    <path d="M26 52 C30 48 34 44 38 42" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Arms -->
+                    <path d="M22 65 C20 72 18 82 16 92" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M28 62 C26 70 24 80 22 92" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Back/spine rising to hips -->
+                    <path d="M38 42 C48 36 58 28 65 24" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M36 48 C46 42 56 34 62 30" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Hips at peak -->
+                    <path d="M65 24 C68 26 68 30 65 32" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Legs going down -->
+                    <path d="M65 32 C68 45 72 65 76 92" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M62 30 C65 42 68 62 72 92" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Hands on ground -->
+                    <ellipse cx="18" cy="94" rx="5" ry="3" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <!-- Feet -->
+                    <path d="M70 92 L78 92" fill="none" stroke="#667085" stroke-width="1.5"/>
+                </svg>
+                <div class="label">Downward Dog</div>
+                <div class="color-name">Primary Slate #667085</div>
+            </div>
+
+            <!-- Sun-Moon Symbol for Hatha concept -->
+            <div class="icon-card">
+                <svg viewBox="0 0 100 100">
+                    <!-- Sun circle with rays -->
+                    <circle cx="50" cy="32" r="16" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <line x1="50" y1="8" x2="50" y2="14" stroke="#667085" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="50" y1="50" x2="50" y2="56" stroke="#667085" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="26" y1="32" x2="32" y2="32" stroke="#667085" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="68" y1="32" x2="74" y2="32" stroke="#667085" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="33" y1="15" x2="37" y2="19" stroke="#667085" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="63" y1="45" x2="67" y2="49" stroke="#667085" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="67" y1="15" x2="63" y2="19" stroke="#667085" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="37" y1="45" x2="33" y2="49" stroke="#667085" stroke-width="1.5" stroke-linecap="round"/>
+                    <!-- Moon crescent below -->
+                    <path d="M32 78 C32 62 50 58 68 68 C56 62 44 66 44 78 C44 86 56 92 68 88 C50 98 32 92 32 78" fill="none" stroke="#667085" stroke-width="1.5"/>
+                </svg>
+                <div class="label">Ha-Tha (Sun-Moon)</div>
+                <div class="color-name">Primary Slate #667085</div>
+            </div>
+        </div>
+
+        <!-- HERO SECTION MOCKUP -->
+        <h2>Hero Section Mockup</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1rem;">How the icon appears in the glossary page hero (15% opacity, decorative)</p>
+
+        <div class="hero-mockup">
+            <div>
+                <h1>Hatha Yoga Defined</h1>
+                <p class="pronunciation">HAH-tah YOH-guh</p>
+                <p class="description">Hatha Yoga is the foundational practice of physical postures (asana), breathwork (pranayama), and meditation designed to balance the body and mind—serving as the root of most modern yoga styles.</p>
+            </div>
+            <div class="hero-icon">
+                <!-- Full seated figure for hero -->
+                <svg viewBox="0 0 100 100">
+                    <ellipse cx="50" cy="16" rx="10" ry="12" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M44 27 C47 29 53 29 56 27" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M44 27 C38 30 28 36 24 44 C22 50 24 56 30 62 C36 66 44 68 48 68" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M56 27 C62 30 72 36 76 44 C78 50 76 56 70 62 C64 66 56 68 52 68" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M44 27 C42 35 42 50 44 58" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M56 27 C58 35 58 50 56 58" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M48 68 C46 70 46 74 50 74 C54 74 54 70 52 68" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M44 58 C38 62 26 68 22 76 C20 82 26 88 36 88 C46 88 50 84 50 80" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <path d="M56 58 C62 62 74 68 78 76 C80 82 74 88 64 88 C54 88 50 84 50 80" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <ellipse cx="30" cy="84" rx="10" ry="6" fill="none" stroke="#667085" stroke-width="1.5"/>
+                    <ellipse cx="70" cy="84" rx="10" ry="6" fill="none" stroke="#667085" stroke-width="1.5"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- SECTION HEADERS WITH ICONS -->
+        <h2>Section Headers with Icons</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Optional small icons can accompany H2 section headers</p>
+
+        <div class="section-header-mockup">
+            <!-- Simplified seated figure for small use -->
+            <svg viewBox="0 0 100 100">
+                <ellipse cx="50" cy="20" rx="10" ry="12" fill="none" stroke="#667085" stroke-width="2"/>
+                <path d="M44 30 C38 34 28 40 26 48 C24 54 28 58 36 62" fill="none" stroke="#667085" stroke-width="2"/>
+                <path d="M56 30 C62 34 72 40 74 48 C76 54 72 58 64 62" fill="none" stroke="#667085" stroke-width="2"/>
+                <path d="M44 58 C38 64 28 72 26 80 C28 86 40 88 50 84" fill="none" stroke="#667085" stroke-width="2"/>
+                <path d="M56 58 C62 64 72 72 74 80 C72 86 60 88 50 84" fill="none" stroke="#667085" stroke-width="2"/>
+            </svg>
+            <h3>What Makes Hatha Yoga Unique</h3>
+        </div>
+
+        <div class="section-header-mockup">
+            <svg viewBox="0 0 100 100">
+                <!-- Sun-moon compact -->
+                <circle cx="50" cy="35" r="14" fill="none" stroke="#667085" stroke-width="2"/>
+                <line x1="50" y1="15" x2="50" y2="20" stroke="#667085" stroke-width="2" stroke-linecap="round"/>
+                <line x1="30" y1="35" x2="35" y2="35" stroke="#667085" stroke-width="2" stroke-linecap="round"/>
+                <line x1="65" y1="35" x2="70" y2="35" stroke="#667085" stroke-width="2" stroke-linecap="round"/>
+                <path d="M35 75 C35 62 50 58 65 66 C55 62 46 66 46 75 C46 82 55 86 65 84 C52 92 35 86 35 75" fill="none" stroke="#667085" stroke-width="2"/>
+            </svg>
+            <h3>Why Hatha Yoga Matters</h3>
+        </div>
+
+        <!-- SANSKRIT SYMBOL EXAMPLE -->
+        <h2>Sanskrit Symbol Usage</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Use Sanskrit/Devanagari when the concept is abstract and no single pose represents it</p>
+
+        <div class="sanskrit-display">
+            <div class="sanskrit-symbol">हठ</div>
+            <div class="sanskrit-text">
+                <strong>Hatha (हठ)</strong><br>
+                Used as a decorative element when the sun-moon balance concept is more important than depicting a specific pose. Rendered in Sage (#5F7470) to differentiate from instructional content.
+            </div>
+        </div>
+
+        <div class="sanskrit-display">
+            <div class="sanskrit-symbol" style="color: var(--sage);">ॐ</div>
+            <div class="sanskrit-text">
+                <strong>Om (ॐ)</strong><br>
+                For mantras, meditation concepts, and spiritual content where a figure illustration wouldn't be appropriate.
+            </div>
+        </div>
+
+        <!-- USAGE GUIDELINES -->
+        <h2>When to Use Each Type</h2>
+        <div class="rules-box">
+            <h3>Pose Illustrations (Contoured Line Art Figures)</h3>
+            <ul>
+                <li>Glossary terms for specific poses (Chaturanga, Tree Pose, Warrior)</li>
+                <li>Style pages where physical practice is the focus (Hatha, Vinyasa)</li>
+                <li>How-to sections showing alignment</li>
+                <li>Must have anatomical form — shoulders, torso curve, limb volume</li>
+            </ul>
+        </div>
+
+        <div class="rules-box">
+            <h3>Symbolic Icons (Sun/Moon, Breath Waves)</h3>
+            <ul>
+                <li>Concepts that aren't tied to a single pose</li>
+                <li>Pranayama and breathwork sections</li>
+                <li>Philosophy and tradition sections</li>
+            </ul>
+        </div>
+
+        <div class="rules-box">
+            <h3>Sanskrit Symbols (Devanagari Script)</h3>
+            <ul>
+                <li>Mantra definitions (Om, specific chants)</li>
+                <li>Highly abstract concepts (Prana, Chakra energy)</li>
+                <li>When no physical representation exists</li>
+                <li>Cultural/traditional emphasis needed</li>
+            </ul>
+        </div>
+
+        <h2>SVG Code Template</h2>
+        <div class="rules-box">
+            <h3>Standard SVG Structure for Contoured Figures</h3>
+            <pre style="background: var(--gray-50); padding: 1rem; border-radius: 8px; overflow-x: auto; font-size: 0.85rem; margin-top: 1rem;"><code>&lt;svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;!-- Head: smooth oval, no features --&gt;
+  &lt;ellipse cx="50" cy="16" rx="10" ry="12"
+    fill="none"
+    stroke="#667085"
+    stroke-width="1.5"/&gt;
+
+  &lt;!-- Body: curved paths for anatomical form --&gt;
+  &lt;!-- Use Q (quadratic) and C (cubic) bezier curves --&gt;
+  &lt;!-- NOT straight lines for limbs --&gt;
+  &lt;path d="M44 27 C38 30 28 36 24 44..."
+    fill="none"
+    stroke="#667085"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"/&gt;
+&lt;/svg&gt;</code></pre>
+            <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;"><strong>Key:</strong> Use bezier curves (C, Q commands) not straight lines (L). This creates the smooth, anatomical contours that match the Asana Image reference.</p>
+        </div>
+
+        <p style="margin-top: 3rem; padding: 2rem; background: white; border-radius: 8px; color: var(--text-secondary); text-align: center;">
+            <strong>Style Guide Version 1.1</strong><br>
+            Created for Yoga Near Me glossary pages<br>
+            Based on Asana Image foundation from /website design/website art/icon art/<br>
+            <em>Updated: Contoured figures with anatomical form (not stick figures)</em>
+        </p>
+    </div>
+</body>
+</html>

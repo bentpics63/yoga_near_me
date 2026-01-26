@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon Style Test v3 - Elegant Minimal</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #F9FAFB;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        h1 { color: #475467; margin-bottom: 0; }
+        h2 { color: #475467; margin: 2rem 0 1rem; }
+        p { color: #667085; max-width: 700px; text-align: center; margin: 0.5rem 0 2rem; }
+        .reference-row {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        .ref-box {
+            text-align: center;
+        }
+        .ref-box img {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+        }
+        .ref-box span {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: #98A2B3;
+        }
+        .attempts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+        }
+        .icon-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .icon-box svg {
+            width: 180px;
+            height: 180px;
+        }
+        .icon-box h3 {
+            margin-top: 1rem;
+            color: #475467;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .color-note {
+            font-size: 0.75rem;
+            color: #98A2B3;
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Icon Style Test v3</h1>
+    <p>Reference images side by side. Goal: Match the elegant, minimal, flowing line quality.</p>
+
+    <div class="reference-row">
+        <div class="ref-box">
+            <img src="/website design/website art/icon art/Asana Image.png" alt="Asana Reference">
+            <span>Asana Image (Gray)</span>
+        </div>
+        <div class="ref-box">
+            <img src="/website design/website art/icon art/Kundalini.png" alt="Kundalini Reference">
+            <span>Kundalini (Sage #5F7470)</span>
+        </div>
+    </div>
+
+    <h2>Seated Meditation Attempts</h2>
+
+    <div class="attempts">
+        <!-- Attempt: More flowing, elongated -->
+        <div class="icon-box">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Single continuous-feeling figure -->
+                <!-- Head - elegant oval -->
+                <path d="M50 8 C42 8 38 14 38 20 C38 26 42 32 50 32 C58 32 62 26 62 20 C62 14 58 8 50 8"
+                    fill="none" stroke="#667085" stroke-width="0.8" stroke-linecap="round"/>
+
+                <!-- Left side: neck, shoulder, arm flowing down -->
+                <path d="M45 31
+                         C43 34 40 36 36 40
+                         C30 46 26 52 26 60
+                         C26 68 30 74 38 78
+                         C44 80 48 80 50 78"
+                    fill="none" stroke="#667085" stroke-width="0.8" stroke-linecap="round"/>
+
+                <!-- Right side: neck, shoulder, arm flowing down -->
+                <path d="M55 31
+                         C57 34 60 36 64 40
+                         C70 46 74 52 74 60
+                         C74 68 70 74 62 78
+                         C56 80 52 80 50 78"
+                    fill="none" stroke="#667085" stroke-width="0.8" stroke-linecap="round"/>
+
+                <!-- Torso center lines - very subtle -->
+                <path d="M48 34 C47 45 47 55 48 65" fill="none" stroke="#667085" stroke-width="0.6" stroke-linecap="round"/>
+                <path d="M52 34 C53 45 53 55 52 65" fill="none" stroke="#667085" stroke-width="0.6" stroke-linecap="round"/>
+
+                <!-- Left leg flowing out -->
+                <path d="M48 65
+                         C42 68 32 72 24 78
+                         C18 82 16 88 22 92
+                         C30 96 42 94 50 90"
+                    fill="none" stroke="#667085" stroke-width="0.8" stroke-linecap="round"/>
+
+                <!-- Right leg flowing out -->
+                <path d="M52 65
+                         C58 68 68 72 76 78
+                         C82 82 84 88 78 92
+                         C70 96 58 94 50 90"
+                    fill="none" stroke="#667085" stroke-width="0.8" stroke-linecap="round"/>
+
+                <!-- Hands suggestion -->
+                <path d="M38 78 C40 80 44 82 48 80" fill="none" stroke="#667085" stroke-width="0.6" stroke-linecap="round"/>
+                <path d="M62 78 C60 80 56 82 52 80" fill="none" stroke="#667085" stroke-width="0.6" stroke-linecap="round"/>
+            </svg>
+            <h3>Seated - Flowing Lines</h3>
+            <div class="color-note">#667085 • 0.8px stroke</div>
+        </div>
+
+        <!-- Attempt: Even more minimal -->
+        <div class="icon-box">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head -->
+                <ellipse cx="50" cy="18" rx="10" ry="12"
+                    fill="none" stroke="#667085" stroke-width="0.75"/>
+
+                <!-- Entire upper body as flowing curves -->
+                <path d="M44 29 C38 34 28 44 26 56 C24 66 28 74 40 78 C46 80 50 78 50 76"
+                    fill="none" stroke="#667085" stroke-width="0.75"/>
+                <path d="M56 29 C62 34 72 44 74 56 C76 66 72 74 60 78 C54 80 50 78 50 76"
+                    fill="none" stroke="#667085" stroke-width="0.75"/>
+
+                <!-- Subtle torso -->
+                <path d="M47 30 Q46 48 47 62" fill="none" stroke="#667085" stroke-width="0.5"/>
+                <path d="M53 30 Q54 48 53 62" fill="none" stroke="#667085" stroke-width="0.5"/>
+
+                <!-- Crossed legs - smooth lotus -->
+                <path d="M47 62 C38 66 24 74 20 82 C18 90 26 94 40 92 C48 90 50 86 50 84"
+                    fill="none" stroke="#667085" stroke-width="0.75"/>
+                <path d="M53 62 C62 66 76 74 80 82 C82 90 74 94 60 92 C52 90 50 86 50 84"
+                    fill="none" stroke="#667085" stroke-width="0.75"/>
+            </svg>
+            <h3>Seated - More Minimal</h3>
+            <div class="color-note">#667085 • 0.75px stroke</div>
+        </div>
+
+        <!-- In Sage color like Kundalini -->
+        <div class="icon-box">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head -->
+                <ellipse cx="50" cy="17" rx="9" ry="11"
+                    fill="none" stroke="#5F7470" stroke-width="0.8"/>
+
+                <!-- Shoulders and arms as one flowing gesture -->
+                <path d="M44 27
+                         Q36 32 30 42
+                         Q24 54 28 66
+                         Q32 74 42 76
+                         L48 74"
+                    fill="none" stroke="#5F7470" stroke-width="0.8"/>
+                <path d="M56 27
+                         Q64 32 70 42
+                         Q76 54 72 66
+                         Q68 74 58 76
+                         L52 74"
+                    fill="none" stroke="#5F7470" stroke-width="0.8"/>
+
+                <!-- Torso contour -->
+                <path d="M46 28 Q45 45 46 60" fill="none" stroke="#5F7470" stroke-width="0.6"/>
+                <path d="M54 28 Q55 45 54 60" fill="none" stroke="#5F7470" stroke-width="0.6"/>
+
+                <!-- Legs in lotus -->
+                <path d="M46 60
+                         Q36 66 24 76
+                         Q18 84 24 90
+                         Q34 96 50 88"
+                    fill="none" stroke="#5F7470" stroke-width="0.8"/>
+                <path d="M54 60
+                         Q64 66 76 76
+                         Q82 84 76 90
+                         Q66 96 50 88"
+                    fill="none" stroke="#5F7470" stroke-width="0.8"/>
+
+                <!-- Feet -->
+                <ellipse cx="30" cy="86" rx="8" ry="4" fill="none" stroke="#5F7470" stroke-width="0.7"/>
+                <ellipse cx="70" cy="86" rx="8" ry="4" fill="none" stroke="#5F7470" stroke-width="0.7"/>
+            </svg>
+            <h3>Seated - Sage Color</h3>
+            <div class="color-note">#5F7470 • 0.8px stroke</div>
+        </div>
+    </div>
+
+    <h2>Kundalini Style (Arms Raised)</h2>
+
+    <div class="attempts">
+        <!-- Kundalini attempt -->
+        <div class="icon-box">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head -->
+                <ellipse cx="50" cy="20" rx="8" ry="10"
+                    fill="none" stroke="#5F7470" stroke-width="0.8"/>
+
+                <!-- Left arm raised up and out -->
+                <path d="M44 29
+                         Q38 32 34 28
+                         Q28 22 26 12
+                         Q24 6 28 4"
+                    fill="none" stroke="#5F7470" stroke-width="0.8"/>
+
+                <!-- Right arm raised up and out -->
+                <path d="M56 29
+                         Q62 32 66 28
+                         Q72 22 74 12
+                         Q76 6 72 4"
+                    fill="none" stroke="#5F7470" stroke-width="0.8"/>
+
+                <!-- Shoulders down to waist -->
+                <path d="M44 29 Q40 36 38 46 Q36 56 38 62" fill="none" stroke="#5F7470" stroke-width="0.8"/>
+                <path d="M56 29 Q60 36 62 46 Q64 56 62 62" fill="none" stroke="#5F7470" stroke-width="0.8"/>
+
+                <!-- Torso center -->
+                <path d="M48 30 Q47 45 48 58" fill="none" stroke="#5F7470" stroke-width="0.5"/>
+                <path d="M52 30 Q53 45 52 58" fill="none" stroke="#5F7470" stroke-width="0.5"/>
+
+                <!-- Crossed legs -->
+                <path d="M46 58
+                         Q36 64 24 74
+                         Q18 82 24 88
+                         Q34 94 50 86"
+                    fill="none" stroke="#5F7470" stroke-width="0.8"/>
+                <path d="M54 58
+                         Q64 64 76 74
+                         Q82 82 76 88
+                         Q66 94 50 86"
+                    fill="none" stroke="#5F7470" stroke-width="0.8"/>
+
+                <!-- Feet suggestion -->
+                <ellipse cx="28" cy="84" rx="7" ry="4" fill="none" stroke="#5F7470" stroke-width="0.7"/>
+                <ellipse cx="72" cy="84" rx="7" ry="4" fill="none" stroke="#5F7470" stroke-width="0.7"/>
+
+                <!-- Hand mudras at top -->
+                <circle cx="28" cy="6" r="3" fill="none" stroke="#5F7470" stroke-width="0.6"/>
+                <circle cx="72" cy="6" r="3" fill="none" stroke="#5F7470" stroke-width="0.6"/>
+            </svg>
+            <h3>Kundalini - Arms Up</h3>
+            <div class="color-note">#5F7470 • Sage</div>
+        </div>
+
+        <!-- Even simpler -->
+        <div class="icon-box">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head -->
+                <path d="M50 10 C42 10 38 16 38 22 C38 28 44 32 50 32 C56 32 62 28 62 22 C62 16 58 10 50 10"
+                    fill="none" stroke="#5F7470" stroke-width="0.75"/>
+
+                <!-- Left side flowing: arm up, shoulder, torso, leg -->
+                <path d="M44 30
+                         C40 28 36 20 32 10
+                         C30 4 28 2 26 4"
+                    fill="none" stroke="#5F7470" stroke-width="0.75"/>
+                <path d="M44 32
+                         C38 38 36 50 38 60
+                         C36 66 28 76 22 84
+                         C18 90 24 94 38 92
+                         C46 90 50 86 50 84"
+                    fill="none" stroke="#5F7470" stroke-width="0.75"/>
+
+                <!-- Right side flowing -->
+                <path d="M56 30
+                         C60 28 64 20 68 10
+                         C70 4 72 2 74 4"
+                    fill="none" stroke="#5F7470" stroke-width="0.75"/>
+                <path d="M56 32
+                         C62 38 64 50 62 60
+                         C64 66 72 76 78 84
+                         C82 90 76 94 62 92
+                         C54 90 50 86 50 84"
+                    fill="none" stroke="#5F7470" stroke-width="0.75"/>
+
+                <!-- Very subtle center line -->
+                <path d="M50 34 L50 60" fill="none" stroke="#5F7470" stroke-width="0.4"/>
+            </svg>
+            <h3>Kundalini - Simplified</h3>
+            <div class="color-note">#5F7470 • Minimal paths</div>
+        </div>
+
+        <!-- Ultra minimal -->
+        <div class="icon-box">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Just the essential silhouette -->
+                <!-- Head -->
+                <ellipse cx="50" cy="22" rx="8" ry="10" fill="none" stroke="#5F7470" stroke-width="0.8"/>
+
+                <!-- Arms as single elegant curves -->
+                <path d="M44 30 Q36 24 30 8" fill="none" stroke="#5F7470" stroke-width="0.8" stroke-linecap="round"/>
+                <path d="M56 30 Q64 24 70 8" fill="none" stroke="#5F7470" stroke-width="0.8" stroke-linecap="round"/>
+
+                <!-- Body outline - left -->
+                <path d="M44 32 Q38 50 40 64 Q32 74 24 86 Q28 92 44 90" fill="none" stroke="#5F7470" stroke-width="0.8"/>
+
+                <!-- Body outline - right -->
+                <path d="M56 32 Q62 50 60 64 Q68 74 76 86 Q72 92 56 90" fill="none" stroke="#5F7470" stroke-width="0.8"/>
+
+                <!-- Connect at bottom -->
+                <path d="M44 90 Q50 86 56 90" fill="none" stroke="#5F7470" stroke-width="0.6"/>
+            </svg>
+            <h3>Kundalini - Ultra Minimal</h3>
+            <div class="color-note">#5F7470 • Essence only</div>
+        </div>
+    </div>
+
+    <h2>Standing Poses</h2>
+
+    <div class="attempts">
+        <!-- Mountain Pose -->
+        <div class="icon-box">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head -->
+                <ellipse cx="50" cy="12" rx="7" ry="9" fill="none" stroke="#667085" stroke-width="0.75"/>
+
+                <!-- Neck and shoulders -->
+                <path d="M45 20 Q40 24 36 30" fill="none" stroke="#667085" stroke-width="0.75"/>
+                <path d="M55 20 Q60 24 64 30" fill="none" stroke="#667085" stroke-width="0.75"/>
+
+                <!-- Left side of body -->
+                <path d="M45 20
+                         Q42 35 44 55
+                         Q42 65 42 92"
+                    fill="none" stroke="#667085" stroke-width="0.75"/>
+
+                <!-- Right side of body -->
+                <path d="M55 20
+                         Q58 35 56 55
+                         Q58 65 58 92"
+                    fill="none" stroke="#667085" stroke-width="0.75"/>
+
+                <!-- Arms -->
+                <path d="M36 30 Q34 50 36 65" fill="none" stroke="#667085" stroke-width="0.7"/>
+                <path d="M64 30 Q66 50 64 65" fill="none" stroke="#667085" stroke-width="0.7"/>
+
+                <!-- Feet -->
+                <path d="M38 92 L50 92" fill="none" stroke="#667085" stroke-width="0.7"/>
+                <path d="M50 92 L62 92" fill="none" stroke="#667085" stroke-width="0.7"/>
+            </svg>
+            <h3>Mountain Pose</h3>
+            <div class="color-note">#667085</div>
+        </div>
+
+        <!-- Tree Pose -->
+        <div class="icon-box">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head -->
+                <ellipse cx="50" cy="12" rx="6" ry="8" fill="none" stroke="#667085" stroke-width="0.75"/>
+
+                <!-- Arms overhead meeting -->
+                <path d="M46 19 Q40 14 38 6 Q40 2 46 2 Q50 2 50 4" fill="none" stroke="#667085" stroke-width="0.75"/>
+                <path d="M54 19 Q60 14 62 6 Q60 2 54 2 Q50 2 50 4" fill="none" stroke="#667085" stroke-width="0.75"/>
+
+                <!-- Torso -->
+                <path d="M46 20 Q44 40 46 60" fill="none" stroke="#667085" stroke-width="0.75"/>
+                <path d="M54 20 Q56 40 54 60" fill="none" stroke="#667085" stroke-width="0.75"/>
+
+                <!-- Standing leg -->
+                <path d="M48 60 Q46 75 48 94" fill="none" stroke="#667085" stroke-width="0.75"/>
+                <path d="M52 60 Q50 70 50 75" fill="none" stroke="#667085" stroke-width="0.6"/>
+
+                <!-- Bent leg -->
+                <path d="M54 60 Q62 64 68 72 Q70 78 66 80 Q60 82 56 78" fill="none" stroke="#667085" stroke-width="0.75"/>
+
+                <!-- Foot -->
+                <path d="M44 94 L56 94" fill="none" stroke="#667085" stroke-width="0.7"/>
+            </svg>
+            <h3>Tree Pose</h3>
+            <div class="color-note">#667085</div>
+        </div>
+
+        <!-- Warrior -->
+        <div class="icon-box">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head -->
+                <ellipse cx="40" cy="12" rx="6" ry="8" fill="none" stroke="#667085" stroke-width="0.75"/>
+
+                <!-- Arms up -->
+                <path d="M36 19 Q30 14 28 6" fill="none" stroke="#667085" stroke-width="0.75"/>
+                <path d="M44 19 Q50 14 52 6" fill="none" stroke="#667085" stroke-width="0.75"/>
+
+                <!-- Torso -->
+                <path d="M36 20 Q34 35 36 50" fill="none" stroke="#667085" stroke-width="0.75"/>
+                <path d="M44 20 Q46 35 44 50" fill="none" stroke="#667085" stroke-width="0.75"/>
+
+                <!-- Front bent leg -->
+                <path d="M36 50 Q28 62 22 78 Q20 88 28 92" fill="none" stroke="#667085" stroke-width="0.75"/>
+                <path d="M42 52 Q36 64 32 78 Q30 86 34 90" fill="none" stroke="#667085" stroke-width="0.6"/>
+
+                <!-- Back leg -->
+                <path d="M44 50 Q58 58 74 74 Q82 82 88 90" fill="none" stroke="#667085" stroke-width="0.75"/>
+
+                <!-- Feet -->
+                <path d="M22 92 L38 92" fill="none" stroke="#667085" stroke-width="0.7"/>
+                <path d="M84 90 L92 86" fill="none" stroke="#667085" stroke-width="0.7"/>
+            </svg>
+            <h3>Warrior I</h3>
+            <div class="color-note">#667085</div>
+        </div>
+    </div>
+
+    <p style="margin-top: 3rem; font-size: 0.8rem; color: #98A2B3;">
+        v3: Thinner strokes (0.6-0.8px), more flowing single-path curves, elongated proportions, minimal detail
+    </p>
+</body>
+</html>

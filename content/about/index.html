@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Yoga Near Me</title>
+  <meta name="description" content="Meet Lisa Marie and Eddie—the punks of Western yoga. 20+ years of practice, 30,000+ studio listings, and a commitment to authentic yoga education.">
+  <link rel="canonical" href="https://yoganearme.info/about/">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About Us | Yoga Near Me">
+  <meta property="og:description" content="Meet Lisa Marie and Eddie—the punks of Western yoga. Authentic yoga education, no marketing fluff.">
+  <meta property="og:site_name" content="Yoga Near Me">
+  <meta property="og:url" content="https://yoganearme.info/about/">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --sage: #5F7470;
+      --sage-dark: #4A5B58;
+      --sage-light: #7A8F8B;
+      --teal: #61948B;
+      --rust: #bd371a;
+      --rust-light: #d4543a;
+      --paper: #F8FAFA;
+      --cream: #e8eaef;
+      --text-dark: #2C3E3A;
+      --text-medium: #5A6B67;
+      --text-light: #8A9A96;
+      --border: #E2E6E5;
+      --white: #FFFFFF;
+      --gray-50: #F9FAFB;
+      --gray-100: #F2F4F7;
+      --gray-900: #101828;
+      --accent-coral: #e95c4b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      background: var(--cream);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      background: var(--sage);
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .site-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .logo-text-main {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .logo-text-sub {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.8);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .site-nav a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .site-nav a:hover,
+    .site-nav a.active {
+      color: white;
+    }
+
+    /* ===== HERO ===== */
+    .about-hero {
+      background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+      color: white;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-tagline {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .about-hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .about-section {
+      margin-bottom: 4rem;
+    }
+
+    .about-section h2 {
+      font-size: 1.75rem;
+      color: var(--gray-900);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .about-section h2::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--rust);
+      border-radius: 2px;
+    }
+
+    .about-section p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+      color: var(--text-dark);
+    }
+
+    .about-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ===== TEAM CARDS ===== */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .team-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .team-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .team-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--sage);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .team-avatar.eddie {
+      background: var(--teal);
+    }
+
+    .team-info h3 {
+      font-size: 1.25rem;
+      color: var(--gray-900);
+      margin-bottom: 0.25rem;
+    }
+
+    .team-title {
+      font-size: 0.9rem;
+      color: var(--text-medium);
+      font-style: italic;
+    }
+
+    .team-card p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-dark);
+    }
+
+    .team-credentials {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .credential-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-medium);
+    }
+
+    .credential-item::before {
+      content: '→';
+      color: var(--rust);
+      flex-shrink: 0;
+    }
+
+    /* ===== PHILOSOPHY SECTION ===== */
+    .philosophy-box {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      border-left: 4px solid var(--rust);
+      margin-top: 2rem;
+    }
+
+    .philosophy-box h3 {
+      font-size: 1.25rem;
+      color: var(--gray-900);
+      margin-bottom: 1rem;
+    }
+
+    .philosophy-box p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .philosophy-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ===== VALUES LIST ===== */
+    .values-list {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+
+    .values-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+      color: var(--text-dark);
+    }
+
+    .values-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6rem;
+      width: 8px;
+      height: 8px;
+      background: var(--rust);
+      border-radius: 50%;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .about-cta {
+      background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+      padding: 4rem 2rem;
+      text-align: center;
+      color: white;
+    }
+
+    .cta-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .about-cta h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-cta p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn-primary {
+      background: var(--rust);
+      color: white;
+    }
+
+    .cta-btn-primary:hover {
+      background: var(--rust-light);
+      transform: translateY(-2px);
+    }
+
+    .cta-btn-secondary {
+      background: white;
+      color: var(--sage-dark);
+    }
+
+    .cta-btn-secondary:hover {
+      background: var(--paper);
+      transform: translateY(-2px);
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: var(--sage-dark);
+      color: rgba(255, 255, 255, 0.9);
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand {
+      max-width: 280px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      text-decoration: none;
+    }
+
+    .footer-logo .logo-icon {
+      width: 36px;
+      height: 36px;
+    }
+
+    .footer-logo .logo-text-main {
+      font-size: 1.15rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-nav h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: white;
+      margin-bottom: 1.25rem;
+      font-weight: 600;
+    }
+
+    .footer-nav ul {
+      list-style: none;
+    }
+
+    .footer-nav li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-nav a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-nav a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copyright {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-legal a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-legal a:hover {
+      color: white;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .about-hero {
+        padding: 3rem 1.5rem;
+      }
+
+      .about-content {
+        padding: 2rem 1.5rem;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .cta-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="/" class="site-logo">
+        <img src="https://yoganearme.info/wp-content/uploads/2025/11/yoga_near_me_64x64.png" alt="Yoga Near Me" class="logo-icon">
+        <div class="logo-text">
+          <span class="logo-text-main">YOGA NEAR ME</span>
+          <span class="logo-text-sub">A Curated Guide</span>
+        </div>
+      </a>
+      <nav class="site-nav">
+        <a href="/studios/">Find Studios</a>
+        <a href="/yoga-glossary/">Yoga Glossary</a>
+        <a href="/answers/">FAQs</a>
+        <a href="/about/" class="active">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="about-hero">
+    <div class="hero-inner">
+      <p class="hero-tagline">The Punks of Western Yoga</p>
+      <h1>Teach First, Tool Second</h1>
+      <p class="hero-sub">
+        We're building the most comprehensive yoga studio directory combined with the highest-quality educational content about yoga. No marketing fluff. No upsells disguised as content. Just genuine help.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="about-content">
+
+    <!-- Meet the Team -->
+    <section class="about-section">
+      <h2>Meet the Team</h2>
+      <p>
+        Yoga Near Me is curated by two practitioners who believe yoga deserves better than the commercialized, commodified version the wellness industry often sells.
+      </p>
+
+      <div class="team-grid">
+        <!-- Lisa Marie -->
+        <div class="team-card">
+          <div class="team-card-header">
+            <div class="team-avatar">LM</div>
+            <div class="team-info">
+              <h3>Lisa Marie</h3>
+              <span class="team-title">Practice & Education</span>
+            </div>
+          </div>
+          <p>
+            A lifelong practitioner with 20+ years on the mat, Lisa Marie founded Viveka Yoga Studio in Downtown LA. She teaches Classical Hatha, Ashtanga Vinyasa, Iyengar, and creative Vinyasa—always with an emphasis on honoring tradition while making practice accessible.
+          </p>
+          <p>
+            Lisa Marie writes all yoga practice content: glossary definitions, style guides, practice tutorials, and philosophical explorations. Her voice is poetic without pretension, authoritative without arrogance.
+          </p>
+          <div class="team-credentials">
+            <div class="credential-item">20+ years dedicated yoga practice</div>
+            <div class="credential-item">Founder, Viveka Yoga Studio (Downtown LA)</div>
+            <div class="credential-item">Classical Hatha, Ashtanga, Iyengar certified</div>
+            <div class="credential-item">Teacher trainer and mentor</div>
+          </div>
+        </div>
+
+        <!-- Eddie -->
+        <div class="team-card">
+          <div class="team-card-header">
+            <div class="team-avatar eddie">EB</div>
+            <div class="team-info">
+              <h3>Eddie</h3>
+              <span class="team-title">Technology & Business</span>
+            </div>
+          </div>
+          <p>
+            Eddie brings 30 years of meditation practice and deep expertise in technology, SEO, and business strategy. He builds the tools that help studio owners grow and manages the directory that connects practitioners with studios.
+          </p>
+          <p>
+            Eddie writes all business and technical content: SEO guides, marketing strategies, and studio growth resources. His voice is data-driven, peer-level, and pragmatic—a colleague sharing what actually works.
+          </p>
+          <div class="team-credentials">
+            <div class="credential-item">30 years meditation practice</div>
+            <div class="credential-item">SEO and digital marketing expertise</div>
+            <div class="credential-item">Directory of 30,000+ studio listings</div>
+            <div class="credential-item">Former software architect</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Philosophy -->
+    <section class="about-section">
+      <h2>What We Stand For</h2>
+      <p>
+        We call ourselves the "punks of Western yoga"—not as rebellion for its own sake, but as a commitment to authenticity over marketing, substance over style, and practitioners over profits.
+      </p>
+
+      <div class="philosophy-box">
+        <h3>"Teach First, Tool Second"</h3>
+        <p>
+          Every piece of content, every tool, every resource starts with education. We don't sell solutions to manufactured problems. We identify real pain points, explain them thoroughly, and then offer tools that genuinely help.
+        </p>
+        <p>
+          The directory is free. The education is free. When we build tools, they follow the same philosophy: explain the problem, show the manual solution, then offer something that saves time.
+        </p>
+      </div>
+
+      <ul class="values-list">
+        <li><strong>Challenging yoga's commercialization</strong> without dismissing modern innovation</li>
+        <li><strong>Honoring tradition</strong> while remaining accessible to beginners</li>
+        <li><strong>Science-driven credibility</strong> without rejecting spirituality</li>
+        <li><strong>Accessible over exclusive</strong>—no gatekeeping, no guru worship</li>
+        <li><strong>Sincere over performative</strong>—real help over marketing fluff</li>
+      </ul>
+    </section>
+
+    <!-- What We Create -->
+    <section class="about-section">
+      <h2>What We Create</h2>
+      <p>
+        <strong>For Practitioners:</strong> A comprehensive glossary of 70+ yoga terms, in-depth style guides for every major practice, and 30 essential questions answered by someone who's actually been on the mat for decades.
+      </p>
+      <p>
+        <strong>For Studio Owners:</strong> The largest yoga studio directory in North America (30,000+ listings), plus practical guides on SEO, marketing, and business growth—written by someone who understands both the business and the practice.
+      </p>
+      <p>
+        Everything we make serves one goal: helping people find, understand, and deepen their yoga practice. Whether that means finding a studio around the corner or understanding the difference between Vinyasa and Hatha.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- CTA Section -->
+  <section class="about-cta">
+    <div class="cta-inner">
+      <h2>Ready to Explore?</h2>
+      <p>Start with our glossary, find a studio near you, or dive into the questions every practitioner asks.</p>
+      <div class="cta-buttons">
+        <a href="/yoga-glossary/" class="cta-btn cta-btn-primary">Browse the Glossary</a>
+        <a href="/studios/" class="cta-btn cta-btn-secondary">Find Studios</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="footer-logo">
+            <img src="https://yoganearme.info/wp-content/uploads/2025/11/yoga_near_me_64x64.png" alt="Yoga Near Me" class="logo-icon">
+            <div class="logo-text">
+              <span class="logo-text-main">YOGA NEAR ME</span>
+            </div>
+          </a>
+          <p class="footer-tagline">Connecting students with studios, teachers, and the yoga community across the US & Canada.</p>
+        </div>
+
+        <nav class="footer-nav">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/studios/">Find Studios</a></li>
+            <li><a href="/yoga-glossary/">Yoga Glossary</a></li>
+            <li><a href="/answers/">FAQs</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-nav">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/add-studio/">Add Your Studio</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-nav">
+          <h4>For Studios</h4>
+          <ul>
+            <li><a href="/add-studio/">Claim Your Listing</a></li>
+            <li><a href="/studio-resources/">Resources</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2025 Yoga Near Me. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home -->
+  <url>
+    <loc>https://yoganearme.info/</loc>
+    <priority>1.0</priority>
+    <changefreq>daily</changefreq>
+  </url>
+
+  <!-- Directory hub pages -->
+  <url>
+    <loc>https://yoganearme.info/yoga-locations-archive/</loc>
+    <priority>0.9</priority>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://yoganearme.info/best-yoga-studios/</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Style hub + examples -->
+  <url>
+    <loc>https://yoganearme.info/yoga-styles/</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://yoganearme.info/kundalini-yoga-awareness/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yoganearme.info/ashtanga-yoga-practice-benefits/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yoganearme.info/prenatal-yoga-benefits-guide/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yoganearme.info/power-yoga-benefits-practice-guide/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yoganearme.info/aerial-yoga/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yoganearme.info/rocket-yoga-benefits/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yoganearme.info/restorative-yoga-benefits/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yoganearme.info/iyengar-yoga-alignment/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yoganearme.info/yin-yoga-benefits/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yoganearme.info/bikram-yoga-26-2-benefits/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yoganearme.info/hatha-yoga-benefits/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yoganearme.info/vinyasa-yoga-benefits/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Glossary hub -->
+  <url>
+    <loc>https://yoganearme.info/yoga-glossary/</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Bright Side / business content -->
+  <url>
+    <loc>https://yoganearme.info/blog/studio-business/</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://yoganearme.info/blog/studio-business/visual-advantage-optimized-photos/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Account-less directory pages -->
+  <url>
+    <loc>https://yoganearme.info/search-page/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yoganearme.info/add-listing/</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Main XML sitemap index (for AI to discover full map) -->
+  <url>
+    <loc>https://yoganearme.info/sitemap_index.xml</loc>
+    <priority>0.5</priority>
+  </url>
+</urlset>

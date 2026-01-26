@@ -1,0 +1,209 @@
+/**
+ * FIX ALL BUTTON AND TEXT COLORS - Targeting exact HTML classes
+ * Add this to WordPress Customizer → Additional CSS (at the very bottom)
+ */
+
+/* ============================================
+   FIX 1: BUTTON TEXT COLORS - White text on colored buttons
+   ============================================ */
+
+/* "Book a Class" - Orange button, white text */
+body.single-gd_place .btn-primary,
+body.single-gd_place a.btn-primary,
+body.single-gd_place button.btn-primary {
+    background: #FF5733 !important;
+    color: #FFFFFF !important;
+}
+
+body.single-gd_place .btn-primary svg {
+    fill: #FFFFFF !important;
+}
+
+/* "Save" and "Share" buttons - Should be white text if they have colored backgrounds */
+body.single-gd_place .btn-secondary {
+    background: var(--color-white) !important;
+    color: var(--color-text-dark) !important;
+    border: 1px solid var(--color-border) !important;
+}
+
+/* But if Save/Share should be teal buttons with white text, uncomment this:
+body.single-gd_place .studio-actions .btn-secondary {
+    background: #61948B !important;
+    color: #FFFFFF !important;
+    border-color: #61948B !important;
+}
+*/
+
+/* "Write a Review" button - Teal with white text */
+body.single-gd_place .content-card#reviews .btn-secondary,
+body.single-gd_place .content-card:has(h2:contains("Reviews")) .btn-secondary,
+body.single-gd_place button:contains("Write a Review"),
+body.single-gd_place .card-header button.btn-secondary {
+    background: #61948B !important;
+    color: #FFFFFF !important;
+    border-color: #61948B !important;
+}
+
+body.single-gd_place .content-card#reviews .btn-secondary svg {
+    fill: #FFFFFF !important;
+}
+
+/* "Load More Reviews" button - Teal with white text */
+body.single-gd_place button:contains("Load More Reviews"),
+body.single-gd_place .content-card#reviews button.btn-secondary:last-child {
+    background: #61948B !important;
+    color: #FFFFFF !important;
+    border-color: #61948B !important;
+}
+
+/* "Was this helpful?" button - Should have white text if background is colored */
+body.single-gd_place .helpful-btn {
+    background: var(--color-white) !important;
+    color: var(--color-text-dark) !important;
+    border: 1px solid var(--color-border) !important;
+}
+
+/* If helpful button should be colored, uncomment:
+body.single-gd_place .helpful-btn {
+    background: #61948B !important;
+    color: #FFFFFF !important;
+    border-color: #61948B !important;
+}
+*/
+
+body.single-gd_place .helpful-btn svg {
+    fill: var(--color-text-light) !important;
+}
+
+/* "Claim This Listing" button - Orange with white text */
+body.single-gd_place .claim-btn,
+body.single-gd_place .claim-card .btn,
+body.single-gd_place .claim-card a.btn {
+    background: #FF5733 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+}
+
+body.single-gd_place .claim-btn svg {
+    fill: #FFFFFF !important;
+}
+
+/* ============================================
+   FIX 2: SOCIAL BUTTONS - Orange instead of pink
+   ============================================ */
+
+body.single-gd_place .social-link {
+    background: rgba(255, 87, 51, 0.1) !important;
+    border: 1px solid rgba(255, 87, 51, 0.2) !important;
+}
+
+body.single-gd_place .social-link svg {
+    fill: #FF5733 !important;
+}
+
+body.single-gd_place .social-link:hover {
+    background: #FF5733 !important;
+}
+
+body.single-gd_place .social-link:hover svg {
+    fill: #FFFFFF !important;
+}
+
+/* ============================================
+   FIX 3: YOGA STYLES TEXT - Black or orange
+   ============================================ */
+
+body.single-gd_place .style-tag {
+    color: #222222 !important; /* Black */
+    background: #FFFFFF !important;
+    border: 2px solid #61948B !important;
+}
+
+body.single-gd_place .style-tag svg {
+    fill: #61948B !important;
+}
+
+body.single-gd_place .style-tag:hover {
+    background: #61948B !important;
+    color: #FFFFFF !important;
+    border-color: #61948B !important;
+}
+
+body.single-gd_place .style-tag:hover svg {
+    fill: #FFFFFF !important;
+}
+
+/* ============================================
+   FIX 4: SCHEDULE TABS - Orange instead of red
+   ============================================ */
+
+body.single-gd_place .schedule-tab.active {
+    background: #FF5733 !important;
+    color: #FFFFFF !important;
+    border-color: #FF5733 !important;
+}
+
+body.single-gd_place .schedule-tab {
+    color: var(--color-text-dark) !important;
+}
+
+body.single-gd_place .schedule-tab:hover:not(.active) {
+    border-color: #FF5733 !important;
+}
+
+/* ============================================
+   FIX 5: CONTACT INFO TEXT - Remove pink
+   ============================================ */
+
+body.single-gd_place .contact-value {
+    color: #222222 !important;
+}
+
+body.single-gd_place .contact-value a {
+    color: #61948B !important;
+}
+
+/* ============================================
+   FIX 6: REMOVE SVG ICONS FROM SECTION HEADINGS
+   Keep dots, remove icons
+   ============================================ */
+
+body.single-gd_place .card-title svg {
+    display: none !important;
+}
+
+/* But keep icons in other places */
+body.single-gd_place .btn svg,
+body.single-gd_place .contact-icon svg,
+body.single-gd_place .amenity-item svg,
+body.single-gd_place .style-tag svg,
+body.single-gd_place .meta-item svg,
+body.single-gd_place .stars svg,
+body.single-gd_place .review-rating svg,
+body.single-gd_place .read-more-toggle svg,
+body.single-gd_place .view-all-link svg {
+    display: inline-block !important;
+}
+
+/* ============================================
+   ENSURE DOTS ARE VISIBLE ON HEADINGS
+   ============================================ */
+
+body.single-gd_place .card-title::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+}
+
+body.single-gd_place .card-title {
+    position: relative !important;
+    padding-left: 24px !important;
+}
+

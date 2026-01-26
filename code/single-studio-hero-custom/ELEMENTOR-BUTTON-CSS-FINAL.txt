@@ -1,0 +1,140 @@
+ELEMENTOR BUTTON CUSTOM CSS - FINAL VERSION
+===========================================
+For Elementor Button widgets, use these exact snippets
+
+---
+
+"BOOK A CLASS" BUTTON
+----------------------
+Paste this into the Custom CSS panel:
+
+selector.elementor-button {
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+    border-color: #FF5733 !important;
+}
+
+selector.elementor-button:hover {
+    background-color: #E64A2A !important;
+}
+
+selector.elementor-button svg {
+    fill: #FFFFFF !important;
+}
+
+---
+
+"SAVE" BUTTON
+-------------
+Paste this into the Custom CSS panel:
+
+selector.elementor-button {
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    border-color: #61948B !important;
+}
+
+selector.elementor-button:hover {
+    background-color: #4F7A73 !important;
+}
+
+selector.elementor-button svg {
+    fill: #FFFFFF !important;
+}
+
+---
+
+"SHARE" BUTTON
+--------------
+Paste this into the Custom CSS panel:
+
+selector.elementor-button {
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    border-color: #61948B !important;
+}
+
+selector.elementor-button:hover {
+    background-color: #4F7A73 !important;
+}
+
+selector.elementor-button svg {
+    fill: #FFFFFF !important;
+}
+
+---
+
+"WRITE A REVIEW" BUTTON
+-----------------------
+Paste this into the Custom CSS panel:
+
+selector.elementor-button {
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    border-color: #61948B !important;
+}
+
+selector.elementor-button:hover {
+    background-color: #4F7A73 !important;
+}
+
+selector.elementor-button svg {
+    fill: #FFFFFF !important;
+}
+
+---
+
+"LOAD MORE REVIEWS" BUTTON
+--------------------------
+Paste this into the Custom CSS panel:
+
+selector.elementor-button {
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    border-color: #61948B !important;
+}
+
+selector.elementor-button:hover {
+    background-color: #4F7A73 !important;
+}
+
+---
+
+"CLAIM THIS LISTING" BUTTON
+---------------------------
+Paste this into the Custom CSS panel:
+
+selector.elementor-button {
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+    border-color: #FF5733 !important;
+}
+
+selector.elementor-button:hover {
+    background-color: #E64A2A !important;
+}
+
+selector.elementor-button svg {
+    fill: #FFFFFF !important;
+}
+
+---
+
+"WAS THIS HELPFUL?" BUTTON (Yes button)
+---------------------------------------
+Paste this into the Custom CSS panel:
+
+selector.elementor-button {
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    border-color: #61948B !important;
+}
+
+selector.elementor-button:hover {
+    background-color: #4F7A73 !important;
+}
+
+selector.elementor-button svg {
+    fill: #FFFFFF !important;
+}
+

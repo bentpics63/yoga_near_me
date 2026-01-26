@@ -1,0 +1,552 @@
+/**
+ * YogaNearMe - Nearby Studios Card Styling
+ *
+ * PURPOSE: Style the GD Listings widget cards to be compact, elegant,
+ * and hide placeholder business hours while showing all other content.
+ *
+ * INSTALLATION: Add to Appearance > Customize > Additional CSS
+ *
+ * Brand Colors:
+ * - Sage: #5F7470
+ * - Teal: #61948B
+ * - Rust: #bd371a
+ * - Paper: #F8FAFA
+ */
+
+/* ============================================
+   CARD CONTAINER STYLING
+   ============================================ */
+
+/* Main card container */
+.geodir-post,
+.gd-post-item,
+article.geodir-post {
+    background: #fff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    margin-bottom: 20px !important;
+}
+
+/* Hover effect */
+.geodir-post:hover,
+.gd-post-item:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+    transform: translateY(-2px) !important;
+}
+
+
+/* ============================================
+   IMAGE STYLING
+   ============================================ */
+
+/* Ensure images display */
+.geodir-post .geodir-post-thumbnail,
+.geodir-post .gd-post-thumbnail,
+.geodir-post figure,
+.geodir-post .post-thumbnail,
+.geodir-post [class*="thumbnail"],
+.geodir-post [class*="featured-image"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    height: 180px !important;
+    overflow: hidden !important;
+}
+
+.geodir-post .geodir-post-thumbnail img,
+.geodir-post figure img,
+.geodir-post [class*="thumbnail"] img {
+    display: block !important;
+    visibility: visible !important;
+    width: 100% !important;
+    height: 180px !important;
+    object-fit: cover !important;
+    opacity: 1 !important;
+}
+
+
+/* ============================================
+   TITLE STYLING - Make 30% larger
+   ============================================ */
+
+/* Studio title - prominently displayed */
+.geodir-post .geodir-entry-title,
+.geodir-post .gd-entry-title,
+.geodir-post h2,
+.geodir-post h3.geodir-entry-title,
+.geodir-post .entry-title {
+    display: block !important;
+    visibility: visible !important;
+    font-size: 1.3em !important;
+    font-weight: 600 !important;
+    color: #2C3E3A !important;
+    margin: 12px 16px 8px !important;
+    padding: 0 !important;
+    line-height: 1.3 !important;
+}
+
+.geodir-post .geodir-entry-title a,
+.geodir-post h2 a,
+.geodir-post h3 a {
+    color: #2C3E3A !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+.geodir-post .geodir-entry-title a:hover,
+.geodir-post h2 a:hover,
+.geodir-post h3 a:hover {
+    color: #61948B !important;
+}
+
+
+/* ============================================
+   ABOUT/EXCERPT SECTION
+   ============================================ */
+
+/* Show the about/excerpt text */
+.geodir-post .geodir-post-excerpt,
+.geodir-post .gd-post-excerpt,
+.geodir-post .excerpt,
+.geodir-post .entry-excerpt,
+.geodir-post [class*="excerpt"],
+.geodir-post [class*="about"],
+.geodir-post p:not([class*="hours"]):not([class*="bh-"]) {
+    display: block !important;
+    visibility: visible !important;
+    font-size: 0.9em !important;
+    color: #6B7C78 !important;
+    line-height: 1.5 !important;
+    margin: 0 16px 12px !important;
+    max-height: 60px !important;
+    overflow: hidden !important;
+}
+
+
+/* ============================================
+   ADDRESS & DISTANCE
+   ============================================ */
+
+/* Address styling */
+.geodir-post .geodir-i-address,
+.geodir-post [class*="address"],
+.geodir-post .gd-address {
+    display: block !important;
+    visibility: visible !important;
+    font-size: 0.85em !important;
+    color: #5F7470 !important;
+    margin: 0 16px 8px !important;
+}
+
+/* Distance badge */
+.geodir-post .gd-list-distance,
+.geodir-post [class*="distance"] {
+    display: inline-block !important;
+    visibility: visible !important;
+    background: #F8FAFA !important;
+    color: #5F7470 !important;
+    font-size: 0.8em !important;
+    padding: 4px 10px !important;
+    border-radius: 20px !important;
+    margin: 0 16px 12px !important;
+    font-weight: 500 !important;
+}
+
+
+/* ============================================
+   HIDE BUSINESS HOURS - Specific targeting
+   ============================================ */
+
+/* Hide all business hours related elements */
+.geodir-post .geodir-i-business_hours,
+.geodir-post .geodir-field-business_hours,
+.geodir-post [class*="business-hour"],
+.geodir-post [class*="business_hour"],
+.geodir-post .gd-bh-expand,
+.geodir-post .gd-bh-toggler,
+.geodir-post .gd-bh-days,
+.geodir-post .gd-bh-row,
+.geodir-post .gd-bh-show-field,
+.geodir-post .gd-bh-field,
+.geodir-post .gd-bh-open-text,
+.geodir-post table.gd-bh-days-table,
+.geodir-post [class*="gd-bh-"] {
+    display: none !important;
+}
+
+/* Hide "Open now" text specifically */
+.geodir-post [class*="open-now"],
+.geodir-post [class*="open_now"],
+.geodir-post .gd-open-text {
+    display: none !important;
+}
+
+/* Hide any text containing "Placeholder" */
+.geodir-post *:has(> :contains("Placeholder")) {
+    display: none !important;
+}
+
+
+/* ============================================
+   BADGE STYLING
+   ============================================ */
+
+/* General badge styling */
+.geodir-post .gd-badge,
+.geodir-post .geodir-badge,
+.geodir-post [class*="badge"] {
+    display: inline-block !important;
+    font-size: 0.75em !important;
+    font-weight: 500 !important;
+    padding: 4px 10px !important;
+    border-radius: 4px !important;
+    margin: 4px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Featured badge */
+.geodir-post .gd-badge-featured {
+    background: linear-gradient(135deg, #61948B, #5F7470) !important;
+    color: #fff !important;
+}
+
+/* Category badges */
+.geodir-post .gd-badge-cat,
+.geodir-post [class*="category-badge"] {
+    background: #F8FAFA !important;
+    color: #5F7470 !important;
+    border: 1px solid #e0e5e4 !important;
+}
+
+
+/* ============================================
+   RATING & REVIEWS
+   ============================================ */
+
+/* Hide empty/no reviews in red */
+.geodir-post .geodir-post-rating:empty,
+.geodir-post .no-reviews,
+.geodir-post .geodir-rating-0,
+.geodir-post [class*="no-review"],
+.geodir-post .review-count:empty {
+    display: none !important;
+}
+
+/* Style existing ratings */
+.geodir-post .geodir-post-rating {
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    margin: 0 16px 12px !important;
+    font-size: 0.85em !important;
+}
+
+.geodir-post .geodir-post-rating .fas,
+.geodir-post .geodir-post-rating .far {
+    color: #F59E0B !important;
+    font-size: 12px !important;
+}
+
+
+/* ============================================
+   CONTENT PADDING & SPACING
+   ============================================ */
+
+/* Card content area */
+.geodir-post .geodir-post-content,
+.geodir-post .gd-post-content,
+.geodir-post .post-content,
+.geodir-post > .e-con,
+.geodir-post > .elementor-widget-container {
+    padding: 0 !important;
+}
+
+/* Inner content spacing */
+.geodir-post .e-con-inner {
+    padding: 0 !important;
+    gap: 4px !important;
+}
+
+
+/* ============================================
+   GRID LAYOUT ADJUSTMENTS
+   ============================================ */
+
+/* Grid container */
+.geodir-loop-container .geodir-gridview,
+.geodir-category-list-view {
+    gap: 20px !important;
+}
+
+/* 3-column grid */
+.geodir-loop-container .geodir-gridview-3,
+.geodir-loop-container.layout-3 {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+}
+
+/* Responsive - 2 columns on tablet */
+@media (max-width: 991px) {
+    .geodir-loop-container .geodir-gridview-3,
+    .geodir-loop-container.layout-3 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Responsive - 1 column on mobile */
+@media (max-width: 767px) {
+    .geodir-loop-container .geodir-gridview-3,
+    .geodir-loop-container.layout-3 {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+
+/* ============================================
+   TRUST BADGES (Google/Yelp ratings)
+   ============================================ */
+
+.geodir-post .ynm-trust-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 0.8em !important;
+    padding: 4px 10px !important;
+    border-radius: 6px !important;
+    margin: 4px 16px 12px !important;
+}
+
+.geodir-post .ynm-trust-badge.google {
+    background: rgba(66, 133, 244, 0.1) !important;
+    color: #4285F4 !important;
+}
+
+.geodir-post .ynm-trust-badge.yelp {
+    background: rgba(211, 35, 35, 0.1) !important;
+    color: #D32323 !important;
+}
+
+
+/* ============================================
+   LINK/BUTTON STYLING
+   ============================================ */
+
+.geodir-post a.gd-link,
+.geodir-post .geodir-link,
+.geodir-post a[class*="view-more"] {
+    color: #61948B !important;
+    text-decoration: none !important;
+    font-size: 0.85em !important;
+    font-weight: 500 !important;
+    margin: 0 16px 16px !important;
+    display: inline-block !important;
+}
+
+.geodir-post a.gd-link:hover {
+    color: #bd371a !important;
+}
+
+
+/* ============================================
+   FIX: Don't hide general elementor elements
+   Be specific about what to hide
+   ============================================ */
+
+/* Ensure card content is visible */
+.geodir-post .elementor-widget-heading,
+.geodir-post .elementor-widget-text-editor,
+.geodir-post .elementor-widget-image {
+    display: block !important;
+    visibility: visible !important;
+}
+
+
+/* ============================================
+   V3 CONSISTENCY: Match Archive Card Styling
+   Applied to GD Listings Widget (Nearby Studios)
+   ============================================ */
+
+/* Scope: GD Listings widget on single studio pages */
+.gd-listings-widget .geodir-post,
+.elementor-widget-gd-listings .geodir-post,
+[class*="nearby"] .geodir-post {
+
+}
+
+/* ===========================================
+   HIDE PHONE/EMAIL/WEBSITE ON CARDS
+   =========================================== */
+
+.gd-listings-widget .geodir-post .geodir-field-phone,
+.gd-listings-widget .geodir-post .geodir-i-phone,
+.gd-listings-widget .geodir-post [class*="phone"],
+.elementor-widget-gd-listings .geodir-post .geodir-field-phone,
+.elementor-widget-gd-listings .geodir-post .geodir-i-phone,
+.elementor-widget-gd-listings .geodir-post [class*="phone"]:not(.geodir-post-title),
+[class*="nearby"] .geodir-post .geodir-field-phone,
+[class*="nearby"] .geodir-post .geodir-i-phone {
+    display: none !important;
+}
+
+.gd-listings-widget .geodir-post .geodir-field-email,
+.gd-listings-widget .geodir-post .geodir-i-email,
+.gd-listings-widget .geodir-post [class*="email"],
+.elementor-widget-gd-listings .geodir-post .geodir-field-email,
+.elementor-widget-gd-listings .geodir-post .geodir-i-email,
+[class*="nearby"] .geodir-post .geodir-field-email,
+[class*="nearby"] .geodir-post .geodir-i-email {
+    display: none !important;
+}
+
+.gd-listings-widget .geodir-post .geodir-field-website,
+.gd-listings-widget .geodir-post .geodir-i-website,
+.gd-listings-widget .geodir-post [class*="website"],
+.elementor-widget-gd-listings .geodir-post .geodir-field-website,
+.elementor-widget-gd-listings .geodir-post .geodir-i-website,
+[class*="nearby"] .geodir-post .geodir-field-website,
+[class*="nearby"] .geodir-post .geodir-i-website {
+    display: none !important;
+}
+
+/* ===========================================
+   HIDE "NO REVIEWS" TEXT
+   =========================================== */
+
+.gd-listings-widget .geodir-post .gd-no-rating,
+.gd-listings-widget .geodir-post [class*="no-review"],
+.gd-listings-widget .geodir-post .geodir-post-rating:empty,
+.gd-listings-widget .geodir-post .gd-rating-text:empty,
+.elementor-widget-gd-listings .geodir-post .gd-no-rating,
+.elementor-widget-gd-listings .geodir-post [class*="no-review"],
+[class*="nearby"] .geodir-post .gd-no-rating,
+[class*="nearby"] .geodir-post [class*="no-review"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide rating container if it only shows "No Reviews" */
+.gd-listings-widget .geodir-post .geodir-post-rating:has(.gd-no-rating),
+.elementor-widget-gd-listings .geodir-post .geodir-post-rating:has(.gd-no-rating),
+[class*="nearby"] .geodir-post .geodir-post-rating:has(.gd-no-rating) {
+    display: none !important;
+}
+
+/* ===========================================
+   RATING + HOURS SAME LINE
+   =========================================== */
+
+.gd-listings-widget .geodir-post .geodir-post-meta,
+.gd-listings-widget .geodir-post .gd-post-meta,
+.elementor-widget-gd-listings .geodir-post .geodir-post-meta,
+[class*="nearby"] .geodir-post .geodir-post-meta {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin: 8px 16px !important;
+}
+
+/* Force rating and hours to be inline */
+.gd-listings-widget .geodir-post .geodir-post-meta > *,
+.elementor-widget-gd-listings .geodir-post .geodir-post-meta > * {
+    display: inline-flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+}
+
+/* Rating styling */
+.gd-listings-widget .geodir-post .geodir-post-rating,
+.gd-listings-widget .geodir-post .gd-star-rating,
+.elementor-widget-gd-listings .geodir-post .geodir-post-rating,
+[class*="nearby"] .geodir-post .geodir-post-rating {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    font-size: 14px !important;
+    color: #2C3E3A !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+}
+
+/* Star color */
+.gd-listings-widget .geodir-post .fa-star,
+.elementor-widget-gd-listings .geodir-post .fa-star,
+[class*="nearby"] .geodir-post .fa-star {
+    color: #F4D03F !important;
+}
+
+/* Separator dot between rating and hours */
+.gd-listings-widget .geodir-post .geodir-post-rating:not(:empty):not(:has(.gd-no-rating))::after,
+.elementor-widget-gd-listings .geodir-post .geodir-post-rating:not(:empty):not(:has(.gd-no-rating))::after,
+[class*="nearby"] .geodir-post .geodir-post-rating:not(:empty):not(:has(.gd-no-rating))::after {
+    content: "·" !important;
+    margin-left: 8px !important;
+    color: #6B7C78 !important;
+    font-weight: bold !important;
+}
+
+/* ===========================================
+   ADDRESS: Street + City + ZIP only
+   =========================================== */
+
+/* Show address container */
+.gd-listings-widget .geodir-post .geodir-field-address,
+.gd-listings-widget .geodir-post .geodir-i-address,
+.elementor-widget-gd-listings .geodir-post .geodir-field-address,
+[class*="nearby"] .geodir-post .geodir-field-address {
+    display: block !important;
+    font-size: 0.85em !important;
+    color: #6B7C78 !important;
+    margin: 0 16px 12px !important;
+    line-height: 1.4 !important;
+}
+
+/* Hide state/region and country (keep street, city, zip) */
+.gd-listings-widget .geodir-post .geodir-address-region,
+.gd-listings-widget .geodir-post .geodir-address-country,
+.elementor-widget-gd-listings .geodir-post .geodir-address-region,
+.elementor-widget-gd-listings .geodir-post .geodir-address-country,
+[class*="nearby"] .geodir-post .geodir-address-region,
+[class*="nearby"] .geodir-post .geodir-address-country {
+    display: none !important;
+}
+
+/* ===========================================
+   INTRO OFFER BADGE
+   =========================================== */
+
+.gd-listings-widget .geodir-post .geodir-field-intro_offer,
+.elementor-widget-gd-listings .geodir-post .geodir-field-intro_offer,
+[class*="nearby"] .geodir-post .geodir-field-intro_offer {
+    display: inline-block !important;
+    background: rgba(189, 55, 26, 0.1) !important;
+    color: #bd371a !important;
+    font-size: 0.75em !important;
+    font-weight: 600 !important;
+    padding: 4px 10px !important;
+    border-radius: 4px !important;
+    margin: 0 16px 12px !important;
+}
+
+/* ===========================================
+   HOVER & INTERACTION
+   =========================================== */
+
+.gd-listings-widget .geodir-post:hover,
+.elementor-widget-gd-listings .geodir-post:hover,
+[class*="nearby"] .geodir-post:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+    transform: translateY(-3px) !important;
+}
+
+.gd-listings-widget .geodir-post .geodir-entry-title a:hover,
+.elementor-widget-gd-listings .geodir-post .geodir-entry-title a:hover,
+[class*="nearby"] .geodir-post .geodir-entry-title a:hover {
+    color: #bd371a !important;
+}

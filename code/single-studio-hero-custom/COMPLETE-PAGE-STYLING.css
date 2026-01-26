@@ -1,0 +1,272 @@
+/**
+ * COMPLETE PAGE STYLING FOR SINGLE STUDIO PAGE
+ * This styles the entire page structure to match the design
+ * Add this to WordPress Customizer → Additional CSS
+ */
+
+/* ============================================
+   GLOBAL STYLING
+   ============================================ */
+
+body.single-gd_place {
+    background: #F8F9FA !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* ============================================
+   SECTION CARDS - White cards with shadows
+   ============================================ */
+
+body.single-gd_place .elementor-section,
+body.single-gd_place .elementor-widget-container,
+body.single-gd_place [class*="card"],
+body.single-gd_place [class*="section"] {
+    background: #FFFFFF !important;
+    border-radius: 12px !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    border: 1px solid #E0E0E0 !important;
+}
+
+/* ============================================
+   HEADINGS - Add orange dots
+   ============================================ */
+
+body.single-gd_place .elementor-heading-title,
+body.single-gd_place h2,
+body.single-gd_place h3 {
+    position: relative !important;
+    padding-left: 24px !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #222222 !important;
+    margin-bottom: 16px !important;
+}
+
+body.single-gd_place .elementor-heading-title::before,
+body.single-gd_place h2::before,
+body.single-gd_place h3::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+}
+
+/* Remove SVG icons from headings */
+body.single-gd_place .elementor-heading-title svg,
+body.single-gd_place h2 svg,
+body.single-gd_place h3 svg {
+    display: none !important;
+}
+
+/* ============================================
+   STUDIO NAME/TITLE
+   ============================================ */
+
+body.single-gd_place .geodir-post-title,
+body.single-gd_place [class*="post-title"],
+body.single-gd_place .elementor-widget-geodir-post-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+    font-weight: 700 !important;
+    color: #222222 !important;
+    margin-bottom: 8px !important;
+}
+
+/* ============================================
+   BUTTONS - Proper colors
+   ============================================ */
+
+/* "Book a Class" - Orange */
+body.single-gd_place .elementor-button:contains("Book"),
+body.single-gd_place .elementor-button:contains("Class"),
+body.single-gd_place .elementor-widget-button:first-of-type .elementor-button {
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+    border-color: #FF5733 !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+}
+
+body.single-gd_place .elementor-button:contains("Book"):hover,
+body.single-gd_place .elementor-widget-button:first-of-type .elementor-button:hover {
+    background-color: #E64A2A !important;
+}
+
+/* "Save" - Teal */
+body.single-gd_place .elementor-button:contains("Save"),
+body.single-gd_place .elementor-widget-button:nth-of-type(2) .elementor-button {
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    border-color: #61948B !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+}
+
+body.single-gd_place .elementor-button:contains("Save"):hover,
+body.single-gd_place .elementor-widget-button:nth-of-type(2) .elementor-button:hover {
+    background-color: #4F7A73 !important;
+}
+
+/* "Claim Listing" - Orange */
+body.single-gd_place .elementor-button:contains("Claim"),
+body.single-gd_place .elementor-button:contains("Listing") {
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+    border-color: #FF5733 !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+}
+
+/* "Get Directions" - Orange */
+body.single-gd_place .elementor-button:contains("Directions"),
+body.single-gd_place .elementor-button:contains("Get") {
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+    border-color: #FF5733 !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+}
+
+/* "View All" - Teal text link */
+body.single-gd_place a:contains("View All"),
+body.single-gd_place .elementor-widget-text-editor a:contains("View") {
+    color: #61948B !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+}
+
+body.single-gd_place a:contains("View All"):hover {
+    text-decoration: underline !important;
+}
+
+/* ============================================
+   SOCIAL BUTTONS - Orange instead of green
+   ============================================ */
+
+body.single-gd_place .elementor-share-btn,
+body.single-gd_place .elementor-share-buttons__button,
+body.single-gd_place .elementor-social-icon {
+    background-color: rgba(255, 87, 51, 0.1) !important;
+    border-color: rgba(255, 87, 51, 0.2) !important;
+    color: #FF5733 !important;
+    border-radius: 50% !important;
+}
+
+body.single-gd_place .elementor-share-btn svg,
+body.single-gd_place .elementor-share-buttons__button svg,
+body.single-gd_place .elementor-social-icon svg {
+    fill: #FF5733 !important;
+}
+
+body.single-gd_place .elementor-share-btn:hover,
+body.single-gd_place .elementor-share-buttons__button:hover,
+body.single-gd_place .elementor-social-icon:hover {
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+}
+
+body.single-gd_place .elementor-share-btn:hover svg,
+body.single-gd_place .elementor-share-buttons__button:hover svg,
+body.single-gd_place .elementor-social-icon:hover svg {
+    fill: #FFFFFF !important;
+}
+
+/* ============================================
+   ADDRESS/TEXT - Remove pink, proper colors
+   ============================================ */
+
+body.single-gd_place .geodir-post-address,
+body.single-gd_place [class*="address"],
+body.single-gd_place .elementor-widget-text-editor,
+body.single-gd_place .elementor-widget-html {
+    color: #222222 !important;
+}
+
+body.single-gd_place .geodir-post-address a,
+body.single-gd_place [class*="address"] a {
+    color: #61948B !important;
+}
+
+/* ============================================
+   PLACEHOLDERS - Style them better
+   ============================================ */
+
+body.single-gd_place [class*="placeholder"],
+body.single-gd_place [class*="Placeholder"] {
+    color: #888888 !important;
+    font-style: italic !important;
+    background: #F8F9FA !important;
+    padding: 12px !important;
+    border-radius: 8px !important;
+    border: 1px dashed #E0E0E0 !important;
+}
+
+/* ============================================
+   REVIEWS SECTION
+   ============================================ */
+
+body.single-gd_place .geodir-post-rating,
+body.single-gd_place .elementor-widget-geodir-post-rating {
+    color: #222222 !important;
+}
+
+body.single-gd_place .geodir-stars svg,
+body.single-gd_place .geodir-rating svg {
+    fill: #F5A623 !important;
+}
+
+/* ============================================
+   MAP SECTION
+   ============================================ */
+
+body.single-gd_place .elementor-widget-google_maps,
+body.single-gd_place [class*="map"] {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    margin-bottom: 16px !important;
+}
+
+/* ============================================
+   NEARBY STUDIOS SECTION
+   ============================================ */
+
+body.single-gd_place [class*="nearby"],
+body.single-gd_place [class*="Nearby"] {
+    background: #FFFFFF !important;
+    padding: 40px 24px !important;
+    margin-top: 40px !important;
+}
+
+body.single-gd_place [class*="nearby"] .elementor-heading-title,
+body.single-gd_place [class*="Nearby"] h2 {
+    font-size: 1.5rem !important;
+    margin-bottom: 24px !important;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    body.single-gd_place .elementor-section {
+        padding: 16px !important;
+    }
+    
+    body.single-gd_place .elementor-heading-title,
+    body.single-gd_place h2 {
+        font-size: 1.1rem !important;
+        padding-left: 20px !important;
+    }
+}
+

@@ -1,0 +1,818 @@
+/**
+ * MATCH VIVEKA YOGA STUDIO DESIGN EXACTLY
+ * This CSS matches the exact design from the HTML reference
+ * Add this to WordPress Customizer → Additional CSS (at the very bottom)
+ * 
+ * Design Reference: Viveka Yoga Studio page with:
+ * - Hero gallery (70/30 split)
+ * - Badges above title
+ * - Tagline italic below title
+ * - Two-column layout (66%/33%)
+ * - Section headings with orange dots
+ * - Yoga styles as pills with teal borders
+ * - Amenities as icon grid
+ * - White cards with subtle shadows
+ */
+
+/* ============================================
+   GLOBAL - Match Design Exactly
+   ============================================ */
+
+body.single-gd_place {
+    background: #F8FAFA !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    color: #2C3E3A !important;
+    line-height: 1.7 !important;
+}
+
+/* ============================================
+   HERO SECTION - Image Gallery (70/30 split)
+   ============================================ */
+
+/* Hero gallery container */
+body.single-gd_place .elementor-section:first-child .elementor-container,
+body.single-gd_place .hero-gallery {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 24px !important;
+}
+
+/* Gallery grid: 70% main, 30% side */
+body.single-gd_place .hero-gallery,
+body.single-gd_place .elementor-section:first-child .elementor-row {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr !important;
+    gap: 16px !important;
+    margin-bottom: 32px !important;
+}
+
+/* Main image (70%) */
+body.single-gd_place .hero-gallery .main-image,
+body.single-gd_place .elementor-section:first-child .elementor-column:first-child {
+    grid-row: 1 / 3 !important;
+}
+
+body.single-gd_place .hero-gallery img,
+body.single-gd_place .elementor-section:first-child .elementor-column img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Side images (30%) */
+body.single-gd_place .hero-gallery .gallery-item,
+body.single-gd_place .elementor-section:first-child .elementor-column:not(:first-child) {
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 12px !important;
+}
+
+/* "+X Photos" overlay */
+body.single-gd_place .gallery-more,
+body.single-gd_place .elementor-column:last-child::after {
+    position: absolute !important;
+    inset: 0 !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    border-radius: 12px !important;
+}
+
+/* ============================================
+   STUDIO HEADER - Badges, Title, Tagline
+   ============================================ */
+
+/* Studio header container */
+body.single-gd_place .studio-header,
+body.single-gd_place .elementor-section:nth-child(2) .elementor-container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 24px 32px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 40px !important;
+    flex-wrap: wrap !important;
+}
+
+/* Left column: Badges, Title, Info */
+body.single-gd_place .studio-title-block,
+body.single-gd_place .elementor-section:nth-child(2) .elementor-column:first-child {
+    flex: 1 !important;
+    min-width: 300px !important;
+}
+
+/* Badges container */
+body.single-gd_place .studio-badges {
+    display: flex !important;
+    gap: 12px !important;
+    margin-bottom: 12px !important;
+    flex-wrap: wrap !important;
+}
+
+/* Verified badge - Teal */
+body.single-gd_place .badge-verified,
+body.single-gd_place .badge.verified,
+body.single-gd_place [class*="verified"] {
+    background: rgba(97, 148, 139, 0.12) !important;
+    color: #61948B !important;
+    border: none !important;
+    padding: 6px 12px !important;
+    border-radius: 20px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+/* Featured badge - Orange */
+body.single-gd_place .badge-featured,
+body.single-gd_place .badge.sponsored,
+body.single-gd_place .badge.featured,
+body.single-gd_place [class*="featured"],
+body.single-gd_place [class*="sponsored"] {
+    background: rgba(255, 87, 51, 0.12) !important;
+    color: #FF5733 !important;
+    border: none !important;
+    padding: 6px 12px !important;
+    border-radius: 20px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+/* Studio Title */
+body.single-gd_place .studio-name,
+body.single-gd_place .geodir-post-title,
+body.single-gd_place h1.geodir-post-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+    font-weight: 700 !important;
+    color: #2C3E3A !important;
+    line-height: 1.2 !important;
+    margin-bottom: 12px !important;
+    font-family: 'Inter', sans-serif !important;
+    letter-spacing: -0.03em !important;
+}
+
+/* Tagline - Italic, medium gray */
+body.single-gd_place .studio-tagline,
+body.single-gd_place .elementor-widget-text-editor:has-text("tradition") {
+    font-family: 'Crimson Pro', Georgia, serif !important;
+    font-style: italic !important;
+    font-size: 18px !important;
+    color: #6B7C78 !important;
+    margin-bottom: 20px !important;
+    line-height: 1.5 !important;
+}
+
+/* Studio Meta: Rating, Location, Hours */
+body.single-gd_place .studio-meta {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 24px !important;
+    align-items: center !important;
+    margin-bottom: 0 !important;
+}
+
+/* Rating block */
+body.single-gd_place .rating-block {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+body.single-gd_place .stars svg {
+    fill: #F5A623 !important;
+    width: 18px !important;
+    height: 18px !important;
+}
+
+body.single-gd_place .rating-text {
+    font-weight: 700 !important;
+    color: #2C3E3A !important;
+    font-size: 16px !important;
+}
+
+body.single-gd_place .review-count {
+    color: #6B7C78 !important;
+    font-size: 15px !important;
+}
+
+body.single-gd_place .review-count a {
+    color: #61948B !important;
+    text-decoration: underline !important;
+}
+
+/* Meta items (location, hours) */
+body.single-gd_place .meta-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    color: #6B7C78 !important;
+    font-size: 15px !important;
+}
+
+body.single-gd_place .meta-item svg {
+    width: 18px !important;
+    height: 18px !important;
+    fill: #5F7470 !important;
+    flex-shrink: 0 !important;
+}
+
+/* Status indicator */
+body.single-gd_place .hours-status.open {
+    background: rgba(40, 167, 69, 0.1) !important;
+    color: #28A745 !important;
+    padding: 6px 12px !important;
+    border-radius: 20px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+/* Right column: Action buttons */
+body.single-gd_place .studio-actions {
+    display: flex !important;
+    gap: 16px !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+}
+
+/* ============================================
+   MAIN CONTENT - Two Column Layout (66%/33%)
+   ============================================ */
+
+/* Main content container */
+body.single-gd_place .studio-content,
+body.single-gd_place .elementor-section:nth-child(n+3) .elementor-container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 24px !important;
+}
+
+/* Content grid: 2fr / 1fr */
+body.single-gd_place .content-grid,
+body.single-gd_place .elementor-section:nth-child(n+3) .elementor-row {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr !important;
+    gap: 24px !important;
+    align-items: start !important;
+}
+
+@media (max-width: 1024px) {
+    body.single-gd_place .content-grid,
+    body.single-gd_place .elementor-section:nth-child(n+3) .elementor-row {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ============================================
+   CONTENT CARDS - White with shadows
+   ============================================ */
+
+body.single-gd_place .content-card,
+body.single-gd_place .elementor-widget-container,
+body.single-gd_place .elementor-column-wrap {
+    background: #FFFFFF !important;
+    border-radius: 12px !important;
+    padding: 32px !important;
+    margin-bottom: 24px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    border: 1px solid #E0E0E0 !important;
+    transition: box-shadow 0.3s ease !important;
+}
+
+body.single-gd_place .content-card:hover,
+body.single-gd_place .elementor-widget-container:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ============================================
+   SECTION HEADINGS - Orange dots
+   ============================================ */
+
+/* Remove SVG icons */
+body.single-gd_place .elementor-heading-title svg,
+body.single-gd_place h2 svg,
+body.single-gd_place h3 svg {
+    display: none !important;
+}
+
+/* Style headings */
+body.single-gd_place .card-title,
+body.single-gd_place .elementor-heading-title:not(h1),
+body.single-gd_place h2:not(.geodir-post-title),
+body.single-gd_place h3 {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: #2C3E3A !important;
+    margin-bottom: 20px !important;
+    position: relative !important;
+    padding-left: 24px !important;
+    font-family: 'Inter', sans-serif !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.2 !important;
+}
+
+/* Orange dots */
+body.single-gd_place .card-title::before,
+body.single-gd_place .elementor-heading-title:not(h1)::before,
+body.single-gd_place h2:not(.geodir-post-title)::before,
+body.single-gd_place h3::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 14px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+}
+
+/* ============================================
+   YOGA STYLES PILLS - Teal borders, white bg
+   ============================================ */
+
+body.single-gd_place .style-tag,
+body.single-gd_place [class*="yoga-style"],
+body.single-gd_place .geodir-post-meta[data-key="yoga_styles"] .geodir-meta-value,
+body.single-gd_place .geodir-post-meta .geodir-fv-kundalini,
+body.single-gd_place .geodir-post-meta .geodir-fv-power,
+body.single-gd_place .geodir-post-meta .geodir-fv-vinyassa-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-hatha-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-yin-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-prenatal-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-ashtanga-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-restorative-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-rocket-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-aerial-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-iyengar-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-dharma-yoga {
+    background-color: #FFFFFF !important;
+    color: #61948B !important;
+    border: 2px solid #61948B !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin: 2px 6px 2px 0 !important;
+    position: relative !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Star icon in pills */
+body.single-gd_place .style-tag::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-kundalini::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-power::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-vinyassa-yoga::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-hatha-yoga::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-yin-yoga::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-prenatal-yoga::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-ashtanga-yoga::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-restorative-yoga::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-rocket-yoga::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-aerial-yoga::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-iyengar-yoga::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-dharma-yoga::before {
+    content: "★" !important;
+    color: #61948B !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+    margin-right: 0 !important;
+    display: inline-block !important;
+}
+
+body.single-gd_place .style-tag:hover {
+    background-color: #F8FAFA !important;
+    color: #61948B !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(97, 148, 139, 0.15) !important;
+}
+
+/* ============================================
+   AMENITIES - Icon grid (3 columns)
+   ============================================ */
+
+body.single-gd_place .amenities-grid,
+body.single-gd_place .geodir-post-meta[data-key="amenities"] {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 24px !important;
+    margin-top: 20px !important;
+}
+
+body.single-gd_place .amenity-item,
+body.single-gd_place .geodir-post-meta[data-key="amenities"] .geodir-meta-value {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 12px !important;
+    background: #F8FAFA !important;
+    border-radius: 8px !important;
+    font-size: 15px !important;
+    color: #2C3E3A !important;
+    transition: background-color 0.2s ease !important;
+}
+
+body.single-gd_place .amenity-item:hover {
+    background: #E4E7E6 !important;
+}
+
+body.single-gd_place .amenity-item svg,
+body.single-gd_place .amenity-icon {
+    width: 20px !important;
+    height: 20px !important;
+    fill: #61948B !important;
+    flex-shrink: 0 !important;
+}
+
+@media (max-width: 1024px) {
+    body.single-gd_place .amenities-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    body.single-gd_place .amenities-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ============================================
+   BUTTONS - Match design exactly
+   ============================================ */
+
+body.single-gd_place .btn,
+body.single-gd_place .elementor-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    border: none !important;
+    font-family: 'Inter', sans-serif !important;
+    text-decoration: none !important;
+}
+
+body.single-gd_place .btn-primary,
+body.single-gd_place .elementor-widget-button:first-of-type .elementor-button {
+    background: #FF5733 !important;
+    color: #FFFFFF !important;
+}
+
+body.single-gd_place .btn-primary:hover,
+body.single-gd_place .elementor-widget-button:first-of-type .elementor-button:hover {
+    background: #E64A2A !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(255, 87, 51, 0.25) !important;
+}
+
+body.single-gd_place .btn-secondary,
+body.single-gd_place .elementor-widget-button:nth-of-type(2) .elementor-button {
+    background: #61948B !important;
+    color: #FFFFFF !important;
+}
+
+body.single-gd_place .btn-secondary:hover,
+body.single-gd_place .elementor-widget-button:nth-of-type(2) .elementor-button:hover {
+    background: #4F7A73 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(97, 148, 139, 0.25) !important;
+}
+
+body.single-gd_place .btn svg,
+body.single-gd_place .elementor-button svg {
+    width: 18px !important;
+    height: 18px !important;
+    fill: #FFFFFF !important;
+}
+
+/* ============================================
+   SOCIAL SHARE BUTTONS - Orange theme
+   ============================================ */
+
+body.single-gd_place .elementor-share-btn,
+body.single-gd_place .elementor-share-buttons__button,
+body.single-gd_place .elementor-social-icon {
+    background-color: rgba(255, 87, 51, 0.1) !important;
+    border-color: rgba(255, 87, 51, 0.2) !important;
+    border: 1px solid rgba(255, 87, 51, 0.2) !important;
+    color: #FF5733 !important;
+    border-radius: 50% !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+}
+
+body.single-gd_place .elementor-share-btn svg,
+body.single-gd_place .elementor-share-buttons__button svg {
+    fill: #FF5733 !important;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+body.single-gd_place .elementor-share-btn:hover,
+body.single-gd_place .elementor-share-buttons__button:hover {
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+    border-color: #FF5733 !important;
+}
+
+body.single-gd_place .elementor-share-btn:hover svg {
+    fill: #FFFFFF !important;
+}
+
+/* ============================================
+   CONTACT INFO CARD - Right sidebar
+   ============================================ */
+
+body.single-gd_place .contact-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+}
+
+body.single-gd_place .contact-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    padding-bottom: 16px !important;
+    border-bottom: 1px solid #F0F0F0 !important;
+}
+
+body.single-gd_place .contact-item:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+}
+
+body.single-gd_place .contact-icon {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    background: #F8FAFA !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+
+body.single-gd_place .contact-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+    fill: #5F7470 !important;
+}
+
+body.single-gd_place .contact-label {
+    font-size: 12px !important;
+    color: #9EABA8 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 4px !important;
+}
+
+body.single-gd_place .contact-value {
+    color: #2C3E3A !important;
+    font-weight: 500 !important;
+    font-size: 15px !important;
+    word-break: break-word !important;
+}
+
+body.single-gd_place .contact-value a {
+    color: #61948B !important;
+    text-decoration: none !important;
+}
+
+body.single-gd_place .contact-value a:hover {
+    text-decoration: underline !important;
+}
+
+/* ============================================
+   HOURS CARD
+   ============================================ */
+
+body.single-gd_place .hours-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+
+body.single-gd_place .hours-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid #F0F0F0 !important;
+}
+
+body.single-gd_place .hours-row:last-child {
+    border-bottom: none !important;
+}
+
+body.single-gd_place .hours-day {
+    color: #6B7C78 !important;
+    font-size: 15px !important;
+}
+
+body.single-gd_place .hours-row.today .hours-day {
+    color: #2C3E3A !important;
+    font-weight: 600 !important;
+}
+
+body.single-gd_place .hours-time {
+    font-weight: 500 !important;
+    color: #2C3E3A !important;
+    font-size: 15px !important;
+}
+
+/* ============================================
+   NEARBY STUDIOS CARDS
+   ============================================ */
+
+body.single-gd_place .nearby-section {
+    background: #FFFFFF !important;
+    padding: 40px 24px !important;
+    margin-top: 40px !important;
+}
+
+body.single-gd_place .nearby-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 24px !important;
+    margin-top: 24px !important;
+}
+
+body.single-gd_place .studio-card {
+    background: #FFFFFF !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    border: 1px solid #E0E0E0 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    transition: all 0.3s ease !important;
+}
+
+body.single-gd_place .studio-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+    border-color: #61948B !important;
+}
+
+body.single-gd_place .studio-card-image {
+    height: 160px !important;
+    overflow: hidden !important;
+}
+
+body.single-gd_place .studio-card-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.3s ease !important;
+}
+
+body.single-gd_place .studio-card:hover .studio-card-image img {
+    transform: scale(1.05) !important;
+}
+
+body.single-gd_place .studio-card-content {
+    padding: 20px !important;
+}
+
+body.single-gd_place .studio-card-name {
+    font-weight: 600 !important;
+    color: #2C3E3A !important;
+    margin-bottom: 8px !important;
+    font-size: 16px !important;
+}
+
+body.single-gd_place .studio-card-location {
+    font-size: 14px !important;
+    color: #6B7C78 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin-bottom: 12px !important;
+}
+
+body.single-gd_place .studio-card-location svg {
+    width: 14px !important;
+    height: 14px !important;
+    fill: #9EABA8 !important;
+}
+
+body.single-gd_place .studio-card-meta {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+body.single-gd_place .studio-card-rating svg {
+    fill: #F5A623 !important;
+    width: 14px !important;
+    height: 14px !important;
+}
+
+body.single-gd_place .studio-card-distance {
+    font-size: 13px !important;
+    color: #9EABA8 !important;
+}
+
+@media (max-width: 1024px) {
+    body.single-gd_place .nearby-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    body.single-gd_place .nearby-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ============================================
+   TEXT CONTENT
+   ============================================ */
+
+body.single-gd_place .about-content p,
+body.single-gd_place .elementor-widget-text-editor p {
+    color: #6B7C78 !important;
+    line-height: 1.8 !important;
+    margin-bottom: 16px !important;
+    font-size: 16px !important;
+}
+
+body.single-gd_place .about-content p:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* ============================================
+   REMOVE FOOTER DOTS
+   ============================================ */
+
+footer.ynm-footer *::before {
+    display: none !important;
+    content: none !important;
+}
+
+footer.ynm-footer h1,
+footer.ynm-footer h2,
+footer.ynm-footer h3,
+footer.ynm-footer h4 {
+    padding-left: 0 !important;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    body.single-gd_place .hero-gallery,
+    body.single-gd_place .elementor-section:first-child .elementor-row {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: 250px 100px !important;
+    }
+    
+    body.single-gd_place .hero-gallery .main-image,
+    body.single-gd_place .elementor-section:first-child .elementor-column:first-child {
+        grid-row: 1 !important;
+    }
+    
+    body.single-gd_place .studio-header {
+        flex-direction: column !important;
+    }
+    
+    body.single-gd_place .studio-actions {
+        width: 100% !important;
+    }
+    
+    body.single-gd_place .studio-actions .btn {
+        flex: 1 !important;
+    }
+}
+

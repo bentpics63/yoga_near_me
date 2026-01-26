@@ -1,0 +1,103 @@
+/**
+ * GLOBAL ELEMENTOR FIXES
+ * Add this to WordPress Customizer → Additional CSS
+ * This handles things that can't be fixed with individual button CSS
+ */
+
+/* ============================================
+   YOGA STYLES TEXT - Black instead of pink
+   ============================================ */
+
+body.single-gd_place .style-tag,
+body.single-gd_place [class*="yoga-style"],
+body.single-gd_place .elementor-widget-text-editor .style-tag {
+    color: #222222 !important;
+    color: black !important;
+    background: #FFFFFF !important;
+    border: 2px solid #61948B !important;
+}
+
+body.single-gd_place .style-tag:hover {
+    background: #61948B !important;
+    color: #FFFFFF !important;
+}
+
+body.single-gd_place .style-tag svg {
+    fill: #61948B !important;
+}
+
+body.single-gd_place .style-tag:hover svg {
+    fill: #FFFFFF !important;
+}
+
+/* ============================================
+   SCHEDULE TABS - Orange active tab
+   ============================================ */
+
+body.single-gd_place .schedule-tab.active,
+body.single-gd_place .elementor-tabs .elementor-tab-title.elementor-active {
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+    border-color: #FF5733 !important;
+}
+
+body.single-gd_place .schedule-tab {
+    color: #222222 !important;
+}
+
+/* ============================================
+   CONTACT INFO - Remove pink text
+   ============================================ */
+
+body.single-gd_place .contact-value,
+body.single-gd_place .geodir-post-address,
+body.single-gd_place .elementor-widget-geodir-post-address {
+    color: #222222 !important;
+    color: black !important;
+}
+
+body.single-gd_place .contact-value a {
+    color: #61948B !important;
+}
+
+/* ============================================
+   REMOVE SVG ICONS FROM HEADINGS
+   ============================================ */
+
+body.single-gd_place .elementor-heading-title svg,
+body.single-gd_place .card-title svg {
+    display: none !important;
+}
+
+/* Keep dots */
+body.single-gd_place .elementor-heading-title::before,
+body.single-gd_place .card-title::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    margin-right: 12px !important;
+}
+
+body.single-gd_place .elementor-heading-title,
+body.single-gd_place .card-title {
+    position: relative !important;
+    padding-left: 24px !important;
+}
+
+/* ============================================
+   REMOVE ALL PINK TEXT
+   ============================================ */
+
+body.single-gd_place .elementor-widget-text-editor,
+body.single-gd_place .elementor-widget-html,
+body.single-gd_place [style*="color: pink"],
+body.single-gd_place [style*="color: #FF"][style*="background"] {
+    color: #222222 !important;
+}
+
+/* But preserve links */
+body.single-gd_place .elementor-widget-text-editor a {
+    color: #61948B !important;
+}
+

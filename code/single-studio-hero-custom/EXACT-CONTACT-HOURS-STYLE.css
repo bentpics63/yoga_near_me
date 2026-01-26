@@ -1,0 +1,255 @@
+/* ================================================
+   CONTACT & HOURS CARDS - Exact Match to Screenshots
+   Add to Customizer > Additional CSS
+================================================ */
+
+/* CONTACT CARD */
+.ynm-contact-card {
+    background-color: white;
+    border-radius: 24px;
+    padding: 48px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    margin-bottom: 32px;
+}
+
+.ynm-card-title {
+    font-size: 32px;
+    font-weight: 400;
+    font-style: italic;
+    color: #2C3E3A;
+    margin: 0 0 36px 0;
+    padding-left: 24px;
+    position: relative;
+    font-family: Georgia, Times, serif;
+    line-height: 1.2;
+}
+
+.ynm-card-title:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #D4A574;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 10px;
+}
+
+/* Contact List */
+.ynm-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Contact Row */
+.ynm-contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Icon Box */
+.ynm-icon-box {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    background-color: #F2F4F3;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contact Info */
+.ynm-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: 4px;
+}
+
+.ynm-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #8A9A97;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+}
+
+.ynm-value {
+    font-size: 17px;
+    color: #2C3E3A;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.ynm-link {
+    font-size: 17px;
+    color: #E8998D;
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+.ynm-link:hover {
+    color: #D4A574;
+    text-decoration: underline;
+}
+
+.ynm-tbd {
+    color: #B0B0B0;
+    font-style: italic;
+}
+
+/* Follow Section */
+.ynm-follow-section {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid #EBEBEB;
+}
+
+.ynm-follow-title {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #2C3E3A;
+    margin-bottom: 20px;
+}
+
+.ynm-social-icons {
+    display: flex;
+    gap: 16px;
+}
+
+.ynm-social-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: #EDE4F3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.ynm-social-icon:hover {
+    background-color: #D4A574;
+    transform: translateY(-3px);
+}
+
+.ynm-social-icon:hover svg {
+    fill: white;
+}
+
+.ynm-social-icon:hover svg path {
+    fill: white;
+}
+
+.ynm-social-icon:hover svg rect {
+    stroke: white;
+}
+
+.ynm-social-icon:hover svg circle {
+    stroke: white;
+    fill: white;
+}
+
+/* HOURS CARD */
+.ynm-hours-card {
+    background-color: white;
+    border-radius: 24px;
+    padding: 48px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    margin-bottom: 32px;
+}
+
+/* Status Badge */
+.ynm-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background-color: #F4F9F4;
+    border-radius: 30px;
+    margin-bottom: 32px;
+    border: 1px solid #E5F0E5;
+}
+
+.ynm-status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+}
+
+.ynm-status-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #4CAF50;
+}
+
+/* Hours List */
+.ynm-hours-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.ynm-hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.ynm-hours-row:last-child {
+    border-bottom: none;
+}
+
+.ynm-day {
+    font-size: 17px;
+    color: #6B7B78;
+    font-weight: 400;
+}
+
+.ynm-time {
+    font-size: 17px;
+    color: #2C3E3A;
+    font-weight: 400;
+}
+
+/* Today Row */
+.ynm-hours-row.ynm-today .ynm-day {
+    font-weight: 600;
+    color: #2C3E3A;
+}
+
+.ynm-hours-row.ynm-today .ynm-time {
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ynm-contact-card,
+    .ynm-hours-card {
+        padding: 32px 24px;
+        border-radius: 20px;
+    }
+    
+    .ynm-card-title {
+        font-size: 26px;
+    }
+    
+    .ynm-icon-box {
+        width: 46px;
+        height: 46px;
+        min-width: 46px;
+    }
+    
+    .ynm-social-icon {
+        width: 46px;
+        height: 46px;
+    }
+}
+

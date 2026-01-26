@@ -1,0 +1,432 @@
+/**
+ * COMPLETE SECTION TEMPLATES
+ * Green layout structure with white/off-white colors
+ * Shows all fields with placeholders (TBD) until data is filled
+ * Add to WordPress Customizer → Additional CSS (at the very bottom)
+ */
+
+/* ===================================
+   CONTACT INFORMATION - Complete Template
+   (Shows all fields even when empty)
+=================================== */
+
+/* Contact Information Card Container */
+body.single-gd_place .contact-information-group,
+body.single-gd_place .elementor-widget:has-text("Contact Information"),
+body.single-gd_place .elementor-widget:has-text("Contact") {
+    background: var(--color-white) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-xl) !important;
+    margin-bottom: var(--space-xl) !important;
+    box-shadow: var(--shadow-sm) !important;
+    border: 1px solid var(--color-border) !important;
+}
+
+/* Contact Information Heading */
+body.single-gd_place .contact-information-group h2,
+body.single-gd_place .contact-information-group h3,
+body.single-gd_place .elementor-widget:has-text("Contact Information") .elementor-heading-title,
+body.single-gd_place .elementor-widget:has-text("Contact") .elementor-heading-title {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: var(--color-text-dark) !important;
+    margin-bottom: var(--space-lg) !important;
+    padding-bottom: var(--space-md) !important;
+    border-bottom: 1px solid var(--color-border) !important;
+    position: relative !important;
+    padding-left: 24px !important;
+}
+
+body.single-gd_place .contact-information-group h2::before,
+body.single-gd_place .contact-information-group h3::before,
+body.single-gd_place .elementor-widget:has-text("Contact Information") .elementor-heading-title::before,
+body.single-gd_place .elementor-widget:has-text("Contact") .elementor-heading-title::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: var(--color-terracotta) !important;
+    font-size: 14px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+}
+
+/* Contact Items Container - Always show all fields */
+body.single-gd_place .contact-information-group .contact-items-wrapper,
+body.single-gd_place .elementor-widget:has-text("Contact Information") .elementor-widget-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+}
+
+/* Individual Contact Item - Always visible */
+body.single-gd_place .contact-item-wrapper,
+body.single-gd_place .contact-item-group,
+body.single-gd_place .geodir-post-meta[data-key*="address"],
+body.single-gd_place .geodir-post-meta[data-key*="phone"],
+body.single-gd_place .geodir-post-meta[data-key*="email"],
+body.single-gd_place .geodir-post-meta[data-key*="website"] {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: var(--space-md) !important;
+    padding: var(--space-md) 0 !important;
+    border-bottom: 1px solid #F0F0F0 !important;
+    min-height: 48px !important;
+}
+
+body.single-gd_place .contact-item-wrapper:last-child,
+body.single-gd_place .contact-item-group:last-child,
+body.single-gd_place .geodir-post-meta[data-key*="website"] {
+    border-bottom: none !important;
+}
+
+/* Contact Icons - Location Pin, Phone, Envelope, Globe */
+body.single-gd_place .contact-item-wrapper .contact-icon,
+body.single-gd_place .contact-item-group .icon-wrapper,
+body.single-gd_place .geodir-post-meta .geodir-meta-icon {
+    width: 24px !important;
+    height: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+body.single-gd_place .contact-item-wrapper .contact-icon svg,
+body.single-gd_place .contact-item-group .icon-wrapper svg,
+body.single-gd_place .geodir-post-meta .geodir-meta-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+    fill: var(--color-sage) !important;
+    opacity: 0.7 !important;
+}
+
+/* Contact Labels (ADDRESS, PHONE, EMAIL, WEBSITE) - Always show */
+body.single-gd_place .contact-item-wrapper .contact-label,
+body.single-gd_place .contact-item-group .label,
+body.single-gd_place .geodir-post-meta .geodir-meta-label {
+    display: block !important;
+    font-size: 0.75rem !important;
+    color: var(--color-text-light) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 4px !important;
+    font-weight: 500 !important;
+}
+
+/* Contact Values - Show TBD if empty */
+body.single-gd_place .contact-item-wrapper .contact-value,
+body.single-gd_place .contact-item-group .value,
+body.single-gd_place .geodir-post-meta .geodir-meta-value {
+    color: var(--color-text-dark) !important;
+    font-weight: 400 !important;
+    font-size: 15px !important;
+    word-break: break-word !important;
+    line-height: 1.6 !important;
+    min-height: 20px !important;
+}
+
+/* Show TBD for empty contact fields */
+body.single-gd_place .contact-item-wrapper .contact-value:empty::after,
+body.single-gd_place .geodir-post-meta .geodir-meta-value:empty::after,
+body.single-gd_place .geodir-post-meta[data-value=""] .geodir-meta-value::after {
+    content: "TBD" !important;
+    color: var(--color-text-light) !important;
+    font-style: italic !important;
+}
+
+/* Links (phone, email, website) - Teal color */
+body.single-gd_place .contact-item-wrapper .contact-value a,
+body.single-gd_place .contact-item-group .value a,
+body.single-gd_place .geodir-post-meta .geodir-meta-value a {
+    color: var(--color-teal) !important;
+    text-decoration: none !important;
+}
+
+body.single-gd_place .contact-item-wrapper .contact-value a:hover,
+body.single-gd_place .contact-item-group .value a:hover,
+body.single-gd_place .geodir-post-meta .geodir-meta-value a:hover {
+    color: var(--color-terracotta) !important;
+    text-decoration: underline !important;
+}
+
+/* Follow Us Section - Separated by line */
+body.single-gd_place .contact-information-group .follow-us-section,
+body.single-gd_place .elementor-widget:has-text("Follow Us") {
+    margin-top: var(--space-xl) !important;
+    padding-top: var(--space-lg) !important;
+    border-top: 1px solid var(--color-border) !important;
+}
+
+body.single-gd_place .contact-information-group .follow-us-heading,
+body.single-gd_place .elementor-widget:has-text("Follow Us") .elementor-heading-title {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: var(--color-text-dark) !important;
+    margin-bottom: var(--space-md) !important;
+    padding-bottom: var(--space-sm) !important;
+    border-bottom: 1px solid var(--color-border) !important;
+}
+
+/* Social Media Icons - Circular, light purple/teal */
+body.single-gd_place .contact-information-group .social-links,
+body.single-gd_place .elementor-widget-share-buttons,
+body.single-gd_place .elementor-social-icons-wrapper {
+    display: flex !important;
+    gap: var(--space-sm) !important;
+    margin-top: var(--space-md) !important;
+    flex-wrap: wrap !important;
+}
+
+body.single-gd_place .contact-information-group .social-link,
+body.single-gd_place .elementor-social-icon {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    border-radius: 50% !important;
+    background: rgba(97, 148, 139, 0.1) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all var(--transition-fast) !important;
+    border: none !important;
+    cursor: pointer !important;
+}
+
+body.single-gd_place .contact-information-group .social-link:hover,
+body.single-gd_place .elementor-social-icon:hover {
+    background: var(--color-teal) !important;
+    transform: translateY(-2px) !important;
+}
+
+body.single-gd_place .contact-information-group .social-link svg,
+body.single-gd_place .elementor-social-icon i,
+body.single-gd_place .elementor-social-icon svg {
+    color: var(--color-teal) !important;
+    fill: var(--color-teal) !important;
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 20px !important;
+}
+
+body.single-gd_place .contact-information-group .social-link:hover svg,
+body.single-gd_place .elementor-social-icon:hover i,
+body.single-gd_place .elementor-social-icon:hover svg {
+    color: white !important;
+    fill: white !important;
+}
+
+/* ===================================
+   HOURS OF OPERATION - Complete Template
+   (Shows all days with TBD if empty)
+=================================== */
+
+/* Hours Card Container */
+body.single-gd_place .hours-of-operation-group,
+body.single-gd_place .elementor-widget:has-text("Hours of Operation"),
+body.single-gd_place .elementor-widget:has-text("Hours") {
+    background: var(--color-white) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-xl) !important;
+    margin-bottom: var(--space-xl) !important;
+    box-shadow: var(--shadow-sm) !important;
+    border: 1px solid var(--color-border) !important;
+}
+
+/* Hours Heading */
+body.single-gd_place .hours-of-operation-group h2,
+body.single-gd_place .hours-of-operation-group h3,
+body.single-gd_place .elementor-widget:has-text("Hours of Operation") .elementor-heading-title,
+body.single-gd_place .elementor-widget:has-text("Hours") .elementor-heading-title {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: var(--color-text-dark) !important;
+    margin-bottom: var(--space-lg) !important;
+    padding-bottom: var(--space-md) !important;
+    border-bottom: 1px solid var(--color-border) !important;
+    position: relative !important;
+    padding-left: 24px !important;
+}
+
+body.single-gd_place .hours-of-operation-group h2::before,
+body.single-gd_place .hours-of-operation-group h3::before,
+body.single-gd_place .elementor-widget:has-text("Hours of Operation") .elementor-heading-title::before,
+body.single-gd_place .elementor-widget:has-text("Hours") .elementor-heading-title::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: var(--color-terracotta) !important;
+    font-size: 14px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+}
+
+/* Status Indicator (Open Now · Closes 9:00 PM) */
+body.single-gd_place .hours-status-group,
+body.single-gd_place .geodir-business-hours .hours-status {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: var(--space-sm) var(--space-md) !important;
+    background: rgba(40, 167, 69, 0.1) !important;
+    border-radius: var(--radius-full) !important;
+    margin-bottom: var(--space-lg) !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    color: var(--color-success) !important;
+    min-height: 32px !important;
+}
+
+body.single-gd_place .hours-status-group .status-dot,
+body.single-gd_place .geodir-business-hours .hours-status::before {
+    content: "" !important;
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: var(--color-success) !important;
+    display: inline-block !important;
+    flex-shrink: 0 !important;
+}
+
+body.single-gd_place .hours-status-group .status-text:empty::after,
+body.single-gd_place .geodir-business-hours .hours-status:empty::after {
+    content: "TBD" !important;
+    color: var(--color-text-light) !important;
+    font-style: italic !important;
+}
+
+/* Hours List Container */
+body.single-gd_place .hours-list,
+body.single-gd_place .geodir-business-hours .hours-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+}
+
+/* Today's Hours Row - Always at Top */
+body.single-gd_place .hours-row-group.today,
+body.single-gd_place .geodir-business-hours .geodir-hours-row.today {
+    order: -1 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: var(--space-sm) 0 !important;
+    border-bottom: 1px solid var(--color-border) !important;
+    margin-bottom: var(--space-sm) !important;
+    font-weight: 600 !important;
+    min-height: 40px !important;
+}
+
+/* Regular Hours Rows - Always show all days */
+body.single-gd_place .hours-row-group,
+body.single-gd_place .geodir-business-hours .geodir-hours-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: var(--space-sm) 0 !important;
+    border-bottom: 1px solid #F0F0F0 !important;
+    min-height: 32px !important;
+}
+
+body.single-gd_place .hours-row-group:last-child,
+body.single-gd_place .geodir-business-hours .geodir-hours-row:last-child {
+    border-bottom: none !important;
+}
+
+/* Day Names */
+body.single-gd_place .hours-row-group .day,
+body.single-gd_place .geodir-business-hours .geodir-hours-day {
+    color: var(--color-text-medium) !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    min-width: 100px !important;
+}
+
+body.single-gd_place .hours-row-group.today .day,
+body.single-gd_place .geodir-business-hours .geodir-hours-row.today .geodir-hours-day {
+    color: var(--color-text-dark) !important;
+    font-weight: 600 !important;
+}
+
+/* Time Values - Show TBD if empty */
+body.single-gd_place .hours-row-group .time,
+body.single-gd_place .geodir-business-hours .geodir-hours-time {
+    font-weight: 400 !important;
+    color: var(--color-text-dark) !important;
+    font-size: 15px !important;
+    text-align: right !important;
+}
+
+body.single-gd_place .hours-row-group .time:empty::after,
+body.single-gd_place .geodir-business-hours .geodir-hours-time:empty::after,
+body.single-gd_place .hours-row-group:not(:has(.time))::after {
+    content: "TBD" !important;
+    color: var(--color-text-light) !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+}
+
+/* Ensure all 7 days are always visible */
+body.single-gd_place .hours-list::before {
+    content: "" !important;
+    display: block !important;
+}
+
+/* Force display of all days even if empty */
+body.single-gd_place .hours-list .hours-row-group[data-day="monday"],
+body.single-gd_place .hours-list .hours-row-group[data-day="tuesday"],
+body.single-gd_place .hours-list .hours-row-group[data-day="wednesday"],
+body.single-gd_place .hours-list .hours-row-group[data-day="thursday"],
+body.single-gd_place .hours-list .hours-row-group[data-day="friday"],
+body.single-gd_place .hours-list .hours-row-group[data-day="saturday"],
+body.single-gd_place .hours-list .hours-row-group[data-day="sunday"] {
+    display: flex !important;
+}
+
+/* ===================================
+   SECTION SPACING - Green Layout Structure
+=================================== */
+body.single-gd_place .elementor-section:nth-child(n+2) {
+    margin-bottom: var(--space-2xl) !important;
+    margin-top: var(--space-xl) !important;
+}
+
+body.single-gd_place .elementor-section:nth-child(n+2) .elementor-container {
+    background: var(--color-white) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-xl) !important;
+    margin-bottom: var(--space-xl) !important;
+    box-shadow: var(--shadow-sm) !important;
+    border: 1px solid var(--color-border) !important;
+}
+
+/* Spacing between Contact Information and buttons */
+body.single-gd_place .elementor-section:has(.contact-information-group) {
+    margin-bottom: var(--space-xl) !important;
+}
+
+body.single-gd_place .elementor-section:has(.contact-information-group) + .elementor-section {
+    margin-top: var(--space-xl) !important;
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+@media (max-width: 768px) {
+    body.single-gd_place .elementor-section:nth-child(n+2) {
+        margin-bottom: var(--space-lg) !important;
+    }
+    
+    body.single-gd_place .contact-information-group,
+    body.single-gd_place .hours-of-operation-group {
+        padding: var(--space-lg) !important;
+    }
+}
+

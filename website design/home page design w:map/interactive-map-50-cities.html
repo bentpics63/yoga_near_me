@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Map - 46 Cities | Yoga Near Me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-sage: #5F7470;
+            --color-teal: #61948B;
+            --color-terracotta: #FF5733;
+            --color-terracotta-light: #FF7F5C;
+            --color-bg: #F8FAFA;
+            --color-white: #FFFFFF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #FDFBF7 0%, #F5F1E8 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: var(--color-sage);
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            color: var(--color-sage);
+            opacity: 0.8;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .instructions {
+            color: var(--color-sage);
+            opacity: 0.6;
+            font-size: 1rem;
+        }
+
+        .map-wrapper {
+            background: var(--color-white);
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(95, 116, 112, 0.12);
+            display: block;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 1600px;
+            background: linear-gradient(135deg, #F8FAFA 0%, #E8F0F0 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 8px rgba(95, 116, 112, 0.05);
+        }
+
+        /* Map Background Image */
+        .map-bg {
+            position: absolute;
+            top: calc(-30% - 110px);
+            left: 0;
+            width: 100%;
+            height: 180%;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .map-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center center;
+            opacity: 0.85;
+            user-select: none;
+            pointer-events: none;
+            transform: scale(1.5);
+        }
+
+        /* City Markers */
+        .city {
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
+            transform: translate(-50%, -50%);
+        }
+
+        .city-dot {
+            width: 14px;
+            height: 14px;
+            background: var(--color-terracotta);
+            border: 2px solid var(--color-white);
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(255, 87, 51, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Pulse ring on hover */
+        .city-dot::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 26px;
+            height: 26px;
+            border: 2px solid var(--color-terracotta);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .city:hover .city-dot {
+            transform: scale(1.4);
+            background: var(--color-terracotta-light);
+            box-shadow: 0 4px 16px rgba(255, 87, 51, 0.6);
+        }
+
+        .city:hover .city-dot::before {
+            opacity: 0.6;
+            width: 36px;
+            height: 36px;
+        }
+
+        /* Tooltip */
+        .city-label {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            background: var(--color-white);
+            padding: 14px 18px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+            border: 1px solid rgba(95, 116, 112, 0.1);
+        }
+
+        .city:hover .city-label {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-16px);
+        }
+
+        .city-label h3 {
+            color: var(--color-sage);
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .city-label .studios {
+            color: var(--color-terracotta);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .city-label .state {
+            color: var(--color-sage);
+            opacity: 0.5;
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+
+        /* Click pulse animation */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 87, 51, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(255, 87, 51, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 87, 51, 0);
+            }
+        }
+
+        .city.clicked .city-dot {
+            animation: pulse 1s ease-out;
+        }
+
+        /* Info Panel */
+        .info-panel {
+            margin-top: 40px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(95, 116, 112, 0.06), rgba(255, 87, 51, 0.06));
+            border-radius: 20px;
+            display: none;
+            border: 1px solid rgba(95, 116, 112, 0.1);
+        }
+
+        .info-panel.active {
+            display: block;
+            animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .info-panel h2 {
+            color: var(--color-sage);
+            margin-bottom: 24px;
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px;
+            background: var(--color-white);
+            border-radius: 12px;
+        }
+
+        .info-item i {
+            color: var(--color-terracotta);
+            font-size: 1.6rem;
+        }
+
+        .info-item span {
+            color: var(--color-sage);
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .explore-btn {
+            display: inline-block;
+            padding: 16px 36px;
+            background: var(--color-terracotta);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(255, 87, 51, 0.25);
+        }
+
+        .explore-btn:hover {
+            background: var(--color-terracotta-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 87, 51, 0.35);
+        }
+
+        .explore-btn i {
+            margin-right: 8px;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 24px;
+            text-align: center;
+            color: var(--color-sage);
+            opacity: 0.6;
+            font-size: 0.95rem;
+        }
+
+        .legend i {
+            color: var(--color-terracotta);
+            font-size: 0.7rem;
+            margin-right: 6px;
+        }
+
+        /* Mobile - Hide map completely */
+        @media (max-width: 767px) {
+            .map-wrapper {
+                display: none;
+            }
+
+            .header {
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .instructions {
+                display: none;
+            }
+
+            .container::after {
+                content: "📱 The interactive map is available on desktop and tablet devices. Please visit on a larger screen to explore 46 cities across North America.";
+                display: block;
+                padding: 30px;
+                background: var(--color-white);
+                border-radius: 16px;
+                color: var(--color-sage);
+                text-align: center;
+                font-size: 1.05rem;
+                line-height: 1.6;
+                box-shadow: 0 4px 16px rgba(95, 116, 112, 0.1);
+            }
+        }
+
+        /* Tablet adjustments */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .map-container {
+                height: 700px;
+            }
+
+            .map-wrapper {
+                padding: 35px;
+            }
+
+            h1 {
+                font-size: 2.3rem;
+            }
+        }
+
+        /* Large desktop */
+        @media (min-width: 1400px) {
+            .map-container {
+                height: 1600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Explore 46 Cities Across North America</h1>
+            <p class="subtitle">Discover yoga studios from coast to coast</p>
+            <p class="instructions">Hover over any city to preview • Click to view detailed studio information</p>
+        </div>
+
+        <div class="map-wrapper">
+            <div class="map-container" id="mapContainer">
+                <!-- Map Background Image -->
+                <div class="map-bg">
+                    <img src="map-usa-canada.png" alt="Map of USA and Canada" loading="eager">
+                </div>
+
+                <!-- CITIES - All 46 positioned with % coordinates -->
+
+                <!-- San Francisco, CA --><div class="city" data-city="San Francisco" data-state="CA" data-studios="1,089" style="left: 24.684%; top: 73.499%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>San Francisco</h3>
+                        <div class="studios">1,089 Studios</div>
+                        <div class="state">California</div>
+                    </div>
+                </div>
+
+                <!-- Denver, CO --><div class="city" data-city="Denver" data-state="CO" data-studios="678" style="left: 44.5815%; top: 69.8124%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Denver</h3>
+                        <div class="studios">678 Studios</div>
+                        <div class="state">Colorado</div>
+                    </div>
+                </div>
+
+                <!-- Seattle, WA --><div class="city" data-city="Seattle" data-state="WA" data-studios="743" style="left: 29.8396%; top: 58.9366%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Seattle</h3>
+                        <div class="studios">743 Studios</div>
+                        <div class="state">Washington</div>
+                    </div>
+                </div>
+
+                <!-- Boston, MA --><div class="city" data-city="Boston" data-state="MA" data-studios="823" style="left: 88.0096%; top: 64.9993%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Boston</h3>
+                        <div class="studios">823 Studios</div>
+                        <div class="state">Massachusetts</div>
+                    </div>
+                </div>
+
+                <!-- Portland, OR --><div class="city" data-city="Portland" data-state="OR" data-studios="612" style="left: 29.6112%; top: 62.124%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Portland</h3>
+                        <div class="studios">612 Studios</div>
+                        <div class="state">Oregon</div>
+                    </div>
+                </div>
+
+                <!-- San Diego, CA --><div class="city" data-city="San Diego" data-state="CA" data-studios="734" style="left: 30.6908%; top: 83.7499%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>San Diego</h3>
+                        <div class="studios">734 Studios</div>
+                        <div class="state">California</div>
+                    </div>
+                </div>
+
+                <!-- Austin, TX --><div class="city" data-city="Austin" data-state="TX" data-studios="498" style="left: 57.4137%; top: 87.4996%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Austin</h3>
+                        <div class="studios">498 Studios</div>
+                        <div class="state">Texas</div>
+                    </div>
+                </div>
+
+                <!-- New York City, NY --><div class="city" data-city="New York City" data-state="NY" data-studios="1,247" style="left: 85.7428%; top: 68.249%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>New York City</h3>
+                        <div class="studios">1,247 Studios</div>
+                        <div class="state">New York</div>
+                    </div>
+                </div>
+
+                <!-- Washington, DC --><div class="city" data-city="Washington" data-state="DC" data-studios="456" style="left: 82.3795%; top: 72.8125%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Washington</h3>
+                        <div class="studios">456 Studios</div>
+                        <div class="state">District of Columbia</div>
+                    </div>
+                </div>
+
+                <!-- Minneapolis, MN --><div class="city" data-city="Minneapolis" data-state="MN" data-studios="389" style="left: 58.6596%; top: 61.9375%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Minneapolis</h3>
+                        <div class="studios">389 Studios</div>
+                        <div class="state">Minnesota</div>
+                    </div>
+                </div>
+
+                <!-- Miami, FL --><div class="city" data-city="Miami" data-state="FL" data-studios="512" style="left: 80.8389%; top: 94.3745%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Miami</h3>
+                        <div class="studios">512 Studios</div>
+                        <div class="state">Florida</div>
+                    </div>
+                </div>
+
+                <!-- Columbus, OH --><div class="city" data-city="Columbus" data-state="OH" data-studios="445" style="left: 71.1167%; top: 70.0615%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Columbus</h3>
+                        <div class="studios">445 Studios</div>
+                        <div class="state">Ohio</div>
+                    </div>
+                </div>
+
+                <!-- Oakland, CA --><div class="city" data-city="Oakland" data-state="CA" data-studios="678" style="left: 26.0562%; top: 74.1874%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Oakland</h3>
+                        <div class="studios">678 Studios</div>
+                        <div class="state">California</div>
+                    </div>
+                </div>
+
+                <!-- Atlanta, GA --><div class="city" data-city="Atlanta" data-state="GA" data-studios="589" style="left: 71.1444%; top: 81.7494%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Atlanta</h3>
+                        <div class="studios">589 Studios</div>
+                        <div class="state">Georgia</div>
+                    </div>
+                </div>
+
+                <!-- Tucson, AZ --><div class="city" data-city="Tucson" data-state="AZ" data-studios="198" style="left: 39.759%; top: 85.25%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Tucson</h3>
+                        <div class="studios">198 Studios</div>
+                        <div class="state">Arizona</div>
+                    </div>
+                </div>
+
+                <!-- Los Angeles, CA --><div class="city" data-city="Los Angeles" data-state="CA" data-studios="2,156" style="left: 29.2922%; top: 81%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Los Angeles</h3>
+                        <div class="studios">2,156 Studios</div>
+                        <div class="state">California</div>
+                    </div>
+                </div>
+
+                <!-- Chicago, IL --><div class="city" data-city="Chicago" data-state="IL" data-studios="892" style="left: 65.4362%; top: 66.3745%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Chicago</h3>
+                        <div class="studios">892 Studios</div>
+                        <div class="state">Illinois</div>
+                    </div>
+                </div>
+
+                <!-- Philadelphia, PA --><div class="city" data-city="Philadelphia" data-state="PA" data-studios="512" style="left: 83.282%; top: 70.8124%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Philadelphia</h3>
+                        <div class="studios">512 Studios</div>
+                        <div class="state">Pennsylvania</div>
+                    </div>
+                </div>
+
+                <!-- Phoenix, AZ --><div class="city" data-city="Phoenix" data-state="AZ" data-studios="521" style="left: 37.0453%; top: 82.1874%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Phoenix</h3>
+                        <div class="studios">521 Studios</div>
+                        <div class="state">Arizona</div>
+                    </div>
+                </div>
+
+                <!-- Dallas, TX --><div class="city" data-city="Dallas" data-state="TX" data-studios="567" style="left: 58.8102%; top: 83.5%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Dallas</h3>
+                        <div class="studios">567 Studios</div>
+                        <div class="state">Texas</div>
+                    </div>
+                </div>
+
+                <!-- Houston, TX --><div class="city" data-city="Houston" data-state="TX" data-studios="634" style="left: 60.7913%; top: 90.125%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Houston</h3>
+                        <div class="studios">634 Studios</div>
+                        <div class="state">Texas</div>
+                    </div>
+                </div>
+
+                <!-- San Jose, CA --><div class="city" data-city="San Jose" data-state="CA" data-studios="589" style="left: 25.5725%; top: 75.2499%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>San Jose</h3>
+                        <div class="studios">589 Studios</div>
+                        <div class="state">California</div>
+                    </div>
+                </div>
+
+                <!-- Sacramento, CA --><div class="city" data-city="Sacramento" data-state="CA" data-studios="312" style="left: 30.3005%; top: 72.3123%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Sacramento</h3>
+                        <div class="studios">312 Studios</div>
+                        <div class="state">California</div>
+                    </div>
+                </div>
+
+                <!-- Raleigh–Durham, NC --><div class="city" data-city="Raleigh–Durham" data-state="NC" data-studios="356" style="left: 79.2635%; top: 76.062%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Raleigh–Durham</h3>
+                        <div class="studios">356 Studios</div>
+                        <div class="state">North Carolina</div>
+                    </div>
+                </div>
+
+                <!-- Orlando, FL --><div class="city" data-city="Orlando" data-state="FL" data-studios="423" style="left: 79.576%; top: 90.8121%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Orlando</h3>
+                        <div class="studios">423 Studios</div>
+                        <div class="state">Florida</div>
+                    </div>
+                </div>
+
+                <!-- Tampa–St. Petersburg, FL --><div class="city" data-city="Tampa–St. Petersburg" data-state="FL" data-studios="389" style="left: 78.6658%; top: 92.1875%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Tampa–St. Petersburg</h3>
+                        <div class="studios">389 Studios</div>
+                        <div class="state">Florida</div>
+                    </div>
+                </div>
+
+                <!-- Missoula, MT --><div class="city" data-city="Missoula" data-state="MT" data-studios="134" style="left: 38.4984%; top: 59.8124%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Missoula</h3>
+                        <div class="studios">134 Studios</div>
+                        <div class="state">Montana</div>
+                    </div>
+                </div>
+
+                <!-- Portland, ME --><div class="city" data-city="Portland" data-state="ME" data-studios="187" style="left: 89.5117%; top: 61.6248%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Portland</h3>
+                        <div class="studios">187 Studios</div>
+                        <div class="state">Maine</div>
+                    </div>
+                </div>
+
+                <!-- Greensboro, NC --><div class="city" data-city="Greensboro" data-state="NC" data-studios="178" style="left: 76.4354%; top: 75.4373%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Greensboro</h3>
+                        <div class="studios">178 Studios</div>
+                        <div class="state">North Carolina</div>
+                    </div>
+                </div>
+
+                <!-- Scottsdale, AZ --><div class="city" data-city="Scottsdale" data-state="AZ" data-studios="234" style="left: 38.6582%; top: 81.7491%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Scottsdale</h3>
+                        <div class="studios">234 Studios</div>
+                        <div class="state">Arizona</div>
+                    </div>
+                </div>
+
+                <!-- Honolulu, HI --><div class="city" data-city="Honolulu" data-state="HI" data-studios="289" style="left: 4.48568%; top: 91.4998%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Honolulu</h3>
+                        <div class="studios">289 Studios</div>
+                        <div class="state">Hawaii</div>
+                    </div>
+                </div>
+
+                <!-- Boulder, CO --><div class="city" data-city="Boulder" data-state="CO" data-studios="312" style="left: 44.0315%; top: 68.125%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Boulder</h3>
+                        <div class="studios">312 Studios</div>
+                        <div class="state">Colorado</div>
+                    </div>
+                </div>
+
+                <!-- Asheville, NC --><div class="city" data-city="Asheville" data-state="NC" data-studios="234" style="left: 72.8742%; top: 77.062%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Asheville</h3>
+                        <div class="studios">234 Studios</div>
+                        <div class="state">North Carolina</div>
+                    </div>
+                </div>
+
+                <!-- Nashville, TN --><div class="city" data-city="Nashville" data-state="TN" data-studios="423" style="left: 68.1029%; top: 75.7495%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Nashville</h3>
+                        <div class="studios">423 Studios</div>
+                        <div class="state">Tennessee</div>
+                    </div>
+                </div>
+
+                <!-- Baltimore, MD --><div class="city" data-city="Baltimore" data-state="MD" data-studios="378" style="left: 82.9066%; top: 71.6875%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Baltimore</h3>
+                        <div class="studios">378 Studios</div>
+                        <div class="state">Maryland</div>
+                    </div>
+                </div>
+
+                <!-- CANADIAN CITIES -->
+
+                <!-- Vancouver, BC --><div class="city" data-city="Vancouver" data-state="BC" data-studios="456" style="left: 29.3557%; top: 56.4368%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Vancouver</h3>
+                        <div class="studios">456 Studios</div>
+                        <div class="state">British Columbia</div>
+                    </div>
+                </div>
+
+                <!-- Toronto, ON --><div class="city" data-city="Toronto" data-state="ON" data-studios="612" style="left: 82.5039%; top: 63.7496%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Toronto</h3>
+                        <div class="studios">612 Studios</div>
+                        <div class="state">Ontario</div>
+                    </div>
+                </div>
+
+                <!-- Montreal, QC --><div class="city" data-city="Montreal" data-state="QC" data-studios="398" style="left: 86.7849%; top: 58.1868%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Montreal</h3>
+                        <div class="studios">398 Studios</div>
+                        <div class="state">Quebec</div>
+                    </div>
+                </div>
+
+                <!-- Calgary, AB --><div class="city" data-city="Calgary" data-state="AB" data-studios="289" style="left: 38.4637%; top: 55.3124%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Calgary</h3>
+                        <div class="studios">289 Studios</div>
+                        <div class="state">Alberta</div>
+                    </div>
+                </div>
+
+                <!-- Ottawa, ON --><div class="city" data-city="Ottawa" data-state="ON" data-studios="234" style="left: 85.313%; top: 58.9993%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Ottawa</h3>
+                        <div class="studios">234 Studios</div>
+                        <div class="state">Ontario</div>
+                    </div>
+                </div>
+
+                <!-- Edmonton, AB --><div class="city" data-city="Edmonton" data-state="AB" data-studios="198" style="left: 37.3104%; top: 51.8119%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Edmonton</h3>
+                        <div class="studios">198 Studios</div>
+                        <div class="state">Alberta</div>
+                    </div>
+                </div>
+
+                <!-- Victoria, BC --><div class="city" data-city="Victoria" data-state="BC" data-studios="167" style="left: 28.0316%; top: 56.9373%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Victoria</h3>
+                        <div class="studios">167 Studios</div>
+                        <div class="state">British Columbia</div>
+                    </div>
+                </div>
+
+                <!-- Winnipeg, MB --><div class="city" data-city="Winnipeg" data-state="MB" data-studios="145" style="left: 48.8208%; top: 56.1249%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Winnipeg</h3>
+                        <div class="studios">145 Studios</div>
+                        <div class="state">Manitoba</div>
+                    </div>
+                </div>
+
+                <!-- Quebec City, QC --><div class="city" data-city="Quebec City" data-state="QC" data-studios="178" style="left: 86.6704%; top: 55.812%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Quebec City</h3>
+                        <div class="studios">178 Studios</div>
+                        <div class="state">Quebec</div>
+                    </div>
+                </div>
+
+                <!-- Hamilton, ON --><div class="city" data-city="Hamilton" data-state="ON" data-studios="145" style="left: 81.7633%; top: 64.6241%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Hamilton</h3>
+                        <div class="studios">145 Studios</div>
+                        <div class="state">Ontario</div>
+                    </div>
+                </div>
+
+                <!-- Halifax, NS --><div class="city" data-city="Halifax" data-state="NS" data-studios="134" style="left: 94.824%; top: 59.3121%;">
+                    <div class="city-dot"></div>
+                    <div class="city-label">
+                        <h3>Halifax</h3>
+                        <div class="studios">134 Studios</div>
+                        <div class="state">Nova Scotia</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="legend">
+                <i class="fas fa-circle"></i> 46 cities across North America • Hover to preview • Click to explore
+            </div>
+
+            <!-- Info Panel - appears when clicking a city -->
+            <div class="info-panel" id="infoPanel">
+                <h2 id="cityName"></h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <i class="fas fa-om"></i>
+                        <span id="studioCount"></span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="cityState"></span>
+                    </div>
+                </div>
+                <a href="#" class="explore-btn" id="exploreBtn">
+                    <i class="fas fa-search"></i> Explore Studios in <span id="exploreCityName"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cities = document.querySelectorAll('.city');
+            const infoPanel = document.getElementById('infoPanel');
+            const cityName = document.getElementById('cityName');
+            const studioCount = document.getElementById('studioCount');
+            const cityState = document.getElementById('cityState');
+            const exploreBtn = document.getElementById('exploreBtn');
+            const exploreCityName = document.getElementById('exploreCityName');
+
+            console.log('Interactive map initialized with', cities.length, 'cities');
+
+            cities.forEach(city => {
+                city.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    // Remove clicked class from all cities
+                    cities.forEach(c => c.classList.remove('clicked'));
+
+                    // Add clicked class to this city
+                    this.classList.add('clicked');
+
+                    // Get city data
+                    const name = this.dataset.city;
+                    const state = this.dataset.state;
+                    const studios = this.dataset.studios;
+
+                    // Update info panel
+                    cityName.textContent = name;
+                    studioCount.textContent = studios + ' Yoga Studios';
+                    cityState.textContent = name + ', ' + state;
+                    exploreCityName.textContent = name;
+
+                    // Update explore button link
+                    exploreBtn.href = '/search?city=' + encodeURIComponent(name.toLowerCase().replace(/\s+/g, '-')) + '&state=' + state;
+
+                    // Show info panel
+                    infoPanel.classList.add('active');
+
+                    // Scroll to info panel smoothly
+                    setTimeout(() => {
+                        infoPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 100);
+
+                    console.log('Clicked:', name + ', ' + state);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

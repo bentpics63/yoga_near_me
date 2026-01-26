@@ -1,0 +1,269 @@
+/* ================================================
+   CONTACT INFORMATION & HOURS CARDS
+   Matching the design screenshots exactly
+   Add to Customizer > Additional CSS
+================================================ */
+
+/* CONTACT INFORMATION CARD */
+.contact-information-card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.contact-information-card .section-heading {
+    font-size: 28px;
+    font-weight: 400;
+    font-style: italic;
+    color: #2C3E3A;
+    margin-top: 0;
+    margin-bottom: 32px;
+    padding-left: 20px;
+    position: relative;
+    font-family: Georgia, Times, serif;
+}
+
+.contact-information-card .section-heading:before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: #D4A574;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 12px;
+}
+
+/* Contact Items */
+.contact-information-card .contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact-information-card .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 16px 0;
+}
+
+/* Icon Boxes - Rounded squares */
+.contact-information-card .contact-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    background-color: #F3F4F3;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-information-card .contact-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* Contact Details */
+.contact-information-card .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 2px;
+}
+
+.contact-information-card .contact-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #8A9A97;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-information-card .contact-value {
+    font-size: 16px;
+    color: #2C3E3A;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Links - Coral/Teal color */
+.contact-information-card .contact-value a {
+    color: #E8998D;
+    text-decoration: none;
+}
+
+.contact-information-card .contact-value a:hover {
+    color: #D4A574;
+    text-decoration: underline;
+}
+
+/* Follow Us Section */
+.contact-information-card .follow-us-section {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #E8E8E8;
+}
+
+.contact-information-card .follow-us-heading {
+    font-size: 16px;
+    font-weight: 500;
+    color: #2C3E3A;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Social Icons - Light purple circles */
+.contact-information-card .social-icons {
+    display: flex;
+    gap: 16px;
+}
+
+.contact-information-card .social-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #EDE4F3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.contact-information-card .social-icon:hover {
+    background-color: #D4A574;
+    transform: translateY(-2px);
+}
+
+/* ================================================
+   HOURS OF OPERATION CARD
+================================================ */
+.hours-of-operation-card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.hours-of-operation-card .section-heading {
+    font-size: 28px;
+    font-weight: 400;
+    font-style: italic;
+    color: #2C3E3A;
+    margin-top: 0;
+    margin-bottom: 24px;
+    padding-left: 20px;
+    position: relative;
+    font-family: Georgia, Times, serif;
+}
+
+.hours-of-operation-card .section-heading:before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: #D4A574;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 12px;
+}
+
+/* Status Badge */
+.hours-of-operation-card .hours-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: #F5F9F5;
+    border-radius: 25px;
+    margin-bottom: 28px;
+    border: 1px solid #E8F0E8;
+}
+
+.hours-of-operation-card .status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+}
+
+.hours-of-operation-card .status-text {
+    font-size: 15px;
+    font-weight: 500;
+    color: #4CAF50;
+}
+
+/* Hours List */
+.hours-of-operation-card .hours-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.hours-of-operation-card .hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.hours-of-operation-card .hours-row:last-child {
+    border-bottom: none;
+}
+
+/* Today row - Bold */
+.hours-of-operation-card .hours-row.today .day {
+    font-weight: 600;
+    color: #2C3E3A;
+}
+
+.hours-of-operation-card .hours-row.today .time {
+    font-weight: 600;
+}
+
+/* Day names */
+.hours-of-operation-card .day {
+    font-size: 16px;
+    color: #6B7B78;
+    font-weight: 400;
+}
+
+/* Times */
+.hours-of-operation-card .time {
+    font-size: 16px;
+    color: #2C3E3A;
+    font-weight: 400;
+}
+
+/* ================================================
+   RESPONSIVE
+================================================ */
+@media (max-width: 768px) {
+    .contact-information-card,
+    .hours-of-operation-card {
+        padding: 28px;
+        border-radius: 16px;
+    }
+    
+    .contact-information-card .section-heading,
+    .hours-of-operation-card .section-heading {
+        font-size: 24px;
+    }
+    
+    .contact-information-card .contact-icon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+    }
+    
+    .contact-information-card .social-icon {
+        width: 44px;
+        height: 44px;
+    }
+}
+

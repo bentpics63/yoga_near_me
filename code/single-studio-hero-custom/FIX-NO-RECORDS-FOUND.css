@@ -1,0 +1,220 @@
+/**
+ * YogaNearMe - Fix "No Records Found" False Empty State
+ *
+ * PURPOSE: Hides conflicting "No Records Found" messages when results exist
+ *
+ * INSTALLATION: Add to Elementor > Custom CSS or child theme style.css
+ *
+ * HOW IT WORKS:
+ * 1. Hides default GeoDirectory "no results" during AJAX loading
+ * 2. Uses body classes to show/hide based on actual result state
+ * 3. Styles the custom empty state for a better UX
+ */
+
+/* ============================================
+   HIDE DEFAULT "NO RECORDS" FLASH DURING AJAX
+   ============================================ */
+
+/* Hide GeoDirectory's default no listings message initially */
+.geodir-loop-no-found,
+.geodir-no-listings-found,
+.geodir-no-results,
+.gd-no-listings-found,
+[class*="no-listings-found"],
+[class*="no-records-found"] {
+    display: none !important;
+}
+
+/* Only show when body has the no-results class (set by JS after check) */
+body.ynm-no-results .geodir-loop-no-found,
+body.ynm-no-results .geodir-no-listings-found,
+body.ynm-no-results .geodir-no-results,
+body.ynm-no-results .ynm-no-results-message,
+body.ynm-no-results .ynm-no-results-custom {
+    display: block !important;
+}
+
+/* Ensure results are visible when we have them */
+body.ynm-has-results .geodir-loop-container,
+body.ynm-has-results .gd-loop-container {
+    display: block !important;
+}
+
+
+/* ============================================
+   HIDE CONFLICTING ELEMENTS ON SEARCH PAGE
+   ============================================ */
+
+/* Common selectors for "no results" type messages */
+.ynm-search-page .elementor-widget-text-editor:has-text("No Records"),
+.ynm-search-page .elementor-widget-text-editor:has-text("No results"),
+.ynm-search-page .elementor-widget-text-editor:has-text("No listings"),
+.ynm-search-page .elementor-widget-heading:has-text("No Records") {
+    display: none !important;
+}
+
+/* When we have results, hide ALL no-results messaging */
+body.ynm-has-results [class*="no-result"],
+body.ynm-has-results [class*="no-record"],
+body.ynm-has-results [class*="no-listing"],
+body.ynm-has-results [class*="empty-state"]:not(.ynm-keep-visible) {
+    display: none !important;
+}
+
+
+/* ============================================
+   LOADING STATE - Prevent Flash
+   ============================================ */
+
+/* Hide no-results message while AJAX is loading */
+.geodir-loop-container.loading .geodir-loop-no-found,
+.gd-loop-container.loading .gd-no-listings-found,
+[data-loading="true"] [class*="no-results"] {
+    display: none !important;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Add a subtle loading indicator instead */
+.geodir-loop-container.loading::before,
+.gd-loop-container.loading::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 40px auto;
+    border: 3px solid var(--ynm-paper, #F8FAFA);
+    border-top-color: var(--ynm-teal, #61948B);
+    border-radius: 50%;
+    animation: ynm-spin 0.8s linear infinite;
+}
+
+@keyframes ynm-spin {
+    to { transform: rotate(360deg); }
+}
+
+
+/* ============================================
+   CUSTOM EMPTY STATE STYLING
+   ============================================ */
+
+.ynm-empty-state,
+.ynm-no-results-custom {
+    text-align: center;
+    padding: 60px 30px;
+    background: var(--ynm-paper, #F8FAFA);
+    border-radius: 12px;
+    margin: 40px auto;
+    max-width: 500px;
+}
+
+.ynm-empty-state-icon {
+    color: var(--ynm-sage, #5F7470);
+    opacity: 0.6;
+    margin-bottom: 20px;
+}
+
+.ynm-empty-state-icon svg {
+    width: 64px;
+    height: 64px;
+}
+
+.ynm-empty-state-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--ynm-text-dark, #2C3E3A);
+    margin: 0 0 12px 0;
+}
+
+.ynm-empty-state-text {
+    font-size: 1rem;
+    color: var(--ynm-text-medium, #6B7C78);
+    margin: 0 0 24px 0;
+    line-height: 1.6;
+}
+
+.ynm-empty-state-actions {
+    margin-top: 24px;
+}
+
+.ynm-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.ynm-btn-primary {
+    background: var(--ynm-rust, #bd371a);
+    color: #fff;
+}
+
+.ynm-btn-primary:hover {
+    background: #a62f16;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+
+/* ============================================
+   GEODIRECTORY SPECIFIC OVERRIDES
+   ============================================ */
+
+/* Target GeoDirectory's inline "No listings found" text */
+.geodir-category-list-view > p:only-child,
+.geodir-gridview > p:only-child {
+    /* Only hide if it contains no-results text - JS handles this */
+}
+
+/* Ensure proper spacing when results exist */
+body.ynm-has-results .geodir-loop-container {
+    min-height: auto;
+}
+
+/* Remove any conflicting padding/margin that might cause layout shifts */
+body.ynm-search-page .geodir-loop-container:empty {
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* ============================================
+   ALTERNATIVE: ATTRIBUTE-BASED HIDING
+   If you add data-empty="true/false" via PHP
+   ============================================ */
+
+[data-has-results="true"] [data-show-when="empty"],
+[data-has-results="false"] [data-show-when="results"] {
+    display: none !important;
+}
+
+[data-has-results="true"] [data-show-when="results"],
+[data-has-results="false"] [data-show-when="empty"] {
+    display: block !important;
+}
+
+
+/* ============================================
+   MOBILE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 767px) {
+    .ynm-empty-state,
+    .ynm-no-results-custom {
+        padding: 40px 20px;
+        margin: 20px 15px;
+    }
+
+    .ynm-empty-state-title {
+        font-size: 1.25rem;
+    }
+
+    .ynm-empty-state-icon svg {
+        width: 48px;
+        height: 48px;
+    }
+}

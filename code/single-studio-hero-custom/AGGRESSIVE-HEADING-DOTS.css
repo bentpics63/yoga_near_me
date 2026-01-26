@@ -1,0 +1,199 @@
+/**
+ * AGGRESSIVE: Add Orange Dots to ALL Section Headings
+ * This uses multiple targeting strategies to catch all heading variations
+ * Add this to WordPress Customizer → Additional CSS (at the very bottom)
+ */
+
+/* ============================================
+   STRATEGY 1: Target ALL headings universally
+   ============================================ */
+
+/* Target ANY element that looks like a heading */
+body.single-gd_place h2,
+body.single-gd_place h3,
+body.single-gd_place h4,
+body.single-gd_place h5,
+body.single-gd_place h6 {
+    position: relative !important;
+    padding-left: 24px !important;
+}
+
+body.single-gd_place h2::before,
+body.single-gd_place h3::before,
+body.single-gd_place h4::before,
+body.single-gd_place h5::before,
+body.single-gd_place h6::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+}
+
+/* ============================================
+   STRATEGY 2: Target Elementor headings
+   ============================================ */
+
+body.single-gd_place .elementor-heading-title,
+body.single-gd_place .elementor-widget-heading .elementor-heading-title,
+body.single-gd_place .elementor-widget-heading h2,
+body.single-gd_place .elementor-widget-heading h3,
+body.single-gd_place .elementor-widget-heading h4,
+body.single-gd_place .elementor-widget-heading h5,
+body.single-gd_place .elementor-widget-heading h6 {
+    position: relative !important;
+    padding-left: 24px !important;
+}
+
+body.single-gd_place .elementor-heading-title::before,
+body.single-gd_place .elementor-widget-heading .elementor-heading-title::before,
+body.single-gd_place .elementor-widget-heading h2::before,
+body.single-gd_place .elementor-widget-heading h3::before,
+body.single-gd_place .elementor-widget-heading h4::before,
+body.single-gd_place .elementor-widget-heading h5::before,
+body.single-gd_place .elementor-widget-heading h6::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+}
+
+/* ============================================
+   STRATEGY 3: Target GeoDirectory headings
+   ============================================ */
+
+body.single-gd_place .geodir-post-section-title,
+body.single-gd_place .geodir-post-content h2,
+body.single-gd_place .geodir-post-content h3,
+body.single-gd_place .geodir-post-content h4,
+body.single-gd_place .geodir-post-content h5,
+body.single-gd_place .geodir-post-content h6 {
+    position: relative !important;
+    padding-left: 24px !important;
+}
+
+body.single-gd_place .geodir-post-section-title::before,
+body.single-gd_place .geodir-post-content h2::before,
+body.single-gd_place .geodir-post-content h3::before,
+body.single-gd_place .geodir-post-content h4::before,
+body.single-gd_place .geodir-post-content h5::before,
+body.single-gd_place .geodir-post-content h6::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+}
+
+/* ============================================
+   STRATEGY 4: Target ANY div/span with heading-like classes
+   ============================================ */
+
+body.single-gd_place [class*="heading"],
+body.single-gd_place [class*="title"]:not([class*="post-title"]):not([class*="widget-title"]),
+body.single-gd_place [class*="section-title"],
+body.single-gd_place [class*="widget-title"]:not([class*="post-title"]) {
+    position: relative !important;
+    padding-left: 24px !important;
+}
+
+body.single-gd_place [class*="heading"]::before,
+body.single-gd_place [class*="title"]:not([class*="post-title"]):not([class*="widget-title"])::before,
+body.single-gd_place [class*="section-title"]::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+}
+
+/* ============================================
+   STRATEGY 5: Target headings inside Elementor sections
+   ============================================ */
+
+body.single-gd_place .elementor-section h2,
+body.single-gd_place .elementor-section h3,
+body.single-gd_place .elementor-section h4,
+body.single-gd_place .elementor-column h2,
+body.single-gd_place .elementor-column h3,
+body.single-gd_place .elementor-column h4,
+body.single-gd_place .elementor-widget-container h2,
+body.single-gd_place .elementor-widget-container h3,
+body.single-gd_place .elementor-widget-container h4 {
+    position: relative !important;
+    padding-left: 24px !important;
+}
+
+body.single-gd_place .elementor-section h2::before,
+body.single-gd_place .elementor-section h3::before,
+body.single-gd_place .elementor-section h4::before,
+body.single-gd_place .elementor-column h2::before,
+body.single-gd_place .elementor-column h3::before,
+body.single-gd_place .elementor-column h4::before,
+body.single-gd_place .elementor-widget-container h2::before,
+body.single-gd_place .elementor-widget-container h3::before,
+body.single-gd_place .elementor-widget-container h4::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+}
+
+/* ============================================
+   EXCLUDE: Main title and post title
+   ============================================ */
+
+body.single-gd_place h1::before,
+body.single-gd_place .geodir-post-title::before,
+body.single-gd_place h1.elementor-heading-title::before,
+body.single-gd_place [class*="post-title"]::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    body.single-gd_place h2,
+    body.single-gd_place h3,
+    body.single-gd_place h4,
+    body.single-gd_place .elementor-heading-title {
+        padding-left: 20px !important;
+    }
+    
+    body.single-gd_place h2::before,
+    body.single-gd_place h3::before,
+    body.single-gd_place h4::before {
+        font-size: 10px !important;
+    }
+}
+

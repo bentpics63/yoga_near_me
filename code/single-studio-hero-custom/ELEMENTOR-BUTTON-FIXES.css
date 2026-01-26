@@ -1,0 +1,296 @@
+/**
+ * ELEMENTOR-SPECIFIC BUTTON AND TEXT COLOR FIXES
+ * Targets both standard classes AND Elementor classes
+ * Add this to WordPress Customizer → Additional CSS (at the very bottom)
+ */
+
+/* ============================================
+   FIX 1: "Book a Class" - White text on orange
+   ============================================ */
+
+/* Standard classes */
+body.single-gd_place .btn-primary,
+body.single-gd_place a.btn-primary,
+body.single-gd_place .studio-actions .btn-primary,
+body.single-gd_place .studio-actions a.btn-primary {
+    background: #FF5733 !important;
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+    color: white !important;
+}
+
+body.single-gd_place .btn-primary svg,
+body.single-gd_place a.btn-primary svg {
+    fill: #FFFFFF !important;
+    fill: white !important;
+}
+
+/* Elementor classes */
+body.single-gd_place .elementor-button,
+body.single-gd_place .elementor-button-link,
+body.single-gd_place [class*="elementor-button"][class*="primary"] {
+    background: #FF5733 !important;
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+}
+
+/* ============================================
+   FIX 2: "Save" and "Share" - White text on teal
+   ============================================ */
+
+body.single-gd_place .studio-actions .btn-secondary,
+body.single-gd_place .studio-actions button.btn-secondary {
+    background: #61948B !important;
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border-color: #61948B !important;
+}
+
+body.single-gd_place .studio-actions .btn-secondary svg {
+    fill: #FFFFFF !important;
+    fill: white !important;
+}
+
+/* ============================================
+   FIX 3: SOCIAL BUTTONS - Orange instead of pink
+   ============================================ */
+
+body.single-gd_place .social-link,
+body.single-gd_place .sidebar-card .social-link,
+body.single-gd_place a.social-link {
+    background: rgba(255, 87, 51, 0.1) !important;
+    background-color: rgba(255, 87, 51, 0.1) !important;
+    border: 1px solid rgba(255, 87, 51, 0.2) !important;
+}
+
+body.single-gd_place .social-link svg {
+    fill: #FF5733 !important;
+}
+
+body.single-gd_place .social-link:hover {
+    background: #FF5733 !important;
+    background-color: #FF5733 !important;
+}
+
+body.single-gd_place .social-link:hover svg {
+    fill: #FFFFFF !important;
+    fill: white !important;
+}
+
+/* Elementor social icons */
+body.single-gd_place .elementor-social-icon,
+body.single-gd_place [class*="elementor-social"] {
+    background: rgba(255, 87, 51, 0.1) !important;
+    border-color: rgba(255, 87, 51, 0.2) !important;
+}
+
+body.single-gd_place .elementor-social-icon svg {
+    fill: #FF5733 !important;
+}
+
+/* ============================================
+   FIX 4: YOGA STYLES TEXT - Black text
+   ============================================ */
+
+body.single-gd_place .style-tag,
+body.single-gd_place .styles-grid .style-tag,
+body.single-gd_place .styles-grid a.style-tag,
+body.single-gd_place a.style-tag {
+    color: #222222 !important;
+    color: black !important;
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    border: 2px solid #61948B !important;
+    border-color: #61948B !important;
+}
+
+body.single-gd_place .style-tag svg {
+    fill: #61948B !important;
+}
+
+body.single-gd_place .style-tag:hover {
+    background: #61948B !important;
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    color: white !important;
+}
+
+body.single-gd_place .style-tag:hover svg {
+    fill: #FFFFFF !important;
+    fill: white !important;
+}
+
+/* Elementor tags */
+body.single-gd_place .elementor-tag,
+body.single-gd_place [class*="elementor-tag"] {
+    color: #222222 !important;
+}
+
+/* ============================================
+   FIX 5: SCHEDULE TABS - Orange active tab
+   ============================================ */
+
+body.single-gd_place .schedule-tab.active,
+body.single-gd_place .schedule-tabs .schedule-tab.active,
+body.single-gd_place button.schedule-tab.active {
+    background: #FF5733 !important;
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border-color: #FF5733 !important;
+}
+
+body.single-gd_place .schedule-tab {
+    color: #222222 !important;
+    color: black !important;
+}
+
+body.single-gd_place .schedule-tab:hover:not(.active) {
+    border-color: #FF5733 !important;
+}
+
+/* ============================================
+   FIX 6: "Write a Review" - Teal with white text
+   ============================================ */
+
+body.single-gd_place .content-card#reviews .btn-secondary,
+body.single-gd_place .content-card#reviews .card-header .btn-secondary,
+body.single-gd_place .content-card#reviews button.btn-secondary,
+body.single-gd_place .card-header button.btn-secondary,
+body.single-gd_place #reviews .btn-secondary {
+    background: #61948B !important;
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border-color: #61948B !important;
+}
+
+body.single-gd_place .content-card#reviews .btn-secondary svg {
+    fill: #FFFFFF !important;
+    fill: white !important;
+}
+
+/* ============================================
+   FIX 7: "Was this helpful?" - White text
+   ============================================ */
+
+body.single-gd_place .helpful-btn,
+body.single-gd_place .review-helpful .helpful-btn,
+body.single-gd_place .review-item .helpful-btn,
+body.single-gd_place button.helpful-btn {
+    background: #61948B !important;
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border-color: #61948B !important;
+}
+
+body.single-gd_place .helpful-btn svg {
+    fill: #FFFFFF !important;
+    fill: white !important;
+}
+
+/* ============================================
+   FIX 8: "Load More Reviews" - White text
+   ============================================ */
+
+body.single-gd_place .content-card#reviews button.btn-secondary:last-child,
+body.single-gd_place .content-card#reviews .btn-secondary[style*="width: 100%"],
+body.single-gd_place #reviews button.btn-secondary:last-child {
+    background: #61948B !important;
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border-color: #61948B !important;
+}
+
+/* ============================================
+   FIX 9: "Claim This Listing" - Orange with white text
+   ============================================ */
+
+body.single-gd_place .claim-btn,
+body.single-gd_place .claim-card .btn,
+body.single-gd_place .claim-card a.btn,
+body.single-gd_place .sidebar-card.claim-card .btn,
+body.single-gd_place .sidebar-card.claim-card a.btn {
+    background: #FF5733 !important;
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border: none !important;
+}
+
+body.single-gd_place .claim-btn svg,
+body.single-gd_place .claim-card .btn svg {
+    fill: #FFFFFF !important;
+    fill: white !important;
+}
+
+/* ============================================
+   FIX 10: CONTACT INFO TEXT - Remove pink
+   ============================================ */
+
+body.single-gd_place .contact-value,
+body.single-gd_place .contact-details .contact-value,
+body.single-gd_place .contact-item .contact-value {
+    color: #222222 !important;
+    color: black !important;
+}
+
+body.single-gd_place .contact-value a,
+body.single-gd_place .contact-details .contact-value a {
+    color: #61948B !important;
+}
+
+/* ============================================
+   FIX 11: REMOVE SVG ICONS FROM SECTION HEADINGS
+   ============================================ */
+
+body.single-gd_place .card-title svg,
+body.single-gd_place .content-card .card-title svg,
+body.single-gd_place .card-header .card-title svg {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+}
+
+/* Keep dots visible */
+body.single-gd_place .card-title::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+}
+
+body.single-gd_place .card-title {
+    position: relative !important;
+    padding-left: 24px !important;
+}
+
+/* ============================================
+   OVERRIDE ANY INLINE STYLES
+   ============================================ */
+
+body.single-gd_place [style*="color: pink"],
+body.single-gd_place [style*="color: #FF"],
+body.single-gd_place [style*="color: rgb(255"],
+body.single-gd_place [style*="color: rgba(255"] {
+    color: #222222 !important;
+}
+
+/* But preserve intentional orange/terracotta */
+body.single-gd_place .badge-featured,
+body.single-gd_place [class*="terracotta"],
+body.single-gd_place [class*="orange"] {
+    color: inherit !important;
+}
+

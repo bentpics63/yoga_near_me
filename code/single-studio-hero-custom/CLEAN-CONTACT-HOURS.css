@@ -1,0 +1,217 @@
+/* Contact Information Card */
+.contact-information-card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid #E8E8E8;
+}
+
+.contact-information-card .section-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #222222;
+    margin-top: 0;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    padding-left: 24px;
+    border-bottom: 1px solid #E8E8E8;
+    position: relative;
+}
+
+.contact-information-card .section-heading:before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: #D4A574;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 8px;
+}
+
+.contact-information-card .contact-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-information-card .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.contact-information-card .contact-item:last-child {
+    border-bottom: none;
+}
+
+.contact-information-card .contact-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-information-card .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.contact-information-card .contact-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-information-card .contact-value {
+    font-size: 15px;
+    color: #222222;
+    line-height: 1.5;
+}
+
+.contact-information-card .contact-value a {
+    color: #2C8C7C;
+    text-decoration: none;
+}
+
+.contact-information-card .contact-value a:hover {
+    color: #D4A574;
+    text-decoration: underline;
+}
+
+.contact-information-card .follow-us-section {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #E8E8E8;
+}
+
+.contact-information-card .follow-us-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222222;
+    margin-top: 0;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.contact-information-card .social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.contact-information-card .social-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(44,140,124,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.contact-information-card .social-icon:hover {
+    background-color: #2C8C7C;
+}
+
+/* Hours of Operation Card */
+.hours-of-operation-card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid #E8E8E8;
+}
+
+.hours-of-operation-card .section-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #222222;
+    margin-top: 0;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    padding-left: 24px;
+    border-bottom: 1px solid #E8E8E8;
+    position: relative;
+}
+
+.hours-of-operation-card .section-heading:before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: #D4A574;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 8px;
+}
+
+.hours-of-operation-card .hours-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: rgba(40,167,69,0.1);
+    border-radius: 20px;
+    margin-bottom: 24px;
+}
+
+.hours-of-operation-card .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #28A745;
+}
+
+.hours-of-operation-card .status-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #28A745;
+}
+
+.hours-of-operation-card .hours-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.hours-of-operation-card .hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.hours-of-operation-card .hours-row:last-child {
+    border-bottom: none;
+}
+
+.hours-of-operation-card .hours-row.today .day {
+    font-weight: 600;
+    color: #222222;
+}
+
+.hours-of-operation-card .day {
+    font-size: 15px;
+    color: #555555;
+}
+
+.hours-of-operation-card .time {
+    font-size: 15px;
+    color: #222222;
+}
+

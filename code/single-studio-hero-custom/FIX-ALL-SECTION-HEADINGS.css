@@ -1,0 +1,122 @@
+/**
+ * FIX: Add Orange Dots to ALL Section Headings
+ * This targets every possible heading structure
+ * Add this to WordPress Customizer → Additional CSS (at the bottom)
+ */
+
+/* ============================================
+   TARGET ALL POSSIBLE HEADING STRUCTURES
+   ============================================ */
+
+/* Target ALL headings on single studio pages - ultra-broad */
+body.single-gd_place h2,
+body.single-gd_place h3,
+body.single-gd_place h4,
+body.single-gd_place h5,
+body.single-gd_place .elementor-heading-title,
+body.single-gd_place .elementor-widget-heading .elementor-heading-title,
+body.single-gd_place .elementor-widget-heading h2,
+body.single-gd_place .elementor-widget-heading h3,
+body.single-gd_place .elementor-widget-heading h4,
+body.single-gd_place .geodir-post-section-title,
+body.single-gd_place .section-title,
+body.single-gd_place [class*="heading"],
+body.single-gd_place [class*="title"]:not(.geodir-post-title):not([class*="post-title"]),
+body.single-gd_place .elementor-widget-container h2,
+body.single-gd_place .elementor-widget-container h3,
+body.single-gd_place .elementor-widget-container h4,
+body.single-gd_place .geodir-post-content h2,
+body.single-gd_place .geodir-post-content h3,
+body.single-gd_place .geodir-post-content h4 {
+    position: relative !important;
+    padding-left: 24px !important;
+}
+
+/* Add orange dot BEFORE all these headings */
+body.single-gd_place h2::before,
+body.single-gd_place h3::before,
+body.single-gd_place h4::before,
+body.single-gd_place h5::before,
+body.single-gd_place .elementor-heading-title::before,
+body.single-gd_place .elementor-widget-heading .elementor-heading-title::before,
+body.single-gd_place .elementor-widget-heading h2::before,
+body.single-gd_place .elementor-widget-heading h3::before,
+body.single-gd_place .elementor-widget-heading h4::before,
+body.single-gd_place .geodir-post-section-title::before,
+body.single-gd_place .section-title::before,
+body.single-gd_place .elementor-widget-container h2::before,
+body.single-gd_place .elementor-widget-container h3::before,
+body.single-gd_place .elementor-widget-container h4::before,
+body.single-gd_place .geodir-post-content h2::before,
+body.single-gd_place .geodir-post-content h3::before,
+body.single-gd_place .geodir-post-content h4::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+}
+
+/* EXCLUDE: Main title (h1) and post title */
+body.single-gd_place h1::before,
+body.single-gd_place .geodir-post-title::before,
+body.single-gd_place h1.elementor-heading-title::before,
+body.single-gd_place [class*="post-title"]::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* EXCLUDE: Nearby Studios individual cards (they already have dots) */
+body.single-gd_place .geodir-post-slider h2::before,
+body.single-gd_place .geodir-post-slider h3::before,
+body.single-gd_place .carousel-item h2::before,
+body.single-gd_place .carousel-item h3::before {
+    /* Keep dots on these - they're working */
+}
+
+/* ============================================
+   TARGET SPECIFIC SECTIONS BY TEXT CONTENT
+   ============================================ */
+
+/* If headings don't have classes, target by parent containers */
+body.single-gd_place .elementor-section:has(h2:contains("About")) h2::before,
+body.single-gd_place .elementor-section:has(h2:contains("Yoga")) h2::before,
+body.single-gd_place .elementor-section:has(h2:contains("Amenities")) h2::before,
+body.single-gd_place .elementor-section:has(h2:contains("Reviews")) h2::before,
+body.single-gd_place .elementor-section:has(h2:contains("Contact")) h2::before,
+body.single-gd_place .elementor-section:has(h2:contains("Hours")) h2::before,
+body.single-gd_place .elementor-section:has(h2:contains("Location")) h2::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    body.single-gd_place h2,
+    body.single-gd_place h3,
+    body.single-gd_place .elementor-heading-title {
+        padding-left: 20px !important;
+    }
+    
+    body.single-gd_place h2::before,
+    body.single-gd_place h3::before {
+        font-size: 10px !important;
+    }
+}
+

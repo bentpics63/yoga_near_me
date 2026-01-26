@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Near Me</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* YOUR ORIGINAL CSS */
+        :root {
+            --sage: #5F7470; --sage-dark: #4A5B58; --sage-light: rgba(95, 116, 112, 0.1);
+            --teal: #61948B; --teal-light: rgba(97, 148, 139, 0.15);
+            --terracotta: #FF5733; --terracotta-hover: #E64A2A; --terracotta-light: rgba(255, 87, 51, 0.1);
+            --white: #FFFFFF; --off-white: #FDFEFE; --bg-light: #F8FAFA;
+            --text-dark: #2C3E3A; --text-medium: #6B7C78; --text-light: #9EABA8;
+            --gray-100: #F2F4F3; --gray-200: #E4E7E6; --gray-300: #D0D5D3; --gray-500: #8A9290;
+            --font-heading: 'Inter', sans-serif; --font-body: 'Inter', sans-serif; --font-accent: 'Crimson Pro', serif;
+            --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 24px;
+            --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 128px;
+            --shadow-sm: 0 2px 8px rgba(95, 116, 112, 0.06);
+            --shadow-md: 0 4px 12px rgba(95, 116, 112, 0.08);
+            --shadow-lg: 0 8px 24px rgba(95, 116, 112, 0.12);
+            --shadow-hover: 0 12px 32px rgba(95, 116, 112, 0.16);
+            --transition-fast: 200ms ease-out; --transition-medium: 300ms ease-out;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: var(--font-body); color: var(--text-dark); line-height: 1.7; background-color: var(--bg-light); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* Typography */
+        .display-xl { font-family: var(--font-heading); font-size: clamp(48px, 8vw, 88px); font-weight: 800; line-height: 1.0; letter-spacing: -0.03em; color: var(--sage); }
+        .display-lg { font-family: var(--font-heading); font-size: clamp(36px, 5vw, 56px); font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; color: var(--sage); }
+        h2 { font-family: var(--font-heading); font-size: clamp(28px, 4vw, 40px); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: var(--sage); }
+        h3 { font-family: var(--font-heading); font-size: 20px; font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; color: var(--sage); }
+        .accent-serif { font-family: var(--font-accent); font-style: italic; }
+        p { font-size: 17px; line-height: 1.7; color: var(--text-medium); }
+        .text-large { font-size: 20px; line-height: 1.6; }
+        .text-small { font-size: 14px; line-height: 1.5; }
+        .overline { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--teal); }
+        .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+        .visually-hidden.focusable:active, .visually-hidden.focusable:focus { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; white-space: normal; padding: 8px 12px; background: var(--sage); color: var(--white); z-index: 1001; }
+
+        /* Layout */
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 var(--space-lg); }
+        .container-narrow { max-width: 900px; margin: 0 auto; padding: 0 var(--space-lg); }
+
+        /* Header */
+        .header { position: fixed; top: 0; left: 0; right: 0; background-color: rgba(248, 250, 250, 0.95); backdrop-filter: blur(8px); z-index: 1000; border-bottom: 1px solid var(--gray-200); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: var(--space-md) var(--space-lg); max-width: 1400px; margin: 0 auto; }
+        .logo { font-family: var(--font-heading); font-size: 18px; font-weight: 700; color: var(--sage); text-decoration: none; letter-spacing: -0.02em; }
+        .nav-links { display: flex; gap: var(--space-xl); align-items: center; list-style: none; }
+        .nav-links a { color: var(--text-dark); text-decoration: none; font-size: 15px; font-weight: 500; transition: color var(--transition-fast); }
+        .nav-links a.btn { color: var(--white); }
+        .nav-links a:hover { color: var(--terracotta); }
+        .nav-social { display: flex; gap: var(--space-md); margin-left: var(--space-lg); padding-left: var(--space-lg); border-left: 1px solid var(--gray-300); }
+        .nav-social a { color: var(--gray-500); font-size: 16px; transition: color var(--transition-fast); }
+        .nav-social a:hover { color: var(--sage); }
+        .btn { display: inline-flex; align-items: center; gap: var(--space-sm); padding: 12px 24px; font-family: var(--font-heading); font-size: 14px; font-weight: 600; text-decoration: none; border-radius: 6px; transition: all var(--transition-fast); border: none; cursor: pointer; }
+        .btn-primary { background-color: var(--sage); color: var(--white); }
+        .btn-primary:hover { background-color: var(--sage-dark); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+        .btn-cta { background-color: var(--terracotta); color: var(--white); }
+        .btn-cta:hover { background-color: var(--terracotta-hover); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(255, 87, 51, 0.25); }
+        .btn-secondary { background-color: transparent; color: var(--sage); border: 1.5px solid var(--gray-300); }
+        .btn-secondary:hover { border-color: var(--sage); }
+        .nav-toggle { display: none; background: none; border: none; font-size: 20px; color: var(--sage); cursor: pointer; }
+
+        /* Hero */
+        .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; margin-top: 60px; }
+        .hero-content { display: flex; flex-direction: column; justify-content: center; padding: var(--space-3xl) var(--space-2xl); background-color: var(--bg-light); }
+        .hero-overline { margin-bottom: var(--space-lg); }
+        .hero-title { margin-bottom: var(--space-xl); }
+        .hero-title .accent { color: var(--terracotta); position: relative; }
+        .hero-title .accent::after { content: ''; position: absolute; bottom: 0.05em; left: 0; right: 0; height: 0.08em; background: var(--terracotta); opacity: 0.3; }
+        .hero-subtitle { font-family: var(--font-accent); font-size: 22px; font-style: italic; color: var(--text-medium); margin-bottom: var(--space-xl); max-width: 480px; line-height: 1.5; }
+        .hero-search { display: flex; gap: var(--space-md); max-width: 500px; }
+        .search-input { flex: 1; padding: 16px 20px; font-family: var(--font-body); font-size: 16px; border: 1.5px solid var(--gray-300); border-radius: 6px; background: var(--white); transition: border-color var(--transition-fast); }
+        .search-input:focus { outline: none; border-color: var(--teal); }
+        .search-input::placeholder { color: var(--gray-500); }
+        .hero-image { position: relative; overflow: hidden; }
+        .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-stat { position: absolute; bottom: var(--space-xl); left: var(--space-xl); background: var(--white); padding: var(--space-lg) var(--space-xl); border-radius: 8px; box-shadow: var(--shadow-lg); border-left: 3px solid var(--terracotta); }
+        .hero-stat-number { font-size: 32px; font-weight: 700; color: var(--sage); letter-spacing: -0.02em; }
+        .hero-stat-label { font-size: 14px; color: var(--text-medium); margin-top: 4px; }
+
+        /* Styles & Cities Grid */
+        .styles-section { padding: var(--space-4xl) 0; background-color: var(--white); }
+        .styles-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-md); margin-top: var(--space-2xl); }
+        .style-button { position: relative; aspect-ratio: 1; border-radius: 12px; overflow: hidden; text-decoration: none; transition: all var(--transition-medium); display: block; }
+        .style-button:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+        .style-button-image { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-medium); }
+        .style-button:hover .style-button-image { transform: scale(1.05); }
+        .styles-footer { text-align: center; margin-top: var(--space-xl); }
+        .view-all-link { display: inline-flex; align-items: center; gap: var(--space-sm); font-size: 14px; font-weight: 600; color: var(--teal); text-decoration: none; transition: all var(--transition-fast); }
+        .view-all-link:hover { color: var(--terracotta); gap: var(--space-md); }
+        
+        .cities-section { padding: var(--space-4xl) 0; background-color: var(--white); }
+        .cities-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-sm); margin-top: var(--space-2xl); }
+        .city-button { position: relative; height: 110px; border-radius: 8px; overflow: hidden; text-decoration: none; transition: all var(--transition-medium); display: block; background-color: var(--gray-100); }
+        .city-button:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        .city-button-image { width: 100%; height: 100% !important; object-fit: cover; object-position: center; display: block; transition: transform var(--transition-medium); }
+        .city-button:hover .city-button-image { transform: scale(1.05); }
+        .city-button.featured { background: linear-gradient(135deg, #e8d5d0 0%, #d4c4c0 100%); display: flex; align-items: center; justify-content: center; border: 1px solid var(--gray-200); }
+        .city-button.featured:hover { background: linear-gradient(135deg, #dcc8c2 0%, #c9b8b4 100%); }
+        .city-button.featured .city-button-label { font-family: var(--font-heading); font-size: 14px; font-weight: 700; color: var(--text-dark); text-transform: uppercase; letter-spacing: 0.05em; }
+
+        /* Explore */
+        .explore-section { padding: var(--space-4xl) 0; background-color: var(--bg-light); }
+        .explore-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); margin-top: var(--space-2xl); }
+        .explore-card { background: var(--white); border-radius: 8px; padding: var(--space-xl); text-decoration: none; transition: all var(--transition-medium); border: 1px solid var(--gray-200); }
+        .explore-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
+        .explore-card-icon { width: 48px; height: 48px; background: var(--sage-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-lg); color: var(--sage); font-size: 20px; }
+        .explore-card:hover .explore-card-icon { background: var(--terracotta-light); color: var(--terracotta); }
+        .explore-card h3 { margin-bottom: var(--space-sm); font-size: 18px; }
+        .explore-card p { font-size: 15px; color: var(--text-medium); margin-bottom: var(--space-md); }
+        .explore-card-link { font-size: 14px; font-weight: 600; color: var(--teal); display: inline-flex; align-items: center; gap: var(--space-sm); }
+        .explore-card:hover .explore-card-link { color: var(--terracotta); }
+
+        /* Studio & Quote */
+        .studio-section { padding: var(--space-4xl) 0; background-color: var(--white); }
+        .studio-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--space-3xl); align-items: center; }
+        .studio-content { max-width: 520px; }
+        .studio-content .overline { margin-bottom: var(--space-lg); color: var(--terracotta); }
+        .studio-content h2 { margin-bottom: var(--space-lg); }
+        .studio-content > p { margin-bottom: var(--space-xl); }
+        .studio-stats { display: flex; gap: var(--space-xl); margin-bottom: var(--space-xl); padding: var(--space-lg) 0; border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); }
+        .studio-stat-item { text-align: left; }
+        .studio-stat-number { font-size: 28px; font-weight: 700; color: var(--sage); letter-spacing: -0.02em; }
+        .studio-stat-text { font-size: 13px; color: var(--text-medium); margin-top: 2px; }
+        .benefits-list { list-style: none; margin-bottom: var(--space-xl); }
+        .benefits-list li { display: flex; align-items: flex-start; gap: var(--space-md); padding: var(--space-md) 0; border-bottom: 1px solid var(--gray-200); font-size: 15px; color: var(--text-medium); }
+        .benefits-list li:last-child { border-bottom: none; }
+        .benefits-list .icon { color: var(--teal); font-size: 14px; margin-top: 3px; }
+        .studio-testimonial { background: var(--bg-light); padding: var(--space-lg); border-radius: 8px; margin-bottom: var(--space-xl); border-left: 3px solid var(--teal); }
+        .studio-testimonial p { font-family: var(--font-accent); font-style: italic; font-size: 16px; color: var(--text-dark); margin-bottom: var(--space-sm); }
+        .studio-testimonial cite { font-size: 13px; font-style: normal; color: var(--text-medium); }
+        .studio-cta-group { display: flex; gap: var(--space-md); align-items: center; }
+        .studio-image { position: relative; border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; box-shadow: var(--shadow-lg); }
+        .studio-image::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(248, 250, 250, 0.1) 50%, rgba(95, 116, 112, 0.08) 100%); pointer-events: none; }
+        .studio-image img { width: 100%; height: 100%; object-fit: cover; filter: contrast(0.95) brightness(1.03); }
+
+        .quote-section { padding: var(--space-4xl) 0; background-color: var(--sage); }
+        .quote-content { max-width: 900px; margin: 0 auto; text-align: center; }
+        .quote-mark { font-family: var(--font-accent); font-size: 120px; color: var(--terracotta); line-height: 0.5; margin-bottom: var(--space-lg); opacity: 0.8; }
+        .quote-text { font-family: var(--font-accent); font-size: clamp(24px, 4vw, 36px); font-style: italic; color: var(--white); line-height: 1.4; margin-bottom: var(--space-xl); }
+        .quote-attribution { font-family: var(--font-heading); font-size: 14px; font-weight: 500; color: rgba(255, 255, 255, 0.7); letter-spacing: 0.05em; }
+
+    /* ===================================
+       FOOTER — HIGH SPECIFICITY OVERRIDES
+    =================================== */
+/* FOOTER - New Design v3 */
+.footer {
+  background-color: #2C3E3A;
+  color: #F8FAFA;
+  padding: 60px 40px 30px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr 1.3fr;
+  gap: 40px;
+}
+
+.footer-section h4 {
+  color: #F8FAFA;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+
+/* Brand Column */
+.footer-brand .brand-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.footer-brand .brand-tagline {
+  font-size: 14px;
+  color: #9DB4AF;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.footer-brand .stat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(97, 148, 139, 0.2);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #61948B;
+  margin-bottom: 20px;
+}
+
+.footer-brand .stat-badge svg {
+  width: 16px;
+  height: 16px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #F8FAFA;
+  transition: all 0.2s ease;
+}
+
+.footer-social a:hover {
+  background: #61948B;
+  transform: translateY(-2px);
+}
+
+.footer-social svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: #9DB4AF;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #F8FAFA;
+}
+
+/* City Chips */
+.city-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.city-chip {
+  display: inline-block;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  color: #9DB4AF;
+  font-size: 12px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.city-chip:hover {
+  background: rgba(97, 148, 139, 0.3);
+  color: #F8FAFA;
+}
+
+/* Newsletter */
+.newsletter-form p {
+  font-size: 14px;
+  color: #9DB4AF;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.newsletter-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.newsletter-form input[type="email"] {
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #F8FAFA;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.newsletter-form input[type="email"]::placeholder {
+  color: #6B7C78;
+}
+
+.newsletter-form input[type="email"]:focus {
+  border-color: #61948B;
+}
+
+.newsletter-form button {
+  padding: 12px 20px;
+  background: #61948B;
+  color: #F8FAFA;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.newsletter-form button:hover {
+  background: #5F7470;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #6B7C78;
+}
+
+.footer-bottom a {
+  color: #6B7C78;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-bottom a:hover {
+  color: #F8FAFA;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 24px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 40px 20px 24px;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .footer-legal {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; min-height: auto; }
+            .hero-content { padding: var(--space-3xl) var(--space-lg); order: 1; }
+            .hero-image { height: 50vh; order: 0; }
+            .hero-stat { bottom: var(--space-lg); left: var(--space-lg); }
+            .styles-grid { grid-template-columns: repeat(4, 1fr); }
+            .cities-grid { grid-template-columns: repeat(3, 1fr); }
+            .explore-grid { grid-template-columns: 1fr; }
+            .studio-grid { grid-template-columns: 1fr; }
+            .studio-image { order: -1; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 640px) {
+            .nav-social { margin-left: auto; padding-left: 0; border-left: none; }
+            .nav-toggle { display: inline-flex; align-items: center; justify-content: center; margin-left: var(--space-md); }
+            .nav-links { display: none; position: absolute; top: 56px; right: var(--space-lg); background: var(--white); border-radius: 8px; box-shadow: var(--shadow-lg); padding: var(--space-md) var(--space-lg); flex-direction: column; gap: var(--space-md); z-index: 1000; }
+            .nav-links.is-open { display: flex; }
+            .hero-content { padding: var(--space-2xl) var(--space-md); }
+            .hero-search { flex-direction: column; }
+            .styles-grid { grid-template-columns: repeat(3, 1fr); }
+            .cities-grid { grid-template-columns: repeat(2, 1fr); }
+            .studio-stats { flex-direction: column; gap: var(--space-md); }
+            .studio-cta-group { flex-direction: column; align-items: flex-start; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: var(--space-md); text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="visually-hidden focusable">Skip to main content</a>
+
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="/" class="logo">Yoga Near Me</a>
+            <ul class="nav-links" id="primary-navigation">
+                <li><a href="/yoga-styles/">Yoga Styles</a></li>
+                <li><a href="/yoga-glossary/">Glossary</a></li>
+                <li><a href="/for-studios/">For Studios</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/add-studio/" class="btn btn-primary">Add Your Studio</a></li>
+            </ul>
+            <div class="nav-social">
+                <a href="https://www.instagram.com/yoga.near.me.guide/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61576026377264" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@yoganearmeguide" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <button class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation">
+                <span class="visually-hidden">Toggle navigation</span>
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-content">
+                <p class="overline hero-overline">30,000+ Studios Across North America</p>
+                <h1 class="display-xl hero-title">
+                    Find your<br>
+                    <span class="accent">yoga studio</span> near you
+                </h1>
+                <p class="hero-subtitle">
+                    The most comprehensive directory of yoga studios in the US and Canada—curated for students who take their practice seriously.
+                </p>
+                
+                <!-- TOP SEARCH BAR (FIXED: Now includes coordinate fields) -->
+                <form class="hero-search" id="hero-search-form" action="https://yoganearme.info/search-page/" method="get">
+                    <!-- Added Required GD Hidden Fields -->
+                    <input type="hidden" name="geodir_search" value="1">
+                    <input type="hidden" name="stype" value="gd_place">
+                    <input type="hidden" name="s" value="">
+                    <!-- NEW: Hidden coordinate fields for map zoom -->
+                    <input type="hidden" name="sgeo_lat" id="hero-sgeo-lat" value="">
+                    <input type="hidden" name="sgeo_lon" id="hero-sgeo-lon" value="">
+                    
+                    <label for="hero-location" class="visually-hidden">Search yoga studios by city or zip code</label>
+                    <input
+                        type="text"
+                        id="hero-location"
+                        name="snear"
+                        class="search-input"
+                        placeholder="Enter your city or zip code"
+                        autocomplete="off"
+                    >
+                    <button type="submit" class="btn btn-cta">Search</button>
+                </form>
+
+                <p class="text-small" style="margin-top:16px; max-width:520px; color:var(--text-light);">
+                    Yoga Near Me is an independent directory of yoga studios across the United States and Canada, organized by city and style so you can find the right room, teacher, and practice for you.
+                </p>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&q=80" alt="Yoga practice in studio">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">28,497</div>
+                    <div class="hero-stat-label">Studios and counting</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- YOGA STYLES -->
+        <section class="styles-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Explore by style</h2>
+                    <p>From vigorous flows to restorative stillness—find the practice that speaks to you.</p>
+                </div>
+                <div class="styles-grid">
+                    <a href="/yoga-styles/hot-yoga/" class="style-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/08/Style_Icons_Hot_1024x1024-e1762387536422.jpg" alt="Hot Yoga" class="style-button-image">
+                        <span class="visually-hidden">Hot Yoga</span>
+                    </a>
+                    <a href="/yoga-styles/hatha-yoga/" class="style-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/08/Style_Icons_Hatha_1024x1024-e1762387576991.jpg" alt="Hatha Yoga" class="style-button-image">
+                        <span class="visually-hidden">Hatha Yoga</span>
+                    </a>
+                    <a href="/yoga-styles/vinyasa-yoga/" class="style-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/08/Style_Icons_Ashtanga_1024x1024-e1762387778775.jpg" alt="Vinyasa Yoga" class="style-button-image">
+                        <span class="visually-hidden">Vinyasa Yoga</span>
+                    </a>
+                    <a href="/yoga-styles/iyengar-yoga/" class="style-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/08/Style_Icons_Iyengar_1024x1024-e1762387672944.jpg" alt="Iyengar Yoga" class="style-button-image">
+                        <span class="visually-hidden">Iyengar Yoga</span>
+                    </a>
+                    <a href="/yoga-styles/yin-yoga/" class="style-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/08/Style_Icons_Yin_1024x1024-e1762388426373.jpg" alt="Yin Yoga" class="style-button-image">
+                        <span class="visually-hidden">Yin Yoga</span>
+                    </a>
+                    <a href="/yoga-styles/prenatal-yoga/" class="style-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/08/Style_Icons_Prenatal_1024x1024-1-e1762387407561.jpg" alt="Prenatal Yoga" class="style-button-image">
+                        <span class="visually-hidden">Prenatal Yoga</span>
+                    </a>
+                    <a href="/yoga-styles/aerial-yoga/" class="style-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/08/style_icons_aerial_1024x1024-e1762387860914.jpg" alt="Aerial Yoga" class="style-button-image">
+                        <span class="visually-hidden">Aerial Yoga</span>
+                    </a>
+                    <a href="/yoga-styles/ashtanga-yoga/" class="style-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/08/Style_Icons_Ashtanga_1024x1024-e1762387778775.jpg" alt="Ashtanga Yoga" class="style-button-image">
+                        <span class="visually-hidden">Ashtanga Yoga</span>
+                    </a>
+                    <a href="/yoga-styles/kundalini-yoga/" class="style-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/08/Style_Icons_Kundalini_1024x1024-e1762387948105.jpg" alt="Kundalini Yoga" class="style-button-image">
+                        <span class="visually-hidden">Kundalini Yoga</span>
+                    </a>
+                    <a href="/yoga-styles/restorative-yoga/" class="style-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/08/Style_Icons_Restorative_1024x1024-e1762388142926.jpg" alt="Restorative Yoga" class="style-button-image">
+                        <span class="visually-hidden">Restorative Yoga</span>
+                    </a>
+                    <a href="/yoga-styles/power-yoga/" class="style-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/08/Style_Icons_Power_1024x1024-e1762388073321.jpg" alt="Power Yoga" class="style-button-image">
+                        <span class="visually-hidden">Power Yoga</span>
+                    </a>
+                    <a href="/yoga-styles/rocket-yoga/" class="style-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/08/Style_Icons_Rocket_1024x1024-e1762388016858.jpg" alt="Rocket Yoga" class="style-button-image">
+                        <span class="visually-hidden">Rocket Yoga</span>
+                    </a>
+                </div>
+                <div class="styles-footer">
+                    <a href="/yoga-styles/" class="view-all-link">View all styles <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- MIDDLE SEARCH REMOVED HERE -->
+
+        <!-- CITIES -->
+        <section class="cities-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Browse by city</h2>
+                    <p>Explore studios in major metropolitan areas across the US and Canada.</p>
+                </div>
+                <div class="cities-grid">
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=new+york+city&sgeo_lat=40.7127281&sgeo_lon=-74.0060152" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_New_York_300x110.png" alt="New York yoga studios" class="city-button-image">
+                        <span class="visually-hidden">New York</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=&sgeo_lat=&sgeo_lon=&city=los-angeles" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Los_Angeles_300x110.png" alt="Los Angeles yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Los Angeles</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=san+francisco&sgeo_lat=37.7792588&sgeo_lon=-122.4193286" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_San_Francisco_300x110.png" alt="San Francisco yoga studios" class="city-button-image">
+                        <span class="visually-hidden">San Francisco</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=chicago&sgeo_lat=41.8755616&sgeo_lon=-87.6244212" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Chicago_300x110.png" alt="Chicago yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Chicago</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=miami&sgeo_lat=25.7741728&sgeo_lon=-80.1936200" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Miami_300x110.png" alt="Miami yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Miami</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=austin&sgeo_lat=30.2711286&sgeo_lon=-97.7436995" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Austin_300x110.png" alt="Austin yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Austin</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=denver&sgeo_lat=39.7392364&sgeo_lon=-104.9848620" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Denver_300x110.png" alt="Denver yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Denver</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=boulder&sgeo_lat=40.0149856&sgeo_lon=-105.2705450" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Boulder_300x110.png" alt="Boulder yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Boulder</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=seattle&sgeo_lat=47.6038321&sgeo_lon=-122.3300620" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Seattle_300x110.png" alt="Seattle yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Seattle</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=portland&sgeo_lat=45.5202471&sgeo_lon=-122.6741940" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Portland_300x110.png" alt="Portland yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Portland</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=san+diego&sgeo_lat=32.7174202&sgeo_lon=-117.1627720" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_San_Diego_300x110.png" alt="San Diego yoga studios" class="city-button-image">
+                        <span class="visually-hidden">San Diego</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=washington+dc&sgeo_lat=38.8950368&sgeo_lon=-77.0365427" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Washington_DC_300x110.png" alt="Washington DC yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Washington DC</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=boston&sgeo_lat=42.3554334&sgeo_lon=-71.0605110" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Boston_300x110.png" alt="Boston yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Boston</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&s=+&snear=&sgeo_lat=&sgeo_lon=&city=philadelphia" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Philadelphia_300x110.png" alt="Philadelphia yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Philadelphia</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=oakland&sgeo_lat=37.8044557&sgeo_lon=-122.2713560" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Oakland_300x110.png" alt="Oakland yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Oakland</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=atlanta&sgeo_lat=33.7544657&sgeo_lon=-84.3898151" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Atlanta_300x110.png" alt="Atlanta yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Atlanta</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=charlotte&sgeo_lat=35.2272086&sgeo_lon=-80.8430827" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Charlotte_300x110.png" alt="Charlotte yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Charlotte</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=houston&sgeo_lat=29.7589382&sgeo_lon=-95.3676974" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Houston_300x110.png" alt="Houston yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Houston</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=scottsdale&sgeo_lat=33.4942189&sgeo_lon=-111.9260180" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Scottsdale_300x110.png" alt="Scottsdale yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Scottsdale</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=vancouver+bc&sgeo_lat=49.2608724&sgeo_lon=-123.1139520" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Vancouver_300x110.png" alt="Vancouver BC yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Vancouver BC</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=calgary&sgeo_lat=51.0456064&sgeo_lon=-114.0575410" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Calgary_300x110.png" alt="Calgary yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Calgary</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=victoria+bc&sgeo_lat=48.4283182&sgeo_lon=-123.3649530" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Victoria_BC_300x110.png" alt="Victoria BC yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Victoria BC</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=toronto&sgeo_lat=43.6534817&sgeo_lon=-79.3839347" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Toronto_300x110.png" alt="Toronto yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Toronto</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/?geodir_search=1&saz=&stype=gd_place&s=+&snear=montreal&sgeo_lat=45.5031824&sgeo_lon=-73.5698065" class="city-button">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/City_Montreal_300x110.png" alt="Montreal yoga studios" class="city-button-image">
+                        <span class="visually-hidden">Montreal</span>
+                    </a>
+                    <a href="https://yoganearme.info/search-page/" class="city-button featured">
+                        <span class="city-button-label">All cities →</span>
+                        <span class="visually-hidden">Browse all cities</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPLORE -->
+        <section class="explore-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Go deeper</h2>
+                    <p class="text-small" style="max-width:640px;">
+                        Yoga Near Me is a human-curated directory and guide for yoga students and studio owners. 
+                        We help practitioners discover local yoga studios—and help independent studios grow—through better information, reviews, and education.
+                    </p>
+                </div>
+                <div class="explore-grid">
+                    <a href="/yoga-glossary/" class="explore-card">
+                        <div class="explore-card-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Yoga Glossary</h3>
+                        <p>70+ terms from asana to vinyasa—learn the language of yoga with clear, accessible definitions.</p>
+                        <span class="explore-card-link">Browse the glossary <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="/studio-reviews/" class="explore-card">
+                        <div class="explore-card-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Studio Reviews</h3>
+                        <p>Curated lists of the best studios by city and style—researched, visited, and reviewed by our team.</p>
+                        <span class="explore-card-link">Browse reviews <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="/blog/" class="explore-card">
+                        <div class="explore-card-icon">
+                            <i class="fas fa-pen-nib"></i>
+                        </div>
+                        <h3>From the Blog</h3>
+                        <p>Stories, guides, and perspectives on practice, teaching, and the yoga life.</p>
+                        <span class="explore-card-link">Read latest posts <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- STUDIO OWNERS -->
+        <section class="studio-section">
+            <div class="container">
+                <div class="studio-grid">
+                    <div class="studio-content">
+                        <p class="overline">For Studio Owners</p>
+                        <h2>Your students are already searching. Make sure they find you.</h2>
+                        <p>Yoga Near Me connects serious practitioners with independent studios. No algorithms burying your listing. No pay-to-play rankings. Just honest visibility where it matters.</p>
+                        <div class="studio-stats">
+                            <div class="studio-stat-item">
+                                <div class="studio-stat-number">2,400+</div>
+                                <div class="studio-stat-text">Studios listed</div>
+                            </div>
+                            <div class="studio-stat-item">
+                                <div class="studio-stat-number">46</div>
+                                <div class="studio-stat-text">Cities covered</div>
+                            </div>
+                            <div class="studio-stat-item">
+                                <div class="studio-stat-number">Free</div>
+                                <div class="studio-stat-text">Basic listing</div>
+                            </div>
+                        </div>
+                        <ul class="benefits-list">
+                            <li>
+                                <i class="fas fa-check icon"></i>
+                                <span>Full studio profile with classes, schedules, and contact info</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check icon"></i>
+                                <span>SEO-optimized studio pages that can appear in "yoga near me" and "yoga studio in [your city]" searches</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check icon"></i>
+                                <span>Premium options for featured placement</span>
+                            </li>
+                        </ul>
+                        <div class="studio-testimonial">
+                            <p>"We saw a 30% increase in new student inquiries within two months of claiming our listing."</p>
+                            <cite>— Sarah Chen, Lotus Room Yoga, Portland</cite>
+                        </div>
+                        <div class="studio-cta-group">
+                            <a href="/add-studio/" class="btn btn-cta">Claim your listing</a>
+                            <a href="/for-studios/" class="btn btn-secondary">Learn more</a>
+                        </div>
+                    </div>
+                    <div class="studio-image">
+                        <img src="https://yoganearme.info/wp-content/uploads/2025/11/Untitled-design.jpg" alt="Yoga class in session">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUOTE -->
+        <section class="quote-section">
+            <div class="container">
+                <div class="quote-content">
+                    <div class="quote-mark">"</div>
+                    <p class="quote-text">The real yoga begins when you leave the mat. But finding the right mat—the right teacher, the right room—that's where transformation starts.</p>
+                    <p class="quote-attribution">— Lisa Marie, Viveka Yoga Studio</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<footer class="footer">
+  <div class="footer-content">
+    <!-- Brand Column -->
+    <div class="footer-section footer-brand">
+      <div class="brand-name">YogaNearMe.info</div>
+      <p class="brand-tagline">Find your practice.<br>Find your place.</p>
+      <div class="stat-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        30,000+ Studios Listed
+      </div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/yoganearme.info" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        </a>
+        <a href="https://www.instagram.com/yoganearme.info/" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://x.com/yogaboradotinfo" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+        </a>
+        <a href="https://www.pinterest.com/yogaboradotinfo/" aria-label="Pinterest">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.406.042-3.442.218-.936 1.407-5.965 1.407-5.965s-.359-.719-.359-1.781c0-1.669.967-2.914 2.171-2.914 1.024 0 1.518.769 1.518 1.69 0 1.03-.655 2.569-.994 3.995-.283 1.195.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.208 0 1.031.397 2.137.893 2.739.098.119.112.223.083.344-.091.379-.293 1.194-.333 1.361-.052.218-.172.265-.398.16-1.485-.691-2.413-2.86-2.413-4.603 0-3.746 2.722-7.186 7.85-7.186 4.121 0 7.324 2.937 7.324 6.862 0 4.096-2.583 7.39-6.17 7.39-1.205 0-2.337-.626-2.726-1.366l-.741 2.826c-.268 1.031-1.001 2.322-1.491 3.113 1.123.347 2.313.534 3.549.534 6.627 0 12-5.373 12-12S18.627 0 12 0z"></path></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Explore Column -->
+    <div class="footer-section">
+      <h4>Explore</h4>
+      <ul class="footer-links">
+        <li><a href="https://yoganearme.info/yoga-studios/">Find Studios</a></li>
+        <li><a href="https://yoganearme.info/yoga-styles/">Yoga Styles</a></li>
+        <li><a href="https://yoganearme.info/glossary/">Glossary</a></li>
+        <li><a href="https://yoganearme.info/about/">About Us</a></li>
+        <li><a href="https://yoganearme.info/contact/">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- For Studios + Cities Column -->
+    <div class="footer-section">
+      <h4>For Studios</h4>
+      <ul class="footer-links">
+        <li><a href="https://yoganearme.info/add-studio/">Add Your Studio</a></li>
+        <li><a href="https://yoganearme.info/claim-listing/">Claim Listing</a></li>
+      </ul>
+      <h4 style="margin-top: 24px;">Popular Cities</h4>
+      <div class="city-chips">
+        <a href="https://yoganearme.info/yoga-studios/?geodir_search=1&stype=gd_place&s=&snear=New+York%2C+NY" class="city-chip">New York</a>
+        <a href="https://yoganearme.info/yoga-studios/?geodir_search=1&stype=gd_place&s=&snear=Los+Angeles%2C+CA" class="city-chip">Los Angeles</a>
+        <a href="https://yoganearme.info/yoga-studios/?geodir_search=1&stype=gd_place&s=&snear=Chicago%2C+IL" class="city-chip">Chicago</a>
+        <a href="https://yoganearme.info/yoga-studios/?geodir_search=1&stype=gd_place&s=&snear=Austin%2C+TX" class="city-chip">Austin</a>
+        <a href="https://yoganearme.info/yoga-studios/?geodir_search=1&stype=gd_place&s=&snear=Denver%2C+CO" class="city-chip">Denver</a>
+      </div>
+    </div>
+
+    <!-- Newsletter Column -->
+    <div class="footer-section newsletter-form">
+      <h4>Stay Connected</h4>
+      <p>Get studio tips and yoga insights delivered to your inbox.</p>
+      <form action="#" method="post">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>&copy; 2025 YogaNearMe.info. All rights reserved.</div>
+    <div class="footer-legal">
+      <a href="https://yoganearme.info/privacy-policy/">Privacy Policy</a>
+      <a href="https://yoganearme.info/terms/">Terms of Service</a>
+      <a href="https://yoganearme.info/sitemap/">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+    <script>
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const nav    = document.getElementById('primary-navigation');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const open = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+
+    // ============================================
+    // SEARCH FORM COORDINATE FIX + SEO URL REDIRECT
+    // ============================================
+    
+    // City data lookup table (coordinates + SEO-friendly location paths)
+    const cityData = {
+        // Major US Cities
+        'new york': { 
+            lat: 40.7127281, 
+            lon: -74.0060152,
+            locationPath: '/location/united-states/new-york/new-york/'
+        },
+        'new york city': { 
+            lat: 40.7127281, 
+            lon: -74.0060152,
+            locationPath: '/location/united-states/new-york/new-york/'
+        },
+        'nyc': { 
+            lat: 40.7127281, 
+            lon: -74.0060152,
+            locationPath: '/location/united-states/new-york/new-york/'
+        },
+        'los angeles': { 
+            lat: 34.0522342, 
+            lon: -118.2436849,
+            locationPath: '/location/united-states/california/los-angeles/'
+        },
+        'la': { 
+            lat: 34.0522342, 
+            lon: -118.2436849,
+            locationPath: '/location/united-states/california/los-angeles/'
+        },
+        'chicago': { 
+            lat: 41.8755616, 
+            lon: -87.6244212,
+            locationPath: '/location/united-states/illinois/chicago/'
+        },
+        'san francisco': { 
+            lat: 37.7792588, 
+            lon: -122.4193286,
+            locationPath: '/location/united-states/california/san-francisco/'
+        },
+        'sf': { 
+            lat: 37.7792588, 
+            lon: -122.4193286,
+            locationPath: '/location/united-states/california/san-francisco/'
+        },
+        'miami': { 
+            lat: 25.7741728, 
+            lon: -80.1936200,
+            locationPath: '/location/united-states/florida/miami/'
+        },
+        'austin': { 
+            lat: 30.2711286, 
+            lon: -97.7436995,
+            locationPath: '/location/united-states/texas/austin/'
+        },
+        'denver': { 
+            lat: 39.7392364, 
+            lon: -104.9848620,
+            locationPath: '/location/united-states/colorado/denver/'
+        },
+        'seattle': { 
+            lat: 47.6038321, 
+            lon: -122.3300620,
+            locationPath: '/location/united-states/washington/seattle/'
+        },
+        'portland': { 
+            lat: 45.5202471, 
+            lon: -122.6741940,
+            locationPath: '/location/united-states/oregon/portland/'
+        },
+        'san diego': { 
+            lat: 32.7174202, 
+            lon: -117.1627720,
+            locationPath: '/location/united-states/california/san-diego/'
+        },
+        'washington dc': { 
+            lat: 38.8950368, 
+            lon: -77.0365427,
+            locationPath: '/location/united-states/district-of-columbia/washington/'
+        },
+        'washington': { 
+            lat: 38.8950368, 
+            lon: -77.0365427,
+            locationPath: '/location/united-states/district-of-columbia/washington/'
+        },
+        'boston': { 
+            lat: 42.3554334, 
+            lon: -71.0605110,
+            locationPath: '/location/united-states/massachusetts/boston/'
+        },
+        'philadelphia': { 
+            lat: 39.9525839, 
+            lon: -75.1652215,
+            locationPath: '/location/united-states/pennsylvania/philadelphia/'
+        },
+        'oakland': { 
+            lat: 37.8044557, 
+            lon: -122.2713560,
+            locationPath: '/location/united-states/california/oakland/'
+        },
+        'atlanta': { 
+            lat: 33.7544657, 
+            lon: -84.3898151,
+            locationPath: '/location/united-states/georgia/atlanta/'
+        },
+        'charlotte': { 
+            lat: 35.2272086, 
+            lon: -80.8430827,
+            locationPath: '/location/united-states/north-carolina/charlotte/'
+        },
+        'houston': { 
+            lat: 29.7589382, 
+            lon: -95.3676974,
+            locationPath: '/location/united-states/texas/houston/'
+        },
+        'scottsdale': { 
+            lat: 33.4942189, 
+            lon: -111.9260180,
+            locationPath: '/location/united-states/arizona/scottsdale/'
+        },
+        'boulder': { 
+            lat: 40.0149856, 
+            lon: -105.2705450,
+            locationPath: '/location/united-states/colorado/boulder/'
+        },
+        // Canadian Cities
+        'toronto': { 
+            lat: 43.6534817, 
+            lon: -79.3839347,
+            locationPath: '/location/canada/ontario/toronto/'
+        },
+        'vancouver': { 
+            lat: 49.2608724, 
+            lon: -123.1139520,
+            locationPath: '/location/canada/british-columbia/vancouver/'
+        },
+        'vancouver bc': { 
+            lat: 49.2608724, 
+            lon: -123.1139520,
+            locationPath: '/location/canada/british-columbia/vancouver/'
+        },
+        'calgary': { 
+            lat: 51.0456064, 
+            lon: -114.0575410,
+            locationPath: '/location/canada/alberta/calgary/'
+        },
+        'victoria': { 
+            lat: 48.4283182, 
+            lon: -123.3649530,
+            locationPath: '/location/canada/british-columbia/victoria/'
+        },
+        'victoria bc': { 
+            lat: 48.4283182, 
+            lon: -123.3649530,
+            locationPath: '/location/canada/british-columbia/victoria/'
+        },
+        'montreal': { 
+            lat: 45.5031824, 
+            lon: -73.5698065,
+            locationPath: '/location/canada/quebec/montreal/'
+        },
+    };
+
+    // Normalize city name for lookup
+    function normalizeCityName(cityName) {
+        return cityName.toLowerCase().trim();
+    }
+
+    // Get city data from lookup table
+    function getCityData(cityName) {
+        const normalized = normalizeCityName(cityName);
+        
+        // Direct match
+        if (cityData[normalized]) {
+            return cityData[normalized];
+        }
+        
+        // Partial match (handles "New York, NY" or "Chicago, IL")
+        for (const [key, data] of Object.entries(cityData)) {
+            if (normalized.includes(key) || key.includes(normalized)) {
+                return data;
+            }
+        }
+        
+        return null;
+    }
+
+    // Handle search form submission
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchForm = document.getElementById('hero-search-form');
+        const locationInput = document.getElementById('hero-location');
+        const latInput = document.getElementById('hero-sgeo-lat');
+        const lonInput = document.getElementById('hero-sgeo-lon');
+        
+        if (!searchForm || !locationInput || !latInput || !lonInput) {
+            console.warn('Search form elements not found');
+            return;
+        }
+        
+        // On form submit, geocode the city and redirect to SEO-friendly URL if available
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            
+            const cityName = locationInput.value.trim();
+            
+            if (!cityName) {
+                // Empty search - submit to search-page normally
+                searchForm.submit();
+                return;
+            }
+            
+            // Get city data from lookup table
+            const cityInfo = getCityData(cityName);
+            
+            if (cityInfo) {
+                // Redirect to search-page with coordinates
+                // This shows all listings properly (location pages are info pages, not listings)
+                const searchUrl = `https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&s=&snear=${encodeURIComponent(cityName)}&sgeo_lat=${cityInfo.lat}&sgeo_lon=${cityInfo.lon}`;
+                window.location.href = searchUrl;
+            } else {
+                // For unknown cities/zip codes, submit form normally
+                searchForm.submit();
+            }
+        });
+        
+        // Optional: Auto-populate coordinates as user types (better UX)
+        let debounceTimer;
+        locationInput.addEventListener('input', function() {
+            clearTimeout(debounceTimer);
+            const cityName = this.value.trim();
+            
+            if (cityName.length < 3) {
+                latInput.value = '';
+                lonInput.value = '';
+                return;
+            }
+            
+            debounceTimer = setTimeout(function() {
+                const cityInfo = getCityData(cityName);
+                if (cityInfo) {
+                    latInput.value = cityInfo.lat;
+                    lonInput.value = cityInfo.lon;
+                }
+            }, 300);
+        });
+    });
+    </script>
+</body>
+</html>
+

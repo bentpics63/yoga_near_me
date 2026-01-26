@@ -1,0 +1,232 @@
+/**
+ * FIX ALL STYLING ISSUES
+ * 1. Remove pink text (amenities, styles, contact)
+ * 2. Style reviews rating display
+ * 3. Fix button text colors (white text on green/orange buttons)
+ * 4. Remove duplicate icons from section headings (keep dots, remove icons)
+ * Add this to WordPress Customizer → Additional CSS (at the very bottom)
+ */
+
+/* ============================================
+   FIX 1: REMOVE PINK TEXT - Change to appropriate colors
+   ============================================ */
+
+/* Yoga Styles - Change pink to teal */
+body.single-gd_place .style-tag,
+body.single-gd_place .geodir-post-meta[data-key="yoga_styles"] .geodir-meta-value,
+body.single-gd_place .geodir-post-meta .geodir-fv-kundalini,
+body.single-gd_place .geodir-post-meta .geodir-fv-power,
+body.single-gd_place .geodir-post-meta .geodir-fv-vinyassa-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-hatha-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-yin-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-prenatal-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-ashtanga-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-restorative-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-rocket-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-aerial-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-iyengar-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-dharma-yoga,
+body.single-gd_place [class*="yoga-style"],
+body.single-gd_place [class*="style-tag"] {
+    color: #61948B !important; /* Teal */
+}
+
+/* Amenities - Change pink to teal */
+body.single-gd_place .amenity-item,
+body.single-gd_place .geodir-post-meta[data-key="amenities"] .geodir-meta-value,
+body.single-gd_place [class*="amenity"] {
+    color: #222222 !important; /* Dark gray */
+}
+
+/* Contact Info - Change pink address/phone/email to appropriate colors */
+body.single-gd_place .contact-value,
+body.single-gd_place .contact-item,
+body.single-gd_place .contact-details,
+body.single-gd_place .geodir-post-meta[data-key="address"] .geodir-meta-value,
+body.single-gd_place .geodir-post-meta[data-key="phone"] .geodir-meta-value,
+body.single-gd_place .geodir-post-meta[data-key="email"] .geodir-meta-value,
+body.single-gd_place .geodir-post-meta[data-key="website"] .geodir-meta-value {
+    color: #222222 !important; /* Dark gray */
+}
+
+/* Contact links should be teal */
+body.single-gd_place .contact-value a,
+body.single-gd_place .contact-item a {
+    color: #61948B !important; /* Teal */
+}
+
+/* ============================================
+   FIX 2: STYLE REVIEWS RATING DISPLAY
+   ============================================ */
+
+body.single-gd_place .rating-big,
+body.single-gd_place .reviews-summary .rating-big {
+    text-align: center !important;
+    padding: var(--space-lg) !important;
+}
+
+body.single-gd_place .rating-number {
+    font-size: 3rem !important;
+    font-weight: 700 !important;
+    color: #222222 !important;
+    line-height: 1 !important;
+    margin-bottom: var(--space-sm) !important;
+}
+
+body.single-gd_place .reviews-summary .stars {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    margin-bottom: var(--space-xs) !important;
+}
+
+body.single-gd_place .reviews-summary .stars svg {
+    width: 24px !important;
+    height: 24px !important;
+    fill: #F5A623 !important; /* Gold */
+}
+
+body.single-gd_place .reviews-summary .review-count {
+    color: #555555 !important;
+    font-size: 0.95rem !important;
+    margin-top: var(--space-xs) !important;
+}
+
+/* ============================================
+   FIX 3: BUTTON TEXT COLORS - White text on colored buttons
+   ============================================ */
+
+/* Orange/Red buttons - White text */
+body.single-gd_place .btn-primary,
+body.single-gd_place .btn[style*="background: #FF5733"],
+body.single-gd_place .btn[style*="background-color: #FF5733"],
+body.single-gd_place .btn[style*="background: var(--color-terracotta)"],
+body.single-gd_place .btn[style*="background-color: var(--color-terracotta)"],
+body.single-gd_place button[style*="background: #FF5733"],
+body.single-gd_place button[style*="background-color: #FF5733"],
+body.single-gd_place a[style*="background: #FF5733"],
+body.single-gd_place a[style*="background-color: #FF5733"] {
+    color: #FFFFFF !important;
+}
+
+/* Green/Teal buttons - White text */
+body.single-gd_place .btn-secondary[style*="background: #61948B"],
+body.single-gd_place .btn-secondary[style*="background-color: #61948B"],
+body.single-gd_place .btn-secondary[style*="background: var(--color-teal)"],
+body.single-gd_place .btn-secondary[style*="background-color: var(--color-teal)"],
+body.single-gd_place .btn[style*="background: #61948B"],
+body.single-gd_place .btn[style*="background-color: #61948B"],
+body.single-gd_place .btn[style*="background: #28A745"],
+body.single-gd_place .btn[style*="background-color: #28A745"],
+body.single-gd_place button[style*="background: #61948B"],
+body.single-gd_place button[style*="background-color: #61948B"],
+body.single-gd_place a[style*="background: #61948B"],
+body.single-gd_place a[style*="background-color: #61948B"] {
+    color: #FFFFFF !important;
+}
+
+/* Write a Review button - should be teal with white text */
+body.single-gd_place .btn-secondary:contains("Write a Review"),
+body.single-gd_place button:contains("Write a Review"),
+body.single-gd_place [class*="write-review"] {
+    background: #61948B !important;
+    color: #FFFFFF !important;
+}
+
+/* Helpful button - should have white text if background is colored */
+body.single-gd_place .helpful-btn[style*="background: #"],
+body.single-gd_place .helpful-btn[style*="background-color: #"] {
+    color: #FFFFFF !important;
+}
+
+/* ============================================
+   FIX 4: REMOVE DUPLICATE ICONS FROM SECTION HEADINGS
+   Keep dots, remove SVG icons
+   ============================================ */
+
+/* About Section - Remove info icon, keep dot */
+body.single-gd_place .content-card#about .card-title svg,
+body.single-gd_place .content-card:has(h2:contains("About")) .card-title svg {
+    display: none !important;
+}
+
+/* Yoga Styles Section - Remove star icon, keep dot */
+body.single-gd_place .content-card#styles .card-title svg,
+body.single-gd_place .content-card:has(h2:contains("Yoga Styles")) .card-title svg {
+    display: none !important;
+}
+
+/* Amenities Section - Remove check icon, keep dot */
+body.single-gd_place .content-card#amenities .card-title svg,
+body.single-gd_place .content-card:has(h2:contains("Amenities")) .card-title svg {
+    display: none !important;
+}
+
+/* Today's Schedule Section - Remove calendar icon, keep dot */
+body.single-gd_place .content-card#schedule .card-title svg,
+body.single-gd_place .content-card:has(h2:contains("Schedule")) .card-title svg,
+body.single-gd_place .content-card:has(h2:contains("Today")) .card-title svg {
+    display: none !important;
+}
+
+/* Reviews Section - Remove star icon, keep dot */
+body.single-gd_place .content-card#reviews .card-title svg,
+body.single-gd_place .content-card:has(h2:contains("Reviews")) .card-title svg {
+    display: none !important;
+}
+
+/* General: Remove ALL SVG icons from card-title headings */
+body.single-gd_place .card-title svg,
+body.single-gd_place .content-card .card-title svg {
+    display: none !important;
+}
+
+/* But keep icons in other places (like buttons, contact icons, etc.) */
+body.single-gd_place .btn svg,
+body.single-gd_place .contact-icon svg,
+body.single-gd_place .amenity-item svg,
+body.single-gd_place .style-tag svg,
+body.single-gd_place .meta-item svg,
+body.single-gd_place .stars svg,
+body.single-gd_place .review-rating svg {
+    display: inline-block !important;
+}
+
+/* ============================================
+   ADDITIONAL FIXES
+   ============================================ */
+
+/* Ensure dots are visible on section headings */
+body.single-gd_place .card-title::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+}
+
+body.single-gd_place .card-title {
+    position: relative !important;
+    padding-left: 24px !important;
+}
+
+/* Fix any remaining pink text */
+body.single-gd_place [style*="color: pink"],
+body.single-gd_place [style*="color: #FF"],
+body.single-gd_place [style*="color: rgb(255"],
+body.single-gd_place [style*="color: rgba(255"] {
+    color: #222222 !important; /* Change to dark gray */
+}
+
+/* But preserve intentional colors */
+body.single-gd_place .badge-featured,
+body.single-gd_place [class*="terracotta"],
+body.single-gd_place [class*="orange"] {
+    color: inherit !important; /* Let badge styles handle their own colors */
+}
+

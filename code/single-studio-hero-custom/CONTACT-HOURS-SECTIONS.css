@@ -1,0 +1,379 @@
+/**
+ * CONTACT INFORMATION & HOURS OF OPERATION
+ * Complete Section Styling - Green Layout with White/Off-White
+ * Add to WordPress Customizer → Additional CSS
+ */
+
+/* ===================================
+   CONTACT INFORMATION CARD
+=================================== */
+.contact-information-card {
+    background: #FFFFFF !important;
+    border-radius: 16px !important;
+    padding: 32px !important;
+    margin-bottom: 32px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    border: 1px solid #E8E8E8 !important;
+}
+
+/* Section Heading with Orange Dot */
+.contact-information-card .section-heading,
+.hours-of-operation-card .section-heading {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: #222222 !important;
+    margin: 0 0 24px 0 !important;
+    padding: 0 0 16px 24px !important;
+    border-bottom: 1px solid #E8E8E8 !important;
+    position: relative !important;
+    font-family: inherit !important;
+}
+
+.contact-information-card .section-heading::before,
+.hours-of-operation-card .section-heading::before {
+    content: "●" !important;
+    color: #D4A574 !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 4px !important;
+}
+
+/* Contact Items Container */
+.contact-information-card .contact-items {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+}
+
+/* Individual Contact Item */
+.contact-information-card .contact-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    padding: 16px 0 !important;
+    border-bottom: 1px solid #F5F5F5 !important;
+}
+
+.contact-information-card .contact-item:last-child {
+    border-bottom: none !important;
+}
+
+/* Contact Icon */
+.contact-information-card .contact-icon {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    background: #F5F5F5 !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+
+.contact-information-card .contact-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+/* Contact Details */
+.contact-information-card .contact-details {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    flex: 1 !important;
+}
+
+/* Contact Label (ADDRESS, PHONE, etc.) */
+.contact-information-card .contact-label {
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    color: #888888 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Contact Value */
+.contact-information-card .contact-value {
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    color: #222222 !important;
+    line-height: 1.5 !important;
+}
+
+/* Links (phone, email, website) */
+.contact-information-card .contact-value a {
+    color: #2C8C7C !important;
+    text-decoration: none !important;
+}
+
+.contact-information-card .contact-value a:hover {
+    color: #D4A574 !important;
+    text-decoration: underline !important;
+}
+
+/* TBD Placeholder Style */
+.contact-information-card .contact-value:contains("TBD"),
+.hours-of-operation-card .time:contains("TBD"),
+.hours-of-operation-card .status-text:contains("TBD") {
+    color: #AAAAAA !important;
+    font-style: italic !important;
+}
+
+/* ===================================
+   FOLLOW US SECTION
+=================================== */
+.contact-information-card .follow-us-section {
+    margin-top: 24px !important;
+    padding-top: 20px !important;
+    border-top: 1px solid #E8E8E8 !important;
+}
+
+.contact-information-card .follow-us-heading {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: #222222 !important;
+    margin: 0 0 16px 0 !important;
+    padding: 0 0 12px 0 !important;
+    border-bottom: 1px solid #F0F0F0 !important;
+}
+
+.contact-information-card .social-icons {
+    display: flex !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+}
+
+.contact-information-card .social-icon {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    background: rgba(44, 140, 124, 0.1) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.contact-information-card .social-icon:hover {
+    background: #2C8C7C !important;
+    transform: translateY(-2px) !important;
+}
+
+.contact-information-card .social-icon.facebook::before {
+    content: "f" !important;
+    font-family: Arial, sans-serif !important;
+    font-weight: bold !important;
+    font-size: 18px !important;
+    color: #2C8C7C !important;
+}
+
+.contact-information-card .social-icon.instagram::before {
+    content: "📷" !important;
+    font-size: 18px !important;
+}
+
+.contact-information-card .social-icon.youtube::before {
+    content: "▶" !important;
+    font-size: 14px !important;
+    color: #2C8C7C !important;
+}
+
+.contact-information-card .social-icon:hover::before {
+    color: white !important;
+}
+
+/* ===================================
+   HOURS OF OPERATION CARD
+=================================== */
+.hours-of-operation-card {
+    background: #FFFFFF !important;
+    border-radius: 16px !important;
+    padding: 32px !important;
+    margin-bottom: 32px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    border: 1px solid #E8E8E8 !important;
+}
+
+/* Status Indicator */
+.hours-of-operation-card .hours-status {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 8px 16px !important;
+    background: rgba(40, 167, 69, 0.1) !important;
+    border-radius: 20px !important;
+    margin-bottom: 24px !important;
+}
+
+.hours-of-operation-card .hours-status .status-dot {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: #28A745 !important;
+}
+
+.hours-of-operation-card .hours-status .status-text {
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    color: #28A745 !important;
+}
+
+/* Hours List */
+.hours-of-operation-card .hours-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+}
+
+/* Hours Row */
+.hours-of-operation-card .hours-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid #F5F5F5 !important;
+}
+
+.hours-of-operation-card .hours-row:last-child {
+    border-bottom: none !important;
+}
+
+/* Today's Row - Bold */
+.hours-of-operation-card .hours-row.today {
+    font-weight: 600 !important;
+}
+
+.hours-of-operation-card .hours-row.today .day {
+    color: #222222 !important;
+    font-weight: 600 !important;
+}
+
+/* Day Name */
+.hours-of-operation-card .hours-row .day {
+    font-size: 15px !important;
+    color: #555555 !important;
+    font-weight: 400 !important;
+}
+
+/* Time */
+.hours-of-operation-card .hours-row .time {
+    font-size: 15px !important;
+    color: #222222 !important;
+    font-weight: 400 !important;
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+@media (max-width: 768px) {
+    .contact-information-card,
+    .hours-of-operation-card {
+        padding: 24px !important;
+        border-radius: 12px !important;
+    }
+    
+    .contact-information-card .contact-icon {
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+    }
+    
+    .contact-information-card .social-icon {
+        width: 40px !important;
+        height: 40px !important;
+    }
+}
+
+/* ===================================
+   APPLY TO GEODIRECTORY WIDGETS
+   (If using GD widgets instead of shortcodes)
+=================================== */
+body.single-gd_place .geodir-post-meta-container,
+body.single-gd_place .geodir-company-info {
+    background: #FFFFFF !important;
+    border-radius: 16px !important;
+    padding: 32px !important;
+    margin-bottom: 32px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    border: 1px solid #E8E8E8 !important;
+}
+
+body.single-gd_place .geodir-business-hours {
+    background: #FFFFFF !important;
+    border-radius: 16px !important;
+    padding: 32px !important;
+    margin-bottom: 32px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    border: 1px solid #E8E8E8 !important;
+}
+
+/* GD Business Hours Day Rows */
+body.single-gd_place .geodir-business-hours .geodir-timing-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid #F5F5F5 !important;
+}
+
+body.single-gd_place .geodir-business-hours .geodir-timing-row:last-child {
+    border-bottom: none !important;
+}
+
+body.single-gd_place .geodir-business-hours .geodir-day {
+    font-size: 15px !important;
+    color: #555555 !important;
+}
+
+body.single-gd_place .geodir-business-hours .geodir-time {
+    font-size: 15px !important;
+    color: #222222 !important;
+}
+
+/* GD Post Meta Items */
+body.single-gd_place .geodir-post-meta {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    padding: 16px 0 !important;
+    border-bottom: 1px solid #F5F5F5 !important;
+}
+
+body.single-gd_place .geodir-post-meta:last-child {
+    border-bottom: none !important;
+}
+
+body.single-gd_place .geodir-i-icon {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    background: #F5F5F5 !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+body.single-gd_place .geodir-i-icon i {
+    color: #5F7470 !important;
+    font-size: 18px !important;
+}
+
+body.single-gd_place .geodir-meta-value {
+    font-size: 15px !important;
+    color: #222222 !important;
+    line-height: 1.5 !important;
+}
+
+body.single-gd_place .geodir-meta-value a {
+    color: #2C8C7C !important;
+    text-decoration: none !important;
+}
+
+body.single-gd_place .geodir-meta-value a:hover {
+    color: #D4A574 !important;
+}
+

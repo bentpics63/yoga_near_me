@@ -1,0 +1,95 @@
+/**
+ * YogaNearMe - Fix Rating/Review Mismatch (CSS Only)
+ *
+ * PURPOSE: Hide conflicting "No reviews yet" when Google/Yelp ratings exist
+ *
+ * INSTALLATION: Add to Appearance > Customize > Additional CSS
+ *
+ * NOTE: This CSS approach hides ALL native rating widgets on listing pages.
+ * For smarter conditional logic, use the PHP version instead.
+ */
+
+/* ============================================
+   OPTION A: HIDE GEODIRECTORY NATIVE RATING WIDGET
+   Use this if you only want to show Google/Yelp ratings
+   ============================================ */
+
+/* Hide the GeoDirectory rating widget on single listings */
+body.single-gd_place .geodir-post-rating,
+body.single-gd_place .elementor-widget-geodir-post-rating,
+body.single-gd_place .geodir-rating-wrap,
+body.single-gd_place .geodir-post-meta-rating {
+    display: none !important;
+}
+
+
+/* ============================================
+   OPTION B: HIDE ONLY "NO REVIEWS" TEXT
+   Keeps the widget but hides empty state
+   ============================================ */
+
+/*
+body.single-gd_place .geodir-post-rating:empty,
+body.single-gd_place .geodir-post-rating:has(.no-reviews),
+body.single-gd_place .review-count:empty {
+    display: none !important;
+}
+*/
+
+
+/* ============================================
+   OPTION C: STYLE THE GOOGLE/YELP BADGES TO BE PRIMARY
+   Make external ratings more prominent
+   ============================================ */
+
+/* Make Google rating badge larger and more prominent */
+.ynm-trust-badge.google {
+    font-size: 14px;
+    padding: 10px 16px;
+    font-weight: 600;
+}
+
+.ynm-trust-badge.google i {
+    font-size: 16px;
+}
+
+/* Add "Rating" label to make it clearer */
+.ynm-trust-badge.google::before {
+    content: "Rating: ";
+    font-weight: 400;
+    color: #667085;
+}
+
+
+/* ============================================
+   OPTION D: LABEL NATIVE REVIEWS DIFFERENTLY
+   If you want to show both but make it clear
+   ============================================ */
+
+/*
+body.single-gd_place .geodir-post-rating::before {
+    content: "Community Reviews: ";
+    font-weight: 500;
+    color: #5F7470;
+    margin-right: 6px;
+}
+*/
+
+
+/* ============================================
+   SEARCH RESULTS / ARCHIVE PAGES
+   Consistent rating display in listings
+   ============================================ */
+
+/* Hide native ratings in search results if empty */
+.geodir-category-list-view .geodir-post-rating:empty,
+.geodir-gridview .geodir-post-rating:empty {
+    display: none;
+}
+
+/* Make sure Google/Yelp badges show in search results */
+.geodir-category-list-view .ynm-trust-badge,
+.geodir-gridview .ynm-trust-badge {
+    font-size: 11px;
+    padding: 4px 8px;
+}

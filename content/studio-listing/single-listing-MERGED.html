@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Studio - Merged Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* YogaNearMe Brand Colors */
+            --ynm-sage: #5F7470;
+            --ynm-teal: #61948B;
+            --ynm-rust: #bd371a;
+            --ynm-coral: #FF5733;
+            --ynm-paper: #F8FAFA;
+            --ynm-text-dark: #2C3E3A;
+            --ynm-text-medium: #6B7C78;
+
+            /* UI Colors */
+            --white: #FFFFFF;
+            --gray-50: #F9FAFB;
+            --gray-100: #F2F4F7;
+            --gray-200: #E4E7EC;
+            --gray-300: #D0D5DD;
+            --gray-500: #667085;
+            --gray-700: #344054;
+            --gray-900: #101828;
+            --green: #12B76A;
+            --yellow: #F5A623;
+
+            /* Spacing */
+            --section-gap: 24px;
+            --card-padding: 20px;
+            --radius: 12px;
+            --radius-sm: 8px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-900);
+            line-height: 1.6;
+        }
+
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* =====================================================
+           SECTION LABELS (for reference only)
+           ===================================================== */
+        .section-label {
+            background: var(--ynm-coral);
+            color: white;
+            padding: 4px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        .section-label.keep { background: var(--ynm-teal); }
+        .section-label.add { background: var(--ynm-coral); }
+
+        /* =====================================================
+           1. BREADCRUMBS (KEEP)
+           ===================================================== */
+        .breadcrumbs {
+            padding: 12px 0;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .breadcrumbs a {
+            color: var(--ynm-teal);
+            text-decoration: none;
+        }
+
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs .separator { color: #9CA3AF; }
+        .breadcrumbs .current { color: var(--ynm-coral); font-weight: 600; }
+
+        /* =====================================================
+           2. HERO SECTION (KEEP - with photos)
+           ===================================================== */
+        .hero-section {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: var(--section-gap);
+        }
+
+        .hero-gallery {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 8px;
+            height: 400px;
+        }
+
+        .hero-main-photo {
+            background: linear-gradient(135deg, var(--ynm-sage) 0%, var(--ynm-teal) 100%);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero-side-photos {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .hero-side-photo {
+            flex: 1;
+            background: var(--gray-200);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero-side-photo.add-more {
+            background: var(--ynm-sage);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+        }
+
+        .view-photos-btn {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-content {
+            padding: 24px;
+        }
+
+        .hero-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 24px;
+            margin-bottom: 16px;
+        }
+
+        .studio-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+
+        .studio-tagline {
+            font-style: italic;
+            color: var(--gray-500);
+            margin-bottom: 12px;
+        }
+
+        .studio-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .rating-display {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stars { color: var(--yellow); }
+        .rating-number { font-weight: 700; }
+        .review-count { color: var(--gray-500); font-size: 14px; }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--gray-500);
+            font-size: 14px;
+        }
+
+        .meta-item i { color: var(--ynm-sage); }
+
+        .status-open {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--ynm-coral);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #e64a2a;
+        }
+
+        .btn-claim {
+            background: #FFC107;
+            color: white;
+        }
+
+        .btn-claim:hover {
+            background: #e6ac00;
+        }
+
+        /* =====================================================
+           3. TRUST BADGES ROW (ADD)
+           ===================================================== */
+        .trust-badges-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 16px 24px;
+            background: white;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid var(--gray-200);
+            background: var(--gray-50);
+            color: var(--gray-700);
+        }
+
+        .trust-badge i { font-size: 14px; }
+        .trust-badge.established i { color: var(--gray-500); }
+        .trust-badge.yoga-alliance { background: #C9553A; border-color: #C9553A; color: white; }
+        .trust-badge.yoga-alliance i { color: white; }
+        .trust-badge.google i { color: #4285F4; }
+        .trust-badge.yelp i { color: #D32323; }
+        .trust-badge.verified i { color: var(--green); }
+
+        /* =====================================================
+           4. QUICK INFO BAR (ADD)
+           ===================================================== */
+        .quick-info-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            padding: 16px 24px;
+            background: var(--gray-50);
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--section-gap);
+        }
+
+        .quick-info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quick-info-icon {
+            width: 36px;
+            height: 36px;
+            background: white;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ynm-coral);
+        }
+
+        .quick-info-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray-500);
+        }
+
+        .quick-info-value {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        /* =====================================================
+           5. TWO-COLUMN LAYOUT (KEEP)
+           ===================================================== */
+        .two-column-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 24px;
+            margin-bottom: var(--section-gap);
+        }
+
+        .main-column {
+            display: flex;
+            flex-direction: column;
+            gap: var(--section-gap);
+        }
+
+        .sidebar-column {
+            display: flex;
+            flex-direction: column;
+            gap: var(--section-gap);
+        }
+
+        /* Card styling */
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            padding: var(--card-padding);
+            border: 1px solid var(--gray-200);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .card-header i {
+            color: var(--ynm-coral);
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        /* =====================================================
+           MAIN COLUMN SECTIONS
+           ===================================================== */
+
+        /* About Section (KEEP) */
+        .about-text {
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+
+        /* Yoga Styles Section (ADD) */
+        .styles-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .style-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-700);
+            transition: all 0.2s;
+        }
+
+        .style-tag:hover {
+            border-color: var(--ynm-coral);
+            color: var(--ynm-coral);
+        }
+
+        .style-tag.primary {
+            background: var(--ynm-coral);
+            border-color: var(--ynm-coral);
+            color: white;
+        }
+
+        .style-tag.heated {
+            background: #FEF3C7;
+            border-color: #F59E0B;
+            color: #92400E;
+        }
+
+        .levels-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .level-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--gray-600);
+        }
+
+        .level-item i { color: var(--ynm-teal); font-size: 10px; }
+
+        /* Pricing Section (ADD) */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .pricing-card {
+            padding: 16px;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            text-align: center;
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, var(--ynm-coral) 0%, #bd3000 100%);
+            border-color: var(--ynm-coral);
+            color: white;
+        }
+
+        .pricing-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+        }
+
+        .pricing-card.featured .pricing-label {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .pricing-amount {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .pricing-details {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        .pricing-card.featured .pricing-details {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .new-student-offer {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+            border: 1px solid var(--green);
+            border-radius: var(--radius-sm);
+        }
+
+        .offer-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .offer-content { flex: 1; }
+        .offer-title { font-weight: 700; color: #065F46; }
+        .offer-details { font-size: 14px; color: #047857; }
+
+        .btn-offer {
+            background: var(--green);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Amenities Section (KEEP - enhanced) */
+        .amenities-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .amenity-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            color: var(--gray-700);
+        }
+
+        .amenity-badge i {
+            color: var(--ynm-teal);
+        }
+
+        /* Teachers Section (ADD) */
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .teacher-card {
+            text-align: center;
+            padding: 16px;
+            background: var(--gray-50);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--gray-200);
+        }
+
+        .teacher-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--ynm-sage);
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .teacher-name {
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 2px;
+        }
+
+        .teacher-role {
+            font-size: 12px;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+        }
+
+        .teacher-cred {
+            font-size: 11px;
+            padding: 3px 8px;
+            background: var(--ynm-teal);
+            color: white;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .view-all-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px;
+            border: 1px dashed var(--gray-300);
+            border-radius: var(--radius-sm);
+            color: var(--ynm-coral);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .view-all-link:hover {
+            background: var(--gray-50);
+            border-color: var(--ynm-coral);
+        }
+
+        /* Programs Section (ADD) */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .program-card {
+            padding: 16px;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            text-align: center;
+        }
+
+        .program-card.available {
+            background: white;
+            border-color: var(--ynm-coral);
+        }
+
+        .program-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gray-200);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            color: var(--gray-500);
+        }
+
+        .program-card.available .program-icon {
+            background: var(--ynm-coral);
+            color: white;
+        }
+
+        .program-name {
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+
+        .program-price {
+            font-size: 12px;
+            color: var(--ynm-coral);
+            font-weight: 500;
+        }
+
+        .program-status {
+            font-size: 11px;
+            color: var(--gray-500);
+        }
+
+        /* First Visit Section (ADD) */
+        .first-visit-section {
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+            border: 1px solid #7DD3FC;
+            border-radius: var(--radius-sm);
+            padding: 20px;
+        }
+
+        .first-visit-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            color: #0369A1;
+            margin-bottom: 12px;
+        }
+
+        .first-visit-title i { color: #0EA5E9; }
+
+        .bring-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .bring-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: white;
+            border-radius: 6px;
+            font-size: 13px;
+            color: var(--gray-700);
+        }
+
+        .bring-item i { color: var(--green); font-size: 12px; }
+
+        .first-visit-note {
+            font-size: 13px;
+            color: #0369A1;
+            line-height: 1.6;
+        }
+
+        .first-visit-note strong { color: var(--ynm-coral); }
+
+        /* Practical Info Section (ADD) */
+        .practical-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .practical-item {
+            padding: 14px;
+            background: var(--gray-50);
+            border-radius: var(--radius-sm);
+        }
+
+        .practical-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray-500);
+            margin-bottom: 6px;
+        }
+
+        .practical-label i { color: var(--ynm-coral); }
+        .practical-value { font-size: 13px; color: var(--gray-700); }
+
+        /* Reviews Section (KEEP) */
+        .reviews-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .review-summary {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .review-score {
+            text-align: center;
+        }
+
+        .review-score-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--gray-900);
+            line-height: 1;
+        }
+
+        .review-bars {
+            flex: 1;
+        }
+
+        .review-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        .review-bar {
+            flex: 1;
+            height: 8px;
+            background: var(--gray-100);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .review-bar-fill {
+            height: 100%;
+            background: var(--yellow);
+            border-radius: 4px;
+        }
+
+        .btn-write-review {
+            background: white;
+            border: 1px solid var(--gray-200);
+            padding: 10px 16px;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* =====================================================
+           SIDEBAR SECTIONS (KEEP)
+           ===================================================== */
+
+        /* Contact Card */
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .contact-item:last-child { margin-bottom: 0; }
+
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gray-100);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ynm-sage);
+            flex-shrink: 0;
+        }
+
+        .contact-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray-500);
+            margin-bottom: 2px;
+        }
+
+        .contact-value {
+            font-weight: 500;
+            color: var(--gray-900);
+        }
+
+        .contact-value a {
+            color: var(--ynm-coral);
+            text-decoration: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 8px;
+            padding-top: 16px;
+            border-top: 1px solid var(--gray-100);
+            margin-top: 16px;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            background: var(--gray-100);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-500);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: var(--ynm-coral);
+            color: white;
+        }
+
+        /* Hours Card */
+        .hours-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--ynm-coral);
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .hours-list {
+            font-size: 14px;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .hours-row:last-child { border-bottom: none; }
+        .hours-day { color: var(--gray-700); }
+        .hours-time { color: var(--gray-900); font-weight: 500; }
+        .hours-row.today { background: var(--gray-50); margin: 0 -20px; padding: 8px 20px; }
+        .hours-row.today .hours-day { font-weight: 600; }
+
+        /* Map Card */
+        .map-container {
+            height: 180px;
+            background: var(--gray-200);
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .get-directions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            background: var(--gray-50);
+            border-radius: var(--radius-sm);
+            color: var(--ynm-teal);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .get-directions:hover {
+            background: var(--gray-100);
+        }
+
+        /* Claim CTA Card */
+        .claim-cta-card {
+            background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
+            border: 1px solid #FECACA;
+            text-align: center;
+            padding: 24px;
+        }
+
+        .claim-cta-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--ynm-coral);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin: 0 auto 16px;
+            font-size: 20px;
+        }
+
+        .claim-cta-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+
+        .claim-cta-text {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 16px;
+        }
+
+        .btn-claim-full {
+            width: 100%;
+            background: var(--ynm-coral);
+            color: white;
+            padding: 14px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .claim-benefits {
+            text-align: left;
+            font-size: 13px;
+            color: var(--gray-600);
+        }
+
+        .claim-benefits li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .claim-benefits i { color: var(--green); }
+
+        /* =====================================================
+           6. NEARBY STUDIOS (KEEP)
+           ===================================================== */
+        .nearby-section {
+            margin-bottom: var(--section-gap);
+        }
+
+        .nearby-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .nearby-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .view-all-nearby {
+            color: var(--ynm-coral);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .nearby-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .nearby-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+        }
+
+        .nearby-image {
+            height: 160px;
+            background: linear-gradient(135deg, var(--ynm-sage) 0%, var(--ynm-teal) 100%);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nearby-content {
+            padding: 16px;
+        }
+
+        .nearby-name {
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+
+        .nearby-location {
+            font-size: 13px;
+            color: var(--gray-500);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+
+        .nearby-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .nearby-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--gray-700);
+        }
+
+        .nearby-rating i { color: var(--yellow); }
+        .nearby-distance { color: var(--gray-500); }
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+        @media (max-width: 1024px) {
+            .two-column-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar-column {
+                order: -1;
+            }
+
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .programs-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-gallery {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-main-photo {
+                height: 250px;
+            }
+
+            .hero-side-photos {
+                flex-direction: row;
+                height: 100px;
+            }
+
+            .hero-header {
+                flex-direction: column;
+            }
+
+            .hero-buttons {
+                width: 100%;
+            }
+
+            .hero-buttons .btn {
+                flex: 1;
+                justify-content: center;
+            }
+
+            .teachers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .practical-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nearby-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+
+    <!-- =====================================================
+         1. BREADCRUMBS (KEEP)
+         ===================================================== -->
+    <span class="section-label keep">KEEP</span>
+    <nav class="breadcrumbs">
+        <a href="#">Home</a>
+        <span class="separator">/</span>
+        <a href="#">Studios</a>
+        <span class="separator">/</span>
+        <a href="#">Los Angeles</a>
+        <span class="separator">/</span>
+        <span class="current">Equinox - Westwood</span>
+    </nav>
+
+    <!-- =====================================================
+         2. HERO SECTION (KEEP - with existing photo layout)
+         ===================================================== -->
+    <span class="section-label keep">KEEP</span>
+    <section class="hero-section">
+        <div class="hero-gallery">
+            <div class="hero-main-photo">
+                <span class="view-photos-btn"><i class="fas fa-images"></i> View all 12 photos</span>
+            </div>
+            <div class="hero-side-photos">
+                <div class="hero-side-photo"></div>
+                <div class="hero-side-photo add-more">
+                    <i class="fas fa-plus" style="font-size: 24px; margin-bottom: 8px;"></i>
+                    <span style="font-size: 12px; font-weight: 600;">ADD MORE PHOTOS</span>
+                    <span style="font-size: 11px; opacity: 0.8;">Upgrade for 12 photos</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-header">
+                <div>
+                    <h1 class="studio-title">Equinox - Westwood - Los Angeles, California</h1>
+                    <p class="studio-tagline">"Where tradition meets transformation in the heart of Downtown LA"</p>
+                    <div class="studio-meta">
+                        <div class="rating-display">
+                            <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                            <span class="rating-number">4.8</span>
+                            <span class="review-count">(127 reviews)</span>
+                        </div>
+                        <span class="meta-item"><i class="fas fa-map-marker-alt"></i> Los Angeles</span>
+                        <span class="meta-item"><span class="status-open"><i class="fas fa-circle" style="font-size: 8px;"></i> Open</span> · Closes 9 PM</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary"><i class="fas fa-calendar"></i> Book a Class</button>
+                    <button class="btn btn-claim"><i class="fas fa-check"></i> Claim Your Studio</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- =====================================================
+             3. TRUST BADGES ROW (ADD)
+             ===================================================== -->
+        <span class="section-label add" style="margin-left: 24px;">ADD</span>
+        <div class="trust-badges-row">
+            <span class="trust-badge established"><i class="fas fa-calendar-alt"></i> Est. 2015</span>
+            <span class="trust-badge yoga-alliance"><i class="fas fa-om"></i> Yoga Alliance RYS-200</span>
+            <span class="trust-badge google"><i class="fab fa-google"></i> 4.7 (98)</span>
+            <span class="trust-badge yelp"><i class="fab fa-yelp"></i> 4.5 (64)</span>
+            <span class="trust-badge verified"><i class="fas fa-check-circle"></i> Verified</span>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         4. QUICK INFO BAR (ADD)
+         ===================================================== -->
+    <span class="section-label add">ADD</span>
+    <div class="quick-info-bar">
+        <div class="quick-info-item">
+            <div class="quick-info-icon"><i class="fas fa-dollar-sign"></i></div>
+            <div>
+                <div class="quick-info-label">Drop-in</div>
+                <div class="quick-info-value">$25</div>
+            </div>
+        </div>
+        <div class="quick-info-item">
+            <div class="quick-info-icon"><i class="fas fa-fire"></i></div>
+            <div>
+                <div class="quick-info-label">Heated</div>
+                <div class="quick-info-value">Yes</div>
+            </div>
+        </div>
+        <div class="quick-info-item">
+            <div class="quick-info-icon"><i class="fas fa-users"></i></div>
+            <div>
+                <div class="quick-info-label">Teachers</div>
+                <div class="quick-info-value">8 Instructors</div>
+            </div>
+        </div>
+        <div class="quick-info-item">
+            <div class="quick-info-icon"><i class="fas fa-layer-group"></i></div>
+            <div>
+                <div class="quick-info-label">Levels</div>
+                <div class="quick-info-value">All Levels</div>
+            </div>
+        </div>
+        <div class="quick-info-item">
+            <div class="quick-info-icon"><i class="fas fa-video"></i></div>
+            <div>
+                <div class="quick-info-label">Virtual</div>
+                <div class="quick-info-value">Available</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         5. TWO-COLUMN LAYOUT (KEEP structure)
+         ===================================================== -->
+    <div class="two-column-layout">
+
+        <!-- MAIN COLUMN -->
+        <div class="main-column">
+
+            <!-- About Section (KEEP) -->
+            <span class="section-label keep">KEEP</span>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-info-circle"></i>
+                    <h2 class="card-title">About Our Studio</h2>
+                </div>
+                <p class="about-text">
+                    Discover the transformative yoga experience at New Workouts Studio, your yoga destination in Los Angeles. This studio offers a welcoming environment for all levels, helping you find balance, flexibility, and peace of mind. Join a vibrant community and elevate your practice with expert instructors and diverse classes tailored to your needs. Let the beauty of what you love be what you do.
+                </p>
+            </div>
+
+            <!-- Yoga Styles Section (ADD) -->
+            <span class="section-label add">ADD</span>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-om"></i>
+                    <h2 class="card-title">Yoga Styles Offered</h2>
+                </div>
+                <div style="display: flex; gap: 24px;">
+                    <div style="flex: 1;">
+                        <div class="styles-grid">
+                            <span class="style-tag primary"><i class="fas fa-star"></i> Vinyasa Flow</span>
+                            <span class="style-tag">Hatha</span>
+                            <span class="style-tag heated"><i class="fas fa-fire"></i> Hot Yoga</span>
+                            <span class="style-tag">Yin</span>
+                            <span class="style-tag">Restorative</span>
+                            <span class="style-tag">Power Yoga</span>
+                            <span class="style-tag">Prenatal</span>
+                            <span class="style-tag">Yoga Nidra</span>
+                        </div>
+                    </div>
+                    <div style="min-width: 140px; padding-left: 24px; border-left: 1px solid var(--gray-200);">
+                        <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-500); margin-bottom: 10px;">Class Levels</div>
+                        <div class="levels-list">
+                            <div class="level-item"><i class="fas fa-circle"></i> Beginner</div>
+                            <div class="level-item"><i class="fas fa-circle"></i> All Levels</div>
+                            <div class="level-item"><i class="fas fa-circle"></i> Intermediate</div>
+                            <div class="level-item"><i class="fas fa-circle"></i> Advanced</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Section (ADD) -->
+            <span class="section-label add">ADD</span>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-tag"></i>
+                    <h2 class="card-title">Pricing</h2>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-label">Drop-in</div>
+                        <div class="pricing-amount">$25</div>
+                        <div class="pricing-details">Single class</div>
+                    </div>
+                    <div class="pricing-card">
+                        <div class="pricing-label">5-Class Pack</div>
+                        <div class="pricing-amount">$100</div>
+                        <div class="pricing-details">$20/class · 60 days</div>
+                    </div>
+                    <div class="pricing-card">
+                        <div class="pricing-label">10-Class Pack</div>
+                        <div class="pricing-amount">$180</div>
+                        <div class="pricing-details">$18/class · 90 days</div>
+                    </div>
+                    <div class="pricing-card featured">
+                        <div class="pricing-label">Monthly Unlimited</div>
+                        <div class="pricing-amount">$150</div>
+                        <div class="pricing-details">Best value for regulars</div>
+                    </div>
+                </div>
+                <div class="new-student-offer">
+                    <div class="offer-icon"><i class="fas fa-gift"></i></div>
+                    <div class="offer-content">
+                        <div class="offer-title">New Student Special: 2 Weeks Unlimited for $40</div>
+                        <div class="offer-details">First-time visitors only · No commitment required</div>
+                    </div>
+                    <button class="btn-offer">Claim Offer</button>
+                </div>
+            </div>
+
+            <!-- Amenities Section (KEEP - enhanced styling) -->
+            <span class="section-label keep">KEEP</span>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-check-circle"></i>
+                    <h2 class="card-title">Amenities & Features</h2>
+                </div>
+                <div class="amenities-grid">
+                    <span class="amenity-badge"><i class="fas fa-parking"></i> Free Parking</span>
+                    <span class="amenity-badge"><i class="fas fa-box"></i> Props Provided</span>
+                    <span class="amenity-badge"><i class="fas fa-sticky-note"></i> Mat Rentals</span>
+                    <span class="amenity-badge"><i class="fas fa-door-open"></i> Changing Rooms</span>
+                    <span class="amenity-badge"><i class="fas fa-shower"></i> Showers</span>
+                    <span class="amenity-badge"><i class="fas fa-lock"></i> Lockers</span>
+                    <span class="amenity-badge"><i class="fas fa-wifi"></i> Free WiFi</span>
+                    <span class="amenity-badge"><i class="fas fa-tint"></i> Filtered Water</span>
+                    <span class="amenity-badge"><i class="fas fa-store"></i> Retail Shop</span>
+                </div>
+            </div>
+
+            <!-- Teachers Section (ADD) -->
+            <span class="section-label add">ADD</span>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-users"></i>
+                    <h2 class="card-title">Our Teachers</h2>
+                </div>
+                <div class="teachers-grid">
+                    <div class="teacher-card">
+                        <div class="teacher-avatar">JS</div>
+                        <div class="teacher-name">Jane Smith</div>
+                        <div class="teacher-role">Studio Owner</div>
+                        <span class="teacher-cred">E-RYT 500</span>
+                    </div>
+                    <div class="teacher-card">
+                        <div class="teacher-avatar">MJ</div>
+                        <div class="teacher-name">Mike Johnson</div>
+                        <div class="teacher-role">Lead Teacher</div>
+                        <span class="teacher-cred">RYT 200</span>
+                    </div>
+                    <div class="teacher-card">
+                        <div class="teacher-avatar">SL</div>
+                        <div class="teacher-name">Sarah Lee</div>
+                        <div class="teacher-role">Prenatal Specialist</div>
+                        <span class="teacher-cred">RPYT</span>
+                    </div>
+                    <div class="teacher-card">
+                        <div class="teacher-avatar">DC</div>
+                        <div class="teacher-name">David Chen</div>
+                        <div class="teacher-role">Hot Yoga</div>
+                        <span class="teacher-cred">RYT 200</span>
+                    </div>
+                    <a href="#" class="view-all-link">
+                        <i class="fas fa-arrow-right"></i> View All 8 Teachers
+                    </a>
+                </div>
+            </div>
+
+            <!-- Programs & Services Section (ADD) -->
+            <span class="section-label add">ADD</span>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-th-large"></i>
+                    <h2 class="card-title">Programs & Services</h2>
+                </div>
+                <div class="programs-grid">
+                    <div class="program-card available">
+                        <div class="program-icon"><i class="fas fa-user"></i></div>
+                        <div class="program-name">Private Sessions</div>
+                        <div class="program-price">From $75/hr</div>
+                    </div>
+                    <div class="program-card available">
+                        <div class="program-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="program-name">Workshops</div>
+                        <div class="program-price">Monthly</div>
+                    </div>
+                    <div class="program-card available">
+                        <div class="program-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="program-name">200-hour YTT</div>
+                        <div class="program-price">$RYS-200</div>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-icon"><i class="fas fa-mountain"></i></div>
+                        <div class="program-name">Retreats</div>
+                        <div class="program-status">Not offered</div>
+                    </div>
+                    <div class="program-card available">
+                        <div class="program-icon"><i class="fas fa-video"></i></div>
+                        <div class="program-name">Online Classes</div>
+                        <div class="program-price">Live & On-demand</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- First Visit Information (ADD) -->
+            <span class="section-label add">ADD</span>
+            <div class="card" style="padding: 0; border: none; background: transparent;">
+                <div class="first-visit-section">
+                    <div class="first-visit-title">
+                        <i class="fas fa-info-circle"></i> What to Bring
+                    </div>
+                    <div class="bring-items">
+                        <span class="bring-item"><i class="fas fa-check"></i> Yoga mat (rentals $3)</span>
+                        <span class="bring-item"><i class="fas fa-check"></i> Towel for hot classes</span>
+                        <span class="bring-item"><i class="fas fa-check"></i> Water bottle</span>
+                        <span class="bring-item"><i class="fas fa-check"></i> Comfortable clothing</span>
+                    </div>
+                    <p class="first-visit-note">
+                        <strong>First-time visitors:</strong> Please arrive 15 minutes early to complete registration and get oriented to the studio. Our studio is located on the 2nd floor with elevator access available. Changing rooms and lockers are provided at no extra charge.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Practical Information (ADD) -->
+            <span class="section-label add">ADD</span>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-map-signs"></i>
+                    <h2 class="card-title">Practical Information</h2>
+                </div>
+                <div class="practical-grid">
+                    <div class="practical-item">
+                        <div class="practical-label"><i class="fas fa-parking"></i> Parking</div>
+                        <div class="practical-value">Free lot behind building (enter from Oak St). Street parking also available.</div>
+                    </div>
+                    <div class="practical-item">
+                        <div class="practical-label"><i class="fas fa-subway"></i> Public Transit</div>
+                        <div class="practical-value">2 blocks from 24th Street Station (L, 2, 3 lines). Bus routes M20, M34 stop nearby.</div>
+                    </div>
+                    <div class="practical-item">
+                        <div class="practical-label"><i class="fas fa-ban"></i> Cancellation Policy</div>
+                        <div class="practical-value">Please cancel at least 4 hours before class to avoid losing your spot.</div>
+                    </div>
+                    <div class="practical-item">
+                        <div class="practical-label"><i class="fas fa-credit-card"></i> Payment Methods</div>
+                        <div class="practical-value">Credit/Debit, Cash, Apple Pay, HSA/FSA accepted</div>
+                    </div>
+                    <div class="practical-item">
+                        <div class="practical-label"><i class="fas fa-language"></i> Languages</div>
+                        <div class="practical-value">English, Spanish</div>
+                    </div>
+                    <div class="practical-item">
+                        <div class="practical-label"><i class="fas fa-calendar-check"></i> Booking</div>
+                        <div class="practical-value">MindBody app or website. Walk-ins welcome when space available.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Section (KEEP) -->
+            <span class="section-label keep">KEEP</span>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-star"></i>
+                    <h2 class="card-title">Reviews</h2>
+                </div>
+                <div class="reviews-header">
+                    <div class="review-summary">
+                        <div class="review-score">
+                            <div class="review-score-number">4.8</div>
+                            <div class="stars" style="font-size: 12px;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <div style="font-size: 12px; color: var(--gray-500);">127 reviews</div>
+                        </div>
+                        <div class="review-bars">
+                            <div class="review-bar-row">
+                                <span>5 stars</span>
+                                <div class="review-bar"><div class="review-bar-fill" style="width: 78%;"></div></div>
+                                <span>98</span>
+                            </div>
+                            <div class="review-bar-row">
+                                <span>4 stars</span>
+                                <div class="review-bar"><div class="review-bar-fill" style="width: 16%;"></div></div>
+                                <span>21</span>
+                            </div>
+                            <div class="review-bar-row">
+                                <span>3 stars</span>
+                                <div class="review-bar"><div class="review-bar-fill" style="width: 4%;"></div></div>
+                                <span>5</span>
+                            </div>
+                            <div class="review-bar-row">
+                                <span>2 stars</span>
+                                <div class="review-bar"><div class="review-bar-fill" style="width: 2%;"></div></div>
+                                <span>2</span>
+                            </div>
+                            <div class="review-bar-row">
+                                <span>1 star</span>
+                                <div class="review-bar"><div class="review-bar-fill" style="width: 1%;"></div></div>
+                                <span>1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-write-review"><i class="fas fa-pen"></i> Write a Review</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SIDEBAR COLUMN -->
+        <div class="sidebar-column">
+
+            <!-- Contact Card (KEEP) -->
+            <span class="section-label keep">KEEP</span>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-address-book"></i>
+                    <h2 class="card-title">Contact Information</h2>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <div class="contact-label">Address</div>
+                        <div class="contact-value">10960 Wilshire Blvd<br>Los Angeles, California 90024</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <div>
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-value"><a href="tel:310-954-8950">310-954-8950</a></div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value"><a href="mailto:info@yoganearme.info">info@yoganearme.info</a></div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-globe"></i></div>
+                    <div>
+                        <div class="contact-label">Website</div>
+                        <div class="contact-value"><a href="#">www.equinox.com/westwood</a></div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <!-- Hours Card (KEEP) -->
+            <span class="section-label keep">KEEP</span>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-clock"></i>
+                    <h2 class="card-title">Hours of Operation</h2>
+                </div>
+                <div class="hours-toggle">
+                    <i class="fas fa-plus"></i> See hours below
+                </div>
+                <div class="hours-list">
+                    <div class="hours-row">
+                        <span class="hours-day">Monday</span>
+                        <span class="hours-time">5:00 AM - 10:00 PM</span>
+                    </div>
+                    <div class="hours-row">
+                        <span class="hours-day">Tuesday</span>
+                        <span class="hours-time">5:00 AM - 10:00 PM</span>
+                    </div>
+                    <div class="hours-row">
+                        <span class="hours-day">Wednesday</span>
+                        <span class="hours-time">5:00 AM - 10:00 PM</span>
+                    </div>
+                    <div class="hours-row">
+                        <span class="hours-day">Thursday</span>
+                        <span class="hours-time">5:00 AM - 10:00 PM</span>
+                    </div>
+                    <div class="hours-row today">
+                        <span class="hours-day">Friday</span>
+                        <span class="hours-time">5:00 AM - 10:00 PM</span>
+                    </div>
+                    <div class="hours-row">
+                        <span class="hours-day">Saturday</span>
+                        <span class="hours-time">7:00 AM - 7:00 PM</span>
+                    </div>
+                    <div class="hours-row">
+                        <span class="hours-day">Sunday</span>
+                        <span class="hours-time">7:00 AM - 7:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Location/Map Card (KEEP) -->
+            <span class="section-label keep">KEEP</span>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-map"></i>
+                    <h2 class="card-title">Location</h2>
+                </div>
+                <div class="map-container">
+                    <!-- Map embed goes here -->
+                </div>
+                <a href="#" class="get-directions">
+                    <i class="fas fa-directions"></i> Get Directions
+                </a>
+            </div>
+
+            <!-- Claim CTA Card (KEEP) -->
+            <span class="section-label keep">KEEP</span>
+            <div class="card claim-cta-card">
+                <div class="claim-cta-icon"><i class="fas fa-check"></i></div>
+                <h3 class="claim-cta-title">Is This Your Studio?</h3>
+                <p class="claim-cta-text">Claim your listing to update information, respond to reviews, and connect with new students.</p>
+                <button class="btn-claim-full"><i class="fas fa-check"></i> Claim This Listing</button>
+                <ul class="claim-benefits">
+                    <li><i class="fas fa-check"></i> Update hours, photos & contact info</li>
+                    <li><i class="fas fa-check"></i> Respond to student reviews</li>
+                    <li><i class="fas fa-check"></i> Access analytics & insights</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- =====================================================
+         6. NEARBY YOGA STUDIOS (KEEP)
+         ===================================================== -->
+    <span class="section-label keep">KEEP</span>
+    <section class="nearby-section">
+        <div class="nearby-header">
+            <h2 class="nearby-title">Nearby Yoga Studios</h2>
+            <a href="#" class="view-all-nearby">View All in Los Angeles <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="nearby-grid">
+            <div class="nearby-card">
+                <div class="nearby-image"></div>
+                <div class="nearby-content">
+                    <h3 class="nearby-name">YogaWorks Downtown</h3>
+                    <div class="nearby-location"><i class="fas fa-map-marker-alt"></i> Arts District</div>
+                    <div class="nearby-meta">
+                        <span class="nearby-rating"><i class="fas fa-star"></i> 4.6 (89)</span>
+                        <span class="nearby-distance">0.4 mi</span>
+                    </div>
+                </div>
+            </div>
+            <div class="nearby-card">
+                <div class="nearby-image"></div>
+                <div class="nearby-content">
+                    <h3 class="nearby-name">Liberation Yoga</h3>
+                    <div class="nearby-location"><i class="fas fa-map-marker-alt"></i> Little Tokyo</div>
+                    <div class="nearby-meta">
+                        <span class="nearby-rating"><i class="fas fa-star"></i> 4.7 (156)</span>
+                        <span class="nearby-distance">0.6 mi</span>
+                    </div>
+                </div>
+            </div>
+            <div class="nearby-card">
+                <div class="nearby-image"></div>
+                <div class="nearby-content">
+                    <h3 class="nearby-name">Modo Yoga LA</h3>
+                    <div class="nearby-location"><i class="fas fa-map-marker-alt"></i> Chinatown</div>
+                    <div class="nearby-meta">
+                        <span class="nearby-rating"><i class="fas fa-star"></i> 4.9 (203)</span>
+                        <span class="nearby-distance">0.8 mi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>

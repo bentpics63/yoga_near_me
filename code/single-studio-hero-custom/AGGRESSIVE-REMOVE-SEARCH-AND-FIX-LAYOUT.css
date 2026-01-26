@@ -1,0 +1,336 @@
+/**
+ * AGGRESSIVE: Remove Search & Fix Layout
+ * This CSS is VERY aggressive to ensure search is gone and layout is clean
+ * Add to WordPress Customizer → Additional CSS (at the very bottom)
+ */
+
+/* ============================================
+   AGGRESSIVELY REMOVE SEARCH SECTION
+   ============================================ */
+
+/* Hide ALL possible search elements */
+body.single-gd_place .elementor-widget-search-form,
+body.single-gd_place .elementor-search-form,
+body.single-gd_place .search-form,
+body.single-gd_place form[role="search"],
+body.single-gd_place [class*="search"],
+body.single-gd_place [id*="search"],
+body.single-gd_place [class*="Search"],
+body.single-gd_place [id*="Search"],
+body.single-gd_place .elementor-widget:has(.search-form),
+body.single-gd_place .elementor-section:has(.search-form),
+body.single-gd_place .elementor-section:has([class*="search"]),
+body.single-gd_place .elementor-section:has([id*="search"]),
+body.single-gd_place input[type="search"],
+body.single-gd_place input[placeholder*="Search"],
+body.single-gd_place input[placeholder*="search"],
+body.single-gd_place .search-input,
+body.single-gd_place .search-field,
+body.single-gd_place .wp-block-search,
+body.single-gd_place .widget_search {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+}
+
+/* Hide entire sections containing search */
+body.single-gd_place .elementor-section:has(.elementor-widget-search-form),
+body.single-gd_place .elementor-section:has(.search-form),
+body.single-gd_place .elementor-section:has([class*="search"]),
+body.single-gd_place .elementor-section:has(input[type="search"]),
+body.single-gd_place .elementor-section:has(input[placeholder*="Search"]),
+body.single-gd_place .elementor-section:has(input[placeholder*="search"]) {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Hide search containers */
+body.single-gd_place .search-container,
+body.single-gd_place .search-wrapper,
+body.single-gd_place .search-bar,
+body.single-gd_place .search-box {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ============================================
+   FIX EMPTY DATA FIELDS - Show Placeholders
+   ============================================ */
+
+/* Style empty input fields to show they need data */
+body.single-gd_place input[value=""],
+body.single-gd_place input:empty,
+body.single-gd_place .elementor-field-empty,
+body.single-gd_place .geodir-field-empty {
+    background: #F8FAFA !important;
+    border: 1px dashed #D0D5D3 !important;
+    color: #9EABA8 !important;
+    font-style: italic !important;
+}
+
+body.single-gd_place input[value=""]::placeholder,
+body.single-gd_place input:empty::placeholder {
+    color: #9EABA8 !important;
+    font-style: italic !important;
+}
+
+/* Hide empty widgets/sections if they have no content */
+body.single-gd_place .elementor-widget:empty,
+body.single-gd_place .elementor-widget:has(input[value=""]:only-child),
+body.single-gd_place .elementor-widget:has(.placeholder:only-child) {
+    display: none !important;
+}
+
+/* ============================================
+   FIX BLOCK LAYOUT - Make It Look Cohesive
+   ============================================ */
+
+/* Remove excessive spacing between blocks */
+body.single-gd_place .elementor-section {
+    margin-bottom: 0 !important;
+}
+
+body.single-gd_place .elementor-section + .elementor-section {
+    margin-top: 24px !important;
+}
+
+/* Group content sections together */
+body.single-gd_place .elementor-section:nth-child(n+2) {
+    background: #FFFFFF !important;
+    border-radius: 12px !important;
+    padding: 32px !important;
+    margin-bottom: 24px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    border: 1px solid #E0E0E0 !important;
+}
+
+/* Remove nested backgrounds */
+body.single-gd_place .elementor-section .elementor-section {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+/* ============================================
+   CONTACT INFORMATION - Group Together
+   ============================================ */
+
+/* Find and group contact fields */
+body.single-gd_place .elementor-widget:has-text("Contact"),
+body.single-gd_place .elementor-widget:has-text("Email"),
+body.single-gd_place .elementor-widget:has-text("Phone"),
+body.single-gd_place .elementor-widget:has-text("Website") {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+}
+
+/* Style contact input fields */
+body.single-gd_place input[name*="email"],
+body.single-gd_place input[name*="Email"],
+body.single-gd_place input[type="email"],
+body.single-gd_place .geodir-field-email input,
+body.single-gd_place .elementor-field-email input {
+    width: 100% !important;
+    padding: 12px 16px !important;
+    border: 1px solid #E0E0E0 !important;
+    border-radius: 8px !important;
+    font-size: 15px !important;
+    color: #2C3E3A !important;
+    background: #FFFFFF !important;
+}
+
+body.single-gd_place input[name*="phone"],
+body.single-gd_place input[name*="Phone"],
+body.single-gd_place input[type="tel"],
+body.single-gd_place .geodir-field-phone input,
+body.single-gd_place .elementor-field-phone input {
+    width: 100% !important;
+    padding: 12px 16px !important;
+    border: 1px solid #E0E0E0 !important;
+    border-radius: 8px !important;
+    font-size: 15px !important;
+    color: #2C3E3A !important;
+    background: #FFFFFF !important;
+}
+
+body.single-gd_place input[name*="website"],
+body.single-gd_place input[name*="Website"],
+body.single-gd_place input[type="url"],
+body.single-gd_place .geodir-field-website input,
+body.single-gd_place .elementor-field-website input {
+    width: 100% !important;
+    padding: 12px 16px !important;
+    border: 1px solid #E0E0E0 !important;
+    border-radius: 8px !important;
+    font-size: 15px !important;
+    color: #2C3E3A !important;
+    background: #FFFFFF !important;
+}
+
+/* Contact info display (if data exists) */
+body.single-gd_place .contact-info,
+body.single-gd_place .geodir-post-contact,
+body.single-gd_place .geodir-post-meta[data-key*="contact"],
+body.single-gd_place .geodir-post-meta[data-key*="email"],
+body.single-gd_place .geodir-post-meta[data-key*="phone"],
+body.single-gd_place .geodir-post-meta[data-key*="website"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    padding: 20px !important;
+    background: #F8FAFA !important;
+    border-radius: 8px !important;
+    border-left: 3px solid #61948B !important;
+}
+
+body.single-gd_place .contact-info-item,
+body.single-gd_place .geodir-post-meta .geodir-meta-value {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid #F0F0F0 !important;
+}
+
+body.single-gd_place .contact-info-item:last-child {
+    border-bottom: none !important;
+}
+
+body.single-gd_place .contact-info-item .label {
+    font-size: 12px !important;
+    color: #9EABA8 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    min-width: 80px !important;
+}
+
+body.single-gd_place .contact-info-item .value {
+    color: #2C3E3A !important;
+    font-weight: 500 !important;
+    font-size: 15px !important;
+}
+
+body.single-gd_place .contact-info-item .value a {
+    color: #61948B !important;
+    text-decoration: none !important;
+}
+
+body.single-gd_place .contact-info-item .value a:hover {
+    text-decoration: underline !important;
+}
+
+/* ============================================
+   HIDE PLACEHOLDER TEXT / EMPTY SECTIONS
+   ============================================ */
+
+/* Hide sections that only contain placeholders */
+body.single-gd_place .elementor-widget:has(.placeholder:only-child),
+body.single-gd_place .elementor-widget:has-text("placeholder"),
+body.single-gd_place .elementor-widget:has-text("Placeholder") {
+    display: none !important;
+}
+
+/* Hide empty text widgets */
+body.single-gd_place .elementor-widget-text-editor:empty,
+body.single-gd_place .elementor-widget-text-editor:has-text("placeholder"),
+body.single-gd_place .elementor-widget-text-editor:has-text("Placeholder") {
+    display: none !important;
+}
+
+/* ============================================
+   IMPROVE OVERALL LAYOUT
+   ============================================ */
+
+/* Main container */
+body.single-gd_place .elementor-location-single .elementor-section:first-child {
+    padding-top: 24px !important;
+}
+
+/* Content sections */
+body.single-gd_place .elementor-location-single .elementor-section:nth-child(n+2) {
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+}
+
+/* Remove empty space */
+body.single-gd_place .elementor-section:empty {
+    display: none !important;
+}
+
+/* ============================================
+   BREADCRUMBS STYLING
+   ============================================ */
+
+body.single-gd_place .breadcrumb-section {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 16px 24px !important;
+    background: #FFFFFF !important;
+    border-bottom: 1px solid #E0E0E0 !important;
+    font-size: 14px !important;
+}
+
+body.single-gd_place .breadcrumb {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    color: #6B7C78 !important;
+    flex-wrap: wrap !important;
+}
+
+body.single-gd_place .breadcrumb a {
+    color: #61948B !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+body.single-gd_place .breadcrumb a:hover {
+    color: #FF5733 !important;
+    text-decoration: underline !important;
+}
+
+body.single-gd_place .breadcrumb .separator {
+    color: #9EABA8 !important;
+    opacity: 0.5 !important;
+}
+
+body.single-gd_place .breadcrumb .current {
+    color: #2C3E3A !important;
+    font-weight: 500 !important;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    body.single-gd_place .elementor-section:nth-child(n+2) {
+        padding: 24px 16px !important;
+    }
+    
+    body.single-gd_place .breadcrumb-section {
+        padding: 12px 16px !important;
+    }
+}
+

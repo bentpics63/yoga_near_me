@@ -1,0 +1,102 @@
+<!-- Monthly Performance Summary -->
+
+<p style="font-size: 16px; color: #2C3E3A; margin: 0 0 16px 0;">
+  Here's how your listing performed in {{month}}:
+</p>
+
+<!-- Stats Table -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 24px 0; border-collapse: collapse;">
+  <tr>
+    <td style="padding: 12px 16px; background-color: #F8FAFA; border-bottom: 1px solid #E8EEEC; font-weight: 600; color: #6B7C78; font-size: 14px;">
+      Metric
+    </td>
+    <td style="padding: 12px 16px; background-color: #F8FAFA; border-bottom: 1px solid #E8EEEC; font-weight: 600; color: #6B7C78; font-size: 14px; text-align: right;">
+      This Month
+    </td>
+    <td style="padding: 12px 16px; background-color: #F8FAFA; border-bottom: 1px solid #E8EEEC; font-weight: 600; color: #6B7C78; font-size: 14px; text-align: right;">
+      Last Month
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 12px 16px; border-bottom: 1px solid #E8EEEC; color: #2C3E3A;">
+      Listing views
+    </td>
+    <td style="padding: 12px 16px; border-bottom: 1px solid #E8EEEC; color: #2C3E3A; text-align: right; font-weight: 600;">
+      {{listing_views}}
+    </td>
+    <td style="padding: 12px 16px; border-bottom: 1px solid #E8EEEC; color: #6B7C78; text-align: right;">
+      {{listing_views_prev}}
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 12px 16px; border-bottom: 1px solid #E8EEEC; color: #2C3E3A;">
+      Profile clicks
+    </td>
+    <td style="padding: 12px 16px; border-bottom: 1px solid #E8EEEC; color: #2C3E3A; text-align: right; font-weight: 600;">
+      {{profile_clicks}}
+    </td>
+    <td style="padding: 12px 16px; border-bottom: 1px solid #E8EEEC; color: #6B7C78; text-align: right;">
+      {{profile_clicks_prev}}
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 12px 16px; color: #2C3E3A;">
+      Intro offer clicks
+    </td>
+    <td style="padding: 12px 16px; color: #2C3E3A; text-align: right; font-weight: 600;">
+      {{offer_clicks}}
+    </td>
+    <td style="padding: 12px 16px; color: #6B7C78; text-align: right;">
+      {{offer_clicks_prev}}
+    </td>
+  </tr>
+</table>
+
+<p style="font-size: 16px; color: #2C3E3A; margin: 0 0 8px 0;">
+  <strong>What this means:</strong>
+</p>
+
+<ul style="font-size: 14px; color: #6B7C78; margin: 0 0 24px 0; padding-left: 24px;">
+  <li style="margin-bottom: 8px;"><strong>Listing views:</strong> How many times you appeared in search results</li>
+  <li style="margin-bottom: 8px;"><strong>Profile clicks:</strong> How many students clicked to see your full profile</li>
+  <li style="margin-bottom: 0;"><strong>Intro offer clicks:</strong> How many clicked "Claim Offer" (if you have one set)</li>
+</ul>
+
+<p style="text-align: center; margin: 24px 0;">
+  <a href="{{dashboard_url}}" class="btn" style="display: inline-block; padding: 14px 28px; font-size: 16px; font-weight: 600; color: #ffffff; background-color: #bd371a; border-radius: 8px; text-decoration: none;">View Full Stats</a>
+</p>
+
+<!-- Conditional: No intro offer -->
+{{#unless has_intro_offer}}
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 24px 0; background-color: #f0fff4; border-radius: 8px; border-left: 4px solid #38a169;">
+  <tr>
+    <td style="padding: 16px;">
+      <p style="font-size: 14px; color: #2C3E3A; margin: 0 0 8px 0;">
+        <strong>You don't have an intro offer yet.</strong>
+      </p>
+      <p style="font-size: 14px; color: #6B7C78; margin: 0;">
+        Studios with offers get 3x more profile clicks from the same number of views.
+        <a href="{{edit_url}}#intro-offer" style="color: #61948B;">Add an intro offer →</a>
+      </p>
+    </td>
+  </tr>
+</table>
+{{/unless}}
+
+<!-- Conditional: Performance improved -->
+{{#if performance_improved}}
+<p style="font-size: 16px; color: #38a169; margin: 0 0 16px 0;">
+  <strong>Your clicks are up from last month.</strong> Whatever you're doing, keep doing it.
+</p>
+{{/if}}
+
+<!-- Conditional: Performance declined -->
+{{#if performance_declined}}
+<p style="font-size: 16px; color: #2C3E3A; margin: 0 0 16px 0;">
+  Your clicks are down from last month. A few things that help: make sure your hours are current, add a recent photo, or update your intro offer if it's been the same for a while.
+</p>
+{{/if}}
+
+<p style="font-size: 16px; color: #6B7C78; margin: 24px 0 0 0;">
+  — YogaNearMe
+</p>

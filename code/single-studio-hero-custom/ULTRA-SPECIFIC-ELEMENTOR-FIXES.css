@@ -1,0 +1,253 @@
+/**
+ * ULTRA-SPECIFIC ELEMENTOR FIXES
+ * This targets Elementor's actual structure with maximum specificity
+ * Add this AFTER FINAL-COMPLETE-STYLING.css
+ * 
+ * Fixes:
+ * - Button positioning (horizontal layout)
+ * - "Save" button color (teal)
+ * - Social buttons color (orange)
+ * - "Claim Listing" button (orange)
+ * - Verified badge (teal)
+ * - Rating stars (gold)
+ * - Nearby Studios cards (shadows, hover)
+ */
+
+/* ============================================
+   BUTTON POSITIONING - Force horizontal layout
+   ============================================ */
+
+/* Target Elementor columns containing buttons */
+body.single-gd_place .elementor-column .elementor-widget-button,
+body.single-gd_place .elementor-column-wrap .elementor-widget-button,
+body.single-gd_place .elementor-widget-wrap .elementor-widget-button {
+    display: inline-block !important;
+    float: left !important;
+    margin-right: 16px !important;
+    margin-bottom: 0 !important;
+    vertical-align: top !important;
+}
+
+/* Force buttons to be inline */
+body.single-gd_place .elementor-widget-button {
+    display: inline-block !important;
+    float: none !important;
+    margin-right: 16px !important;
+    margin-bottom: 0 !important;
+    width: auto !important;
+}
+
+/* Clear float after button container */
+body.single-gd_place .elementor-column:after,
+body.single-gd_place .elementor-column-wrap:after {
+    content: "" !important;
+    display: table !important;
+    clear: both !important;
+}
+
+/* ============================================
+   "SAVE" BUTTON - Force teal color
+   ============================================ */
+
+/* Target second button widget (Save button) */
+body.single-gd_place .elementor-widget-button:nth-child(2) .elementor-button,
+body.single-gd_place .elementor-widget-button:nth-of-type(2) .elementor-button,
+body.single-gd_place .elementor-column .elementor-widget-button:nth-child(2) .elementor-button,
+body.single-gd_place .elementor-column .elementor-widget-button:nth-of-type(2) .elementor-button {
+    background-color: #61948B !important;
+    background: #61948B !important;
+    border-color: #61948B !important;
+    color: #FFFFFF !important;
+    border: none !important;
+}
+
+body.single-gd_place .elementor-widget-button:nth-child(2) .elementor-button:hover,
+body.single-gd_place .elementor-widget-button:nth-of-type(2) .elementor-button:hover {
+    background-color: #4F7A73 !important;
+    background: #4F7A73 !important;
+}
+
+/* If Save button has specific class or text */
+body.single-gd_place .elementor-button[class*="save"],
+body.single-gd_place .elementor-button[class*="Save"],
+body.single-gd_place .elementor-button-link[class*="save"] {
+    background-color: #61948B !important;
+    background: #61948B !important;
+    border-color: #61948B !important;
+    color: #FFFFFF !important;
+}
+
+/* ============================================
+   SOCIAL SHARE BUTTONS - Force orange color
+   ============================================ */
+
+/* Target Elementor Share Buttons widget */
+body.single-gd_place .elementor-widget-share-buttons .elementor-share-btn,
+body.single-gd_place .elementor-widget-share-buttons .elementor-share-buttons__button,
+body.single-gd_place .elementor-share-buttons__button,
+body.single-gd_place .elementor-social-icon,
+body.single-gd_place .elementor-share-btn {
+    background-color: rgba(255, 87, 51, 0.1) !important;
+    background: rgba(255, 87, 51, 0.1) !important;
+    border-color: rgba(255, 87, 51, 0.2) !important;
+    border: 1px solid rgba(255, 87, 51, 0.2) !important;
+    color: #FF5733 !important;
+}
+
+body.single-gd_place .elementor-widget-share-buttons .elementor-share-btn svg,
+body.single-gd_place .elementor-widget-share-buttons .elementor-share-buttons__button svg,
+body.single-gd_place .elementor-share-btn svg,
+body.single-gd_place .elementor-social-icon svg {
+    fill: #FF5733 !important;
+    color: #FF5733 !important;
+}
+
+body.single-gd_place .elementor-widget-share-buttons .elementor-share-btn:hover,
+body.single-gd_place .elementor-widget-share-buttons .elementor-share-buttons__button:hover,
+body.single-gd_place .elementor-share-btn:hover,
+body.single-gd_place .elementor-social-icon:hover {
+    background-color: #FF5733 !important;
+    background: #FF5733 !important;
+    color: #FFFFFF !important;
+    border-color: #FF5733 !important;
+}
+
+body.single-gd_place .elementor-widget-share-buttons .elementor-share-btn:hover svg,
+body.single-gd_place .elementor-widget-share-buttons .elementor-share-buttons__button:hover svg,
+body.single-gd_place .elementor-share-btn:hover svg,
+body.single-gd_place .elementor-social-icon:hover svg {
+    fill: #FFFFFF !important;
+    color: #FFFFFF !important;
+}
+
+/* ============================================
+   "CLAIM LISTING" BUTTON - Force orange color
+   ============================================ */
+
+body.single-gd_place .elementor-button[class*="claim"],
+body.single-gd_place .elementor-button[class*="Claim"],
+body.single-gd_place .elementor-button-link[class*="claim"],
+body.single-gd_place .elementor-widget-button .elementor-button[class*="claim"],
+body.single-gd_place .elementor-widget-button .elementor-button[class*="Claim"] {
+    background-color: #FF5733 !important;
+    background: #FF5733 !important;
+    border-color: #FF5733 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+}
+
+body.single-gd_place .elementor-button[class*="claim"]:hover,
+body.single-gd_place .elementor-button[class*="Claim"]:hover {
+    background-color: #E64A2A !important;
+    background: #E64A2A !important;
+}
+
+/* ============================================
+   VERIFIED BADGE - Force teal color
+   ============================================ */
+
+body.single-gd_place .badge-verified,
+body.single-gd_place .badge.verified,
+body.single-gd_place [class*="verified"],
+body.single-gd_place .studio-badges .badge,
+body.single-gd_place .geodir-post-meta[data-key="studio_verified"],
+body.single-gd_place .elementor-widget-text-editor [class*="verified"],
+body.single-gd_place .elementor-widget-html [class*="verified"] {
+    background: rgba(97, 148, 139, 0.12) !important;
+    background-color: rgba(97, 148, 139, 0.12) !important;
+    color: #61948B !important;
+    border: none !important;
+    padding: 6px 12px !important;
+    border-radius: 20px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+/* ============================================
+   RATING STARS - Force gold color
+   ============================================ */
+
+body.single-gd_place .geodir-post-rating svg,
+body.single-gd_place .geodir-rating svg,
+body.single-gd_place .geodir-stars svg,
+body.single-gd_place .elementor-widget-geodir-post-rating svg,
+body.single-gd_place .star-rating svg,
+body.single-gd_place [class*="star"] svg,
+body.single-gd_place [class*="rating"] svg {
+    fill: #F5A623 !important;
+    color: #F5A623 !important;
+    stroke: #F5A623 !important;
+}
+
+body.single-gd_place .geodir-post-rating .empty svg,
+body.single-gd_place .geodir-rating .empty svg,
+body.single-gd_place .geodir-stars .empty svg {
+    fill: #DDDDDD !important;
+    color: #DDDDDD !important;
+}
+
+/* ============================================
+   NEARBY STUDIOS CARDS - Add shadows and hover
+   ============================================ */
+
+body.single-gd_place [class*="nearby"] .elementor-post,
+body.single-gd_place [class*="nearby"] .elementor-post__card,
+body.single-gd_place [class*="nearby"] .elementor-post__thumbnail,
+body.single-gd_place [class*="nearby"] .geodir-post,
+body.single-gd_place [class*="nearby"] .geodir-post-content,
+body.single-gd_place .elementor-posts-container .elementor-post,
+body.single-gd_place .elementor-posts-container .elementor-post__card {
+    background: #FFFFFF !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    border: 1px solid #E0E0E0 !important;
+    transition: all 0.3s ease !important;
+    overflow: hidden !important;
+}
+
+body.single-gd_place [class*="nearby"] .elementor-post:hover,
+body.single-gd_place [class*="nearby"] .elementor-post__card:hover,
+body.single-gd_place .elementor-posts-container .elementor-post:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Card images */
+body.single-gd_place [class*="nearby"] .elementor-post__thumbnail img,
+body.single-gd_place [class*="nearby"] .geodir-post-thumbnail img {
+    transition: transform 0.3s ease !important;
+}
+
+body.single-gd_place [class*="nearby"] .elementor-post:hover .elementor-post__thumbnail img,
+body.single-gd_place [class*="nearby"] .geodir-post:hover .geodir-post-thumbnail img {
+    transform: scale(1.05) !important;
+}
+
+/* ============================================
+   RESPONSIVE BUTTON POSITIONING
+   ============================================ */
+
+@media (max-width: 768px) {
+    body.single-gd_place .elementor-widget-button {
+        display: block !important;
+        width: 100% !important;
+        margin-right: 0 !important;
+        margin-bottom: 12px !important;
+        float: none !important;
+    }
+    
+    body.single-gd_place .elementor-widget-button:last-child {
+        margin-bottom: 0 !important;
+    }
+    
+    body.single-gd_place .elementor-widget-button .elementor-button {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+

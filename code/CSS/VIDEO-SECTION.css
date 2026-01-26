@@ -1,0 +1,439 @@
+/**
+ * ==========================================================================
+ * YOGANEARME.INFO - Video Section Styles (Visibility Tier Feature)
+ * ==========================================================================
+ *
+ * This CSS styles the video embed section on single listing pages.
+ * The video section is a Visibility tier ($29/mo) feature.
+ *
+ * PLACEMENT: Below intro offer, above About section
+ *
+ * INSTALLATION:
+ * Add to WordPress Customizer > Additional CSS
+ * OR enqueue via functions.php
+ *
+ * CONDITIONAL DISPLAY:
+ * The PHP controls whether this section renders based on package_id.
+ * This CSS only handles styling when the section exists.
+ *
+ * ==========================================================================
+ */
+
+/* ==========================================================================
+   CSS VARIABLES (Brand Colors - same as archive cards)
+   ========================================================================== */
+:root {
+    --ynm-sage: #5F7470;
+    --ynm-teal: #61948B;
+    --ynm-rust: #bd371a;
+    --ynm-paper: #F8FAFA;
+    --ynm-text-dark: #2C3E3A;
+    --ynm-text-medium: #6B7C78;
+    --ynm-gold: #D4AF37;
+    --ynm-border: #E5E7EB;
+    --ynm-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --ynm-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --ynm-radius: 12px;
+}
+
+/* ==========================================================================
+   VIDEO SECTION CONTAINER
+   ========================================================================== */
+
+.ynm-video-section {
+    margin: 32px 0;
+    padding: 0;
+}
+
+.ynm-video-section__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.ynm-video-section__icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--ynm-teal) 0%, var(--ynm-sage) 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+}
+
+.ynm-video-section__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ynm-text-dark);
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.ynm-video-section__subtitle {
+    font-size: 14px;
+    color: var(--ynm-text-medium);
+    margin: 0;
+}
+
+/* ==========================================================================
+   VIDEO EMBED CONTAINER - RESPONSIVE 16:9
+   ========================================================================== */
+
+.ynm-video-embed {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    background: var(--ynm-paper);
+    border-radius: var(--ynm-radius);
+    box-shadow: var(--ynm-shadow-md);
+}
+
+.ynm-video-embed iframe,
+.ynm-video-embed video,
+.ynm-video-embed embed,
+.ynm-video-embed object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: var(--ynm-radius);
+}
+
+/* ==========================================================================
+   VIDEO THUMBNAIL (LAZY LOAD / CLICK TO PLAY)
+   ========================================================================== */
+
+.ynm-video-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    border-radius: var(--ynm-radius);
+    transition: all 0.3s ease;
+}
+
+.ynm-video-thumbnail::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.3) 100%
+    );
+    border-radius: var(--ynm-radius);
+}
+
+.ynm-video-thumbnail:hover {
+    transform: scale(1.01);
+}
+
+.ynm-video-thumbnail:hover .ynm-video-play-btn {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: var(--ynm-rust);
+}
+
+/* ==========================================================================
+   PLAY BUTTON OVERLAY
+   ========================================================================== */
+
+.ynm-video-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 72px;
+    height: 72px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+}
+
+.ynm-video-play-btn::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 12px 0 12px 20px;
+    border-color: transparent transparent transparent var(--ynm-teal);
+    margin-left: 4px; /* Optical center adjustment */
+}
+
+/* ==========================================================================
+   VIDEO CAPTION (OPTIONAL)
+   ========================================================================== */
+
+.ynm-video-caption {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--ynm-text-medium);
+    text-align: center;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   VISIBILITY BADGE (For featured studios with video)
+   ========================================================================== */
+
+.ynm-visibility-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, var(--ynm-gold) 0%, #F4D03F 100%);
+    color: #1a1a1a;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: auto;
+}
+
+.ynm-visibility-badge::before {
+    content: '⭐';
+    font-size: 10px;
+}
+
+/* ==========================================================================
+   COMMUNITY TIER UPGRADE PROMPT (Shows when video would go)
+   ========================================================================== */
+
+.ynm-upgrade-prompt {
+    background: var(--ynm-paper);
+    border: 2px dashed var(--ynm-border);
+    border-radius: var(--ynm-radius);
+    padding: 32px 24px;
+    text-align: center;
+    margin: 32px 0;
+}
+
+.ynm-upgrade-prompt__icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+    opacity: 0.6;
+}
+
+.ynm-upgrade-prompt__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ynm-text-dark);
+    margin: 0 0 8px 0;
+}
+
+.ynm-upgrade-prompt__text {
+    font-size: 14px;
+    color: var(--ynm-text-medium);
+    margin: 0 0 16px 0;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ynm-upgrade-prompt__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--ynm-teal);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.ynm-upgrade-prompt__btn:hover {
+    background: var(--ynm-sage);
+    transform: translateY(-2px);
+    color: #fff;
+    text-decoration: none;
+}
+
+.ynm-upgrade-prompt__btn::after {
+    content: '→';
+}
+
+/* ==========================================================================
+   GEODIRECTORY VIDEO FIELD INTEGRATION
+   ========================================================================== */
+
+/* If using GeoDirectory's built-in video field */
+.geodir-field-video_url,
+.geodir-i-video,
+.geodir-video-container {
+    margin: 32px 0;
+}
+
+.geodir-field-video_url .geodir-field-label,
+.geodir-i-video .geodir-i-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ynm-text-dark);
+    margin-bottom: 16px;
+}
+
+.geodir-field-video_url .geodir-field-label::before,
+.geodir-i-video .geodir-i-label::before {
+    content: '🎥';
+}
+
+/* Style GD's auto-embedded video */
+.geodir-field-video_url iframe,
+.geodir-i-video iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--ynm-radius);
+    box-shadow: var(--ynm-shadow-md);
+}
+
+/* ==========================================================================
+   YOUTUBE / VIMEO SPECIFIC STYLING
+   ========================================================================== */
+
+/* Remove YouTube's branding on custom thumbnail */
+.ynm-video-embed[data-provider="youtube"] .ynm-video-thumbnail {
+    background-color: #000;
+}
+
+/* Vimeo accent color */
+.ynm-video-embed[data-provider="vimeo"] .ynm-video-play-btn::after {
+    border-color: transparent transparent transparent #1ab7ea;
+}
+
+/* ==========================================================================
+   LOADING STATE
+   ========================================================================== */
+
+.ynm-video-embed--loading {
+    background: linear-gradient(
+        90deg,
+        var(--ynm-paper) 0%,
+        #e8eaea 50%,
+        var(--ynm-paper) 100%
+    );
+    background-size: 200% 100%;
+    animation: ynm-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes ynm-shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .ynm-video-section {
+        margin: 24px 0;
+    }
+
+    .ynm-video-section__header {
+        flex-wrap: wrap;
+    }
+
+    .ynm-video-section__title {
+        font-size: 18px;
+    }
+
+    .ynm-video-play-btn {
+        width: 56px;
+        height: 56px;
+    }
+
+    .ynm-video-play-btn::after {
+        border-width: 10px 0 10px 16px;
+    }
+
+    .ynm-upgrade-prompt {
+        padding: 24px 16px;
+    }
+
+    .ynm-upgrade-prompt__title {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ynm-video-section__icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .ynm-video-play-btn {
+        width: 48px;
+        height: 48px;
+    }
+
+    .ynm-video-play-btn::after {
+        border-width: 8px 0 8px 14px;
+    }
+
+    .ynm-visibility-badge {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+}
+
+/* ==========================================================================
+   PRINT STYLES
+   ========================================================================== */
+
+@media print {
+    .ynm-video-section {
+        display: none;
+    }
+
+    .ynm-upgrade-prompt {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   DARK MODE SUPPORT (Future)
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+    /* Only activate if site implements dark mode */
+    /*
+    .ynm-video-section__title {
+        color: #fff;
+    }
+    .ynm-video-embed {
+        background: #1a1a1a;
+    }
+    .ynm-upgrade-prompt {
+        background: #2a2a2a;
+        border-color: #444;
+    }
+    */
+}

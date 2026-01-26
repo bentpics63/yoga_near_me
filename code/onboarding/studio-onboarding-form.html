@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Your Studio | YogaNearMe</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="studio-onboarding-form.css">
+</head>
+<body>
+  <div class="onboarding-page">
+
+    <!-- Header -->
+    <header class="onboarding-header">
+      <div class="header-content">
+        <a href="/" class="logo">
+          <span class="logo-text">YogaNearMe</span>
+        </a>
+        <div class="header-help">
+          <span class="help-text">Questions?</span>
+          <a href="mailto:hello@yoganearme.info" class="help-link">hello@yoganearme.info</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+      </div>
+      <div class="progress-text">
+        <span class="progress-percent" id="progressPercent">0%</span>
+        <span class="progress-label">complete</span>
+      </div>
+    </div>
+
+    <!-- Main Form -->
+    <main class="onboarding-main">
+      <form id="studioOnboardingForm" class="onboarding-form" novalidate>
+
+        <!-- Hero Section -->
+        <div class="form-hero">
+          <h1 class="hero-title">List Your Studio</h1>
+          <p class="hero-subtitle">Students in your area are searching for yoga right now. Let's help them find you.</p>
+        </div>
+
+        <!-- Section 1: The Basics -->
+        <section class="form-section" data-section="basics" id="sectionBasics">
+          <div class="section-header">
+            <h2 class="section-title">The Basics</h2>
+            <p class="section-helper">What students see first. Let's make sure they can find you.</p>
+          </div>
+
+          <div class="form-fields">
+
+            <!-- Studio Name -->
+            <div class="field-group">
+              <label for="studioName" class="field-label">
+                Studio name
+                <span class="required-indicator">*</span>
+              </label>
+              <p class="field-helper">As you want it displayed. Include location if you have multiple.</p>
+              <input
+                type="text"
+                id="studioName"
+                name="studio_name"
+                class="field-input"
+                required
+                autocomplete="organization"
+              >
+              <span class="field-error" id="studioNameError"></span>
+            </div>
+
+            <!-- Address -->
+            <div class="field-group">
+              <label for="studioAddress" class="field-label">
+                Street address
+                <span class="required-indicator">*</span>
+              </label>
+              <p class="field-helper">We'll verify on the map—you can adjust the pin after.</p>
+              <input
+                type="text"
+                id="studioAddress"
+                name="address"
+                class="field-input"
+                required
+                autocomplete="street-address"
+                placeholder="Start typing your address..."
+              >
+              <span class="field-error" id="studioAddressError"></span>
+            </div>
+
+            <!-- City, State, ZIP (auto-filled row) -->
+            <div class="field-row field-row-3">
+              <div class="field-group">
+                <label for="studioCity" class="field-label">
+                  City
+                  <span class="required-indicator">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="studioCity"
+                  name="city"
+                  class="field-input field-input-readonly"
+                  required
+                  readonly
+                  tabindex="-1"
+                >
+              </div>
+              <div class="field-group">
+                <label for="studioState" class="field-label">
+                  State
+                  <span class="required-indicator">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="studioState"
+                  name="state"
+                  class="field-input field-input-readonly"
+                  required
+                  readonly
+                  tabindex="-1"
+                >
+              </div>
+              <div class="field-group">
+                <label for="studioZip" class="field-label">
+                  ZIP
+                  <span class="required-indicator">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="studioZip"
+                  name="zip"
+                  class="field-input field-input-readonly"
+                  required
+                  readonly
+                  tabindex="-1"
+                >
+              </div>
+            </div>
+            <p class="field-helper field-helper-row">Used for "studios near me" searches.</p>
+
+            <!-- Phone -->
+            <div class="field-group">
+              <label for="studioPhone" class="field-label">Phone</label>
+              <p class="field-helper">Optional. Students often call before their first visit.</p>
+              <input
+                type="tel"
+                id="studioPhone"
+                name="phone"
+                class="field-input"
+                autocomplete="tel"
+                placeholder="(___) ___-____"
+              >
+            </div>
+
+            <!-- Email -->
+            <div class="field-group">
+              <label for="studioEmail" class="field-label">
+                Contact email
+                <span class="required-indicator">*</span>
+              </label>
+              <p class="field-helper">For inquiries only—not displayed publicly.</p>
+              <input
+                type="email"
+                id="studioEmail"
+                name="email"
+                class="field-input"
+                required
+                autocomplete="email"
+              >
+              <span class="field-error" id="studioEmailError"></span>
+            </div>
+
+            <!-- Website -->
+            <div class="field-group">
+              <label for="studioWebsite" class="field-label">Website</label>
+              <p class="field-helper">Your homepage or booking page.</p>
+              <input
+                type="url"
+                id="studioWebsite"
+                name="website"
+                class="field-input"
+                autocomplete="url"
+                placeholder="https://"
+              >
+            </div>
+
+            <!-- Business Hours -->
+            <div class="field-group field-group-hours">
+              <label class="field-label">
+                Business hours
+                <span class="required-indicator">*</span>
+              </label>
+              <p class="field-helper">When can students reach you or take class?</p>
+
+              <div class="hours-grid" id="hoursGrid">
+                <!-- Monday -->
+                <div class="hours-row">
+                  <div class="hours-day">
+                    <input type="checkbox" id="hours-mon-active" name="hours_mon_active" checked>
+                    <label for="hours-mon-active">Mon</label>
+                  </div>
+                  <div class="hours-times">
+                    <input type="time" id="hours-mon-open" name="hours_mon_open" value="09:00" class="hours-input">
+                    <span class="hours-separator">to</span>
+                    <input type="time" id="hours-mon-close" name="hours_mon_close" value="21:00" class="hours-input">
+                  </div>
+                </div>
+
+                <!-- Tuesday -->
+                <div class="hours-row">
+                  <div class="hours-day">
+                    <input type="checkbox" id="hours-tue-active" name="hours_tue_active" checked>
+                    <label for="hours-tue-active">Tue</label>
+                  </div>
+                  <div class="hours-times">
+                    <input type="time" id="hours-tue-open" name="hours_tue_open" value="09:00" class="hours-input">
+                    <span class="hours-separator">to</span>
+                    <input type="time" id="hours-tue-close" name="hours_tue_close" value="21:00" class="hours-input">
+                  </div>
+                </div>
+
+                <!-- Wednesday -->
+                <div class="hours-row">
+                  <div class="hours-day">
+                    <input type="checkbox" id="hours-wed-active" name="hours_wed_active" checked>
+                    <label for="hours-wed-active">Wed</label>
+                  </div>
+                  <div class="hours-times">
+                    <input type="time" id="hours-wed-open" name="hours_wed_open" value="09:00" class="hours-input">
+                    <span class="hours-separator">to</span>
+                    <input type="time" id="hours-wed-close" name="hours_wed_close" value="21:00" class="hours-input">
+                  </div>
+                </div>
+
+                <!-- Thursday -->
+                <div class="hours-row">
+                  <div class="hours-day">
+                    <input type="checkbox" id="hours-thu-active" name="hours_thu_active" checked>
+                    <label for="hours-thu-active">Thu</label>
+                  </div>
+                  <div class="hours-times">
+                    <input type="time" id="hours-thu-open" name="hours_thu_open" value="09:00" class="hours-input">
+                    <span class="hours-separator">to</span>
+                    <input type="time" id="hours-thu-close" name="hours_thu_close" value="21:00" class="hours-input">
+                  </div>
+                </div>
+
+                <!-- Friday -->
+                <div class="hours-row">
+                  <div class="hours-day">
+                    <input type="checkbox" id="hours-fri-active" name="hours_fri_active" checked>
+                    <label for="hours-fri-active">Fri</label>
+                  </div>
+                  <div class="hours-times">
+                    <input type="time" id="hours-fri-open" name="hours_fri_open" value="09:00" class="hours-input">
+                    <span class="hours-separator">to</span>
+                    <input type="time" id="hours-fri-close" name="hours_fri_close" value="21:00" class="hours-input">
+                  </div>
+                </div>
+
+                <!-- Saturday -->
+                <div class="hours-row">
+                  <div class="hours-day">
+                    <input type="checkbox" id="hours-sat-active" name="hours_sat_active" checked>
+                    <label for="hours-sat-active">Sat</label>
+                  </div>
+                  <div class="hours-times">
+                    <input type="time" id="hours-sat-open" name="hours_sat_open" value="08:00" class="hours-input">
+                    <span class="hours-separator">to</span>
+                    <input type="time" id="hours-sat-close" name="hours_sat_close" value="18:00" class="hours-input">
+                  </div>
+                </div>
+
+                <!-- Sunday -->
+                <div class="hours-row">
+                  <div class="hours-day">
+                    <input type="checkbox" id="hours-sun-active" name="hours_sun_active" checked>
+                    <label for="hours-sun-active">Sun</label>
+                  </div>
+                  <div class="hours-times">
+                    <input type="time" id="hours-sun-open" name="hours_sun_open" value="08:00" class="hours-input">
+                    <span class="hours-separator">to</span>
+                    <input type="time" id="hours-sun-close" name="hours_sun_close" value="18:00" class="hours-input">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Section 2: Who You Are -->
+        <section class="form-section" data-section="identity" id="sectionIdentity">
+          <div class="section-header">
+            <h2 class="section-title">Who You Are</h2>
+            <p class="section-helper">This is how students find the right fit. The more specific, the better the match.</p>
+          </div>
+
+          <div class="form-fields">
+
+            <!-- Primary Style -->
+            <div class="field-group">
+              <label class="field-label">
+                What's your studio best known for?
+                <span class="required-indicator">*</span>
+              </label>
+              <p class="field-helper">Pick one. Students searching this style see you first.</p>
+
+              <div class="button-grid button-grid-single" id="primaryStyleGrid">
+                <button type="button" class="style-button" data-value="vinyasa">Vinyasa</button>
+                <button type="button" class="style-button" data-value="hatha">Hatha</button>
+                <button type="button" class="style-button" data-value="yin">Yin</button>
+                <button type="button" class="style-button" data-value="restorative">Restorative</button>
+                <button type="button" class="style-button" data-value="hot">Hot/Heated</button>
+                <button type="button" class="style-button" data-value="ashtanga">Ashtanga</button>
+                <button type="button" class="style-button" data-value="kundalini">Kundalini</button>
+                <button type="button" class="style-button" data-value="power">Power</button>
+                <button type="button" class="style-button" data-value="iyengar">Iyengar</button>
+                <button type="button" class="style-button" data-value="prenatal">Prenatal</button>
+                <button type="button" class="style-button" data-value="gentle">Gentle</button>
+                <button type="button" class="style-button" data-value="multi-style">Multi-Style</button>
+              </div>
+              <input type="hidden" id="primaryStyle" name="primary_style" required>
+              <span class="field-error" id="primaryStyleError"></span>
+            </div>
+
+            <!-- Vibe Tags -->
+            <div class="field-group">
+              <label class="field-label">How would students describe the room? The energy?</label>
+              <p class="field-helper">Select up to 3. This helps them find a space that fits.</p>
+
+              <div class="pill-section">
+                <span class="pill-section-label">Atmosphere</span>
+                <div class="pill-grid" id="vibeAtmosphereGrid">
+                  <button type="button" class="pill-button" data-group="vibe" data-value="calm">Calm</button>
+                  <button type="button" class="pill-button" data-group="vibe" data-value="high-energy">High-Energy</button>
+                  <button type="button" class="pill-button" data-group="vibe" data-value="meditative">Meditative</button>
+                  <button type="button" class="pill-button" data-group="vibe" data-value="warm-heated">Warm/Heated</button>
+                </div>
+              </div>
+
+              <div class="pill-section">
+                <span class="pill-section-label">Community</span>
+                <div class="pill-grid" id="vibeCommunityGrid">
+                  <button type="button" class="pill-button" data-group="vibe" data-value="community-focused">Community-Focused</button>
+                  <button type="button" class="pill-button" data-group="vibe" data-value="boutique">Boutique</button>
+                  <button type="button" class="pill-button" data-group="vibe" data-value="inclusive">Inclusive</button>
+                  <button type="button" class="pill-button" data-group="vibe" data-value="family-friendly">Family-Friendly</button>
+                </div>
+              </div>
+
+              <div class="pill-section">
+                <span class="pill-section-label">Approach</span>
+                <div class="pill-grid" id="vibeApproachGrid">
+                  <button type="button" class="pill-button" data-group="vibe" data-value="beginner-friendly">Beginner-Friendly</button>
+                  <button type="button" class="pill-button" data-group="vibe" data-value="fitness-forward">Fitness-Forward</button>
+                  <button type="button" class="pill-button" data-group="vibe" data-value="traditional">Traditional</button>
+                  <button type="button" class="pill-button" data-group="vibe" data-value="spiritual">Spiritual</button>
+                </div>
+              </div>
+
+              <div class="pill-counter" id="vibeCounter">
+                <span class="counter-current">0</span>/<span class="counter-max">3</span> selected
+              </div>
+              <input type="hidden" id="vibeTags" name="vibe_tags">
+            </div>
+
+            <!-- Best For -->
+            <div class="field-group">
+              <label class="field-label">Different students need different things. Who finds their footing at your studio?</label>
+              <p class="field-helper">Select all that apply.</p>
+
+              <div class="pill-grid pill-grid-wide" id="bestForGrid">
+                <button type="button" class="pill-button" data-group="bestfor" data-value="beginners">Complete Beginners</button>
+                <button type="button" class="pill-button" data-group="bestfor" data-value="athletes">Athletes</button>
+                <button type="button" class="pill-button" data-group="bestfor" data-value="seniors">Seniors</button>
+                <button type="button" class="pill-button" data-group="bestfor" data-value="prenatal">Prenatal & Postnatal</button>
+                <button type="button" class="pill-button" data-group="bestfor" data-value="injuries">Injuries/Limitations</button>
+                <button type="button" class="pill-button" data-group="bestfor" data-value="advanced">Advanced Practitioners</button>
+                <button type="button" class="pill-button" data-group="bestfor" data-value="kids">Kids & Teens</button>
+              </div>
+              <input type="hidden" id="bestFor" name="best_for">
+            </div>
+
+            <!-- Languages -->
+            <div class="field-group">
+              <label class="field-label">Languages offered in class</label>
+              <p class="field-helper">English assumed—add others if teachers offer instruction in additional languages.</p>
+
+              <div class="pill-grid" id="languagesGrid">
+                <button type="button" class="pill-button" data-group="languages" data-value="spanish">Spanish</button>
+                <button type="button" class="pill-button" data-group="languages" data-value="mandarin">Mandarin</button>
+                <button type="button" class="pill-button" data-group="languages" data-value="korean">Korean</button>
+                <button type="button" class="pill-button" data-group="languages" data-value="japanese">Japanese</button>
+                <button type="button" class="pill-button" data-group="languages" data-value="hindi">Hindi</button>
+                <button type="button" class="pill-button" data-group="languages" data-value="french">French</button>
+                <button type="button" class="pill-button" data-group="languages" data-value="portuguese">Portuguese</button>
+                <button type="button" class="pill-button" data-group="languages" data-value="vietnamese">Vietnamese</button>
+                <button type="button" class="pill-button" data-group="languages" data-value="tagalog">Tagalog</button>
+                <button type="button" class="pill-button pill-button-other" data-group="languages" data-value="other">Other</button>
+              </div>
+
+              <div class="other-input-container" id="languagesOtherContainer" style="display: none;">
+                <input
+                  type="text"
+                  id="languagesOther"
+                  name="languages_other"
+                  class="field-input field-input-inline"
+                  placeholder="Specify other language(s)"
+                >
+              </div>
+              <input type="hidden" id="languages" name="languages">
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Section 3: The Practical Stuff -->
+        <section class="form-section" data-section="practical" id="sectionPractical">
+          <div class="section-header">
+            <h2 class="section-title">The Practical Stuff</h2>
+            <p class="section-helper">First-timers have questions they won't ask. This answers them before they have to.</p>
+          </div>
+
+          <div class="form-fields">
+
+            <!-- Drop-in Policy -->
+            <div class="field-group">
+              <label class="field-label">
+                Can students drop in, or is booking required?
+                <span class="required-indicator">*</span>
+              </label>
+
+              <div class="radio-stack" id="dropinPolicyStack">
+                <label class="radio-option">
+                  <input type="radio" name="drop_in_policy" value="drop-ins-welcome" required>
+                  <span class="radio-label">Drop-ins always welcome</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="drop_in_policy" value="booking-recommended">
+                  <span class="radio-label">Booking recommended</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="drop_in_policy" value="booking-required">
+                  <span class="radio-label">Booking required</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="drop_in_policy" value="first-timers-book">
+                  <span class="radio-label">First-timers must book, then drop-in OK</span>
+                </label>
+              </div>
+              <span class="field-error" id="dropinPolicyError"></span>
+            </div>
+
+            <!-- Class Size Feel -->
+            <div class="field-group">
+              <label class="field-label">What's the class size feel?</label>
+              <p class="field-helper">A room of 8 feels different than a room of 40—students want to know which yours is.</p>
+
+              <div class="radio-stack" id="classSizeStack">
+                <label class="radio-option">
+                  <input type="radio" name="class_size" value="intimate">
+                  <span class="radio-label">Intimate (under 10)</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="class_size" value="community">
+                  <span class="radio-label">Community (10–25)</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="class_size" value="large">
+                  <span class="radio-label">Large (25+)</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="class_size" value="varies">
+                  <span class="radio-label">Varies by class</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- New Student Info -->
+            <div class="field-group">
+              <label class="field-label">What should first-timers know?</label>
+              <p class="field-helper">Select all that apply.</p>
+
+              <div class="pill-grid pill-grid-icons" id="newStudentInfoGrid">
+                <button type="button" class="pill-button pill-button-icon" data-group="newstudent" data-value="arrive-early">
+                  <span class="pill-icon">&#128336;</span>
+                  <span>Arrive 15 min early</span>
+                </button>
+                <button type="button" class="pill-button pill-button-icon" data-group="newstudent" data-value="props-provided">
+                  <span class="pill-icon">&#129495;</span>
+                  <span>Props provided</span>
+                </button>
+                <button type="button" class="pill-button pill-button-icon" data-group="newstudent" data-value="bring-mat">
+                  <span class="pill-icon">&#128581;</span>
+                  <span>Bring your own mat</span>
+                </button>
+                <button type="button" class="pill-button pill-button-icon" data-group="newstudent" data-value="showers">
+                  <span class="pill-icon">&#128703;</span>
+                  <span>Showers available</span>
+                </button>
+                <button type="button" class="pill-button pill-button-icon" data-group="newstudent" data-value="changing-rooms">
+                  <span class="pill-icon">&#128085;</span>
+                  <span>Changing rooms</span>
+                </button>
+                <button type="button" class="pill-button pill-button-icon" data-group="newstudent" data-value="water">
+                  <span class="pill-icon">&#128167;</span>
+                  <span>Water for purchase</span>
+                </button>
+                <button type="button" class="pill-button pill-button-icon" data-group="newstudent" data-value="shoes-off">
+                  <span class="pill-icon">&#128095;</span>
+                  <span>Shoes off at door</span>
+                </button>
+                <button type="button" class="pill-button pill-button-icon" data-group="newstudent" data-value="towels">
+                  <span class="pill-icon">&#129531;</span>
+                  <span>Towels provided</span>
+                </button>
+                <button type="button" class="pill-button pill-button-icon" data-group="newstudent" data-value="lockers">
+                  <span class="pill-icon">&#128274;</span>
+                  <span>Lockers available</span>
+                </button>
+              </div>
+              <input type="hidden" id="newStudentInfo" name="new_student_info">
+            </div>
+
+            <!-- Parking & Transit -->
+            <div class="field-group">
+              <label class="field-label">How do students get to you?</label>
+              <p class="field-helper">Select all that apply.</p>
+
+              <div class="pill-grid pill-grid-icons" id="parkingGrid">
+                <button type="button" class="pill-button pill-button-icon" data-group="parking" data-value="free-lot">
+                  <span class="pill-icon">&#127359;</span>
+                  <span>Free lot</span>
+                </button>
+                <button type="button" class="pill-button pill-button-icon" data-group="parking" data-value="street">
+                  <span class="pill-icon">&#128663;</span>
+                  <span>Street parking</span>
+                </button>
+                <button type="button" class="pill-button pill-button-icon" data-group="parking" data-value="paid">
+                  <span class="pill-icon">&#128181;</span>
+                  <span>Paid parking nearby</span>
+                </button>
+                <button type="button" class="pill-button pill-button-icon" data-group="parking" data-value="metro">
+                  <span class="pill-icon">&#128647;</span>
+                  <span>Metro accessible</span>
+                </button>
+                <button type="button" class="pill-button pill-button-icon" data-group="parking" data-value="bus">
+                  <span class="pill-icon">&#128652;</span>
+                  <span>Bus stop nearby</span>
+                </button>
+                <button type="button" class="pill-button pill-button-icon" data-group="parking" data-value="bike">
+                  <span class="pill-icon">&#128690;</span>
+                  <span>Bike racks</span>
+                </button>
+              </div>
+              <input type="hidden" id="parking" name="parking">
+            </div>
+
+          </div>
+        </section>
+
+        <!-- UPSELL SCREEN: Visibility Boost (after Section 3) -->
+        <section class="upsell-screen" id="upsellScreen" style="display: none;">
+          <div class="upsell-content">
+            <div class="upsell-badge">Optional Upgrade</div>
+            <h2 class="upsell-title">Want to stand out?</h2>
+            <p class="upsell-subtitle">Studios with premium profiles get 3x more student inquiries.</p>
+
+            <div class="upsell-comparison">
+              <div class="upsell-tier upsell-tier-free">
+                <h3 class="tier-name">Community</h3>
+                <div class="tier-price">Free forever</div>
+                <ul class="tier-features">
+                  <li class="feature-included">Basic listing</li>
+                  <li class="feature-included">Show up in searches</li>
+                  <li class="feature-included">Display hours & contact</li>
+                  <li class="feature-not">Priority placement</li>
+                  <li class="feature-not">Intro offer badge</li>
+                  <li class="feature-not">Lead notifications</li>
+                </ul>
+                <div class="tier-current">Your current plan</div>
+              </div>
+
+              <div class="upsell-tier upsell-tier-premium">
+                <div class="tier-popular">Most Popular</div>
+                <h3 class="tier-name">Visibility Boost</h3>
+                <div class="tier-price">$29<span>/month</span></div>
+                <ul class="tier-features">
+                  <li class="feature-included">Everything in Community</li>
+                  <li class="feature-included">Priority in local searches</li>
+                  <li class="feature-included">Highlighted intro offer badge</li>
+                  <li class="feature-included">Instant lead notifications</li>
+                  <li class="feature-included">Profile analytics</li>
+                  <li class="feature-included">"Verified Studio" badge</li>
+                </ul>
+                <button type="button" class="btn-upgrade" id="btnUpgrade">
+                  Upgrade Now
+                </button>
+                <p class="tier-guarantee">30-day money-back guarantee</p>
+              </div>
+            </div>
+
+            <button type="button" class="upsell-skip" id="btnSkipUpsell">
+              Continue with free listing &rarr;
+            </button>
+          </div>
+        </section>
+
+        <!-- Section 4: What Makes You Different -->
+        <section class="form-section" data-section="different" id="sectionDifferent">
+          <div class="section-header">
+            <h2 class="section-title">What Makes You Different</h2>
+            <p class="section-helper">Students want to know why your studio, not just where. Studios with intro offers and a clear identity get more inquiries—there's no mystery why.</p>
+          </div>
+
+          <div class="form-fields">
+
+            <!-- Intro Offer -->
+            <div class="field-group">
+              <label for="introOffer" class="field-label">New student offer</label>
+              <p class="field-helper">e.g., "First Class Free" or "2 Weeks Unlimited for $40"—whatever lowers the barrier to walking through your door.</p>
+
+              <div class="quickfill-suggestions" id="introOfferSuggestions">
+                <button type="button" class="quickfill-button" data-fill="First Class Free">First Class Free</button>
+                <button type="button" class="quickfill-button" data-fill="2 Weeks for $40">2 Weeks for $40</button>
+                <button type="button" class="quickfill-button" data-fill="$30 for 30 Days">$30 for 30 Days</button>
+                <button type="button" class="quickfill-button" data-fill="3 Classes for $30">3 Classes for $30</button>
+              </div>
+
+              <input
+                type="text"
+                id="introOffer"
+                name="intro_offer"
+                class="field-input"
+                placeholder="First Class Free"
+                maxlength="50"
+              >
+              <div class="char-counter"><span id="introOfferCount">0</span>/50</div>
+            </div>
+
+            <!-- Intro Offer Subtitle -->
+            <div class="field-group">
+              <label class="field-label">Who's it for?</label>
+
+              <div class="pill-grid" id="introOfferSubtitleGrid">
+                <button type="button" class="pill-button" data-group="offersubtitle" data-value="first-time">First-time visitors only</button>
+                <button type="button" class="pill-button" data-group="offersubtitle" data-value="local">Local residents</button>
+                <button type="button" class="pill-button" data-group="offersubtitle" data-value="new-students">New students</button>
+                <button type="button" class="pill-button pill-button-other" data-group="offersubtitle" data-value="custom">Custom...</button>
+              </div>
+
+              <div class="other-input-container" id="offerSubtitleCustomContainer" style="display: none;">
+                <input
+                  type="text"
+                  id="introOfferSubtitleCustom"
+                  name="intro_offer_subtitle_custom"
+                  class="field-input field-input-inline"
+                  placeholder="Describe who qualifies"
+                >
+              </div>
+              <input type="hidden" id="introOfferSubtitle" name="intro_offer_subtitle">
+            </div>
+
+            <!-- Why Students Love You -->
+            <div class="field-group">
+              <label for="whyStudentsLove" class="field-label">In one sentence, why do students choose your studio?</label>
+              <p class="field-helper">This shows on your listing card. One honest sentence does more than a paragraph of promises.</p>
+
+              <textarea
+                id="whyStudentsLove"
+                name="why_students_love"
+                class="field-textarea"
+                rows="2"
+                placeholder="We've been Culver City's home for accessible yoga since 2012—no experience needed, all bodies welcome."
+                maxlength="200"
+              ></textarea>
+              <div class="char-counter"><span id="whyStudentsLoveCount">0</span>/200</div>
+            </div>
+
+            <!-- Signature Offering -->
+            <div class="field-group">
+              <label for="signatureOffering" class="field-label">Is there a class or teacher students travel for?</label>
+              <p class="field-helper">Optional. If you have something specific people seek out, tell us.</p>
+
+              <input
+                type="text"
+                id="signatureOffering"
+                name="signature_offering"
+                class="field-input"
+                placeholder="Sunday morning Slow Flow with Maria—always full"
+                maxlength="150"
+              >
+              <div class="char-counter"><span id="signatureOfferingCount">0</span>/150</div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Section 5: Booking & Schedule -->
+        <section class="form-section" data-section="booking" id="sectionBooking">
+          <div class="section-header">
+            <h2 class="section-title">Booking & Schedule</h2>
+            <p class="section-helper">Help students book their first class with you.</p>
+          </div>
+
+          <div class="form-fields">
+
+            <!-- Booking Platform -->
+            <div class="field-group">
+              <label class="field-label">Which platform do you use for class bookings?</label>
+              <p class="field-helper">We can link directly to your booking page.</p>
+
+              <div class="pill-grid" id="bookingPlatformGrid">
+                <button type="button" class="pill-button" data-group="booking" data-value="mindbody">Mindbody</button>
+                <button type="button" class="pill-button" data-group="booking" data-value="vagaro">Vagaro</button>
+                <button type="button" class="pill-button" data-group="booking" data-value="momence">Momence</button>
+                <button type="button" class="pill-button" data-group="booking" data-value="walla">Walla</button>
+                <button type="button" class="pill-button" data-group="booking" data-value="wellness-living">WellnessLiving</button>
+                <button type="button" class="pill-button" data-group="booking" data-value="website">My website</button>
+                <button type="button" class="pill-button" data-group="booking" data-value="phone-email">Phone/Email only</button>
+                <button type="button" class="pill-button pill-button-other" data-group="booking" data-value="other">Other</button>
+              </div>
+              <input type="hidden" id="bookingPlatform" name="booking_platform">
+            </div>
+
+            <!-- Booking URL -->
+            <div class="field-group">
+              <label for="bookingUrl" class="field-label">Direct booking link</label>
+              <p class="field-helper">Where can students book a class right now? We'll add a "Book Now" button.</p>
+              <input
+                type="url"
+                id="bookingUrl"
+                name="booking_url"
+                class="field-input"
+                placeholder="https://your-booking-link.com"
+              >
+            </div>
+
+            <!-- Schedule URL -->
+            <div class="field-group">
+              <label for="scheduleUrl" class="field-label">Class schedule link</label>
+              <p class="field-helper">If different from booking page.</p>
+              <input
+                type="url"
+                id="scheduleUrl"
+                name="schedule_url"
+                class="field-input"
+                placeholder="https://your-schedule-link.com"
+              >
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Section 6: Virtual & Retreats -->
+        <section class="form-section" data-section="virtual" id="sectionVirtual">
+          <div class="section-header">
+            <h2 class="section-title">Virtual & Retreats</h2>
+            <p class="section-helper">Reaching students beyond your studio walls.</p>
+          </div>
+
+          <div class="form-fields">
+
+            <!-- Offers Virtual -->
+            <div class="field-group">
+              <label class="field-label">Do you offer virtual/online classes?</label>
+
+              <div class="radio-stack" id="offersVirtualStack">
+                <label class="radio-option">
+                  <input type="radio" name="offers_virtual" value="yes">
+                  <span class="radio-label">Yes, we stream live and/or on-demand classes</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="offers_virtual" value="no">
+                  <span class="radio-label">No, in-person only</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="offers_virtual" value="planning">
+                  <span class="radio-label">Planning to start soon</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Virtual Platform (shown if yes) -->
+            <div class="field-group" id="virtualPlatformGroup" style="display: none;">
+              <label class="field-label">Which platform?</label>
+
+              <div class="pill-grid" id="virtualPlatformGrid">
+                <button type="button" class="pill-button" data-group="virtualplatform" data-value="zoom">Zoom</button>
+                <button type="button" class="pill-button" data-group="virtualplatform" data-value="youtube">YouTube</button>
+                <button type="button" class="pill-button" data-group="virtualplatform" data-value="website">Own website</button>
+                <button type="button" class="pill-button" data-group="virtualplatform" data-value="app">Studio app</button>
+                <button type="button" class="pill-button pill-button-other" data-group="virtualplatform" data-value="other">Other</button>
+              </div>
+              <input type="hidden" id="virtualPlatform" name="virtual_platform">
+            </div>
+
+            <!-- Virtual Class URL (shown if yes) -->
+            <div class="field-group" id="virtualUrlGroup" style="display: none;">
+              <label for="virtualClassUrl" class="field-label">Link to virtual classes</label>
+              <input
+                type="url"
+                id="virtualClassUrl"
+                name="virtual_class_url"
+                class="field-input"
+                placeholder="https://your-virtual-classes.com"
+              >
+            </div>
+
+            <!-- Retreats -->
+            <div class="field-group">
+              <label class="field-label">Do you host retreats?</label>
+              <p class="field-helper">We're building a retreats section—interested studios get early access.</p>
+
+              <div class="radio-stack" id="offersRetreatsStack">
+                <label class="radio-option">
+                  <input type="radio" name="offers_retreats" value="yes">
+                  <span class="radio-label">Yes, we host retreats</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="offers_retreats" value="no">
+                  <span class="radio-label">No</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="offers_retreats" value="interested">
+                  <span class="radio-label">Not yet, but interested in learning more</span>
+                </label>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Section 7: Optional Details -->
+        <section class="form-section" data-section="optional" id="sectionOptional">
+          <div class="section-header">
+            <h2 class="section-title">Optional Details</h2>
+            <p class="section-helper">These aren't required, but complete profiles rank higher and look more trustworthy.</p>
+          </div>
+
+          <div class="form-fields">
+
+            <!-- Established Year -->
+            <div class="field-group field-group-narrow">
+              <label for="establishedYear" class="field-label">Year established</label>
+              <p class="field-helper">Studios with history earn trust.</p>
+
+              <select id="establishedYear" name="established_year" class="field-select">
+                <option value="">Select year...</option>
+                <!-- Years populated by JS -->
+              </select>
+            </div>
+
+            <!-- Yoga Alliance -->
+            <div class="field-group">
+              <label class="field-label">Yoga Alliance registration</label>
+              <p class="field-helper">Shows as a badge on your listing.</p>
+
+              <div class="pill-grid" id="yogaAllianceGrid">
+                <button type="button" class="pill-button" data-group="yogaalliance" data-value="rys-200">RYS-200</button>
+                <button type="button" class="pill-button" data-group="yogaalliance" data-value="rys-300">RYS-300</button>
+                <button type="button" class="pill-button" data-group="yogaalliance" data-value="rys-500">RYS-500</button>
+                <button type="button" class="pill-button" data-group="yogaalliance" data-value="yacep">YACEP</button>
+                <button type="button" class="pill-button" data-group="yogaalliance" data-value="none">None</button>
+              </div>
+              <input type="hidden" id="yogaAlliance" name="yoga_alliance">
+            </div>
+
+            <!-- Social Links -->
+            <div class="field-group">
+              <label class="field-label">Social profiles</label>
+              <p class="field-helper">Students check these. We'll link directly.</p>
+
+              <div class="social-inputs">
+                <div class="social-input-row">
+                  <span class="social-icon social-icon-instagram"></span>
+                  <input
+                    type="text"
+                    id="socialInstagram"
+                    name="instagram"
+                    class="field-input field-input-social"
+                    placeholder="@yourstudio"
+                  >
+                </div>
+                <div class="social-input-row">
+                  <span class="social-icon social-icon-facebook"></span>
+                  <input
+                    type="text"
+                    id="socialFacebook"
+                    name="facebook"
+                    class="field-input field-input-social"
+                    placeholder="facebook.com/yourstudio"
+                  >
+                </div>
+                <div class="social-input-row">
+                  <span class="social-icon social-icon-tiktok"></span>
+                  <input
+                    type="text"
+                    id="socialTiktok"
+                    name="tiktok"
+                    class="field-input field-input-social"
+                    placeholder="@yourstudio"
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Google Reviews -->
+            <div class="field-group">
+              <label for="googleReviews" class="field-label">Google Business reviews link</label>
+              <p class="field-helper">We pull your rating to display on your listing.</p>
+
+              <input
+                type="url"
+                id="googleReviews"
+                name="google_reviews_url"
+                class="field-input"
+                placeholder="https://g.page/yourstudio"
+              >
+            </div>
+
+            <!-- How Students Find You -->
+            <div class="field-group">
+              <label class="field-label">Where do most new students come from?</label>
+              <p class="field-helper">This helps us understand how to help you grow.</p>
+
+              <div class="pill-grid" id="studentSourcesGrid">
+                <button type="button" class="pill-button" data-group="sources" data-value="word-of-mouth">Word of mouth</button>
+                <button type="button" class="pill-button" data-group="sources" data-value="google">Google search</button>
+                <button type="button" class="pill-button" data-group="sources" data-value="instagram">Instagram</button>
+                <button type="button" class="pill-button" data-group="sources" data-value="directories">Other directories</button>
+                <button type="button" class="pill-button" data-group="sources" data-value="walk-ins">Walk-ins</button>
+                <button type="button" class="pill-button" data-group="sources" data-value="corporate">Corporate partnerships</button>
+                <button type="button" class="pill-button" data-group="sources" data-value="classpass">ClassPass</button>
+                <button type="button" class="pill-button" data-group="sources" data-value="mindbody">Mindbody</button>
+              </div>
+              <input type="hidden" id="studentSources" name="student_sources">
+            </div>
+
+            <!-- Photo Upload Placeholder -->
+            <div class="field-group">
+              <label class="field-label">Photos</label>
+              <p class="field-helper">Listings with photos get 2.3x more clicks. Authentic beats polished.</p>
+
+              <div class="photo-upload-zone" id="photoUploadZone">
+                <div class="upload-placeholder">
+                  <span class="upload-icon">&#128247;</span>
+                  <span class="upload-text">Drop photos here or click to browse</span>
+                  <span class="upload-hint">Your practice room, entrance, or whatever captures the feel</span>
+                </div>
+                <input type="file" id="photoInput" name="photos" accept="image/*" multiple style="display: none;">
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Form Actions -->
+        <div class="form-actions">
+          <button type="submit" class="btn-primary" id="submitBtn">
+            Save & Preview Listing
+          </button>
+          <p class="form-actions-helper">You can edit anytime. Your listing goes live immediately.</p>
+        </div>
+
+      </form>
+
+      <!-- Completion Checklist (Sidebar on desktop) -->
+      <aside class="completion-sidebar" id="completionSidebar">
+        <h3 class="sidebar-title">Your progress</h3>
+        <ul class="checklist" id="completionChecklist">
+          <li class="checklist-item" data-check="name">
+            <span class="checklist-icon"></span>
+            <span class="checklist-label">Studio name</span>
+          </li>
+          <li class="checklist-item" data-check="address">
+            <span class="checklist-icon"></span>
+            <span class="checklist-label">Address</span>
+          </li>
+          <li class="checklist-item" data-check="email">
+            <span class="checklist-icon"></span>
+            <span class="checklist-label">Contact email</span>
+          </li>
+          <li class="checklist-item" data-check="hours">
+            <span class="checklist-icon"></span>
+            <span class="checklist-label">Business hours</span>
+          </li>
+          <li class="checklist-item" data-check="style">
+            <span class="checklist-icon"></span>
+            <span class="checklist-label">Primary style</span>
+          </li>
+          <li class="checklist-item" data-check="vibe">
+            <span class="checklist-icon"></span>
+            <span class="checklist-label">Vibe tags</span>
+            <span class="checklist-hint">add 1–3</span>
+          </li>
+          <li class="checklist-item" data-check="offer">
+            <span class="checklist-icon"></span>
+            <span class="checklist-label">Intro offer</span>
+            <span class="checklist-bonus">3x more clicks</span>
+          </li>
+          <li class="checklist-item" data-check="photo">
+            <span class="checklist-icon"></span>
+            <span class="checklist-label">Photo</span>
+            <span class="checklist-bonus">2x more views</span>
+          </li>
+        </ul>
+      </aside>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="onboarding-footer">
+      <p class="footer-text">
+        YogaNearMe is free for studios. We're building a directory that actually helps students find good teaching—not another platform extracting fees.
+      </p>
+    </footer>
+
+  </div>
+
+  <script src="studio-onboarding-form.js"></script>
+</body>
+</html>

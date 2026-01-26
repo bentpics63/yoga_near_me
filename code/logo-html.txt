@@ -1,0 +1,1 @@
+<div style="width:180px;"><a href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" width="180" height="36"><text x="0" y="30" font-family="Inter,sans-serif" font-size="24" font-weight="700"><tspan fill="#2C3E3A">Yoga</tspan><tspan fill="#FF5733">NearMe</tspan><tspan fill="#2C3E3A">.info</tspan></text></svg></a></div>

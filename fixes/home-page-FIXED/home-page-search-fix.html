@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Near Me - Search Fix Solution</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .code-block {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        h1 { color: #5F7470; }
+        h2 { color: #61948B; margin-top: 30px; }
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Home Page Search Bar Fix</h1>
+    
+    <p>This document provides the solution to fix the search bar on your home page so it properly zooms to the searched city on the map.</p>
+    
+    <h2>Problem</h2>
+    <p>The search form only sends the city name (<code>snear</code>) but GeoDirectory needs coordinates (<code>sgeo_lat</code> and <code>sgeo_lon</code>) to zoom the map to the city.</p>
+    
+    <h2>Solution</h2>
+    <p>Add hidden coordinate fields and JavaScript to geocode the city name before form submission.</p>
+    
+    <h2>Step 1: Update the Search Form</h2>
+    <p>Replace your existing search form in the hero section with this updated version:</p>
+    
+    <div class="code-block">
+        <pre><code>&lt;!-- TOP SEARCH BAR (Fixed with Coordinates) --&gt;
+&lt;form class="hero-search" id="hero-search-form" action="https://yoganearme.info/search-page/" method="get"&gt;
+    &lt;!-- Added Required GD Hidden Fields --&gt;
+    &lt;input type="hidden" name="geodir_search" value="1"&gt;
+    &lt;input type="hidden" name="stype" value="gd_place"&gt;
+    &lt;input type="hidden" name="s" value=""&gt;
+    &lt;!-- NEW: Hidden coordinate fields --&gt;
+    &lt;input type="hidden" name="sgeo_lat" id="hero-sgeo-lat" value=""&gt;
+    &lt;input type="hidden" name="sgeo_lon" id="hero-sgeo-lon" value=""&gt;
+    
+    &lt;label for="hero-location" class="visually-hidden"&gt;Search yoga studios by city or zip code&lt;/label&gt;
+    &lt;input
+        type="text"
+        id="hero-location"
+        name="snear"
+        class="search-input"
+        placeholder="Enter your city or zip code"
+        autocomplete="off"
+    &gt;
+    &lt;button type="submit" class="btn btn-cta"&gt;Search&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+    </div>
+    
+    <h2>Step 2: Add JavaScript Before Closing &lt;/body&gt; Tag</h2>
+    <p>Add this JavaScript code right before your closing <code>&lt;/body&gt;</code> tag (after your existing mobile nav toggle script):</p>
+    
+    <div class="code-block">
+        <pre><code>&lt;script&gt;
+// City coordinates lookup table (common cities)
+const cityCoordinates = {
+    // Major US Cities
+    'new york': { lat: 40.7127281, lon: -74.0060152 },
+    'new york city': { lat: 40.7127281, lon: -74.0060152 },
+    'nyc': { lat: 40.7127281, lon: -74.0060152 },
+    'los angeles': { lat: 34.0522342, lon: -118.2436849 },
+    'la': { lat: 34.0522342, lon: -118.2436849 },
+    'chicago': { lat: 41.8755616, lon: -87.6244212 },
+    'san francisco': { lat: 37.7792588, lon: -122.4193286 },
+    'sf': { lat: 37.7792588, lon: -122.4193286 },
+    'miami': { lat: 25.7741728, lon: -80.1936200 },
+    'austin': { lat: 30.2711286, lon: -97.7436995 },
+    'denver': { lat: 39.7392364, lon: -104.9848620 },
+    'seattle': { lat: 47.6038321, lon: -122.3300620 },
+    'portland': { lat: 45.5202471, lon: -122.6741940 },
+    'san diego': { lat: 32.7174202, lon: -117.1627720 },
+    'washington dc': { lat: 38.8950368, lon: -77.0365427 },
+    'washington': { lat: 38.8950368, lon: -77.0365427 },
+    'boston': { lat: 42.3554334, lon: -71.0605110 },
+    'philadelphia': { lat: 39.9525839, lon: -75.1652215 },
+    'oakland': { lat: 37.8044557, lon: -122.2713560 },
+    'atlanta': { lat: 33.7544657, lon: -84.3898151 },
+    'charlotte': { lat: 35.2272086, lon: -80.8430827 },
+    'houston': { lat: 29.7589382, lon: -95.3676974 },
+    'scottsdale': { lat: 33.4942189, lon: -111.9260180 },
+    'boulder': { lat: 40.0149856, lon: -105.2705450 },
+    
+    // Canadian Cities
+    'toronto': { lat: 43.6534817, lon: -79.3839347 },
+    'vancouver': { lat: 49.2608724, lon: -123.1139520 },
+    'vancouver bc': { lat: 49.2608724, lon: -123.1139520 },
+    'calgary': { lat: 51.0456064, lon: -114.0575410 },
+    'victoria': { lat: 48.4283182, lon: -123.3649530 },
+    'victoria bc': { lat: 48.4283182, lon: -123.3649530 },
+    'montreal': { lat: 45.5031824, lon: -73.5698065 },
+};
+
+// Function to normalize city name for lookup
+function normalizeCityName(cityName) {
+    return cityName.toLowerCase().trim();
+}
+
+// Function to get coordinates from lookup table
+function getCityCoordinates(cityName) {
+    const normalized = normalizeCityName(cityName);
+    
+    // Direct match
+    if (cityCoordinates[normalized]) {
+        return cityCoordinates[normalized];
+    }
+    
+    // Partial match (e.g., "New York, NY" matches "new york")
+    for (const [key, coords] of Object.entries(cityCoordinates)) {
+        if (normalized.includes(key) || key.includes(normalized)) {
+            return coords;
+        }
+    }
+    
+    return null;
+}
+
+// Function to geocode using browser geolocation API (fallback)
+function geocodeCity(cityName, callback) {
+    // First try lookup table
+    const coords = getCityCoordinates(cityName);
+    if (coords) {
+        callback(coords);
+        return;
+    }
+    
+    // Fallback: Use browser geocoding (if available)
+    if (navigator.geolocation) {
+        // For zip codes or unknown cities, we'll need to use a geocoding service
+        // For now, return null and let GeoDirectory handle it
+        callback(null);
+    } else {
+        callback(null);
+    }
+}
+
+// Handle form submission
+document.addEventListener('DOMContentLoaded', function() {
+    const searchForm = document.getElementById('hero-search-form');
+    const locationInput = document.getElementById('hero-location');
+    const latInput = document.getElementById('hero-sgeo-lat');
+    const lonInput = document.getElementById('hero-sgeo-lon');
+    
+    if (!searchForm || !locationInput || !latInput || !lonInput) {
+        console.warn('Search form elements not found');
+        return;
+    }
+    
+    searchForm.addEventListener('submit', function(e) {
+        const cityName = locationInput.value.trim();
+        
+        if (!cityName) {
+            // If empty, let form submit normally
+            return;
+        }
+        
+        // Get coordinates
+        const coords = getCityCoordinates(cityName);
+        
+        if (coords) {
+            // Set coordinates in hidden fields
+            latInput.value = coords.lat;
+            lonInput.value = coords.lon;
+        } else {
+            // For unknown cities/zip codes, clear coordinates
+            // GeoDirectory will try to geocode on the server side
+            latInput.value = '';
+            lonInput.value = '';
+        }
+        
+        // Form will submit normally with coordinates if found
+    });
+    
+    // Optional: Auto-populate coordinates as user types (for better UX)
+    let debounceTimer;
+    locationInput.addEventListener('input', function() {
+        clearTimeout(debounceTimer);
+        const cityName = this.value.trim();
+        
+        if (cityName.length < 3) {
+            latInput.value = '';
+            lonInput.value = '';
+            return;
+        }
+        
+        debounceTimer = setTimeout(function() {
+            const coords = getCityCoordinates(cityName);
+            if (coords) {
+                latInput.value = coords.lat;
+                lonInput.value = coords.lon;
+            }
+        }, 300);
+    });
+});
+&lt;/script&gt;</code></pre>
+    </div>
+    
+    <div class="note">
+        <strong>Note:</strong> This solution uses a lookup table for common cities (fast, no API calls). For cities not in the table, the coordinates will be empty and GeoDirectory will attempt to geocode on the server side. You can expand the <code>cityCoordinates</code> object with more cities as needed.
+    </div>
+    
+    <h2>Alternative: Using a Geocoding API</h2>
+    <p>If you want to support all cities (not just the lookup table), you can use a geocoding service. Here's an enhanced version that uses the browser's built-in geocoding (if available) or a free service:</p>
+    
+    <div class="code-block">
+        <pre><code>&lt;script&gt;
+// Enhanced version with API fallback (optional)
+// This requires a geocoding API key (Google Maps, Mapbox, etc.)
+// For now, the lookup table solution above is recommended for performance
+
+// ... (same lookup table as above) ...
+
+// Enhanced geocoding function with API fallback
+async function geocodeCityWithAPI(cityName) {
+    // Try lookup first
+    const coords = getCityCoordinates(cityName);
+    if (coords) return coords;
+    
+    // If you want to add API geocoding, uncomment and configure:
+    /*
+    try {
+        // Example using a free geocoding service (replace with your preferred service)
+        const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(cityName)}&limit=1`);
+        const data = await response.json();
+        if (data && data.length > 0) {
+            return {
+                lat: parseFloat(data[0].lat),
+                lon: parseFloat(data[0].lon)
+            };
+        }
+    } catch (error) {
+        console.warn('Geocoding API error:', error);
+    }
+    */
+    
+    return null;
+}
+&lt;/script&gt;</code></pre>
+    </div>
+    
+    <h2>Implementation Steps</h2>
+    <ol>
+        <li>Find your home page template file (likely in your WordPress theme or a custom page template)</li>
+        <li>Locate the search form in the hero section</li>
+        <li>Update the form HTML as shown in Step 1</li>
+        <li>Add the JavaScript code from Step 2 before the closing <code>&lt;/body&gt;</code> tag</li>
+        <li>Test by searching for "Chicago" or "New York" - the map should now zoom to the city</li>
+    </ol>
+    
+    <h2>Testing</h2>
+    <p>After implementing:</p>
+    <ul>
+        <li>Search for "Chicago" - should zoom to Chicago</li>
+        <li>Search for "New York" - should zoom to NYC</li>
+        <li>Search for a city not in the lookup table - will rely on GeoDirectory server-side geocoding</li>
+        <li>Check the URL parameters - you should see <code>sgeo_lat</code> and <code>sgeo_lon</code> in the search results URL</li>
+    </ul>
+</body>
+</html>
+
+

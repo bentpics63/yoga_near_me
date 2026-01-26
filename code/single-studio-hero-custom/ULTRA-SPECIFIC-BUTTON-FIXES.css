@@ -1,0 +1,247 @@
+/**
+ * ULTRA-SPECIFIC BUTTON AND TEXT COLOR FIXES
+ * Maximum specificity to override everything
+ * Add this to WordPress Customizer → Additional CSS (at the very bottom)
+ */
+
+/* ============================================
+   FIX 1: "Book a Class" - White text on orange
+   ============================================ */
+
+body.single-gd_place .studio-actions .btn-primary,
+body.single-gd_place .studio-actions a.btn-primary,
+body.single-gd_place .studio-actions .btn.btn-primary,
+body.single-gd_place a.btn.btn-primary[href*="schedule"] {
+    background: #FF5733 !important;
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+    color: white !important;
+}
+
+body.single-gd_place .studio-actions .btn-primary svg,
+body.single-gd_place .studio-actions a.btn-primary svg {
+    fill: #FFFFFF !important;
+    fill: white !important;
+}
+
+/* ============================================
+   FIX 2: "Save" and "Share" - White text (assuming they should be colored)
+   ============================================ */
+
+/* If Save/Share should be teal buttons: */
+body.single-gd_place .studio-actions .btn-secondary,
+body.single-gd_place .studio-actions button.btn-secondary {
+    background: #61948B !important;
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border-color: #61948B !important;
+}
+
+body.single-gd_place .studio-actions .btn-secondary svg {
+    fill: #FFFFFF !important;
+    fill: white !important;
+}
+
+/* ============================================
+   FIX 3: SOCIAL BUTTONS - Orange instead of pink
+   ============================================ */
+
+body.single-gd_place .social-link,
+body.single-gd_place .sidebar-card .social-link,
+body.single-gd_place .contact-item + div .social-link {
+    background: rgba(255, 87, 51, 0.1) !important;
+    background-color: rgba(255, 87, 51, 0.1) !important;
+    border: 1px solid rgba(255, 87, 51, 0.2) !important;
+}
+
+body.single-gd_place .social-link svg,
+body.single-gd_place .sidebar-card .social-link svg {
+    fill: #FF5733 !important;
+}
+
+body.single-gd_place .social-link:hover {
+    background: #FF5733 !important;
+    background-color: #FF5733 !important;
+}
+
+body.single-gd_place .social-link:hover svg {
+    fill: #FFFFFF !important;
+    fill: white !important;
+}
+
+/* ============================================
+   FIX 4: YOGA STYLES TEXT - Black text
+   ============================================ */
+
+body.single-gd_place .style-tag,
+body.single-gd_place .styles-grid .style-tag,
+body.single-gd_place .styles-grid a.style-tag {
+    color: #222222 !important;
+    color: black !important;
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    border: 2px solid #61948B !important;
+    border-color: #61948B !important;
+}
+
+body.single-gd_place .style-tag svg,
+body.single-gd_place .styles-grid .style-tag svg {
+    fill: #61948B !important;
+}
+
+body.single-gd_place .style-tag:hover {
+    background: #61948B !important;
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    color: white !important;
+}
+
+body.single-gd_place .style-tag:hover svg {
+    fill: #FFFFFF !important;
+    fill: white !important;
+}
+
+/* ============================================
+   FIX 5: SCHEDULE TABS - Orange active tab
+   ============================================ */
+
+body.single-gd_place .schedule-tab.active,
+body.single-gd_place .schedule-tabs .schedule-tab.active {
+    background: #FF5733 !important;
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border-color: #FF5733 !important;
+}
+
+body.single-gd_place .schedule-tab {
+    color: #222222 !important;
+    color: black !important;
+}
+
+body.single-gd_place .schedule-tab:hover:not(.active) {
+    border-color: #FF5733 !important;
+}
+
+/* ============================================
+   FIX 6: "Write a Review" - Teal with white text
+   ============================================ */
+
+body.single-gd_place .content-card#reviews .btn-secondary,
+body.single-gd_place .content-card#reviews .card-header .btn-secondary,
+body.single-gd_place .content-card#reviews button.btn-secondary,
+body.single-gd_place .card-header button.btn-secondary {
+    background: #61948B !important;
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border-color: #61948B !important;
+}
+
+body.single-gd_place .content-card#reviews .btn-secondary svg {
+    fill: #FFFFFF !important;
+    fill: white !important;
+}
+
+/* ============================================
+   FIX 7: "Was this helpful?" - White text
+   ============================================ */
+
+body.single-gd_place .helpful-btn,
+body.single-gd_place .review-helpful .helpful-btn,
+body.single-gd_place .review-item .helpful-btn {
+    background: #61948B !important;
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border-color: #61948B !important;
+}
+
+body.single-gd_place .helpful-btn svg {
+    fill: #FFFFFF !important;
+    fill: white !important;
+}
+
+/* ============================================
+   FIX 8: "Load More Reviews" - White text
+   ============================================ */
+
+body.single-gd_place .content-card#reviews button.btn-secondary:last-child,
+body.single-gd_place .content-card#reviews .btn-secondary[style*="width: 100%"],
+body.single-gd_place button.btn-secondary:contains("Load More") {
+    background: #61948B !important;
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border-color: #61948B !important;
+}
+
+/* ============================================
+   FIX 9: "Claim This Listing" - Orange with white text
+   ============================================ */
+
+body.single-gd_place .claim-btn,
+body.single-gd_place .claim-card .btn,
+body.single-gd_place .claim-card a.btn,
+body.single-gd_place .sidebar-card.claim-card .btn {
+    background: #FF5733 !important;
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border: none !important;
+}
+
+body.single-gd_place .claim-btn svg,
+body.single-gd_place .claim-card .btn svg {
+    fill: #FFFFFF !important;
+    fill: white !important;
+}
+
+/* ============================================
+   FIX 10: CONTACT INFO TEXT - Remove pink
+   ============================================ */
+
+body.single-gd_place .contact-value,
+body.single-gd_place .contact-details .contact-value {
+    color: #222222 !important;
+    color: black !important;
+}
+
+body.single-gd_place .contact-value a,
+body.single-gd_place .contact-details .contact-value a {
+    color: #61948B !important;
+}
+
+/* ============================================
+   FIX 11: REMOVE SVG ICONS FROM SECTION HEADINGS
+   ============================================ */
+
+body.single-gd_place .card-title svg,
+body.single-gd_place .content-card .card-title svg,
+body.single-gd_place .card-header .card-title svg {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* Keep dots visible */
+body.single-gd_place .card-title::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+}
+
+body.single-gd_place .card-title {
+    position: relative !important;
+    padding-left: 24px !important;
+}
+

@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Listing - Empty States & Partial Data</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-slate: #667085;
+            --primary-slate-dark: #475467;
+            --accent-coral: #e95c4b;
+            --accent-coral-dark: #bd3000;
+            --accent-green: #12B76A;
+            --accent-amber: #F59E0B;
+            --white: #FFFFFF;
+            --gray-50: #F9FAFB;
+            --gray-100: #F2F4F7;
+            --gray-200: #E4E7EC;
+            --gray-300: #D0D5DD;
+            --gray-400: #98A2B3;
+            --gray-500: #667085;
+            --gray-700: #344054;
+            --gray-900: #101828;
+            --text-primary: #101828;
+            --text-secondary: #475467;
+            --text-tertiary: #667085;
+            --border-light: #E4E7EC;
+            --shadow-sm: 0 1px 3px rgba(16, 24, 40, 0.1);
+            --shadow-md: 0 4px 12px rgba(16, 24, 40, 0.1);
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            background: var(--gray-100);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-header {
+            background: var(--primary-slate);
+            color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-lg);
+        }
+
+        .page-header h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .page-header p { opacity: 0.8; font-size: 0.9rem; }
+
+        /* Comparison Grid */
+        .comparison-section {
+            margin-bottom: 3rem;
+        }
+
+        .comparison-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-subtitle {
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .comparison-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .comparison-card-header {
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .comparison-card-header.claimed {
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+            color: #065F46;
+        }
+
+        .comparison-card-header.unclaimed {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            color: #92400E;
+        }
+
+        .comparison-card-body {
+            padding: 1.5rem;
+        }
+
+        /* Strategy Labels */
+        .strategy-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .strategy-label.hide { background: #FEE2E2; color: #991B1B; }
+        .strategy-label.placeholder { background: #E0E7FF; color: #3730A3; }
+        .strategy-label.cta { background: #ECFDF5; color: #065F46; }
+        .strategy-label.collapse { background: #FEF3C7; color: #92400E; }
+
+        /* =====================================================
+           COMPONENT STYLES (Reused from full design)
+           ===================================================== */
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .section-title i {
+            color: var(--accent-coral);
+        }
+
+        /* Hero */
+        .hero-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .studio-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+            border: 2px solid var(--border-light);
+            flex-shrink: 0;
+        }
+
+        .studio-logo.placeholder {
+            background: linear-gradient(135deg, var(--gray-200) 0%, var(--gray-300) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            font-size: 1.5rem;
+        }
+
+        .studio-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .studio-tagline {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-style: italic;
+        }
+
+        .studio-tagline.empty {
+            color: var(--gray-400);
+            font-style: normal;
+        }
+
+        .studio-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+            font-size: 0.8125rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: var(--text-secondary);
+        }
+
+        .meta-item i { color: var(--accent-coral); font-size: 0.75rem; }
+        .meta-item.empty { color: var(--gray-400); }
+        .meta-item.empty i { color: var(--gray-300); }
+
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            background: var(--gray-50);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            font-size: 0.6875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        /* Quick Info Bar */
+        .quick-info-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 0.75rem 1rem;
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+        }
+
+        .quick-info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-size: 0.75rem;
+        }
+
+        .quick-info-item i {
+            color: var(--accent-coral);
+            width: 14px;
+            text-align: center;
+        }
+
+        .quick-info-item.empty {
+            color: var(--gray-400);
+        }
+
+        .quick-info-item.empty i {
+            color: var(--gray-300);
+        }
+
+        /* Yoga Styles */
+        .styles-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.375rem;
+        }
+
+        .style-tag {
+            padding: 0.375rem 0.75rem;
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .style-tag.primary {
+            background: var(--accent-coral);
+            border-color: var(--accent-coral);
+            color: white;
+        }
+
+        /* Empty State Box */
+        .empty-state {
+            padding: 1.5rem;
+            background: var(--gray-50);
+            border: 1px dashed var(--gray-300);
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .empty-state-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 0.75rem;
+            background: var(--gray-200);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+        }
+
+        .empty-state-text {
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+            margin-bottom: 0.75rem;
+        }
+
+        .empty-state-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.5rem 1rem;
+            background: var(--accent-coral);
+            color: white;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .empty-state-cta:hover {
+            background: var(--accent-coral-dark);
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+
+        .pricing-card {
+            padding: 1rem;
+            background: var(--gray-50);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .pricing-card.featured {
+            background: var(--accent-coral);
+            border-color: var(--accent-coral);
+            color: white;
+        }
+
+        .pricing-label {
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 0.25rem;
+        }
+
+        .pricing-card.featured .pricing-label {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .pricing-amount {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        /* New Student Offer */
+        .new-student-offer {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+            border: 1px solid var(--accent-green);
+            border-radius: var(--radius-md);
+            margin-top: 0.75rem;
+        }
+
+        .offer-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .offer-text {
+            font-size: 0.8125rem;
+            color: #065F46;
+        }
+
+        .offer-text strong {
+            display: block;
+            font-weight: 600;
+        }
+
+        /* Teachers */
+        .teachers-mini {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .teacher-avatars {
+            display: flex;
+        }
+
+        .teacher-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid white;
+            margin-left: -8px;
+            background: var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.625rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .teacher-avatar:first-child {
+            margin-left: 0;
+        }
+
+        .teacher-avatar.more {
+            background: var(--primary-slate);
+            color: white;
+        }
+
+        .teachers-text {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+
+        /* Programs Grid */
+        .programs-mini {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .program-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.375rem 0.625rem;
+            background: var(--gray-50);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            font-size: 0.6875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .program-badge.available {
+            background: white;
+            border-color: var(--accent-coral);
+            color: var(--accent-coral);
+        }
+
+        .program-badge i {
+            font-size: 0.625rem;
+        }
+
+        /* First Visit */
+        .first-visit-compact {
+            padding: 1rem;
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+            border: 1px solid #7DD3FC;
+            border-radius: var(--radius-md);
+        }
+
+        .bring-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.375rem;
+            margin-top: 0.5rem;
+        }
+
+        .bring-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            background: white;
+            border-radius: var(--radius-sm);
+            font-size: 0.6875rem;
+            color: var(--text-secondary);
+        }
+
+        .bring-item i {
+            color: var(--accent-green);
+            font-size: 0.5rem;
+        }
+
+        /* Practical Info */
+        .practical-compact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+
+        .practical-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: var(--gray-50);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+        }
+
+        .practical-item i {
+            color: var(--accent-coral);
+            width: 12px;
+            text-align: center;
+            margin-top: 2px;
+        }
+
+        .practical-item.empty {
+            color: var(--gray-400);
+        }
+
+        .practical-item.empty i {
+            color: var(--gray-300);
+        }
+
+        /* Claim CTA */
+        .claim-cta-inline {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border: 1px solid var(--accent-amber);
+            border-radius: var(--radius-md);
+        }
+
+        .claim-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-amber);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .claim-content {
+            flex: 1;
+        }
+
+        .claim-title {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: #92400E;
+        }
+
+        .claim-text {
+            font-size: 0.75rem;
+            color: #A16207;
+        }
+
+        .claim-btn {
+            padding: 0.5rem 1rem;
+            background: var(--accent-coral);
+            color: white;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Design Notes Box */
+        .design-notes {
+            background: #FFFBEB;
+            border: 1px solid #FCD34D;
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .design-notes-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #92400E;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .design-notes ul {
+            font-size: 0.75rem;
+            color: #A16207;
+            margin-left: 1.25rem;
+        }
+
+        .design-notes li {
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="page-header">
+            <h1>Empty States & Partial Data Handling</h1>
+            <p>How each section appears when studio data is missing vs. complete</p>
+        </div>
+
+        <!-- ============================================
+             STRATEGY OVERVIEW
+             ============================================ -->
+        <div class="comparison-section">
+            <h2 class="comparison-title">Data Handling Strategy</h2>
+            <p class="comparison-subtitle">Four approaches based on section importance and user value</p>
+
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem;">
+                <div style="background: white; padding: 1rem; border-radius: var(--radius-md); text-align: center;">
+                    <span class="strategy-label hide"><i class="fas fa-eye-slash"></i> Hide</span>
+                    <p style="font-size: 0.75rem; color: var(--text-secondary);">Section not shown if empty. No placeholder, no CTA.</p>
+                </div>
+                <div style="background: white; padding: 1rem; border-radius: var(--radius-md); text-align: center;">
+                    <span class="strategy-label placeholder"><i class="fas fa-clock"></i> Placeholder</span>
+                    <p style="font-size: 0.75rem; color: var(--text-secondary);">Show muted placeholder text indicating data pending.</p>
+                </div>
+                <div style="background: white; padding: 1rem; border-radius: var(--radius-md); text-align: center;">
+                    <span class="strategy-label cta"><i class="fas fa-hand-pointer"></i> CTA</span>
+                    <p style="font-size: 0.75rem; color: var(--text-secondary);">Show claim prompt to encourage studio owners to add data.</p>
+                </div>
+                <div style="background: white; padding: 1rem; border-radius: var(--radius-md); text-align: center;">
+                    <span class="strategy-label collapse"><i class="fas fa-compress-alt"></i> Collapse</span>
+                    <p style="font-size: 0.75rem; color: var(--text-secondary);">Reduce section size, show partial data available.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             HERO SECTION
+             ============================================ -->
+        <div class="comparison-section">
+            <h2 class="comparison-title">Hero Section</h2>
+            <p class="comparison-subtitle">Strategy: <strong>Collapse</strong> — Always show, gracefully degrade missing elements</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-card-header claimed">
+                        <i class="fas fa-check-circle"></i> Claimed Studio - Full Data
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="hero-header">
+                            <img src="https://via.placeholder.com/60x60/667085/ffffff?text=YA" alt="" class="studio-logo">
+                            <div>
+                                <h3 class="studio-name">Yoga Academy</h3>
+                                <p class="studio-tagline">"Where tradition meets transformation"</p>
+                                <div class="studio-meta">
+                                    <span class="meta-item"><i class="fas fa-star"></i> 4.8 (127)</span>
+                                    <span class="meta-item"><i class="fas fa-map-marker-alt"></i> Downtown LA</span>
+                                    <span class="meta-item"><i class="fas fa-clock"></i> Est. 2015</span>
+                                </div>
+                                <div class="trust-badges">
+                                    <span class="trust-badge"><i class="fas fa-certificate" style="color: #F59E0B;"></i> RYS-200</span>
+                                    <span class="trust-badge"><i class="fab fa-google" style="color: #4285F4;"></i> 4.7</span>
+                                    <span class="trust-badge"><i class="fas fa-check-circle" style="color: var(--accent-green);"></i> Verified</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-card-header unclaimed">
+                        <i class="fas fa-exclamation-circle"></i> Unclaimed Studio - Minimal Data
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="hero-header">
+                            <div class="studio-logo placeholder"><i class="fas fa-om"></i></div>
+                            <div>
+                                <h3 class="studio-name">Downtown Yoga Studio</h3>
+                                <p class="studio-tagline empty">No tagline provided</p>
+                                <div class="studio-meta">
+                                    <span class="meta-item empty"><i class="fas fa-star"></i> No reviews yet</span>
+                                    <span class="meta-item"><i class="fas fa-map-marker-alt"></i> Los Angeles, CA</span>
+                                </div>
+                                <!-- No trust badges shown when none available -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="design-notes">
+                <div class="design-notes-title"><i class="fas fa-lightbulb"></i> Design Notes</div>
+                <ul>
+                    <li><strong>Logo:</strong> Show placeholder icon (om symbol) if no logo uploaded</li>
+                    <li><strong>Tagline:</strong> Show muted "No tagline provided" text</li>
+                    <li><strong>Rating:</strong> Show "No reviews yet" instead of hiding</li>
+                    <li><strong>Year Established:</strong> Hide if not provided (not critical)</li>
+                    <li><strong>Trust Badges:</strong> Hide entire row if none apply</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ============================================
+             QUICK INFO BAR
+             ============================================ -->
+        <div class="comparison-section">
+            <h2 class="comparison-title">Quick Info Bar</h2>
+            <p class="comparison-subtitle">Strategy: <strong>Hide</strong> — Only show if at least 2 data points available</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-card-header claimed">
+                        <i class="fas fa-check-circle"></i> Full Data
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="quick-info-bar">
+                            <div class="quick-info-item"><i class="fas fa-dollar-sign"></i> <strong>$25</strong> drop-in</div>
+                            <div class="quick-info-item"><i class="fas fa-fire-alt"></i> Heated</div>
+                            <div class="quick-info-item"><i class="fas fa-users"></i> 25 max</div>
+                            <div class="quick-info-item"><i class="fas fa-chalkboard-teacher"></i> 8 teachers</div>
+                            <div class="quick-info-item"><i class="fas fa-video"></i> Virtual</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-card-header unclaimed">
+                        <i class="fas fa-exclamation-circle"></i> No Data
+                    </div>
+                    <div class="comparison-card-body">
+                        <p style="color: var(--text-tertiary); font-size: 0.875rem; text-align: center; padding: 1rem;">
+                            <i class="fas fa-info-circle"></i> Quick info bar hidden entirely when no data available
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="design-notes">
+                <div class="design-notes-title"><i class="fas fa-lightbulb"></i> Design Notes</div>
+                <ul>
+                    <li>Requires minimum 2 data points to display</li>
+                    <li>Shows only populated fields (no empty placeholders)</li>
+                    <li>If only 1 field available, that data moves to another section</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ============================================
+             YOGA STYLES
+             ============================================ -->
+        <div class="comparison-section">
+            <h2 class="comparison-title">Yoga Styles Offered</h2>
+            <p class="comparison-subtitle">Strategy: <strong>CTA + Placeholder</strong> — Important for users, encourage claiming</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-card-header claimed">
+                        <i class="fas fa-check-circle"></i> Claimed - Styles Selected
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="section-title"><i class="fas fa-om"></i> Yoga Styles</div>
+                        <div class="styles-grid">
+                            <span class="style-tag primary">Vinyasa</span>
+                            <span class="style-tag">Hatha</span>
+                            <span class="style-tag">Hot Yoga</span>
+                            <span class="style-tag">Yin</span>
+                            <span class="style-tag">Restorative</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-card-header unclaimed">
+                        <i class="fas fa-exclamation-circle"></i> Unclaimed - No Styles Data
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="section-title"><i class="fas fa-om"></i> Yoga Styles</div>
+                        <div class="empty-state">
+                            <div class="empty-state-icon"><i class="fas fa-om"></i></div>
+                            <p class="empty-state-text">Yoga styles will be listed when this studio claims their profile</p>
+                            <a href="#" class="empty-state-cta"><i class="fas fa-user-check"></i> Is this your studio?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             PRICING
+             ============================================ -->
+        <div class="comparison-section">
+            <h2 class="comparison-title">Pricing</h2>
+            <p class="comparison-subtitle">Strategy: <strong>CTA or Partial</strong> — Show what's available, CTA for the rest</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-card-header claimed">
+                        <i class="fas fa-check-circle"></i> Full Pricing Data
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="section-title"><i class="fas fa-tag"></i> Pricing</div>
+                        <div class="pricing-grid">
+                            <div class="pricing-card">
+                                <div class="pricing-label">Drop-in</div>
+                                <div class="pricing-amount">$25</div>
+                            </div>
+                            <div class="pricing-card">
+                                <div class="pricing-label">10-Pack</div>
+                                <div class="pricing-amount">$180</div>
+                            </div>
+                            <div class="pricing-card featured">
+                                <div class="pricing-label">Unlimited</div>
+                                <div class="pricing-amount">$150</div>
+                            </div>
+                        </div>
+                        <div class="new-student-offer">
+                            <div class="offer-icon"><i class="fas fa-gift"></i></div>
+                            <div class="offer-text">
+                                <strong>New Student: 2 Weeks for $40</strong>
+                                First-time visitors only
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-card-header unclaimed">
+                        <i class="fas fa-exclamation-circle"></i> No Pricing Data
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="section-title"><i class="fas fa-tag"></i> Pricing</div>
+                        <div class="empty-state">
+                            <div class="empty-state-icon"><i class="fas fa-dollar-sign"></i></div>
+                            <p class="empty-state-text">Contact studio directly for current pricing</p>
+                            <a href="#" class="empty-state-cta"><i class="fas fa-phone"></i> Call for Pricing</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partial Data Example -->
+            <div style="margin-top: 1.5rem;">
+                <div class="comparison-card" style="max-width: 50%;">
+                    <div class="comparison-card-header" style="background: linear-gradient(135deg, #E0E7FF 0%, #C7D2FE 100%); color: #3730A3;">
+                        <i class="fas fa-adjust"></i> Partial Data - Only Drop-in Known
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="section-title"><i class="fas fa-tag"></i> Pricing</div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div class="pricing-card" style="flex: 0 0 auto;">
+                                <div class="pricing-label">Drop-in</div>
+                                <div class="pricing-amount">$25</div>
+                            </div>
+                            <p style="font-size: 0.8125rem; color: var(--text-tertiary);">
+                                Contact studio for class pack and membership options
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             TEACHERS
+             ============================================ -->
+        <div class="comparison-section">
+            <h2 class="comparison-title">Teachers</h2>
+            <p class="comparison-subtitle">Strategy: <strong>Hide</strong> — Only show if teacher data provided</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-card-header claimed">
+                        <i class="fas fa-check-circle"></i> Teachers Listed
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="section-title"><i class="fas fa-chalkboard-teacher"></i> Our Teachers</div>
+                        <div class="teachers-mini">
+                            <div class="teacher-avatars">
+                                <div class="teacher-avatar">JS</div>
+                                <div class="teacher-avatar">MK</div>
+                                <div class="teacher-avatar">SL</div>
+                                <div class="teacher-avatar more">+5</div>
+                            </div>
+                            <div class="teachers-text">
+                                <strong>8 teachers</strong> including E-RYT 500 certified
+                                <br><a href="#" style="color: var(--accent-coral); font-size: 0.75rem;">View all teachers →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-card-header unclaimed">
+                        <i class="fas fa-exclamation-circle"></i> No Teacher Data
+                    </div>
+                    <div class="comparison-card-body">
+                        <p style="color: var(--text-tertiary); font-size: 0.875rem; text-align: center; padding: 1rem;">
+                            <i class="fas fa-info-circle"></i> Teachers section hidden entirely
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             PROGRAMS & SERVICES
+             ============================================ -->
+        <div class="comparison-section">
+            <h2 class="comparison-title">Programs & Services</h2>
+            <p class="comparison-subtitle">Strategy: <strong>Hide</strong> — Only show if at least one service confirmed</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-card-header claimed">
+                        <i class="fas fa-check-circle"></i> Services Listed
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="section-title"><i class="fas fa-th-large"></i> Programs & Services</div>
+                        <div class="programs-mini">
+                            <span class="program-badge available"><i class="fas fa-check"></i> Private Sessions</span>
+                            <span class="program-badge available"><i class="fas fa-check"></i> Workshops</span>
+                            <span class="program-badge available"><i class="fas fa-check"></i> 200-Hr YTT</span>
+                            <span class="program-badge available"><i class="fas fa-check"></i> Virtual Classes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-card-header unclaimed">
+                        <i class="fas fa-exclamation-circle"></i> No Program Data
+                    </div>
+                    <div class="comparison-card-body">
+                        <p style="color: var(--text-tertiary); font-size: 0.875rem; text-align: center; padding: 1rem;">
+                            <i class="fas fa-info-circle"></i> Programs section hidden entirely
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             FIRST VISIT INFO
+             ============================================ -->
+        <div class="comparison-section">
+            <h2 class="comparison-title">First Visit Information</h2>
+            <p class="comparison-subtitle">Strategy: <strong>Hide</strong> — Only valuable if studio provides specific guidance</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-card-header claimed">
+                        <i class="fas fa-check-circle"></i> First Visit Info Provided
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="first-visit-compact">
+                            <div class="section-title" style="margin-bottom: 0.5rem; color: #0369A1;"><i class="fas fa-info-circle" style="color: #0EA5E9;"></i> First Visit</div>
+                            <div class="bring-items">
+                                <span class="bring-item"><i class="fas fa-check"></i> Mat (rentals $3)</span>
+                                <span class="bring-item"><i class="fas fa-check"></i> Towel</span>
+                                <span class="bring-item"><i class="fas fa-check"></i> Water</span>
+                            </div>
+                            <p style="font-size: 0.75rem; color: #0369A1; margin-top: 0.5rem;">
+                                Arrive 15 min early. 2nd floor, elevator available.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-card-header unclaimed">
+                        <i class="fas fa-exclamation-circle"></i> No First Visit Data
+                    </div>
+                    <div class="comparison-card-body">
+                        <p style="color: var(--text-tertiary); font-size: 0.875rem; text-align: center; padding: 1rem;">
+                            <i class="fas fa-info-circle"></i> First visit section hidden entirely
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             PRACTICAL INFO
+             ============================================ -->
+        <div class="comparison-section">
+            <h2 class="comparison-title">Practical Information</h2>
+            <p class="comparison-subtitle">Strategy: <strong>Collapse</strong> — Show only items with data</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-card-header claimed">
+                        <i class="fas fa-check-circle"></i> Full Practical Data
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="section-title"><i class="fas fa-info-circle"></i> Details</div>
+                        <div class="practical-compact">
+                            <div class="practical-item"><i class="fas fa-parking"></i> Free lot behind building</div>
+                            <div class="practical-item"><i class="fas fa-subway"></i> 2 blocks from Red Line</div>
+                            <div class="practical-item"><i class="fas fa-clock"></i> Cancel 4 hrs ahead</div>
+                            <div class="practical-item"><i class="fas fa-credit-card"></i> Cards, Cash, HSA</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-card-header unclaimed">
+                        <i class="fas fa-exclamation-circle"></i> Minimal Data
+                    </div>
+                    <div class="comparison-card-body">
+                        <p style="color: var(--text-tertiary); font-size: 0.875rem; text-align: center; padding: 1rem;">
+                            <i class="fas fa-info-circle"></i> Section hidden if no practical details available
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             AMENITIES (EXISTING)
+             ============================================ -->
+        <div class="comparison-section">
+            <h2 class="comparison-title">Amenities & Features</h2>
+            <p class="comparison-subtitle">Strategy: <strong>CTA + Placeholder</strong> — (Existing section, keep current approach)</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-card-header claimed">
+                        <i class="fas fa-check-circle"></i> Amenities Listed
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="section-title"><i class="fas fa-star"></i> Amenities</div>
+                        <div class="styles-grid">
+                            <span class="style-tag"><i class="fas fa-parking" style="margin-right: 4px;"></i> Free Parking</span>
+                            <span class="style-tag"><i class="fas fa-box" style="margin-right: 4px;"></i> Props Provided</span>
+                            <span class="style-tag"><i class="fas fa-scroll" style="margin-right: 4px;"></i> Mat Rentals</span>
+                            <span class="style-tag"><i class="fas fa-door-open" style="margin-right: 4px;"></i> Changing Rooms</span>
+                            <span class="style-tag"><i class="fas fa-wifi" style="margin-right: 4px;"></i> Free WiFi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-card-header unclaimed">
+                        <i class="fas fa-exclamation-circle"></i> No Amenities Data
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="section-title"><i class="fas fa-star"></i> Amenities</div>
+                        <p style="color: var(--gray-400); font-size: 0.8125rem; font-style: italic;">
+                            Amenities will be updated when this listing is claimed
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             CLAIM CTA PLACEMENT
+             ============================================ -->
+        <div class="comparison-section">
+            <h2 class="comparison-title">Claim CTA for Unclaimed Listings</h2>
+            <p class="comparison-subtitle">Additional CTA placement within content area for unclaimed studios</p>
+
+            <div class="comparison-card" style="max-width: 600px;">
+                <div class="comparison-card-header unclaimed">
+                    <i class="fas fa-exclamation-circle"></i> Inline Claim CTA (After About Section)
+                </div>
+                <div class="comparison-card-body">
+                    <div class="claim-cta-inline">
+                        <div class="claim-icon"><i class="fas fa-store"></i></div>
+                        <div class="claim-content">
+                            <div class="claim-title">Is this your studio?</div>
+                            <div class="claim-text">Claim your listing to add pricing, photos, and connect with students</div>
+                        </div>
+                        <a href="#" class="claim-btn">Claim Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             SUMMARY TABLE
+             ============================================ -->
+        <div class="comparison-section">
+            <h2 class="comparison-title">Summary: Empty State Strategy by Section</h2>
+
+            <table style="width: 100%; background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); border-collapse: collapse;">
+                <thead>
+                    <tr style="background: var(--gray-100);">
+                        <th style="padding: 1rem; text-align: left; font-size: 0.75rem; text-transform: uppercase; color: var(--text-tertiary);">Section</th>
+                        <th style="padding: 1rem; text-align: left; font-size: 0.75rem; text-transform: uppercase; color: var(--text-tertiary);">Strategy</th>
+                        <th style="padding: 1rem; text-align: left; font-size: 0.75rem; text-transform: uppercase; color: var(--text-tertiary);">When Empty</th>
+                        <th style="padding: 1rem; text-align: left; font-size: 0.75rem; text-transform: uppercase; color: var(--text-tertiary);">Reason</th>
+                    </tr>
+                </thead>
+                <tbody style="font-size: 0.8125rem;">
+                    <tr style="border-top: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem 1rem; font-weight: 600;">Hero Section</td>
+                        <td style="padding: 0.75rem 1rem;"><span class="strategy-label collapse" style="margin: 0;">Collapse</span></td>
+                        <td style="padding: 0.75rem 1rem;">Placeholder logo, muted text for missing fields</td>
+                        <td style="padding: 0.75rem 1rem;">Always needed for page identity</td>
+                    </tr>
+                    <tr style="border-top: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem 1rem; font-weight: 600;">Quick Info Bar</td>
+                        <td style="padding: 0.75rem 1rem;"><span class="strategy-label hide" style="margin: 0;">Hide</span></td>
+                        <td style="padding: 0.75rem 1rem;">Hidden entirely</td>
+                        <td style="padding: 0.75rem 1rem;">No value if empty, looks broken</td>
+                    </tr>
+                    <tr style="border-top: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem 1rem; font-weight: 600;">Yoga Styles</td>
+                        <td style="padding: 0.75rem 1rem;"><span class="strategy-label cta" style="margin: 0;">CTA</span></td>
+                        <td style="padding: 0.75rem 1rem;">Placeholder with claim prompt</td>
+                        <td style="padding: 0.75rem 1rem;">Critical for users, encourages claiming</td>
+                    </tr>
+                    <tr style="border-top: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem 1rem; font-weight: 600;">Pricing</td>
+                        <td style="padding: 0.75rem 1rem;"><span class="strategy-label cta" style="margin: 0;">CTA</span></td>
+                        <td style="padding: 0.75rem 1rem;">"Contact for pricing" with phone CTA</td>
+                        <td style="padding: 0.75rem 1rem;">Users expect pricing info</td>
+                    </tr>
+                    <tr style="border-top: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem 1rem; font-weight: 600;">Teachers</td>
+                        <td style="padding: 0.75rem 1rem;"><span class="strategy-label hide" style="margin: 0;">Hide</span></td>
+                        <td style="padding: 0.75rem 1rem;">Hidden entirely</td>
+                        <td style="padding: 0.75rem 1rem;">No value without real data</td>
+                    </tr>
+                    <tr style="border-top: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem 1rem; font-weight: 600;">Programs & Services</td>
+                        <td style="padding: 0.75rem 1rem;"><span class="strategy-label hide" style="margin: 0;">Hide</span></td>
+                        <td style="padding: 0.75rem 1rem;">Hidden entirely</td>
+                        <td style="padding: 0.75rem 1rem;">No value without real data</td>
+                    </tr>
+                    <tr style="border-top: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem 1rem; font-weight: 600;">First Visit Info</td>
+                        <td style="padding: 0.75rem 1rem;"><span class="strategy-label hide" style="margin: 0;">Hide</span></td>
+                        <td style="padding: 0.75rem 1rem;">Hidden entirely</td>
+                        <td style="padding: 0.75rem 1rem;">Generic info not helpful</td>
+                    </tr>
+                    <tr style="border-top: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem 1rem; font-weight: 600;">Practical Info</td>
+                        <td style="padding: 0.75rem 1rem;"><span class="strategy-label collapse" style="margin: 0;">Collapse</span></td>
+                        <td style="padding: 0.75rem 1rem;">Show only populated fields, hide if all empty</td>
+                        <td style="padding: 0.75rem 1rem;">Partial data still useful</td>
+                    </tr>
+                    <tr style="border-top: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem 1rem; font-weight: 600;">Amenities</td>
+                        <td style="padding: 0.75rem 1rem;"><span class="strategy-label placeholder" style="margin: 0;">Placeholder</span></td>
+                        <td style="padding: 0.75rem 1rem;">Muted "will be updated" text</td>
+                        <td style="padding: 0.75rem 1rem;">Keep section visible (existing behavior)</td>
+                    </tr>
+                    <tr style="border-top: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem 1rem; font-weight: 600;">Contact Info</td>
+                        <td style="padding: 0.75rem 1rem;"><span class="strategy-label collapse" style="margin: 0;">Collapse</span></td>
+                        <td style="padding: 0.75rem 1rem;">Show only available contact methods</td>
+                        <td style="padding: 0.75rem 1rem;">Always show what's available</td>
+                    </tr>
+                    <tr style="border-top: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem 1rem; font-weight: 600;">Hours</td>
+                        <td style="padding: 0.75rem 1rem;"><span class="strategy-label placeholder" style="margin: 0;">Placeholder</span></td>
+                        <td style="padding: 0.75rem 1rem;">"Contact for hours" text</td>
+                        <td style="padding: 0.75rem 1rem;">Keep section, indicate unknown</td>
+                    </tr>
+                    <tr style="border-top: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem 1rem; font-weight: 600;">Accessibility</td>
+                        <td style="padding: 0.75rem 1rem;"><span class="strategy-label hide" style="margin: 0;">Hide</span></td>
+                        <td style="padding: 0.75rem 1rem;">Hidden entirely</td>
+                        <td style="padding: 0.75rem 1rem;">Don't assume accessibility features</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>

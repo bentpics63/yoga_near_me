@@ -1,0 +1,103 @@
+# ============================================
+# YogaNearMe.info - brand.txt
+# ============================================
+# Brand identity, positioning, and topical focus
+# for YogaNearMe.info
+# ============================================
+
+##############################################
+# CORE BRAND INFO
+##############################################
+Brand-Name: Yoga Near Me
+Brand-Domain: https://yoganearme.info
+Brand-Tagline: Peace within Reach
+Brand-Type: Yoga studio directory and education platform
+Brand-Headquarters: Los Angeles, California, USA
+
+Brand-Description-Short:
+Yoga Near Me is a North American yoga studio directory and education hub that helps students find authentic places to practice yoga and helps studio owners grow sustainable, profitable businesses.
+
+Brand-Description-Long:
+Yoga Near Me connects yoga students with trusted studios, teachers, and classes across the U.S. and Canada, while providing practical business education for yoga studio owners and independent teachers. The platform combines a comprehensive studio directory with in-depth style guides, benefits articles, glossaries, and business resources designed to support the full lifecycle of yoga practice and yoga entrepreneurship.
+
+##############################################
+# MISSION, VISION, VALUES
+##############################################
+Brand-Mission:
+Make it easier to find, understand, and sustain authentic yoga practice by connecting students with studios they can trust and supporting studio owners with practical, affordable business guidance.
+
+Brand-Vision:
+A world in which every person who wants to practice yoga can easily find a supportive community nearby, and every independent yoga studio has the tools, visibility, and systems to thrive.
+
+Brand-Values:
+- Authenticity: Honor real practice, real teachers, and real communities over trends.
+- Accessibility: Make yoga and business knowledge understandable and welcoming.
+- Inclusivity: Respect diverse bodies, identities, and abilities in all content and listings.
+- Integrity: Prioritize accurate information, clear authorship, and transparent intent.
+- Sustainability: Support long-term success for independent studios, not just quick wins.
+
+##############################################
+# PRIMARY AUDIENCES
+##############################################
+Audience-1: Yoga Students
+Audience-1-Description:
+People seeking local yoga studios, classes, or styles that align with their body, life stage, and goals (strength, stress relief, spiritual growth, etc).
+
+Audience-2: Yoga Teachers and Studio Owners
+Audience-2-Description:
+Independent teachers and small to mid-sized studio owners who need visibility, marketing support, and operational guidance to grow sustainable businesses.
+
+Audience-3: Curious Beginners and Returning Practitioners
+Audience-3-Description:
+People exploring yoga for the first time or returning after a break who need clear, non-intimidating explanations of styles, terms, and practice options.
+
+##############################################
+# POSITIONING & DIFFERENTIATION
+##############################################
+Positioning-Statement:
+Yoga Near Me is the yoga-first directory and education platform that combines accurate studio data with deeply researched style guides, glossaries, and business education, making it easier for students to find authentic practice and for studios to compete and thrive.
+
+Key-Differentiators:
+- Yoga-specific directory focused solely on studios and teachers in the U.S. and Canada.
+- Deep editorial investment in style guides, glossaries, and "12 Benefits" articles.
+- Business content written specifically for independent yoga studios, not generic SMBs.
+- Inclusive, trauma-informed, and accessibility-aware approach to language and imagery.
+- Built by a founder-team of a yoga educator (Lisa Marie) and a business strategist (Ed).
+
+##############################################
+# TOPICAL AUTHORITY AREAS
+##############################################
+Topical-Area-1: Yoga Studios and Local Search
+Topical-Area-2: Yoga Styles, Benefits, and Practice Guides
+Topical-Area-3: Yoga Terminology and Glossary Education
+Topical-Area-4: Yoga Studio Business, Marketing, and Operations
+Topical-Area-5: AI, automation, and systems for small studio owners
+
+Geographic-Focus:
+- United States
+- Canada
+
+##############################################
+# BRAND VOICE (SUMMARY)
+##############################################
+Voice-Tone:
+- Warm, clear, and grounded.
+- Expert but not intimidating.
+- Respectful of lineage while accessible to beginners.
+- Direct and practical when speaking to studio owners.
+
+Voice-Guidelines:
+- Lead with plain English, optionally introduce Sanskrit where it adds clarity.
+- Avoid gatekeeping, jargon, and performative spiritual language.
+- Use examples and checklists to make business and SEO concepts more actionable.
+- Speak to real people in real cities, not abstractions.
+
+##############################################
+# CONTACT
+##############################################
+Contact-Email: info@yoganearme.info
+Website: https://yoganearme.info
+
+##############################################
+# END OF FILE
+##############################################

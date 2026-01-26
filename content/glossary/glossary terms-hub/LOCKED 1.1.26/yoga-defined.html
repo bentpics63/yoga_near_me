@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yoga Defined: An ancient holistic practice originating in India that unites mind, body, and spirit through physical postures, breath control, meditation, and ethical principles. Explore the complete definition.">
+    <title>Yoga Defined | Complete Guide to the Ancient Mind-Body Practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-slate: #667085;
+            --primary-slate-dark: #475467;
+            --accent-coral: #e95c4b;
+            --accent-coral-dark: #bd3000;
+            --text-dark: #344054;
+            --text-medium: #475467;
+            --text-light: #667085;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --border-light: #e4e7ec;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+
+        /* Header Styles */
+        .ynm-header {
+            background: linear-gradient(135deg, var(--primary-slate) 0%, var(--primary-slate-dark) 100%);
+            padding: 1rem clamp(1rem, 3vw, 1.5rem);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .ynm-header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .ynm-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            font-size: 1.25rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .ynm-logo:hover {
+            opacity: 0.9;
+        }
+
+        .ynm-logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .ynm-nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .ynm-nav a {
+            color: rgba(255, 255, 255, 0.95);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .ynm-nav a:hover {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .ynm-nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .ynm-logo span {
+                display: none;
+            }
+
+            .ynm-header-content {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Breadcrumb Styles */
+        .ynm-breadcrumb {
+            background: var(--bg-light);
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .ynm-breadcrumb-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+        }
+
+        .ynm-breadcrumb a {
+            color: var(--primary-slate);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .ynm-breadcrumb a:hover {
+            color: var(--accent-coral);
+        }
+
+        @media (max-width: 640px) {
+            .ynm-breadcrumb-content {
+                padding: 0 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Hero Section */
+        .ynm-term-hero {
+            background: linear-gradient(135deg, rgba(102, 112, 133, 0.03) 0%, rgba(102, 112, 133, 0.08) 100%);
+            padding: 3rem 2rem;
+            border-bottom: 1px solid var(--border-light);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-slate-dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .sanskrit-text {
+            height: 60px;
+            margin: 0.75rem 0;
+            display: block;
+            opacity: 0.9;
+        }
+        .pronunciation {
+            display: inline-block;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .ynm-term-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-medium);
+            margin-top: 1rem;
+            line-height: 1.6;
+        }
+
+        .hero-image {
+        }
+        .hero-image.sanskrit-text {
+            height: 80px;
+            width: auto;
+            max-width: 250px;
+            object-fit: contain;
+            width: 180px;
+        }
+        .hero-image.sanskrit-text {
+            height: 80px;
+            width: auto;
+            max-width: 250px;
+            object-fit: contain;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            opacity: 0.9;
+            filter: grayscale(10%);
+        }
+
+        @media (max-width: 768px) {
+            .ynm-term-hero {
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem;
+                gap: 1.5rem;
+            }
+
+            .hero-image {
+        }
+        .hero-image.sanskrit-text {
+            height: 80px;
+            width: auto;
+            max-width: 250px;
+            object-fit: contain;
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .ynm-term-subtitle {
+                font-size: 1.05rem;
+            }
+        }
+
+        /* Main Content */
+        .ynm-term-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+        }
+
+        .ynm-main-content h2 {
+            font-size: 1.75rem;
+            color: var(--primary-slate-dark);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .ynm-main-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .ynm-main-content h3 {
+            font-size: 1.35rem;
+            color: var(--primary-slate);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .ynm-main-content p {
+            margin-bottom: 1.25rem;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+        }
+
+        .ynm-main-content ul,
+        .ynm-main-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.75rem;
+        }
+
+        .ynm-main-content li {
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .ynm-main-content li strong {
+            color: var(--primary-slate-dark);
+        }
+
+        @media (max-width: 768px) {
+            .ynm-term-content {
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem;
+                gap: 2rem;
+            }
+
+            .ynm-main-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .ynm-main-content h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Related Terms Sidebar */
+        .ynm-related-terms {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .ynm-related-terms h3 {
+            font-size: 1.1rem;
+            color: var(--primary-slate-dark);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .ynm-related-terms ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ynm-related-terms li {
+            margin-bottom: 0.75rem;
+        }
+
+        .ynm-related-terms a {
+            color: var(--accent-coral);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .ynm-related-terms a:hover {
+            color: var(--accent-coral-dark);
+            gap: 0.75rem;
+        }
+
+        .ynm-related-terms a::before {
+            content: "→";
+            font-weight: 700;
+            transition: transform 0.3s ease;
+        }
+
+        .ynm-related-terms a:hover::before {
+            transform: translateX(3px);
+        }
+
+        @media (max-width: 768px) {
+            .ynm-related-terms {
+                position: static;
+            }
+        }
+
+        /* CTA Section */
+        .ynm-cta-section {
+            background: linear-gradient(135deg, var(--primary-slate) 0%, var(--primary-slate-dark) 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .ynm-cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .ynm-cta-section h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .ynm-cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .ynm-btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .ynm-btn {
+            display: inline-block;
+            padding: 0.875rem 1.75rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .ynm-btn-primary {
+            background: var(--accent-coral);
+            color: white;
+            border-color: var(--accent-coral);
+        }
+
+        .ynm-btn-primary:hover {
+            background: var(--accent-coral-dark);
+            border-color: var(--accent-coral-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(233, 92, 75, 0.3);
+        }
+
+        .ynm-btn-secondary {
+            background: var(--bg-light);
+            color: var(--primary-slate);
+            border-color: white;
+        }
+
+        .ynm-btn-secondary:hover {
+            background: var(--bg-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 640px) {
+            .ynm-cta-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .ynm-cta-section p {
+                font-size: 1rem;
+            }
+
+            .ynm-btn-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .ynm-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* ===================================
+           FOOTER - New Design v3
+        =================================== */
+        .footer {
+            background-color: var(--primary-slate-dark);
+            color: #fff;
+            padding: 64px 0 24px;
+            margin-top: 4rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+        .footer-section h3 {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+        .footer-section p {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.9rem;
+            line-height: 1.65;
+            margin-bottom: 16px;
+        }
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 8px; }
+        .footer-section a {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: color 0.2s ease-out;
+        }
+        .footer-section a:hover {
+            color: #fff;
+            text-decoration: underline;
+            text-decoration-color: rgba(255,255,255,0.5);
+        }
+        .brand-stat {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 999px;
+            padding: 5px 12px;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 16px;
+        }
+        .brand-stat svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--accent-coral);
+        }
+        .social-links {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .social-link {
+            width: 38px;
+            height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            transition: background 0.2s ease-out, transform 0.2s ease-out;
+        }
+        .social-link:hover {
+            background: rgba(255,255,255,0.18);
+            transform: translateY(-2px);
+            color: #fff;
+            text-decoration: none;
+        }
+        .social-link svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+        .cities-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            margin-top: 24px;
+        }
+        .cities-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+        .city-chip {
+            padding: 6px 10px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-size: 0.82rem;
+            transition: background 0.2s ease-out;
+        }
+        .city-chip:hover {
+            background: rgba(255,255,255,0.18);
+            text-decoration: none;
+        }
+        .view-all-cities {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .view-all-cities:hover { color: #fff; }
+        .view-all-cities svg {
+            width: 12px;
+            height: 12px;
+            fill: currentColor;
+        }
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .newsletter-form input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.18);
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+            font-size: 0.9rem;
+            font-family: inherit;
+        }
+        .newsletter-form input::placeholder { color: rgba(255,255,255,0.5); }
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: rgba(255,255,255,0.35);
+            background: rgba(255,255,255,0.12);
+        }
+        .newsletter-form button {
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: none;
+            background: var(--accent-coral);
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: background 0.2s ease-out;
+        }
+        .newsletter-form button:hover {
+            background: var(--accent-coral-dark);
+        }
+        .newsletter-form button svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+        .newsletter-note {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.55);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .newsletter-note svg {
+            width: 10px;
+            height: 10px;
+            fill: currentColor;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.12);
+            margin-top: 40px;
+            padding-top: 16px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 24px;
+            padding-right: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.65);
+        }
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .footer-bottom a {
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+        }
+        .footer-bottom a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+
+        @media (max-width: 900px) {
+            .footer-content { grid-template-columns: repeat(2, 1fr); gap: 40px 24px; }
+        }
+        @media (max-width: 640px) {
+            .footer-content { grid-template-columns: 1fr; gap: 40px; padding: 0 16px; }
+            .footer-bottom { flex-direction: column; text-align: center; padding-left: 16px; padding-right: 16px; }
+            .footer-bottom-links { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="ynm-header">
+        <div class="ynm-header-content">
+            <a href="/" class="ynm-logo">
+                <svg class="ynm-logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="white" stroke-width="2" opacity="0.3"/>
+                    <circle cx="50" cy="50" r="35" fill="none" stroke="white" stroke-width="2" opacity="0.5"/>
+                    <circle cx="50" cy="50" r="25" fill="none" stroke="white" stroke-width="2" opacity="0.7"/>
+                    <circle cx="50" cy="50" r="15" fill="none" stroke="white" stroke-width="2"/>
+                    <path d="M50,5 L50,25 M50,75 L50,95 M5,50 L25,50 M75,50 L95,50" stroke="white" stroke-width="2" opacity="0.6"/>
+                    <circle cx="50" cy="50" r="5" fill="white"/>
+                </svg>
+                <span>Yoga Near Me</span>
+            </a>
+            <nav class="ynm-nav" aria-label="Main navigation">
+                <a href="/studios/">Find Studios</a>
+                <a href="/yoga-styles/">Styles</a>
+                <a href="/yoga-glossary/">Yoga Glossary</a>
+                <a href="/about/">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="ynm-breadcrumb" aria-label="Breadcrumb">
+        <div class="ynm-breadcrumb-content">
+            <a href="/">Home</a>
+            <span>›</span>
+            <a href="/yoga-glossary/">Yoga Glossary</a>
+            <span>›</span>
+            <span>Yoga</span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="ynm-term-hero">
+        <div class="hero-content">
+            <h1>Yoga <span style="color: #e95c4b;">Defined</span></h1>
+            <span class="pronunciation">YOH-gah</span>
+            <p class="ynm-term-subtitle">Yoga is an ancient holistic practice originating in India over 5,000 years ago that unites mind, body, and spirit through physical postures, breath control, meditation, and ethical principles to cultivate health, awareness, and inner peace.</p>
+        </div>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Noto Sans Devanagari, Arial Unicode MS, sans-serif' font-size='48' fill='%23667085'%3Eयोग%3C/text%3E%3C/svg%3E" alt="योग (Yoga in Sanskrit)" class="hero-image sanskrit-text">
+    </header>
+
+    <!-- Main Content -->
+    <div class="ynm-term-content">
+        <main class="ynm-main-content">
+            <h2>What Is Yoga?</h2>
+            <p>The word <strong>yoga</strong> comes from the Sanskrit root <em>yuj</em>, meaning "to yoke" or "to unite." At its essence, yoga is about union—the integration of body, mind, and spirit, and ultimately, the connection between individual consciousness and universal consciousness.</p>
+
+            <p>While many Westerners associate yoga primarily with physical postures (<strong>asana</strong>), traditional yoga is a comprehensive philosophical and spiritual system. It encompasses ethical guidelines, physical practices, breath control, meditation, and self-study—all designed to reduce suffering, cultivate awareness, and support the journey toward self-realization.</p>
+
+            <h2>The History of Yoga</h2>
+            <p>Yoga's roots trace back over 5,000 years to the Indus Valley civilization in ancient India. The practice evolved through several key periods:</p>
+
+            <ul>
+                <li><strong>Vedic Period (1500-500 BCE)</strong> – Early yogic concepts appeared in the Vedas, ancient sacred texts</li>
+                <li><strong>Classical Period (200 BCE-500 CE)</strong> – Patanjali codified yoga philosophy in the <strong>Yoga Sutras</strong>, establishing the Eight Limbs of Yoga</li>
+                <li><strong>Medieval Period (500-1700 CE)</strong> – Development of Hatha Yoga emphasizing physical practices and energy work</li>
+                <li><strong>Modern Period (1700s-present)</strong> – Yoga spreads to the West, evolving into diverse styles and approaches</li>
+            </ul>
+
+            <h2>The Eight Limbs of Yoga</h2>
+            <p>According to Patanjali's <strong>Yoga Sutras</strong>, yoga is structured as an eight-limbed path (<strong>Ashtanga</strong>, not to be confused with the modern Ashtanga Yoga style):</p>
+
+            <ol>
+                <li><strong>Yama</strong> – Ethical restraints (non-violence, truthfulness, non-stealing, moderation, non-possessiveness)</li>
+                <li><strong>Niyama</strong> – Personal observances (cleanliness, contentment, self-discipline, self-study, surrender to the divine)</li>
+                <li><strong>Asana</strong> – Physical postures to prepare the body for meditation</li>
+                <li><strong>Pranayama</strong> – Breath control techniques to regulate life force energy</li>
+                <li><strong>Pratyahara</strong> – Withdrawal of the senses from external stimuli</li>
+                <li><strong>Dharana</strong> – Focused concentration</li>
+                <li><strong>Dhyana</strong> – Meditation, sustained awareness</li>
+                <li><strong>Samadhi</strong> – Blissful union, transcendence, enlightenment</li>
+            </ol>
+
+            <h2>The Classical Paths of Yoga</h2>
+            <p>Traditional yogic philosophy identifies several distinct paths, each suited to different temperaments and life circumstances:</p>
+
+            <ul>
+                <li><strong>Hatha Yoga</strong> – The path of physical discipline through postures and breath control</li>
+                <li><strong>Raja Yoga</strong> – The "royal path" of meditation and mental discipline (often synonymous with Patanjali's Eight Limbs)</li>
+                <li><strong>Karma Yoga</strong> – The path of selfless action and service without attachment to outcomes</li>
+                <li><strong>Bhakti Yoga</strong> – The path of devotion and love directed toward the divine</li>
+                <li><strong>Jnana Yoga</strong> – The path of wisdom and intellectual inquiry into the nature of reality</li>
+                <li><strong>Tantra Yoga</strong> – The path of ritual, energy cultivation, and embracing all aspects of existence</li>
+            </ul>
+
+            <h2>Modern Yoga Practice</h2>
+            <p>Contemporary yoga in the West has diversified into numerous styles, most emphasizing the physical practice (asana) while incorporating varying degrees of philosophy, breathwork, and meditation:</p>
+
+            <ul>
+                <li><strong>Hatha Yoga</strong> – Gentle, foundational practice with held poses</li>
+                <li><strong>Vinyasa Yoga</strong> – Flowing sequences synchronized with breath</li>
+                <li><strong>Ashtanga Yoga</strong> – Rigorous, set sequence of poses developed by Pattabhi Jois</li>
+                <li><strong>Iyengar Yoga</strong> – Precision-based practice using props for alignment</li>
+                <li><strong>Kundalini Yoga</strong> – Dynamic practice combining movement, breathwork, mantra, and meditation</li>
+                <li><strong>Restorative Yoga</strong> – Deeply relaxing practice using props for passive stretching</li>
+                <li><strong>Yin Yoga</strong> – Long-held seated poses targeting connective tissues</li>
+            </ul>
+
+            <h2>Benefits of Yoga</h2>
+            <p>Modern research has validated many traditional claims about yoga's benefits, revealing effects across physical, mental, and emotional domains:</p>
+
+            <h3>Physical Benefits</h3>
+            <ul>
+                <li>Increased flexibility, strength, and balance</li>
+                <li>Improved cardiovascular health and respiratory function</li>
+                <li>Better posture and body awareness</li>
+                <li>Pain reduction, especially for chronic conditions</li>
+                <li>Enhanced immune function</li>
+            </ul>
+
+            <h3>Mental & Emotional Benefits</h3>
+            <ul>
+                <li>Reduced stress, anxiety, and depression</li>
+                <li>Improved focus, concentration, and mental clarity</li>
+                <li>Better sleep quality</li>
+                <li>Enhanced emotional regulation and resilience</li>
+                <li>Greater self-awareness and mindfulness</li>
+            </ul>
+
+            <h2>Why Yoga Matters Today</h2>
+            <p>In our fast-paced, technology-driven world, yoga offers something increasingly rare: an opportunity to slow down, turn inward, and reconnect with ourselves. Whether practiced as physical exercise, stress management, spiritual exploration, or all of the above, yoga provides practical tools for navigating modern life's challenges.</p>
+
+            <p>The beauty of yoga lies in its adaptability. You don't need to be flexible, spiritual, or even particularly interested in Eastern philosophy to benefit from yoga. The practice meets you where you are and evolves with you over time.</p>
+
+            <h2>Getting Started with Yoga</h2>
+            <p>Beginning a yoga practice is simpler than many people think. Here's how to start:</p>
+
+            <ol>
+                <li><strong>Find a Class or Teacher</strong> – Look for beginner-friendly classes at local studios, gyms, or community centers</li>
+                <li><strong>Start Slow</strong> – Choose gentle or beginner classes to learn foundational poses safely</li>
+                <li><strong>Listen to Your Body</strong> – Never force or push into pain; yoga should feel challenging but not harmful</li>
+                <li><strong>Be Patient</strong> – Yoga is a practice, not a performance; progress unfolds gradually</li>
+                <li><strong>Explore Different Styles</strong> – Try various approaches to find what resonates with you</li>
+                <li><strong>Consider the Philosophy</strong> – If interested, explore yoga's ethical and philosophical dimensions</li>
+            </ol>
+        </main>
+
+        <!-- Related Terms Sidebar -->
+        <aside class="ynm-related-terms">
+            <h3>Related Terms</h3>
+            <ul>
+                <li><a href="/yoga-glossary/asana-defined/">Asana</a></li>
+                <li><a href="/yoga-glossary/pranayama-defined/">Pranayama</a></li>
+                <li><a href="/yoga-glossary/meditation-defined/">Meditation</a></li>
+                <li><a href="/yoga-glossary/hatha-yoga-defined/">Hatha Yoga</a></li>
+                <li><a href="/yoga-glossary/chakra-defined/">Chakra</a></li>
+                <li><a href="/yoga-glossary/namaste-defined/">Namaste</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="ynm-cta-section">
+        <div class="ynm-cta-content">
+            <h2>Begin Your Yoga Journey Today</h2>
+            <p>Discover welcoming studios and experienced teachers near you to start or deepen your yoga practice.</p>
+            <div class="ynm-btn-group">
+                <a href="https://yoganearme.info/studios/" class="ynm-btn ynm-btn-primary">Find Yoga Studios Near You →</a>
+                <a href="/yoga-styles/" class="ynm-btn ynm-btn-secondary">Explore Yoga Styles</a>
+                <a href="/yoga-glossary/" class="ynm-btn ynm-btn-secondary">Back to Glossary</a>
+            </div>
+        </div>
+    </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-content">
+
+      <!-- COL 1: Brand -->
+      <div class="footer-section">
+        <h3>Yoga Near Me</h3>
+        <div class="brand-stat">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          30,000+ studios · US &amp; Canada
+        </div>
+        <p>Connecting practitioners with authentic studios. Built by yoga teachers, for the yoga community.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/profile.php?id=61576026377264" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/yoga.near.me.guide/" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://x.com/yoganearmeguide" class="social-link" aria-label="X">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.pinterest.com/yoganearmeguide/_profile/" class="social-link" aria-label="Pinterest">
+            <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- COL 2: Explore -->
+      <nav class="footer-section" aria-label="Explore">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="https://yoganearme.info/yoga-styles/">Yoga Styles</a></li>
+          <li><a href="https://yoganearme.info/yoga-glossary/">Glossary</a></li>
+          <li><a href="https://yoganearme.info/30-essential-questions-answered/">Essential Guide</a></li>
+          <li><a href="https://yoganearme.info/benefits/">Benefits of Yoga</a></li>
+          <li><a href="https://yoganearme.info/blog/">Blog</a></li>
+          <li><a href="https://yoganearme.info/about/">About Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- COL 3: For Studios + Cities -->
+      <div class="footer-section">
+        <h3>For Studios</h3>
+        <ul>
+          <li><a href="https://yoganearme.info/add-listing/studios/">Add Your Studio</a></li>
+          <li><a href="https://yoganearme.info/claim-your-listing/">Claim Listing</a></li>
+          <li><a href="https://yoganearme.info/studio-business/">Grow Your Studio</a></li>
+          <li><a href="https://yoganearme.info/contact/">Partner Support</a></li>
+        </ul>
+
+        <div class="cities-label">Popular Cities</div>
+        <div class="cities-grid">
+          <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=new+york+city&sgeo_lat=40.7127281&sgeo_lon=-74.0060152" class="city-chip">NYC</a>
+          <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=los+angeles&sgeo_lat=34.0536909&sgeo_lon=-118.2427660" class="city-chip">LA</a>
+          <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=toronto&sgeo_lat=43.6534817&sgeo_lon=-79.3839347" class="city-chip">Toronto</a>
+          <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=chicago&sgeo_lat=41.8755616&sgeo_lon=-87.6244212" class="city-chip">Chicago</a>
+          <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=austin&sgeo_lat=30.2711286&sgeo_lon=-97.7436995" class="city-chip">Austin</a>
+          <a href="https://yoganearme.info/search-page/?geodir_search=1&stype=gd_place&snear=seattle&sgeo_lat=47.6038321&sgeo_lon=-122.3300620" class="city-chip">Seattle</a>
+        </div>
+        <a href="https://yoganearme.info/studios/" class="view-all-cities">
+          View all 150+ cities
+          <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+        </a>
+      </div>
+
+      <!-- COL 4: Newsletter -->
+      <div class="footer-section">
+        <h3>The Weekly Practice</h3>
+        <p>One deep-dive article weekly. Research-backed insights, no fluff. Plus new studios in your area.</p>
+        <form class="newsletter-form" action="#" method="POST">
+          <label for="footer-email" class="visually-hidden">Email</label>
+          <input type="email" id="footer-email" name="email" placeholder="Your email" required />
+          <button type="submit">
+            Subscribe
+            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          </button>
+        </form>
+        <p class="newsletter-note">
+          <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+          Unsubscribe anytime
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2025 Yoga Near Me</div>
+      <nav class="footer-bottom-links" aria-label="Legal">
+        <a href="https://yoganearme.info/editorial-guidelines/">Editorial Guidelines</a>
+        <a href="https://yoganearme.info/privacy-policy/">Privacy</a>
+        <a href="https://yoganearme.info/terms-of-service/">Terms</a>
+        <a href="https://yoganearme.info/sitemap/">Sitemap</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

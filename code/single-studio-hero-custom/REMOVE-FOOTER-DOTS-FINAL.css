@@ -1,0 +1,115 @@
+/**
+ * FINAL FIX: Remove Orange Dots from Footer
+ * Targets footer.ynm-footer specifically
+ * Add this to WordPress Customizer → Additional CSS (at the very bottom)
+ */
+
+/* ============================================
+   REMOVE DOTS FROM FOOTER - SPECIFIC TARGETING
+   ============================================ */
+
+/* Remove dots from ALL elements inside footer.ynm-footer */
+footer.ynm-footer *::before,
+footer.ynm-footer h1::before,
+footer.ynm-footer h2::before,
+footer.ynm-footer h3::before,
+footer.ynm-footer h4::before,
+footer.ynm-footer h5::before,
+footer.ynm-footer h6::before,
+footer.ynm-footer .elementor-heading-title::before,
+footer.ynm-footer [class*="heading"]::before,
+footer.ynm-footer [class*="title"]::before,
+footer.ynm-footer a::before,
+footer.ynm-footer li::before,
+footer.ynm-footer ul::before,
+footer.ynm-footer ol::before,
+footer.ynm-footer div::before,
+footer.ynm-footer span::before,
+footer.ynm-footer p::before {
+    display: none !important;
+    content: none !important;
+    visibility: hidden !important;
+}
+
+/* Remove padding that was added for dots */
+footer.ynm-footer *,
+footer.ynm-footer h1,
+footer.ynm-footer h2,
+footer.ynm-footer h3,
+footer.ynm-footer h4,
+footer.ynm-footer h5,
+footer.ynm-footer h6,
+footer.ynm-footer .elementor-heading-title,
+footer.ynm-footer [class*="heading"],
+footer.ynm-footer [class*="title"],
+footer.ynm-footer a,
+footer.ynm-footer li,
+footer.ynm-footer ul,
+footer.ynm-footer ol {
+    padding-left: 0 !important;
+}
+
+/* ============================================
+   ALSO TARGET ANY OTHER FOOTER VARIATIONS
+   ============================================ */
+
+/* Target any footer element */
+body.single-gd_place footer *::before,
+body.single-gd_place footer h1::before,
+body.single-gd_place footer h2::before,
+body.single-gd_place footer h3::before,
+body.single-gd_place footer h4::before,
+body.single-gd_place footer h5::before,
+body.single-gd_place footer h6::before,
+body.single-gd_place footer .elementor-heading-title::before,
+body.single-gd_place footer [class*="heading"]::before,
+body.single-gd_place footer [class*="title"]::before {
+    display: none !important;
+    content: none !important;
+    visibility: hidden !important;
+}
+
+body.single-gd_place footer h1,
+body.single-gd_place footer h2,
+body.single-gd_place footer h3,
+body.single-gd_place footer h4,
+body.single-gd_place footer h5,
+body.single-gd_place footer h6,
+body.single-gd_place footer .elementor-heading-title,
+body.single-gd_place footer [class*="heading"],
+body.single-gd_place footer [class*="title"] {
+    padding-left: 0 !important;
+}
+
+/* ============================================
+   KEEP DOTS ON MAIN CONTENT HEADINGS
+   ============================================ */
+
+/* Ensure main content section headings keep their dots */
+body.single-gd_place .content-card .card-title::before,
+body.single-gd_place .content-card h2::before,
+body.single-gd_place .content-card h3::before,
+body.single-gd_place .section-title-main::before,
+body.single-gd_place .nearby-section h2::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+    visibility: visible !important;
+}
+
+body.single-gd_place .content-card .card-title,
+body.single-gd_place .content-card h2,
+body.single-gd_place .content-card h3,
+body.single-gd_place .section-title-main,
+body.single-gd_place .nearby-section h2 {
+    position: relative !important;
+    padding-left: 24px !important;
+}
+

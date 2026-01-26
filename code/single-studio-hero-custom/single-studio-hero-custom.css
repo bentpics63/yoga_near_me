@@ -1,0 +1,476 @@
+/**
+ * Single Studio Page - Hero Container Custom CSS
+ * Add this to WordPress → Appearance → Customize → Additional CSS
+ * Or add via Elementor → Settings → Custom CSS
+ * 
+ * This styles the hero section to match your brand
+ */
+
+/* ============================================
+   HERO SECTION BASE STYLES
+   ============================================ */
+
+/* Hero Section Container */
+.studio-hero-section,
+.elementor-location-single .elementor-section:first-child {
+    background: #F8FAFA;
+    padding: 48px 0;
+    position: relative;
+}
+
+/* Hero Images Container */
+.studio-hero-images {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Main Hero Image */
+.studio-hero-images .geodir-post-images img:first-child {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.studio-hero-images .geodir-post-images img:first-child:hover {
+    transform: scale(1.02);
+}
+
+/* Gallery Count Overlay */
+.geodir-post-images .geodir-image-count {
+    background: rgba(44, 62, 58, 0.8);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ============================================
+   STUDIO INFO SECTION
+   ============================================ */
+
+/* Studio Info Container */
+.studio-info-container {
+    max-width: 1200px;
+    margin: 32px auto 0;
+    padding: 0 20px;
+}
+
+/* Studio Name (H1) */
+.studio-hero-section h1,
+.geodir-post-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.2;
+    color: #2C3E3A;
+    margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+    .studio-hero-section h1,
+    .geodir-post-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .studio-hero-section h1,
+    .geodir-post-title {
+        font-size: 24px;
+    }
+}
+
+/* Studio Tagline */
+.studio-tagline,
+.studio-description-excerpt {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #6B7C78;
+    margin-bottom: 16px;
+}
+
+/* ============================================
+   BADGES (Verified/Featured)
+   ============================================ */
+
+.studio-badges {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.studio-badges .badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.studio-badges .badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.studio-badges .badge.verified {
+    background: #61948B;
+    color: white;
+}
+
+.studio-badges .badge.featured {
+    background: #FF5733;
+    color: white;
+}
+
+/* ============================================
+   RATING & ADDRESS
+   ============================================ */
+
+/* Rating Widget */
+.geodir-post-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.geodir-post-rating .stars {
+    color: #FBBF24;
+    font-size: 18px;
+}
+
+.geodir-post-rating .rating-number {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #2C3E3A;
+}
+
+.geodir-post-rating .review-count {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #6B7C78;
+}
+
+/* Address Widget */
+.geodir-post-address {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 16px;
+    font-size: 16px;
+    color: #6B7C78;
+}
+
+.geodir-post-address .geodir-icon {
+    color: #61948B;
+}
+
+/* Opening Hours Status */
+.studio-hours-status {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.studio-hours-status.open {
+    color: #10B981;
+}
+
+.studio-hours-status.closed {
+    color: #EF4444;
+}
+
+/* Clock icon - try Font Awesome first, fallback to emoji */
+.studio-hours-status::before {
+    content: "\f017"; /* Font Awesome clock icon */
+    font-family: "Font Awesome 5 Free", "Font Awesome 5 Pro", "FontAwesome";
+    font-weight: 900;
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+/* Fallback to emoji if Font Awesome not available */
+@supports not (font-family: "Font Awesome 5 Free") {
+    .studio-hours-status::before {
+        content: "🕐";
+        font-family: inherit;
+        font-size: 16px;
+    }
+}
+
+.studio-hours-status.open {
+    color: #10B981;
+}
+
+.studio-hours-status.closed {
+    color: #EF4444;
+}
+
+/* ============================================
+   ACTION BUTTONS
+   ============================================ */
+
+/* Button Container */
+.studio-action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Primary Button (Book a Class) */
+.studio-action-buttons .button-primary,
+.elementor-button.studio-book-button {
+    background: #FF5733;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 24px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: inline-block;
+}
+
+.studio-action-buttons .button-primary:hover,
+.elementor-button.studio-book-button:hover {
+    background: #E0462A;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 87, 51, 0.3);
+}
+
+/* Secondary Buttons (Save, Share) */
+.studio-action-buttons .button-secondary,
+.elementor-button.studio-secondary-button {
+    background: #61948B;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 24px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: inline-block;
+}
+
+.studio-action-buttons .button-secondary:hover,
+.elementor-button.studio-secondary-button:hover {
+    background: #4F7A72;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(97, 148, 139, 0.3);
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .studio-hero-section {
+        padding: 40px 0;
+    }
+    
+    .studio-info-container {
+        margin-top: 24px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .studio-hero-section {
+        padding: 32px 0;
+    }
+    
+    .studio-hero-images,
+    .studio-info-container {
+        padding: 0 16px;
+    }
+    
+    /* Stack columns on mobile */
+    .studio-info-container .elementor-column {
+        width: 100% !important;
+        margin-bottom: 24px;
+    }
+    
+    /* Full width buttons on mobile */
+    .studio-action-buttons .button-primary,
+    .studio-action-buttons .button-secondary,
+    .elementor-button {
+        width: 100%;
+    }
+    
+    /* Adjust badge spacing */
+    .studio-badges {
+        gap: 8px;
+    }
+    
+    /* Stack rating and address */
+    .geodir-post-address {
+        display: block;
+        margin-left: 0;
+        margin-top: 8px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .studio-hero-section {
+        padding: 24px 0;
+    }
+    
+    .studio-hero-images,
+    .studio-info-container {
+        padding: 0 12px;
+    }
+    
+    .studio-badges .badge {
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+}
+
+/* ============================================
+   ELEMENTOR SPECIFIC OVERRIDES
+   ============================================ */
+
+/* Ensure GeoDirectory widgets match brand */
+.elementor-widget-geodir-post-title .geodir-post-title {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+    color: #2C3E3A !important;
+}
+
+.elementor-widget-geodir-post-rating .geodir-post-rating {
+    font-family: 'Inter', sans-serif !important;
+}
+
+.elementor-widget-geodir-post-address .geodir-post-address {
+    font-family: 'Inter', sans-serif !important;
+    color: #6B7C78 !important;
+}
+
+/* Button widget overrides */
+.elementor-widget-button .elementor-button {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.elementor-widget-button .elementor-button:hover {
+    transform: translateY(-2px) !important;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Text Colors */
+.text-primary {
+    color: #2C3E3A;
+}
+
+.text-secondary {
+    color: #6B7C78;
+}
+
+.text-accent {
+    color: #FF5733;
+}
+
+.text-teal {
+    color: #61948B;
+}
+
+/* Background Colors */
+.bg-light {
+    background-color: #F8FAFA;
+}
+
+.bg-white {
+    background-color: #FFFFFF;
+}
+
+/* Spacing Utilities */
+.mb-8 {
+    margin-bottom: 8px;
+}
+
+.mb-16 {
+    margin-bottom: 16px;
+}
+
+.mb-24 {
+    margin-bottom: 24px;
+}
+
+.mt-16 {
+    margin-top: 16px;
+}
+
+.mt-24 {
+    margin-top: 24px;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.studio-hero-section .elementor-element {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.studio-hero-section .elementor-element:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.studio-hero-section .elementor-element:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.studio-hero-section .elementor-element:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* ============================================
+   PRINT STYLES (Optional)
+   ============================================ */
+
+@media print {
+    .studio-action-buttons {
+        display: none;
+    }
+    
+    .studio-badges {
+        display: none;
+    }
+}
+
+
+

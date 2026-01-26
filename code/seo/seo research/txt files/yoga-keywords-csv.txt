@@ -1,0 +1,141 @@
+Type,Keyword
+Short-tail,yoga studios
+Short-tail,yoga classes
+Short-tail,yoga types
+Short-tail,yoga directory
+Short-tail,online yoga
+Short-tail,yoga reviews
+Short-tail,yoga teachers
+Short-tail,yoga retreats
+Short-tail,hot yoga
+Short-tail,yoga business
+Short-tail,yoga locations
+Short-tail,yoga pricing
+Short-tail,yoga schedule
+Short-tail,yoga membership
+Short-tail,yoga community
+Short-tail,yoga tutorials
+Short-tail,yoga certification
+Short-tail,yoga training
+Short-tail,yoga events
+Short-tail,yoga benefits
+Informational,yoga studios near me
+Informational,types of yoga classes explained
+Informational,what is hot yoga
+Informational,difference between vinyasa and hatha yoga
+Informational,best time of day for yoga practice
+Informational,yoga for beginners near me
+Informational,online yoga classes for beginners
+Informational,how to choose the right yoga studio
+Informational,what to expect in first yoga class
+Informational,yoga studio reviews in my area
+Informational,benefits of different yoga styles
+Informational,yoga studios with childcare
+Informational,accessible yoga classes for seniors
+Informational,prenatal yoga studios nearby
+Informational,yoga certification requirements
+Informational,international yoga retreat locations
+Informational,how often should I practice yoga
+Informational,yoga studio etiquette for beginners
+Informational,best yoga styles for flexibility
+Informational,yoga classes with meditation
+Informational,comparing yoga studios in my city
+Informational,yoga studios that offer teacher training
+Informational,what equipment do I need for yoga
+Informational,yoga classes in English while traveling
+Informational,how to read yoga studio reviews
+Informational,yoga studio directory
+Informational,online yoga classes
+Informational,types of yoga
+Informational,yoga for beginners
+Informational,how to teach yoga
+Informational,yoga business help
+Informational,local yoga listings
+Informational,studio marketing tips
+Informational,why yoga reviews matter
+Informational,what is vinyasa
+Informational,how to stream yoga
+Informational,benefits of online yoga
+Informational,virtual yoga platform
+Informational,attract yoga students
+Informational,studio hours best practices
+Commercial,best rated yoga studios near me
+Commercial,affordable yoga studios in my area
+Commercial,yoga studio membership comparison
+Commercial,online vs in-person yoga classes
+Commercial,best yoga studios for beginners
+Commercial,luxury yoga studios with amenities
+Commercial,yoga studios with flexible scheduling
+Commercial,top-rated hot yoga studios
+Commercial,yoga studios with experienced teachers
+Commercial,monthly unlimited yoga class packages
+Commercial,yoga studio trials or intro offers
+Commercial,corporate yoga class providers
+Commercial,yoga studios with private sessions
+Commercial,best yoga apps with studio directories
+Commercial,yoga studios with multiple locations
+Commercial,international yoga studio chains
+Commercial,yoga retreats with certified instructors
+Commercial,best yoga studios for specific styles
+Commercial,yoga studios with virtual class options
+Commercial,family-friendly yoga studios
+Commercial,yoga studio rating platforms
+Commercial,yoga studios with bilingual instructors
+Commercial,eco-friendly yoga studios
+Commercial,yoga studios with specialized equipment
+Commercial,yoga studio software for business owners
+Commercial,best yoga software
+Commercial,yoga studio software
+Commercial,yoga class tools
+Commercial,top yoga directories
+Commercial,yoga review platform
+Commercial,list yoga business
+Commercial,yoga studio promotion
+Commercial,yoga marketing software
+Commercial,local yoga advertising
+Commercial,yoga studio solutions
+Commercial,compare yoga platforms
+Commercial,tools for yoga instructors
+Commercial,small studio software
+Commercial,yoga class scheduler
+Commercial,online yoga software
+Transactional,book yoga class near me
+Transactional,yoga studio free trial class
+Transactional,sign up for yoga membership
+Transactional,purchase yoga class package
+Transactional,register for online yoga session
+Transactional,book private yoga instructor
+Transactional,reserve spot in popular yoga class
+Transactional,join yoga studio monthly membership
+Transactional,buy yoga class gift certificate
+Transactional,schedule yoga trial class
+Transactional,enroll in yoga teacher training
+Transactional,pay for yoga workshop
+Transactional,book spot in yoga retreat
+Transactional,register yoga studio on directory
+Transactional,claim yoga studio business listing
+Transactional,submit yoga studio review
+Transactional,advertise yoga studio online
+Transactional,upgrade yoga studio membership
+Transactional,renew yoga studio subscription
+Transactional,purchase virtual yoga class pass
+Transactional,register new yoga student account
+Transactional,book international yoga retreat
+Transactional,sign up for yoga studio newsletter
+Transactional,schedule yoga business consultation
+Transactional,update yoga studio listing
+Transactional,list studio now
+Transactional,join yoga directory
+Transactional,sign up yoga
+Transactional,create class listing
+Transactional,add virtual class
+Transactional,register yoga studio
+Transactional,claim yoga listing
+Transactional,start free trial yoga
+Transactional,upgrade yoga plan
+Transactional,get more reviews
+Transactional,setup online teaching
+Transactional,buy yoga software
+Transactional,enroll in directory
+Transactional,yoga ad package
+Transactional,submit class info

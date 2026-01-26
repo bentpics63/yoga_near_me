@@ -1,0 +1,186 @@
+/**
+ * FINAL OVERRIDE - Add this VERY LAST in WordPress Customizer CSS
+ * This MUST be at the bottom to override everything
+ */
+
+/* ============================================
+   FORCE OVERRIDE: Orange Yoga Badges → Teal Pills
+   ============================================ */
+
+/* Ultra-specific selectors to override existing orange styles */
+body.single-gd_place .geodir-fv-kundalini,
+body.single-gd_place .geodir-fv-power,
+body.single-gd_place .geodir-fv-vinyassa-yoga,
+body.single-gd_place .geodir-fv-hatha-yoga,
+body.single-gd_place .geodir-fv-yin-yoga,
+body.single-gd_place .geodir-fv-prenatal-yoga,
+body.single-gd_place .geodir-fv-ashtanga-yoga,
+body.single-gd_place .geodir-fv-restorative-yoga,
+body.single-gd_place .geodir-fv-rocket-yoga,
+body.single-gd_place .geodir-fv-aerial-yoga,
+body.single-gd_place .geodir-fv-iyengar-yoga,
+body.single-gd_place .geodir-fv-dharma-yoga,
+body.single-gd_place [class*="geodir-fv-"][class*="yoga"],
+body.single-gd_place [class*="geodir-fv-"][class*="ashtanga"],
+body.single-gd_place [class*="geodir-fv-"][class*="hatha"],
+body.single-gd_place [class*="geodir-fv-"][class*="vinyassa"] {
+    background-color: #FFFFFF !important;
+    color: #61948B !important;
+    border: 2px solid #61948B !important;
+    border-width: 2px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin: 2px 6px 2px 0 !important;
+    position: relative !important;
+}
+
+/* Add star icon BEFORE text */
+body.single-gd_place .geodir-fv-kundalini::before,
+body.single-gd_place .geodir-fv-power::before,
+body.single-gd_place .geodir-fv-vinyassa-yoga::before,
+body.single-gd_place .geodir-fv-hatha-yoga::before,
+body.single-gd_place .geodir-fv-yin-yoga::before,
+body.single-gd_place .geodir-fv-prenatal-yoga::before,
+body.single-gd_place .geodir-fv-ashtanga-yoga::before,
+body.single-gd_place .geodir-fv-restorative-yoga::before,
+body.single-gd_place .geodir-fv-rocket-yoga::before,
+body.single-gd_place .geodir-fv-aerial-yoga::before,
+body.single-gd_place .geodir-fv-iyengar-yoga::before,
+body.single-gd_place .geodir-fv-dharma-yoga::before {
+    content: "★" !important;
+    color: #61948B !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+    margin-right: 0 !important;
+    display: inline-block !important;
+}
+
+/* Hover effect */
+body.single-gd_place .geodir-fv-kundalini:hover,
+body.single-gd_place .geodir-fv-power:hover,
+body.single-gd_place .geodir-fv-vinyassa-yoga:hover,
+body.single-gd_place .geodir-fv-hatha-yoga:hover,
+body.single-gd_place .geodir-fv-yin-yoga:hover,
+body.single-gd_place .geodir-fv-prenatal-yoga:hover,
+body.single-gd_place .geodir-fv-ashtanga-yoga:hover,
+body.single-gd_place .geodir-fv-restorative-yoga:hover,
+body.single-gd_place .geodir-fv-rocket-yoga:hover,
+body.single-gd_place .geodir-fv-aerial-yoga:hover,
+body.single-gd_place .geodir-fv-iyengar-yoga:hover,
+body.single-gd_place .geodir-fv-dharma-yoga:hover {
+    background-color: #F8FAFA !important;
+    color: #61948B !important;
+    border-color: #61948B !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(97, 148, 139, 0.15) !important;
+}
+
+/* ============================================
+   FORCE OVERRIDE: Orange Amenity Badges → Teal
+   ============================================ */
+
+body.single-gd_place .geodir-fv-parking,
+body.single-gd_place .geodir-fv-changing-room,
+body.single-gd_place .geodir-fv-restroom,
+body.single-gd_place .geodir-fv-heated-room,
+body.single-gd_place .geodir-fv-mat-rental,
+body.single-gd_place .geodir-fv-props,
+body.single-gd_place .geodir-fv-meditation,
+body.single-gd_place .geodir-fv-childcare {
+    background-color: #FFFFFF !important;
+    color: #61948B !important;
+    border: 2px solid #61948B !important;
+    border-width: 2px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    font-size: 14px !important;
+    margin: 2px 6px 2px 0 !important;
+}
+
+/* ============================================
+   ADD ORANGE DOTS TO SECTION HEADINGS
+   ============================================ */
+
+/* Target ALL headings except h1 (main title) */
+body.single-gd_place h2,
+body.single-gd_place h3,
+body.single-gd_place h4,
+body.single-gd_place .elementor-heading-title:not(h1),
+body.single-gd_place .elementor-widget-heading h2.elementor-heading-title,
+body.single-gd_place .elementor-widget-heading h3.elementor-heading-title,
+body.elementor-location-single h2,
+body.elementor-location-single h3 {
+    position: relative !important;
+    padding-left: 24px !important;
+}
+
+/* Add orange dot BEFORE headings */
+body.single-gd_place h2::before,
+body.single-gd_place h3::before,
+body.single-gd_place h4::before,
+body.single-gd_place .elementor-heading-title:not(h1)::before,
+body.single-gd_place .elementor-widget-heading h2.elementor-heading-title::before,
+body.single-gd_place .elementor-widget-heading h3.elementor-heading-title::before,
+body.elementor-location-single h2::before,
+body.elementor-location-single h3::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+}
+
+/* Make sure h1 (main title) doesn't get an icon */
+body.single-gd_place h1::before,
+body.single-gd_place .geodir-post-title::before,
+body.single-gd_place h1.elementor-heading-title::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    body.single-gd_place h2,
+    body.single-gd_place h3,
+    body.single-gd_place .elementor-heading-title {
+        padding-left: 20px !important;
+    }
+    
+    body.single-gd_place h2::before,
+    body.single-gd_place h3::before {
+        font-size: 10px !important;
+    }
+    
+    body.single-gd_place .geodir-fv-kundalini,
+    body.single-gd_place .geodir-fv-power,
+    body.single-gd_place .geodir-fv-vinyassa-yoga,
+    body.single-gd_place .geodir-fv-hatha-yoga,
+    body.single-gd_place .geodir-fv-yin-yoga,
+    body.single-gd_place .geodir-fv-prenatal-yoga,
+    body.single-gd_place .geodir-fv-ashtanga-yoga,
+    body.single-gd_place .geodir-fv-restorative-yoga,
+    body.single-gd_place .geodir-fv-rocket-yoga,
+    body.single-gd_place .geodir-fv-aerial-yoga,
+    body.single-gd_place .geodir-fv-iyengar-yoga,
+    body.single-gd_place .geodir-fv-dharma-yoga {
+        padding: 6px 12px !important;
+        font-size: 13px !important;
+    }
+}
+

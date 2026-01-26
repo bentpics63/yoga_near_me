@@ -1,0 +1,608 @@
+/**
+ * FINAL COMPLETE STYLING FOR SINGLE STUDIO PAGE
+ * This is the comprehensive CSS file that fixes all styling issues
+ * Add this to WordPress Customizer → Additional CSS (at the very bottom)
+ * 
+ * This file addresses:
+ * - Button text colors (white text on colored buttons)
+ * - Pink text removal
+ * - Badge styling (verified teal, featured/sponsored orange)
+ * - Yoga styles pills (teal borders, white background)
+ * - Amenities styling
+ * - Section headings (orange dots only, no duplicate icons)
+ * - Social buttons (orange theme)
+ * - Overall page structure
+ */
+
+/* ============================================
+   GLOBAL STYLING
+   ============================================ */
+
+body.single-gd_place {
+    background: #F8F9FA !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    color: #222222 !important;
+}
+
+/* ============================================
+   SECTION CARDS - White cards with shadows
+   ============================================ */
+
+body.single-gd_place .elementor-section:not(.elementor-section-boxed):not(.elementor-inner-section),
+body.single-gd_place .elementor-widget-container,
+body.single-gd_place .elementor-column-wrap {
+    background: #FFFFFF !important;
+    border-radius: 12px !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    border: 1px solid #E0E0E0 !important;
+}
+
+/* Don't double-pad nested sections */
+body.single-gd_place .elementor-section .elementor-section {
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* ============================================
+   HEADINGS - Orange dots only (remove SVG icons)
+   ============================================ */
+
+/* Remove ALL SVG icons from headings */
+body.single-gd_place .elementor-heading-title svg,
+body.single-gd_place h2 svg,
+body.single-gd_place h3 svg,
+body.single-gd_place h4 svg,
+body.single-gd_place .elementor-widget-heading .elementor-heading-title svg,
+body.single-gd_place .elementor-widget-heading svg {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Add orange dots to headings */
+body.single-gd_place .elementor-heading-title:not(h1),
+body.single-gd_place h2:not(.geodir-post-title),
+body.single-gd_place h3,
+body.single-gd_place h4 {
+    position: relative !important;
+    padding-left: 24px !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #222222 !important;
+    margin-bottom: 16px !important;
+}
+
+body.single-gd_place .elementor-heading-title:not(h1)::before,
+body.single-gd_place h2:not(.geodir-post-title)::before,
+body.single-gd_place h3::before,
+body.single-gd_place h4::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+}
+
+/* Don't add dots to main title (h1) */
+body.single-gd_place h1::before,
+body.single-gd_place .geodir-post-title::before,
+body.single-gd_place h1.elementor-heading-title::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* ============================================
+   STUDIO NAME/TITLE
+   ============================================ */
+
+body.single-gd_place .geodir-post-title,
+body.single-gd_place h1.geodir-post-title,
+body.single-gd_place [class*="post-title"],
+body.single-gd_place .elementor-widget-geodir-post-title .geodir-post-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+    font-weight: 700 !important;
+    color: #222222 !important;
+    margin-bottom: 8px !important;
+    padding-left: 0 !important;
+}
+
+/* ============================================
+   BADGES - Verified (teal) and Featured/Sponsored (orange)
+   ============================================ */
+
+/* Verified badge - Teal */
+body.single-gd_place .badge-verified,
+body.single-gd_place .badge.verified,
+body.single-gd_place [class*="verified"],
+body.single-gd_place .studio-badges .badge[class*="verified"],
+body.single-gd_place .geodir-post-meta[data-key="studio_verified"] {
+    background: rgba(97, 148, 139, 0.12) !important;
+    color: #61948B !important;
+    border: none !important;
+    padding: 6px 12px !important;
+    border-radius: 20px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+/* Featured/Sponsored badge - Orange */
+body.single-gd_place .badge-featured,
+body.single-gd_place .badge.sponsored,
+body.single-gd_place .badge.featured,
+body.single-gd_place [class*="featured"],
+body.single-gd_place [class*="sponsored"],
+body.single-gd_place .studio-badges .badge[class*="featured"],
+body.single-gd_place .studio-badges .badge[class*="sponsored"] {
+    background: rgba(255, 87, 51, 0.12) !important;
+    color: #FF5733 !important;
+    border: none !important;
+    padding: 6px 12px !important;
+    border-radius: 20px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+/* ============================================
+   BUTTONS - White text on colored backgrounds
+   ============================================ */
+
+/* ALL Elementor buttons - ensure white text if background is colored */
+body.single-gd_place .elementor-button,
+body.single-gd_place .elementor-button-link,
+body.single-gd_place a.elementor-button,
+body.single-gd_place .elementor-widget-button .elementor-button {
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+    transition: all 0.2s ease !important;
+}
+
+/* "Book a Class" - Orange */
+body.single-gd_place .elementor-widget-button:first-of-type .elementor-button,
+body.single-gd_place .elementor-button[href*="book"],
+body.single-gd_place .elementor-button[href*="Book"] {
+    background-color: #FF5733 !important;
+    background: #FF5733 !important;
+    border-color: #FF5733 !important;
+    color: #FFFFFF !important;
+}
+
+body.single-gd_place .elementor-widget-button:first-of-type .elementor-button:hover {
+    background-color: #E64A2A !important;
+    background: #E64A2A !important;
+}
+
+/* "Save" - Teal */
+body.single-gd_place .elementor-widget-button:nth-of-type(2) .elementor-button {
+    background-color: #61948B !important;
+    background: #61948B !important;
+    border-color: #61948B !important;
+    color: #FFFFFF !important;
+}
+
+body.single-gd_place .elementor-widget-button:nth-of-type(2) .elementor-button:hover {
+    background-color: #4F7A73 !important;
+}
+
+/* "Claim Listing" - Orange */
+body.single-gd_place .elementor-button[href*="claim"],
+body.single-gd_place .elementor-button[href*="Claim"],
+body.single-gd_place .elementor-button[href*="listing"],
+body.single-gd_place .elementor-button[href*="Listing"] {
+    background-color: #FF5733 !important;
+    background: #FF5733 !important;
+    border-color: #FF5733 !important;
+    color: #FFFFFF !important;
+}
+
+/* "Get Directions" - Orange */
+body.single-gd_place .elementor-button[href*="directions"],
+body.single-gd_place .elementor-button[href*="Directions"],
+body.single-gd_place .elementor-button[href*="maps"] {
+    background-color: #FF5733 !important;
+    background: #FF5733 !important;
+    border-color: #FF5733 !important;
+    color: #FFFFFF !important;
+}
+
+/* Button icons/SVG - white */
+body.single-gd_place .elementor-button svg,
+body.single-gd_place .elementor-button-link svg {
+    fill: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+    color: #FFFFFF !important;
+}
+
+/* ============================================
+   BUTTON POSITIONING & LAYOUT
+   ============================================ */
+
+/* Studio Header Layout - Flex container for title and buttons */
+body.single-gd_place .studio-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 24px !important;
+    flex-wrap: wrap !important;
+    margin-top: 24px !important;
+}
+
+/* Button Container - Horizontal flex row */
+body.single-gd_place .studio-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 16px !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+}
+
+/* Elementor Row/Container with buttons - make flex */
+body.single-gd_place .elementor-row,
+body.single-gd_place .elementor-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 16px !important;
+    align-items: flex-start !important;
+}
+
+/* Elementor Column containing buttons - make flex row */
+body.single-gd_place .elementor-column .elementor-widget-button {
+    display: inline-flex !important;
+    margin-right: 16px !important;
+    margin-bottom: 0 !important;
+}
+
+/* Ensure button widgets are inline */
+body.single-gd_place .elementor-widget-button {
+    display: inline-flex !important;
+    flex-shrink: 0 !important;
+    margin-right: 16px !important;
+    margin-bottom: 0 !important;
+    vertical-align: middle !important;
+}
+
+body.single-gd_place .elementor-widget-button:last-child {
+    margin-right: 0 !important;
+}
+
+/* Button wrapper - ensure inline */
+body.single-gd_place .elementor-widget-button .elementor-button-wrapper {
+    display: inline-flex !important;
+    margin: 0 !important;
+}
+
+/* If buttons are in same column, make column flex row */
+body.single-gd_place .elementor-column.elementor-col-50 .elementor-widget-button,
+body.single-gd_place .elementor-column.elementor-col-33 .elementor-widget-button,
+body.single-gd_place .elementor-column.elementor-col-25 .elementor-widget-button {
+    display: inline-flex !important;
+}
+
+/* Hero section - ensure proper layout */
+body.single-gd_place .elementor-section .elementor-container .elementor-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 24px !important;
+    flex-wrap: wrap !important;
+}
+
+/* Responsive - stack buttons on mobile if needed */
+@media (max-width: 768px) {
+    body.single-gd_place .studio-actions {
+        width: 100% !important;
+    }
+    
+    body.single-gd_place .elementor-widget-button {
+        flex: 1 1 auto !important;
+        margin-right: 8px !important;
+    }
+    
+    body.single-gd_place .elementor-widget-button:last-child {
+        margin-right: 0 !important;
+    }
+}
+
+/* ============================================
+   SOCIAL/SHARE BUTTONS - Orange theme
+   ============================================ */
+
+body.single-gd_place .elementor-share-buttons,
+body.single-gd_place .elementor-widget-share-buttons,
+body.single-gd_place .elementor-share-btn,
+body.single-gd_place .elementor-share-buttons__button,
+body.single-gd_place .elementor-social-icon {
+    background-color: rgba(255, 87, 51, 0.1) !important;
+    background: rgba(255, 87, 51, 0.1) !important;
+    border-color: rgba(255, 87, 51, 0.2) !important;
+    border: 1px solid rgba(255, 87, 51, 0.2) !important;
+    color: #FF5733 !important;
+    border-radius: 50% !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+body.single-gd_place .elementor-share-btn svg,
+body.single-gd_place .elementor-share-buttons__button svg,
+body.single-gd_place .elementor-social-icon svg,
+body.single-gd_place .elementor-share-buttons__icon svg {
+    fill: #FF5733 !important;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+body.single-gd_place .elementor-share-btn:hover,
+body.single-gd_place .elementor-share-buttons__button:hover,
+body.single-gd_place .elementor-social-icon:hover {
+    background-color: #FF5733 !important;
+    background: #FF5733 !important;
+    color: #FFFFFF !important;
+    border-color: #FF5733 !important;
+}
+
+body.single-gd_place .elementor-share-btn:hover svg,
+body.single-gd_place .elementor-share-buttons__button:hover svg,
+body.single-gd_place .elementor-social-icon:hover svg {
+    fill: #FFFFFF !important;
+}
+
+/* ============================================
+   YOGA STYLES PILLS - Teal borders, white background
+   ============================================ */
+
+body.single-gd_place .style-tag,
+body.single-gd_place [class*="yoga-style"],
+body.single-gd_place .geodir-post-meta[data-key="yoga_styles"] .geodir-meta-value,
+body.single-gd_place .geodir-post-meta .geodir-fv-kundalini,
+body.single-gd_place .geodir-post-meta .geodir-fv-power,
+body.single-gd_place .geodir-post-meta .geodir-fv-vinyassa-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-hatha-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-yin-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-prenatal-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-ashtanga-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-restorative-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-rocket-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-aerial-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-iyengar-yoga,
+body.single-gd_place .geodir-post-meta .geodir-fv-dharma-yoga {
+    background-color: #FFFFFF !important;
+    background: #FFFFFF !important;
+    color: #61948B !important;
+    border: 2px solid #61948B !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin: 2px 6px 2px 0 !important;
+    position: relative !important;
+}
+
+/* Add star icon to yoga badges */
+body.single-gd_place .geodir-post-meta .geodir-fv-kundalini::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-power::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-vinyassa-yoga::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-hatha-yoga::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-yin-yoga::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-prenatal-yoga::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-ashtanga-yoga::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-restorative-yoga::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-rocket-yoga::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-aerial-yoga::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-iyengar-yoga::before,
+body.single-gd_place .geodir-post-meta .geodir-fv-dharma-yoga::before,
+body.single-gd_place .style-tag::before {
+    content: "★" !important;
+    color: #61948B !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+    margin-right: 0 !important;
+    display: inline-block !important;
+}
+
+body.single-gd_place .style-tag:hover,
+body.single-gd_place [class*="yoga-style"]:hover {
+    background-color: #61948B !important;
+    background: #61948B !important;
+    color: #FFFFFF !important;
+    color: white !important;
+    border-color: #61948B !important;
+}
+
+body.single-gd_place .style-tag:hover::before,
+body.single-gd_place [class*="yoga-style"]:hover::before {
+    color: #FFFFFF !important;
+}
+
+/* ============================================
+   AMENITIES - Icon grid styling
+   ============================================ */
+
+body.single-gd_place .amenity-item,
+body.single-gd_place [class*="amenity"],
+body.single-gd_place .geodir-post-meta[data-key="amenities"] .geodir-meta-value {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 12px !important;
+    background: #F8F9FA !important;
+    border-radius: 8px !important;
+    font-size: 0.9rem !important;
+    color: #222222 !important;
+}
+
+body.single-gd_place .amenity-item svg,
+body.single-gd_place [class*="amenity"] svg {
+    width: 20px !important;
+    height: 20px !important;
+    fill: #61948B !important;
+    flex-shrink: 0 !important;
+}
+
+/* ============================================
+   REMOVE PINK TEXT - Fix all pink text issues
+   ============================================ */
+
+body.single-gd_place .elementor-widget-text-editor,
+body.single-gd_place .elementor-widget-html,
+body.single-gd_place .elementor-text-editor,
+body.single-gd_place .geodir-post-address,
+body.single-gd_place .geodir-post-meta,
+body.single-gd_place .contact-value,
+body.single-gd_place [style*="color: pink"],
+body.single-gd_place [style*="color: #FF"][style*="background"] {
+    color: #222222 !important;
+}
+
+/* But preserve links */
+body.single-gd_place .elementor-widget-text-editor a,
+body.single-gd_place .elementor-widget-html a,
+body.single-gd_place .geodir-post-address a,
+body.single-gd_place .contact-value a {
+    color: #61948B !important;
+    text-decoration: none !important;
+}
+
+body.single-gd_place .elementor-widget-text-editor a:hover,
+body.single-gd_place .geodir-post-address a:hover {
+    text-decoration: underline !important;
+}
+
+/* "View All" link - Teal */
+body.single-gd_place a[href*="view-all"],
+body.single-gd_place a[href*="View-All"],
+body.single-gd_place .elementor-widget-text-editor a[href*="view"] {
+    color: #61948B !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+}
+
+body.single-gd_place a[href*="view-all"]:hover,
+body.single-gd_place a[href*="View-All"]:hover {
+    text-decoration: underline !important;
+}
+
+/* ============================================
+   REVIEWS SECTION
+   ============================================ */
+
+body.single-gd_place .geodir-post-rating,
+body.single-gd_place .elementor-widget-geodir-post-rating {
+    color: #222222 !important;
+}
+
+body.single-gd_place .geodir-stars svg,
+body.single-gd_place .geodir-rating svg {
+    fill: #F5A623 !important;
+}
+
+/* ============================================
+   MAP SECTION
+   ============================================ */
+
+body.single-gd_place .elementor-widget-google_maps,
+body.single-gd_place [class*="map"] {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    margin-bottom: 16px !important;
+}
+
+/* ============================================
+   NEARBY STUDIOS SECTION
+   ============================================ */
+
+body.single-gd_place [class*="nearby"],
+body.single-gd_place [class*="Nearby"] {
+    background: #FFFFFF !important;
+    padding: 40px 24px !important;
+    margin-top: 40px !important;
+}
+
+body.single-gd_place [class*="nearby"] .elementor-heading-title,
+body.single-gd_place [class*="Nearby"] h2 {
+    font-size: 1.5rem !important;
+    margin-bottom: 24px !important;
+}
+
+/* ============================================
+   PLACEHOLDERS - Style them better
+   ============================================ */
+
+body.single-gd_place [class*="placeholder"],
+body.single-gd_place [class*="Placeholder"] {
+    color: #888888 !important;
+    font-style: italic !important;
+    background: #F8F9FA !important;
+    padding: 12px !important;
+    border-radius: 8px !important;
+    border: 1px dashed #E0E0E0 !important;
+}
+
+/* ============================================
+   REMOVE FOOTER DOTS
+   ============================================ */
+
+footer.ynm-footer *::before,
+footer.ynm-footer h1::before,
+footer.ynm-footer h2::before,
+footer.ynm-footer h3::before,
+footer.ynm-footer h4::before,
+footer.ynm-footer .elementor-heading-title::before {
+    display: none !important;
+    content: none !important;
+    visibility: hidden !important;
+}
+
+footer.ynm-footer h1,
+footer.ynm-footer h2,
+footer.ynm-footer h3,
+footer.ynm-footer h4,
+footer.ynm-footer .elementor-heading-title {
+    padding-left: 0 !important;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    body.single-gd_place .elementor-section {
+        padding: 16px !important;
+    }
+    
+    body.single-gd_place .elementor-heading-title,
+    body.single-gd_place h2 {
+        font-size: 1.1rem !important;
+        padding-left: 20px !important;
+    }
+    
+    body.single-gd_place .elementor-button {
+        padding: 10px 20px !important;
+        font-size: 0.9rem !important;
+    }
+}
+

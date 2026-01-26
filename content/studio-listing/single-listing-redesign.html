@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Listing Redesign - Component Reference</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-slate: #667085;
+            --primary-slate-dark: #475467;
+            --accent-coral: #e95c4b;
+            --accent-coral-dark: #bd3000;
+            --accent-green: #12B76A;
+            --white: #FFFFFF;
+            --gray-50: #F9FAFB;
+            --gray-100: #F2F4F7;
+            --gray-200: #E4E7EC;
+            --gray-300: #D0D5DD;
+            --gray-500: #667085;
+            --gray-700: #344054;
+            --gray-900: #101828;
+            --text-primary: #101828;
+            --text-secondary: #475467;
+            --text-tertiary: #667085;
+            --border-light: #E4E7EC;
+            --shadow-sm: 0 1px 3px rgba(16, 24, 40, 0.1);
+            --shadow-md: 0 4px 12px rgba(16, 24, 40, 0.1);
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            background: var(--gray-50);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-label {
+            background: var(--accent-coral);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            display: inline-block;
+            border-radius: var(--radius-sm);
+        }
+
+        .component-section {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .component-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .component-description {
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        /* =====================================================
+           HERO SECTION ENHANCEMENTS
+           ===================================================== */
+
+        .hero-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .studio-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+            border: 2px solid var(--border-light);
+            flex-shrink: 0;
+        }
+
+        .studio-info {
+            flex: 1;
+        }
+
+        .studio-name {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .studio-tagline {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 0.75rem;
+        }
+
+        .studio-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .rating-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stars {
+            color: #F59E0B;
+            font-size: 0.875rem;
+        }
+
+        .rating-number {
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .review-count {
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+        }
+
+        .meta-divider {
+            width: 4px;
+            height: 4px;
+            background: var(--gray-300);
+            border-radius: 50%;
+        }
+
+        .location-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .location-badge i {
+            color: var(--accent-coral);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-badge.open {
+            background: #ECFDF3;
+            color: #027A48;
+        }
+
+        .status-badge.closed {
+            background: #FEF3F2;
+            color: #B42318;
+        }
+
+        .established-badge {
+            color: var(--text-tertiary);
+            font-size: 0.8125rem;
+        }
+
+        /* Trust Badges Row */
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.75rem;
+            background: var(--gray-50);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .trust-badge img {
+            height: 16px;
+            width: auto;
+        }
+
+        .trust-badge.yoga-alliance {
+            background: #FFF7ED;
+            border-color: #FDBA74;
+            color: #9A3412;
+        }
+
+        .trust-badge i {
+            font-size: 0.875rem;
+        }
+
+        .trust-badge .fa-google {
+            color: #4285F4;
+        }
+
+        .trust-badge .fa-yelp {
+            color: #D32323;
+        }
+
+        /* =====================================================
+           NEW: QUICK INFO BAR
+           ===================================================== */
+
+        .quick-info-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            padding: 1rem 1.5rem;
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+            margin-bottom: 1.5rem;
+        }
+
+        .quick-info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quick-info-item i {
+            color: var(--accent-coral);
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .quick-info-label {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .quick-info-value {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        /* =====================================================
+           NEW: YOGA STYLES SECTION
+           ===================================================== */
+
+        .styles-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .style-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+
+        .style-tag:hover {
+            border-color: var(--accent-coral);
+            color: var(--accent-coral);
+        }
+
+        .style-tag.primary {
+            background: var(--accent-coral);
+            border-color: var(--accent-coral);
+            color: white;
+        }
+
+        .style-tag i {
+            font-size: 0.75rem;
+        }
+
+        .heated-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.75rem;
+            background: #FEF3C7;
+            border: 1px solid #F59E0B;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #92400E;
+            margin-left: 0.5rem;
+        }
+
+        .heated-indicator i {
+            color: #F59E0B;
+        }
+
+        /* =====================================================
+           NEW: PRICING SECTION
+           ===================================================== */
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .pricing-card {
+            padding: 1.25rem;
+            background: var(--gray-50);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, var(--accent-coral) 0%, var(--accent-coral-dark) 100%);
+            border-color: var(--accent-coral);
+            color: white;
+        }
+
+        .pricing-card.featured .pricing-label,
+        .pricing-card.featured .pricing-details {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .pricing-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-tertiary);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-amount {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .pricing-details {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+
+        /* New Student Offer Banner */
+        .new-student-offer {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+            border: 1px solid var(--accent-green);
+            border-radius: var(--radius-md);
+            margin-top: 1rem;
+        }
+
+        .offer-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .offer-content {
+            flex: 1;
+        }
+
+        .offer-title {
+            font-weight: 700;
+            color: #065F46;
+            margin-bottom: 0.125rem;
+        }
+
+        .offer-details {
+            font-size: 0.875rem;
+            color: #047857;
+        }
+
+        /* =====================================================
+           NEW: TEACHERS SECTION
+           ===================================================== */
+
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .teacher-card {
+            text-align: center;
+            padding: 1.25rem 1rem;
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+        }
+
+        .teacher-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 0.75rem;
+            border: 2px solid white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .teacher-avatar.placeholder {
+            background: var(--primary-slate);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .teacher-name {
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .teacher-role {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            margin-bottom: 0.5rem;
+        }
+
+        .teacher-credentials {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.25rem;
+        }
+
+        .credential-badge {
+            font-size: 0.625rem;
+            font-weight: 600;
+            padding: 0.125rem 0.5rem;
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 9999px;
+            color: var(--text-secondary);
+        }
+
+        .credential-badge.primary {
+            background: var(--primary-slate);
+            border-color: var(--primary-slate);
+            color: white;
+        }
+
+        .view-all-teachers {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: white;
+            border: 1px dashed var(--border-light);
+            border-radius: var(--radius-md);
+            color: var(--accent-coral);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .view-all-teachers:hover {
+            background: var(--gray-50);
+            border-style: solid;
+            border-color: var(--accent-coral);
+        }
+
+        /* =====================================================
+           NEW: PROGRAMS & SERVICES SECTION
+           ===================================================== */
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .program-card {
+            padding: 1.25rem;
+            background: var(--gray-50);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .program-card.available {
+            background: white;
+            border-color: var(--accent-coral);
+        }
+
+        .program-card.unavailable {
+            opacity: 0.5;
+        }
+
+        .program-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 0.75rem;
+            background: var(--gray-100);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--text-tertiary);
+        }
+
+        .program-card.available .program-icon {
+            background: var(--accent-coral);
+            color: white;
+        }
+
+        .program-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .program-status {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        .program-card.available .program-status {
+            color: var(--accent-green);
+            font-weight: 500;
+        }
+
+        /* =====================================================
+           NEW: FIRST VISIT INFO
+           ===================================================== */
+
+        .first-visit-section {
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+            border: 1px solid #7DD3FC;
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+        }
+
+        .first-visit-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            color: #0369A1;
+            margin-bottom: 1rem;
+        }
+
+        .first-visit-title i {
+            color: #0EA5E9;
+        }
+
+        .what-to-bring {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .bring-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.75rem;
+            background: white;
+            border-radius: var(--radius-sm);
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+
+        .bring-item i {
+            color: var(--accent-green);
+            font-size: 0.75rem;
+        }
+
+        .first-visit-note {
+            font-size: 0.875rem;
+            color: #0369A1;
+            line-height: 1.6;
+        }
+
+        /* =====================================================
+           ENHANCED: CONTACT SECTION WITH SOCIAL
+           ===================================================== */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gray-100);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-slate);
+            flex-shrink: 0;
+        }
+
+        .contact-label {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 0.125rem;
+        }
+
+        .contact-value {
+            font-weight: 500;
+            color: var(--gray-900);
+        }
+
+        .contact-value a {
+            color: var(--accent-coral);
+            text-decoration: none;
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--gray-100);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .social-link:hover {
+            background: var(--accent-coral);
+            color: white;
+        }
+
+        .social-link.website { background: var(--primary-slate); color: white; }
+        .social-link.instagram:hover { background: #E4405F; }
+        .social-link.facebook:hover { background: #1877F2; }
+
+        /* =====================================================
+           NEW: PRACTICAL INFO SECTION
+           ===================================================== */
+
+        .practical-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .practical-item {
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+        }
+
+        .practical-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: var(--text-tertiary);
+            margin-bottom: 0.5rem;
+        }
+
+        .practical-label i {
+            color: var(--accent-coral);
+        }
+
+        .practical-value {
+            font-size: 0.875rem;
+            color: var(--text-primary);
+        }
+
+        /* =====================================================
+           NEW: ACCESSIBILITY SECTION
+           ===================================================== */
+
+        .accessibility-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .accessibility-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.5rem 0.875rem;
+            background: #F0FDF4;
+            border: 1px solid #86EFAC;
+            border-radius: var(--radius-sm);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: #166534;
+        }
+
+        .accessibility-badge i {
+            color: var(--accent-green);
+        }
+
+        /* =====================================================
+           CTA BUTTONS
+           ===================================================== */
+
+        .cta-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent-coral);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-coral-dark);
+        }
+
+        .btn-secondary {
+            background: white;
+            border-color: var(--border-light);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-coral);
+            color: var(--accent-coral);
+        }
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 768px) {
+            .hero-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .studio-meta {
+                justify-content: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .teachers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Page Header */
+        .page-header {
+            background: var(--primary-slate);
+            color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-lg);
+        }
+
+        .page-header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="page-header">
+            <h1>Single Studio Listing - Component Reference</h1>
+            <p>Design specifications for new data displays on the studio listing page</p>
+        </div>
+
+        <!-- ============================================
+             COMPONENT 1: ENHANCED HERO SECTION
+             ============================================ -->
+        <div class="component-section">
+            <span class="section-label">Enhanced</span>
+            <h2 class="component-title">Hero Section with Logo & Trust Badges</h2>
+            <p class="component-description">Updated hero header showing studio logo, trust indicators, and key credentials</p>
+
+            <div class="hero-header">
+                <img src="https://via.placeholder.com/80x80/667085/ffffff?text=Logo" alt="Studio Logo" class="studio-logo">
+                <div class="studio-info">
+                    <h1 class="studio-name">Yoga Academy</h1>
+                    <p class="studio-tagline">"Where tradition meets transformation in the heart of Downtown LA"</p>
+                    <div class="studio-meta">
+                        <div class="rating-badge">
+                            <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
+                            <span class="rating-number">4.8</span>
+                            <span class="review-count">(127 reviews)</span>
+                        </div>
+                        <span class="meta-divider"></span>
+                        <span class="location-badge"><i class="fas fa-map-marker-alt"></i> Downtown LA</span>
+                        <span class="meta-divider"></span>
+                        <span class="status-badge open"><i class="fas fa-circle" style="font-size: 6px;"></i> Open - Closes 9 PM</span>
+                        <span class="meta-divider"></span>
+                        <span class="established-badge">Est. 2015</span>
+                    </div>
+
+                    <div class="trust-badges">
+                        <span class="trust-badge yoga-alliance"><i class="fas fa-certificate"></i> Yoga Alliance RYS-200</span>
+                        <span class="trust-badge"><i class="fab fa-google"></i> 4.7 (89 reviews)</span>
+                        <span class="trust-badge"><i class="fab fa-yelp"></i> 4.5 (156 reviews)</span>
+                        <span class="trust-badge"><i class="fas fa-check-circle" style="color: var(--accent-green);"></i> Verified Studio</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book a Class</a>
+                <a href="#" class="btn btn-secondary"><i class="fas fa-globe"></i> Visit Website</a>
+                <a href="#" class="btn btn-secondary"><i class="fas fa-phone"></i> Call Studio</a>
+            </div>
+        </div>
+
+        <!-- ============================================
+             COMPONENT 2: QUICK INFO BAR
+             ============================================ -->
+        <div class="component-section">
+            <span class="section-label">New</span>
+            <h2 class="component-title">Quick Info Bar</h2>
+            <p class="component-description">At-a-glance key information displayed below the hero</p>
+
+            <div class="quick-info-bar">
+                <div class="quick-info-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <div>
+                        <div class="quick-info-label">Drop-in</div>
+                        <div class="quick-info-value">$25</div>
+                    </div>
+                </div>
+                <div class="quick-info-item">
+                    <i class="fas fa-fire-alt"></i>
+                    <div>
+                        <div class="quick-info-label">Heated</div>
+                        <div class="quick-info-value">Yes</div>
+                    </div>
+                </div>
+                <div class="quick-info-item">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <div class="quick-info-label">Studio Size</div>
+                        <div class="quick-info-value">Medium (25 max)</div>
+                    </div>
+                </div>
+                <div class="quick-info-item">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <div>
+                        <div class="quick-info-label">Teachers</div>
+                        <div class="quick-info-value">8 instructors</div>
+                    </div>
+                </div>
+                <div class="quick-info-item">
+                    <i class="fas fa-signal"></i>
+                    <div>
+                        <div class="quick-info-label">Levels</div>
+                        <div class="quick-info-value">All Levels</div>
+                    </div>
+                </div>
+                <div class="quick-info-item">
+                    <i class="fas fa-video"></i>
+                    <div>
+                        <div class="quick-info-label">Virtual</div>
+                        <div class="quick-info-value">Available</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             COMPONENT 3: YOGA STYLES SECTION
+             ============================================ -->
+        <div class="component-section">
+            <span class="section-label">New</span>
+            <h2 class="component-title">Yoga Styles Offered</h2>
+            <p class="component-description">Visual display of all yoga styles with primary style highlighted</p>
+
+            <div class="styles-grid">
+                <span class="style-tag primary"><i class="fas fa-star"></i> Vinyasa Flow</span>
+                <span class="style-tag">Hatha</span>
+                <span class="style-tag">Hot Yoga <span class="heated-indicator"><i class="fas fa-fire-alt"></i> Heated</span></span>
+                <span class="style-tag">Yin</span>
+                <span class="style-tag">Restorative</span>
+                <span class="style-tag">Power Yoga</span>
+                <span class="style-tag">Prenatal</span>
+                <span class="style-tag">Yoga Nidra</span>
+            </div>
+
+            <p style="margin-top: 1rem; font-size: 0.8125rem; color: var(--text-tertiary);">
+                <i class="fas fa-signal" style="margin-right: 0.375rem;"></i>
+                <strong>Class Levels:</strong> Beginner, All Levels, Intermediate
+            </p>
+        </div>
+
+        <!-- ============================================
+             COMPONENT 4: PRICING SECTION
+             ============================================ -->
+        <div class="component-section">
+            <span class="section-label">New</span>
+            <h2 class="component-title">Pricing</h2>
+            <p class="component-description">Clear pricing display with new student offers highlighted</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-label">Drop-In</div>
+                    <div class="pricing-amount">$25</div>
+                    <div class="pricing-details">Single class</div>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-label">5-Class Pack</div>
+                    <div class="pricing-amount">$100</div>
+                    <div class="pricing-details">$20/class • 60 days</div>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-label">10-Class Pack</div>
+                    <div class="pricing-amount">$180</div>
+                    <div class="pricing-details">$18/class • 90 days</div>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-label">Monthly Unlimited</div>
+                    <div class="pricing-amount">$150</div>
+                    <div class="pricing-details">Best value for regulars</div>
+                </div>
+            </div>
+
+            <div class="new-student-offer">
+                <div class="offer-icon"><i class="fas fa-gift"></i></div>
+                <div class="offer-content">
+                    <div class="offer-title">New Student Special: 2 Weeks Unlimited for $40</div>
+                    <div class="offer-details">First-time visitors only • No commitment required</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             COMPONENT 5: TEACHERS SECTION
+             ============================================ -->
+        <div class="component-section">
+            <span class="section-label">New</span>
+            <h2 class="component-title">Our Teachers</h2>
+            <p class="component-description">Teacher profiles with credentials displayed</p>
+
+            <div class="teachers-grid">
+                <div class="teacher-card">
+                    <img src="https://via.placeholder.com/64x64/e95c4b/ffffff?text=JS" alt="Jane Smith" class="teacher-avatar">
+                    <div class="teacher-name">Jane Smith</div>
+                    <div class="teacher-role">Studio Owner</div>
+                    <div class="teacher-credentials">
+                        <span class="credential-badge primary">E-RYT 500</span>
+                        <span class="credential-badge">YACEP</span>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <img src="https://via.placeholder.com/64x64/667085/ffffff?text=MJ" alt="Mike Johnson" class="teacher-avatar">
+                    <div class="teacher-name">Mike Johnson</div>
+                    <div class="teacher-role">Lead Teacher</div>
+                    <div class="teacher-credentials">
+                        <span class="credential-badge primary">RYT-500</span>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <img src="https://via.placeholder.com/64x64/12B76A/ffffff?text=SL" alt="Sarah Lee" class="teacher-avatar">
+                    <div class="teacher-name">Sarah Lee</div>
+                    <div class="teacher-role">Prenatal Specialist</div>
+                    <div class="teacher-credentials">
+                        <span class="credential-badge primary">RYT-200</span>
+                        <span class="credential-badge">RPYT</span>
+                    </div>
+                </div>
+                <a href="#" class="view-all-teachers">
+                    <i class="fas fa-users"></i> View All 8 Teachers
+                </a>
+            </div>
+        </div>
+
+        <!-- ============================================
+             COMPONENT 6: PROGRAMS & SERVICES
+             ============================================ -->
+        <div class="component-section">
+            <span class="section-label">New</span>
+            <h2 class="component-title">Programs & Services</h2>
+            <p class="component-description">Quick view of what the studio offers beyond regular classes</p>
+
+            <div class="programs-grid">
+                <div class="program-card available">
+                    <div class="program-icon"><i class="fas fa-user"></i></div>
+                    <div class="program-name">Private Sessions</div>
+                    <div class="program-status"><i class="fas fa-check"></i> From $100/hr</div>
+                </div>
+                <div class="program-card available">
+                    <div class="program-icon"><i class="fas fa-chalkboard"></i></div>
+                    <div class="program-name">Workshops</div>
+                    <div class="program-status"><i class="fas fa-check"></i> Monthly</div>
+                </div>
+                <div class="program-card available">
+                    <div class="program-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="program-name">200-Hr YTT</div>
+                    <div class="program-status"><i class="fas fa-check"></i> RYS-200</div>
+                </div>
+                <div class="program-card unavailable">
+                    <div class="program-icon"><i class="fas fa-mountain"></i></div>
+                    <div class="program-name">Retreats</div>
+                    <div class="program-status">Not offered</div>
+                </div>
+                <div class="program-card available">
+                    <div class="program-icon"><i class="fas fa-video"></i></div>
+                    <div class="program-name">Online Classes</div>
+                    <div class="program-status"><i class="fas fa-check"></i> Live & On-demand</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             COMPONENT 7: FIRST VISIT INFO
+             ============================================ -->
+        <div class="component-section">
+            <span class="section-label">New</span>
+            <h2 class="component-title">First Visit Information</h2>
+            <p class="component-description">Essential info for new students - reduces friction for first-timers</p>
+
+            <div class="first-visit-section">
+                <div class="first-visit-title">
+                    <i class="fas fa-info-circle"></i> What to Bring
+                </div>
+                <div class="what-to-bring">
+                    <span class="bring-item"><i class="fas fa-check"></i> Yoga mat (rentals $3)</span>
+                    <span class="bring-item"><i class="fas fa-check"></i> Towel for hot classes</span>
+                    <span class="bring-item"><i class="fas fa-check"></i> Water bottle</span>
+                    <span class="bring-item"><i class="fas fa-check"></i> Comfortable clothing</span>
+                </div>
+                <div class="first-visit-note">
+                    <strong>First-time visitors:</strong> Please arrive 15 minutes early to complete registration. Our studio is located on the 2nd floor with elevator access available. Changing rooms and lockers are provided at no extra charge.
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             COMPONENT 8: ENHANCED CONTACT SECTION
+             ============================================ -->
+        <div class="component-section">
+            <span class="section-label">Enhanced</span>
+            <h2 class="component-title">Contact & Social</h2>
+            <p class="component-description">Contact info with website and social links prominently displayed</p>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <div class="contact-label">Address</div>
+                        <div class="contact-value">123 Main Street, Suite 200<br>Los Angeles, CA 90012</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <div>
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-value"><a href="tel:+12135551234">(213) 555-1234</a></div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value"><a href="mailto:info@yogaacademy.com">info@yogaacademy.com</a></div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-globe"></i></div>
+                    <div>
+                        <div class="contact-label">Website</div>
+                        <div class="contact-value"><a href="#">www.yogaacademy.com</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-link website" title="Website"><i class="fas fa-globe"></i></a>
+                <a href="#" class="social-link instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link" title="Schedule"><i class="fas fa-calendar-alt"></i></a>
+            </div>
+        </div>
+
+        <!-- ============================================
+             COMPONENT 9: PRACTICAL INFO
+             ============================================ -->
+        <div class="component-section">
+            <span class="section-label">New</span>
+            <h2 class="component-title">Practical Information</h2>
+            <p class="component-description">Parking, transit, policies, and other practical details</p>
+
+            <div class="practical-grid">
+                <div class="practical-item">
+                    <div class="practical-label"><i class="fas fa-parking"></i> Parking</div>
+                    <div class="practical-value">Free lot behind building (enter from Oak St). Street parking also available.</div>
+                </div>
+                <div class="practical-item">
+                    <div class="practical-label"><i class="fas fa-subway"></i> Public Transit</div>
+                    <div class="practical-value">2 blocks from Central Station (Red Line). Bus routes 10, 14 stop nearby.</div>
+                </div>
+                <div class="practical-item">
+                    <div class="practical-label"><i class="fas fa-clock"></i> Cancellation Policy</div>
+                    <div class="practical-value">Please cancel at least 4 hours before class to avoid losing your spot.</div>
+                </div>
+                <div class="practical-item">
+                    <div class="practical-label"><i class="fas fa-credit-card"></i> Payment</div>
+                    <div class="practical-value">Cards, Cash, Apple Pay, HSA/FSA accepted</div>
+                </div>
+                <div class="practical-item">
+                    <div class="practical-label"><i class="fas fa-language"></i> Languages</div>
+                    <div class="practical-value">English, Spanish</div>
+                </div>
+                <div class="practical-item">
+                    <div class="practical-label"><i class="fas fa-calendar-alt"></i> Booking</div>
+                    <div class="practical-value">MindBody app or website. Walk-ins welcome when space available.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             COMPONENT 10: ACCESSIBILITY
+             ============================================ -->
+        <div class="component-section">
+            <span class="section-label">New</span>
+            <h2 class="component-title">Accessibility</h2>
+            <p class="component-description">Clear display of accessibility features</p>
+
+            <div class="accessibility-badges">
+                <span class="accessibility-badge"><i class="fas fa-wheelchair"></i> Wheelchair Accessible</span>
+                <span class="accessibility-badge"><i class="fas fa-door-open"></i> Step-Free Entrance</span>
+                <span class="accessibility-badge"><i class="fas fa-elevator"></i> Elevator Available</span>
+                <span class="accessibility-badge"><i class="fas fa-restroom"></i> Accessible Restroom</span>
+                <span class="accessibility-badge"><i class="fas fa-hands-helping"></i> Adaptive Equipment</span>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

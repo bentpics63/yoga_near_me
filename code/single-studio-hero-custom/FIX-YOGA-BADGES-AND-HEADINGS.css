@@ -1,0 +1,217 @@
+/**
+ * FIX: Yoga Style Badges & Section Heading Icons
+ * Add this to WordPress Customizer → Additional CSS
+ * This targets the ACTUAL classes on your page
+ */
+
+/* ============================================
+   YOGA STYLE BADGES - FIX
+   ============================================ */
+
+/* Target ALL yoga style badges - more aggressive selectors */
+.single-gd_place .geodir-fv-kundalini,
+.single-gd_place .geodir-fv-power,
+.single-gd_place .geodir-fv-vinyassa-yoga,
+.single-gd_place .geodir-fv-hatha-yoga,
+.single-gd_place .geodir-fv-yin-yoga,
+.single-gd_place .geodir-fv-prenatal-yoga,
+.single-gd_place .geodir-fv-ashtanga-yoga,
+.single-gd_place .geodir-fv-restorative-yoga,
+.single-gd_place .geodir-fv-rocket-yoga,
+.single-gd_place .geodir-fv-aerial-yoga,
+.single-gd_place .geodir-fv-iyengar-yoga,
+.single-gd_place .geodir-fv-dharma-yoga,
+.single-gd_place [class*="geodir-fv-"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    background-color: #FFFFFF !important;
+    color: #61948B !important;
+    border: 2px solid #61948B !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin: 2px 6px 2px 0 !important;
+    position: relative !important;
+}
+
+/* Add star icon BEFORE the text */
+.single-gd_place .geodir-fv-kundalini::before,
+.single-gd_place .geodir-fv-power::before,
+.single-gd_place .geodir-fv-vinyassa-yoga::before,
+.single-gd_place .geodir-fv-hatha-yoga::before,
+.single-gd_place .geodir-fv-yin-yoga::before,
+.single-gd_place .geodir-fv-prenatal-yoga::before,
+.single-gd_place .geodir-fv-ashtanga-yoga::before,
+.single-gd_place .geodir-fv-restorative-yoga::before,
+.single-gd_place .geodir-fv-rocket-yoga::before,
+.single-gd_place .geodir-fv-aerial-yoga::before,
+.single-gd_place .geodir-fv-iyengar-yoga::before,
+.single-gd_place .geodir-fv-dharma-yoga::before {
+    content: "★" !important;
+    color: #61948B !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+    margin-right: 0 !important;
+}
+
+/* Hover effect */
+.single-gd_place .geodir-fv-kundalini:hover,
+.single-gd_place .geodir-fv-power:hover,
+.single-gd_place .geodir-fv-vinyassa-yoga:hover,
+.single-gd_place .geodir-fv-hatha-yoga:hover,
+.single-gd_place .geodir-fv-yin-yoga:hover,
+.single-gd_place .geodir-fv-prenatal-yoga:hover,
+.single-gd_place .geodir-fv-ashtanga-yoga:hover,
+.single-gd_place .geodir-fv-restorative-yoga:hover,
+.single-gd_place .geodir-fv-rocket-yoga:hover,
+.single-gd_place .geodir-fv-aerial-yoga:hover,
+.single-gd_place .geodir-fv-iyengar-yoga:hover,
+.single-gd_place .geodir-fv-dharma-yoga:hover {
+    background-color: #F8FAFA !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(97, 148, 139, 0.15) !important;
+}
+
+/* ============================================
+   SECTION HEADINGS WITH ORANGE ICONS - FIX
+   ============================================ */
+
+/* Target ALL headings on single studio pages */
+.single-gd_place h2,
+.single-gd_place h3,
+.single-gd_place h4,
+.single-gd_place .elementor-heading-title,
+.single-gd_place .elementor-widget-heading .elementor-heading-title,
+.elementor-location-single h2,
+.elementor-location-single h3,
+.elementor-location-single .elementor-heading-title {
+    position: relative !important;
+    padding-left: 24px !important;
+}
+
+/* Add orange dot BEFORE headings */
+.single-gd_place h2::before,
+.single-gd_place h3::before,
+.single-gd_place h4::before,
+.single-gd_place .elementor-heading-title::before,
+.single-gd_place .elementor-widget-heading .elementor-heading-title::before,
+.elementor-location-single h2::before,
+.elementor-location-single h3::before,
+.elementor-location-single .elementor-heading-title::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+}
+
+/* Exclude the main title (h1) from getting an icon */
+.single-gd_place h1::before,
+.single-gd_place .geodir-post-title::before,
+.single-gd_place h1.elementor-heading-title::before {
+    display: none !important;
+}
+
+/* ============================================
+   AMENITIES GRID - FIX
+   ============================================ */
+
+/* Target amenities container - make it a grid */
+.single-gd_place .geodir-post-meta[data-key="amenities"],
+.single-gd_place .geodir-post-meta:has(.geodir-fv-parking),
+.single-gd_place .geodir-post-meta:has(.geodir-fv-changing-room),
+.single-gd_place .geodir-post-meta:has(.geodir-fv-restroom) {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 24px !important;
+    margin-bottom: 32px !important;
+}
+
+/* Individual amenity items */
+.single-gd_place .geodir-fv-parking,
+.single-gd_place .geodir-fv-changing-room,
+.single-gd_place .geodir-fv-restroom,
+.single-gd_place .geodir-fv-heated-room,
+.single-gd_place .geodir-fv-mat-rental,
+.single-gd_place .geodir-fv-props,
+.single-gd_place .geodir-fv-meditation,
+.single-gd_place .geodir-fv-childcare {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 12px !important;
+    border-radius: 8px !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.single-gd_place .geodir-fv-parking:hover,
+.single-gd_place .geodir-fv-changing-room:hover,
+.single-gd_place .geodir-fv-restroom:hover,
+.single-gd_place .geodir-fv-heated-room:hover,
+.single-gd_place .geodir-fv-mat-rental:hover,
+.single-gd_place .geodir-fv-props:hover,
+.single-gd_place .geodir-fv-meditation:hover,
+.single-gd_place .geodir-fv-childcare:hover {
+    background: #F8FAFA !important;
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 1024px) {
+    .single-gd_place .geodir-post-meta[data-key="amenities"],
+    .single-gd_place .geodir-post-meta:has(.geodir-fv-parking) {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+    }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 768px) {
+    .single-gd_place .geodir-post-meta[data-key="amenities"],
+    .single-gd_place .geodir-post-meta:has(.geodir-fv-parking) {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+}
+
+/* ============================================
+   RESPONSIVE FIXES
+   ============================================ */
+
+@media (max-width: 768px) {
+    .single-gd_place h2,
+    .single-gd_place h3,
+    .single-gd_place .elementor-heading-title {
+        padding-left: 20px !important;
+        font-size: 24px !important;
+    }
+    
+    .single-gd_place h2::before,
+    .single-gd_place h3::before,
+    .single-gd_place .elementor-heading-title::before {
+        font-size: 10px !important;
+    }
+    
+    .single-gd_place .geodir-fv-kundalini,
+    .single-gd_place .geodir-fv-power,
+    .single-gd_place .geodir-fv-vinyassa-yoga,
+    .single-gd_place .geodir-fv-hatha-yoga,
+    .single-gd_place .geodir-fv-yin-yoga,
+    .single-gd_place .geodir-fv-prenatal-yoga,
+    .single-gd_place .geodir-fv-ashtanga-yoga,
+    .single-gd_place .geodir-fv-restorative-yoga,
+    .single-gd_place .geodir-fv-rocket-yoga,
+    .single-gd_place .geodir-fv-aerial-yoga,
+    .single-gd_place .geodir-fv-iyengar-yoga,
+    .single-gd_place .geodir-fv-dharma-yoga {
+        padding: 6px 12px !important;
+        font-size: 13px !important;
+    }
+}
+

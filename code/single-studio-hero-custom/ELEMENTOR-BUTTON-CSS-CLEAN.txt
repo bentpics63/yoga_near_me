@@ -1,0 +1,217 @@
+ELEMENTOR BUTTON CUSTOM CSS - CLEAN VERSION
+===========================================
+This removes extra borders/backgrounds and styles cleanly
+
+---
+
+"BOOK A CLASS" BUTTON
+----------------------
+Paste this into the Custom CSS panel:
+
+selector.elementor-button {
+    background-color: #FF5733 !important;
+    background: #FF5733 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-color: #FF5733 !important;
+    box-shadow: none !important;
+}
+
+selector.elementor-button:hover {
+    background-color: #E64A2A !important;
+    background: #E64A2A !important;
+}
+
+selector.elementor-button svg {
+    fill: #FFFFFF !important;
+}
+
+/* Remove any wrapper backgrounds */
+selector {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+---
+
+"SAVE" BUTTON
+-------------
+Paste this into the Custom CSS panel:
+
+selector.elementor-button {
+    background-color: #61948B !important;
+    background: #61948B !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-color: #61948B !important;
+    box-shadow: none !important;
+}
+
+selector.elementor-button:hover {
+    background-color: #4F7A73 !important;
+    background: #4F7A73 !important;
+}
+
+selector.elementor-button svg {
+    fill: #FFFFFF !important;
+}
+
+/* Remove any wrapper backgrounds */
+selector {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+---
+
+"SHARE" BUTTON
+--------------
+Paste this into the Custom CSS panel:
+
+selector.elementor-button {
+    background-color: #61948B !important;
+    background: #61948B !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-color: #61948B !important;
+    box-shadow: none !important;
+}
+
+selector.elementor-button:hover {
+    background-color: #4F7A73 !important;
+    background: #4F7A73 !important;
+}
+
+selector.elementor-button svg {
+    fill: #FFFFFF !important;
+}
+
+/* Remove any wrapper backgrounds */
+selector {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+---
+
+"WRITE A REVIEW" BUTTON
+-----------------------
+Paste this into the Custom CSS panel:
+
+selector.elementor-button {
+    background-color: #61948B !important;
+    background: #61948B !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-color: #61948B !important;
+    box-shadow: none !important;
+}
+
+selector.elementor-button:hover {
+    background-color: #4F7A73 !important;
+    background: #4F7A73 !important;
+}
+
+selector.elementor-button svg {
+    fill: #FFFFFF !important;
+}
+
+/* Remove any wrapper backgrounds */
+selector {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+---
+
+"LOAD MORE REVIEWS" BUTTON
+--------------------------
+Paste this into the Custom CSS panel:
+
+selector.elementor-button {
+    background-color: #61948B !important;
+    background: #61948B !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-color: #61948B !important;
+    box-shadow: none !important;
+}
+
+selector.elementor-button:hover {
+    background-color: #4F7A73 !important;
+    background: #4F7A73 !important;
+}
+
+/* Remove any wrapper backgrounds */
+selector {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+---
+
+"CLAIM THIS LISTING" BUTTON
+---------------------------
+Paste this into the Custom CSS panel:
+
+selector.elementor-button {
+    background-color: #FF5733 !important;
+    background: #FF5733 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-color: #FF5733 !important;
+    box-shadow: none !important;
+}
+
+selector.elementor-button:hover {
+    background-color: #E64A2A !important;
+    background: #E64A2A !important;
+}
+
+selector.elementor-button svg {
+    fill: #FFFFFF !important;
+}
+
+/* Remove any wrapper backgrounds */
+selector {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+---
+
+"WAS THIS HELPFUL?" BUTTON
+--------------------------
+Paste this into the Custom CSS panel:
+
+selector.elementor-button {
+    background-color: #61948B !important;
+    background: #61948B !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-color: #61948B !important;
+    box-shadow: none !important;
+}
+
+selector.elementor-button:hover {
+    background-color: #4F7A73 !important;
+    background: #4F7A73 !important;
+}
+
+selector.elementor-button svg {
+    fill: #FFFFFF !important;
+}
+
+/* Remove any wrapper backgrounds */
+selector {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+

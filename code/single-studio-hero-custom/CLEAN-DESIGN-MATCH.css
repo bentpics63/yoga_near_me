@@ -1,0 +1,478 @@
+/**
+ * CLEAN DESIGN MATCH - Remove Excessive Shadows & Borders
+ * This matches the clean, minimal design exactly
+ * Add to WordPress Customizer → Additional CSS (at the very bottom)
+ */
+
+/* ============================================
+   REMOVE ALL EXCESSIVE SHADOWS & BORDERS
+   ============================================ */
+
+/* Remove shadows from nested elements */
+body.single-gd_place .elementor-widget-container .elementor-widget-container,
+body.single-gd_place .elementor-column-wrap .elementor-column-wrap,
+body.single-gd_place .elementor-element .elementor-element,
+body.single-gd_place .elementor-widget .elementor-widget-container {
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Remove borders from all nested containers */
+body.single-gd_place .elementor-section .elementor-section,
+body.single-gd_place .elementor-section .elementor-section .elementor-section {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ============================================
+   ONLY STYLE MAIN CONTENT SECTIONS
+   ============================================ */
+
+/* Main content sections - subtle shadow ONLY on top-level cards */
+body.single-gd_place .elementor-section:nth-child(n+2) .elementor-container {
+    background: #FFFFFF !important;
+    border-radius: 12px !important;
+    padding: 32px !important;
+    margin-bottom: 24px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    border: 1px solid #E0E0E0 !important;
+}
+
+/* Remove shadow from nested sections */
+body.single-gd_place .elementor-section .elementor-section .elementor-container {
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ============================================
+   CONTACT INFORMATION - Group Without Cards
+   ============================================ */
+
+/* Contact section - NO individual cards for each item */
+body.single-gd_place .contact-information-group,
+body.single-gd_place .elementor-widget:has-text("Contact") .elementor-widget-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Contact items - simple list, NO cards */
+body.single-gd_place .contact-item-group,
+body.single-gd_place .geodir-post-meta[data-key*="contact"] .geodir-meta-value,
+body.single-gd_place .geodir-post-meta[data-key*="email"],
+body.single-gd_place .geodir-post-meta[data-key*="phone"],
+body.single-gd_place .geodir-post-meta[data-key*="website"] {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid #F0F0F0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    margin: 0 !important;
+}
+
+body.single-gd_place .contact-item-group:last-child,
+body.single-gd_place .geodir-post-meta:last-child {
+    border-bottom: none !important;
+}
+
+/* Contact icon - simple, no background box */
+body.single-gd_place .contact-item-group .icon-wrapper,
+body.single-gd_place .geodir-post-meta .geodir-meta-icon {
+    width: 20px !important;
+    height: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+body.single-gd_place .contact-item-group .icon-wrapper svg,
+body.single-gd_place .geodir-post-meta .geodir-meta-icon svg {
+    width: 18px !important;
+    height: 18px !important;
+    fill: #5F7470 !important;
+}
+
+/* Contact info text - clean, no boxes */
+body.single-gd_place .contact-item-group .info-wrapper,
+body.single-gd_place .geodir-post-meta .geodir-meta-value {
+    flex: 1 !important;
+    min-width: 0 !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+body.single-gd_place .contact-item-group .label,
+body.single-gd_place .geodir-post-meta .geodir-meta-label {
+    display: none !important; /* Hide labels, just show values */
+}
+
+body.single-gd_place .contact-item-group .value,
+body.single-gd_place .geodir-post-meta .geodir-meta-value {
+    color: #2C3E3A !important;
+    font-weight: 400 !important;
+    font-size: 15px !important;
+    word-break: break-word !important;
+    line-height: 1.6 !important;
+}
+
+body.single-gd_place .contact-item-group .value a,
+body.single-gd_place .geodir-post-meta .geodir-meta-value a {
+    color: #FF6B9D !important; /* Pink/purple like design */
+    text-decoration: none !important;
+}
+
+body.single-gd_place .contact-item-group .value a:hover,
+body.single-gd_place .geodir-post-meta .geodir-meta-value a:hover {
+    text-decoration: underline !important;
+}
+
+/* ============================================
+   HOURS - Simple List, No Cards
+   ============================================ */
+
+body.single-gd_place .hours-group,
+body.single-gd_place .elementor-widget:has-text("Hours") .elementor-widget-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Status indicator - simple, no box */
+body.single-gd_place .hours-status-group {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 0 0 16px 0 !important;
+    background: transparent !important;
+    border: none !important;
+    margin-bottom: 16px !important;
+}
+
+body.single-gd_place .hours-status-group .status-dot {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: #28A745 !important;
+}
+
+body.single-gd_place .hours-status-group .status-text {
+    color: #2C3E3A !important;
+    font-weight: 400 !important;
+    font-size: 15px !important;
+}
+
+/* Hours rows - simple list */
+body.single-gd_place .hours-row-group,
+body.single-gd_place .geodir-post-meta[data-key*="hours"] .geodir-meta-value {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 8px 0 !important;
+    border-bottom: 1px solid #F0F0F0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+}
+
+body.single-gd_place .hours-row-group:last-child {
+    border-bottom: none !important;
+}
+
+body.single-gd_place .hours-row-group .day {
+    color: #6B7C78 !important;
+    font-size: 15px !important;
+}
+
+body.single-gd_place .hours-row-group.today .day {
+    color: #2C3E3A !important;
+    font-weight: 600 !important;
+}
+
+body.single-gd_place .hours-row-group .time {
+    font-weight: 400 !important;
+    color: #2C3E3A !important;
+    font-size: 15px !important;
+}
+
+/* ============================================
+   YOGA STYLES - Simple Pills, No Cards
+   ============================================ */
+
+body.single-gd_place .yoga-styles-group,
+body.single-gd_place .geodir-post-meta[data-key*="yoga"] {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    margin-top: 20px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+body.single-gd_place .yoga-style-item,
+body.single-gd_place .geodir-post-meta[data-key*="yoga"] .geodir-meta-value {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 8px 16px !important;
+    background: #FFFFFF !important;
+    border: 2px solid #61948B !important;
+    border-radius: 20px !important;
+    color: #61948B !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    box-shadow: none !important;
+}
+
+body.single-gd_place .yoga-style-item::before {
+    content: "★" !important;
+    color: #61948B !important;
+    font-size: 12px !important;
+}
+
+/* ============================================
+   AMENITIES - Simple Grid, No Individual Cards
+   ============================================ */
+
+body.single-gd_place .amenities-group,
+body.single-gd_place .geodir-post-meta[data-key*="amenities"] {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 16px !important;
+    margin-top: 20px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+body.single-gd_place .amenity-item-group,
+body.single-gd_place .geodir-post-meta[data-key*="amenities"] .geodir-meta-value {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+body.single-gd_place .amenity-item-group .amenity-icon,
+body.single-gd_place .geodir-post-meta .geodir-meta-icon {
+    width: 18px !important;
+    height: 18px !important;
+    fill: #61948B !important;
+    flex-shrink: 0 !important;
+}
+
+body.single-gd_place .amenity-item-group .amenity-label,
+body.single-gd_place .geodir-post-meta .geodir-meta-value {
+    color: #2C3E3A !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+}
+
+/* ============================================
+   REMOVE ALL PLACEHOLDER STYLING
+   ============================================ */
+
+body.single-gd_place input[value=""],
+body.single-gd_place input:empty,
+body.single-gd_place .placeholder {
+    background: transparent !important;
+    border: none !important;
+    color: inherit !important;
+    font-style: normal !important;
+}
+
+/* Hide placeholder text */
+body.single-gd_place .elementor-widget:has-text("Placeholder"),
+body.single-gd_place .elementor-widget:has-text("placeholder"),
+body.single-gd_place .geodir-field-empty:has-text("Placeholder") {
+    display: none !important;
+}
+
+/* ============================================
+   SECTION HEADINGS - Clean
+   ============================================ */
+
+body.single-gd_place .section-heading,
+body.single-gd_place .elementor-heading-title:not(h1),
+body.single-gd_place h2:not(.geodir-post-title),
+body.single-gd_place h3 {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: #2C3E3A !important;
+    margin-bottom: 20px !important;
+    position: relative !important;
+    padding-left: 24px !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+body.single-gd_place .section-heading::before,
+body.single-gd_place .elementor-heading-title:not(h1)::before,
+body.single-gd_place h2:not(.geodir-post-title)::before,
+body.single-gd_place h3::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 14px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+}
+
+/* ============================================
+   REMOVE SEARCH SECTION
+   ============================================ */
+
+body.single-gd_place .elementor-widget-search-form,
+body.single-gd_place .elementor-search-form,
+body.single-gd_place .search-form,
+body.single-gd_place [class*="search"],
+body.single-gd_place [id*="search"],
+body.single-gd_place input[type="search"],
+body.single-gd_place input[placeholder*="Search"],
+body.single-gd_place .elementor-section:has(.search-form),
+body.single-gd_place .elementor-section:has([class*="search"]) {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+
+/* ============================================
+   BREADCRUMBS
+   ============================================ */
+
+body.single-gd_place .breadcrumb-section {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 16px 24px !important;
+    background: #FFFFFF !important;
+    border-bottom: 1px solid #E0E0E0 !important;
+    font-size: 14px !important;
+}
+
+body.single-gd_place .breadcrumb {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    color: #6B7C78 !important;
+    flex-wrap: wrap !important;
+}
+
+body.single-gd_place .breadcrumb a {
+    color: #61948B !important;
+    text-decoration: none !important;
+}
+
+body.single-gd_place .breadcrumb a:hover {
+    color: #FF5733 !important;
+    text-decoration: underline !important;
+}
+
+body.single-gd_place .breadcrumb .separator {
+    color: #9EABA8 !important;
+    opacity: 0.5 !important;
+}
+
+body.single-gd_place .breadcrumb .current {
+    color: #2C3E3A !important;
+    font-weight: 500 !important;
+}
+
+/* ============================================
+   MAIN LAYOUT
+   ============================================ */
+
+body.single-gd_place .elementor-location-single {
+    background: #F8FAFA !important;
+}
+
+body.single-gd_place .elementor-section:first-child {
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+body.single-gd_place .elementor-section:nth-child(n+2) {
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+}
+
+/* Two-column layout */
+body.single-gd_place .elementor-section:nth-child(n+2) .elementor-row {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr !important;
+    gap: 24px !important;
+}
+
+@media (max-width: 1024px) {
+    body.single-gd_place .elementor-section:nth-child(n+2) .elementor-row {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    body.single-gd_place .elementor-section:nth-child(n+2) .elementor-container {
+        padding: 24px 16px !important;
+    }
+    
+    body.single-gd_place .amenities-group {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    body.single-gd_place .amenities-group {
+        grid-template-columns: 1fr !important;
+    }
+}
+

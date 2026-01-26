@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claim Your Listing | YogaNearMe</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="claim-listing-overlay.css">
+</head>
+<body>
+
+  <!-- Demo: Studio Page Background (simulates the page behind the overlay) -->
+  <div class="demo-page">
+    <header class="demo-header">
+      <span class="demo-logo">YogaNearMe</span>
+    </header>
+    <main class="demo-content">
+      <div class="demo-studio-card">
+        <div class="demo-studio-image"></div>
+        <div class="demo-studio-info">
+          <h1>Sunrise Yoga Studio</h1>
+          <p>1234 Peaceful Lane, Santa Monica, CA 90401</p>
+          <p class="demo-studio-style">Vinyasa • Community-Focused • Beginner-Friendly</p>
+        </div>
+      </div>
+
+      <!-- This button triggers the overlay -->
+      <button type="button" class="btn-claim-trigger" id="openClaimOverlay">
+        Claim This Listing
+      </button>
+      <p class="demo-claim-note">Is this your studio? Claim it to update info and connect with students.</p>
+    </main>
+  </div>
+
+  <!-- Claim Listing Overlay -->
+  <div class="overlay" id="claimOverlay" aria-hidden="true">
+    <div class="overlay-backdrop" id="overlayBackdrop"></div>
+
+    <div class="overlay-container" role="dialog" aria-labelledby="overlayTitle" aria-modal="true">
+
+      <!-- Close Button -->
+      <button type="button" class="overlay-close" id="closeOverlay" aria-label="Close">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Progress Indicator -->
+      <div class="overlay-progress">
+        <div class="progress-steps">
+          <div class="progress-step is-active" data-step="1">
+            <span class="step-number">1</span>
+            <span class="step-label">Verify</span>
+          </div>
+          <div class="progress-connector"></div>
+          <div class="progress-step" data-step="2">
+            <span class="step-number">2</span>
+            <span class="step-label">Contact</span>
+          </div>
+          <div class="progress-connector"></div>
+          <div class="progress-step" data-step="3">
+            <span class="step-number">3</span>
+            <span class="step-label">Done</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 1: Verification -->
+      <div class="overlay-step is-active" data-step="1" id="step1">
+        <div class="overlay-header">
+          <h2 class="overlay-title" id="overlayTitle">Claim Sunrise Yoga Studio</h2>
+          <p class="overlay-subtitle">Let's verify you manage this studio so you can update your listing.</p>
+        </div>
+
+        <div class="overlay-body">
+          <!-- Studio Preview Card -->
+          <div class="claim-studio-preview">
+            <div class="studio-preview-image"></div>
+            <div class="studio-preview-info">
+              <h3 class="studio-preview-name">Sunrise Yoga Studio</h3>
+              <p class="studio-preview-address">1234 Peaceful Lane, Santa Monica, CA 90401</p>
+            </div>
+          </div>
+
+          <!-- Verification Options -->
+          <div class="verification-options">
+            <p class="verification-label">How would you like to verify?</p>
+
+            <label class="verification-option">
+              <input type="radio" name="verification_method" value="email" checked>
+              <span class="option-content">
+                <span class="option-icon">&#9993;</span>
+                <span class="option-details">
+                  <span class="option-title">Email verification</span>
+                  <span class="option-desc">We'll send a code to the email on file for this listing</span>
+                </span>
+              </span>
+            </label>
+
+            <label class="verification-option">
+              <input type="radio" name="verification_method" value="phone">
+              <span class="option-content">
+                <span class="option-icon">&#9742;</span>
+                <span class="option-details">
+                  <span class="option-title">Phone verification</span>
+                  <span class="option-desc">We'll call the phone number on file to verify</span>
+                </span>
+              </span>
+            </label>
+
+            <label class="verification-option">
+              <input type="radio" name="verification_method" value="document">
+              <span class="option-content">
+                <span class="option-icon">&#128196;</span>
+                <span class="option-details">
+                  <span class="option-title">Business documentation</span>
+                  <span class="option-desc">Upload a business license or utility bill showing the studio name</span>
+                </span>
+              </span>
+            </label>
+          </div>
+
+          <!-- What You Get -->
+          <div class="claim-benefits">
+            <p class="benefits-label">Once verified, you can:</p>
+            <ul class="benefits-list">
+              <li>Update your studio info, hours, and photos</li>
+              <li>Add an intro offer to attract new students</li>
+              <li>See how many students view your listing</li>
+              <li>Respond to student inquiries directly</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="overlay-footer">
+          <button type="button" class="btn-secondary" id="cancelStep1">Not now</button>
+          <button type="button" class="btn-primary" id="continueStep1">Continue</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Contact Information -->
+      <div class="overlay-step" data-step="2" id="step2">
+        <div class="overlay-header">
+          <h2 class="overlay-title">Your contact information</h2>
+          <p class="overlay-subtitle">So we can send you the verification and keep you updated.</p>
+        </div>
+
+        <div class="overlay-body">
+          <form id="claimContactForm" class="claim-form" novalidate>
+
+            <!-- Name -->
+            <div class="field-group">
+              <label for="claimName" class="field-label">
+                Your name
+                <span class="required-indicator">*</span>
+              </label>
+              <input
+                type="text"
+                id="claimName"
+                name="name"
+                class="field-input"
+                required
+                autocomplete="name"
+                placeholder="First and last name"
+              >
+              <span class="field-error" id="claimNameError"></span>
+            </div>
+
+            <!-- Email -->
+            <div class="field-group">
+              <label for="claimEmail" class="field-label">
+                Email
+                <span class="required-indicator">*</span>
+              </label>
+              <p class="field-helper">We'll send the verification code here.</p>
+              <input
+                type="email"
+                id="claimEmail"
+                name="email"
+                class="field-input"
+                required
+                autocomplete="email"
+                placeholder="you@example.com"
+              >
+              <span class="field-error" id="claimEmailError"></span>
+            </div>
+
+            <!-- Phone -->
+            <div class="field-group">
+              <label for="claimPhone" class="field-label">Phone</label>
+              <p class="field-helper">Optional, but helpful if we need to reach you.</p>
+              <input
+                type="tel"
+                id="claimPhone"
+                name="phone"
+                class="field-input"
+                autocomplete="tel"
+                placeholder="(___) ___-____"
+              >
+            </div>
+
+            <!-- Role -->
+            <div class="field-group">
+              <label class="field-label">
+                Your role at this studio
+                <span class="required-indicator">*</span>
+              </label>
+              <div class="role-options">
+                <label class="role-option">
+                  <input type="radio" name="role" value="owner" required>
+                  <span class="role-label">Owner</span>
+                </label>
+                <label class="role-option">
+                  <input type="radio" name="role" value="manager">
+                  <span class="role-label">Manager</span>
+                </label>
+                <label class="role-option">
+                  <input type="radio" name="role" value="teacher">
+                  <span class="role-label">Lead Teacher</span>
+                </label>
+                <label class="role-option">
+                  <input type="radio" name="role" value="marketing">
+                  <span class="role-label">Marketing</span>
+                </label>
+              </div>
+              <span class="field-error" id="claimRoleError"></span>
+            </div>
+
+          </form>
+        </div>
+
+        <div class="overlay-footer">
+          <button type="button" class="btn-back" id="backStep2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Back
+          </button>
+          <button type="button" class="btn-primary" id="continueStep2">Send verification</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Verification Code Entry -->
+      <div class="overlay-step" data-step="2b" id="step2b">
+        <div class="overlay-header">
+          <h2 class="overlay-title">Check your email</h2>
+          <p class="overlay-subtitle">We sent a 6-digit code to <strong id="sentToEmail">you@example.com</strong></p>
+        </div>
+
+        <div class="overlay-body">
+          <div class="verification-code-entry">
+            <label for="verificationCode" class="field-label">Enter verification code</label>
+            <div class="code-input-wrapper">
+              <input
+                type="text"
+                id="verificationCode"
+                name="verification_code"
+                class="field-input field-input-code"
+                maxlength="6"
+                pattern="[0-9]{6}"
+                inputmode="numeric"
+                autocomplete="one-time-code"
+                placeholder="000000"
+              >
+            </div>
+            <span class="field-error" id="verificationCodeError"></span>
+          </div>
+
+          <div class="resend-code">
+            <p>Didn't receive it? <button type="button" class="btn-link" id="resendCode">Resend code</button></p>
+            <p class="resend-note">Check your spam folder if you don't see it.</p>
+          </div>
+        </div>
+
+        <div class="overlay-footer">
+          <button type="button" class="btn-back" id="backStep2b">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Back
+          </button>
+          <button type="button" class="btn-primary" id="verifyCode">Verify</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Success -->
+      <div class="overlay-step" data-step="3" id="step3">
+        <div class="overlay-body overlay-body-success">
+          <div class="success-icon">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="2"/>
+              <path d="M20 32L28 40L44 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <h2 class="success-title">You're verified!</h2>
+          <p class="success-subtitle">Sunrise Yoga Studio is now yours to manage.</p>
+
+          <div class="success-next-steps">
+            <p class="next-steps-label">Here's what to do next:</p>
+            <div class="next-steps-list">
+              <div class="next-step-item">
+                <span class="next-step-number">1</span>
+                <div class="next-step-content">
+                  <strong>Complete your profile</strong>
+                  <p>Add photos, an intro offer, and update your hours. Complete profiles get 3x more student inquiries.</p>
+                </div>
+              </div>
+              <div class="next-step-item">
+                <span class="next-step-number">2</span>
+                <div class="next-step-content">
+                  <strong>Set up your intro offer</strong>
+                  <p>Studios with new student offers convert 3x better. "First Class Free" works for most.</p>
+                </div>
+              </div>
+              <div class="next-step-item">
+                <span class="next-step-number">3</span>
+                <div class="next-step-content">
+                  <strong>Check your stats</strong>
+                  <p>See how many students view your listing each month.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="overlay-footer overlay-footer-success">
+          <button type="button" class="btn-primary btn-primary-wide" id="goToDashboard">Go to my dashboard</button>
+          <button type="button" class="btn-secondary" id="editListingNow">Edit listing now</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="claim-listing-overlay.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+/**
+ * CLEAN ELEMENTOR CUSTOM CSS - No Warnings
+ * Use these snippets in Elementor's Custom CSS panel
+ * The warnings are just informational - CSS will still work
+ */
+
+/* ============================================
+   SAVE BUTTON - Teal
+   ============================================ */
+
+selector.elementor-button {
+    background-color: #61948B;
+    border-color: #61948B;
+    color: #FFFFFF;
+    border: none;
+}
+
+selector.elementor-button:hover {
+    background-color: #4F7A73;
+}
+
+/* ============================================
+   SOCIAL SHARE BUTTONS - Orange
+   ============================================ */
+
+selector .elementor-share-btn,
+selector .elementor-share-buttons__button {
+    background-color: rgba(255, 87, 51, 0.1);
+    border-color: rgba(255, 87, 51, 0.2);
+    color: #FF5733;
+}
+
+selector .elementor-share-btn svg {
+    fill: #FF5733;
+}
+
+selector .elementor-share-btn:hover {
+    background-color: #FF5733;
+    color: #FFFFFF;
+}
+
+selector .elementor-share-btn:hover svg {
+    fill: #FFFFFF;
+}
+
+/* ============================================
+   CLAIM LISTING BUTTON - Orange
+   ============================================ */
+
+selector.elementor-button {
+    background-color: #FF5733;
+    border-color: #FF5733;
+    color: #FFFFFF;
+}
+
+selector.elementor-button:hover {
+    background-color: #E64A2A;
+}
+
+/* ============================================
+   BOOK A CLASS BUTTON - Orange (if needed)
+   ============================================ */
+
+selector.elementor-button {
+    background-color: #FF5733;
+    border-color: #FF5733;
+    color: #FFFFFF;
+}
+
+selector.elementor-button:hover {
+    background-color: #E64A2A;
+}
+
+/* ============================================
+   BUTTON CONTAINER - Horizontal Layout
+   ============================================ */
+
+selector {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+

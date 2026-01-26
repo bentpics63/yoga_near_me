@@ -1,0 +1,637 @@
+/**
+ * ==========================================================================
+ * YOGANEARME.INFO - Archive/Search Results Card Redesign v2
+ * ==========================================================================
+ *
+ * This CSS transforms the default GeoDirectory archive listing cards into
+ * a modern, conversion-focused design.
+ *
+ * INSTALLATION:
+ * Add to WordPress Customizer > Additional CSS
+ * OR enqueue via functions.php
+ *
+ * TARGETS:
+ * - Search results page (/search-page/)
+ * - Location archive pages (/yoga-studios/los-angeles/)
+ * - Category archive pages
+ * - [gd_loop] shortcode output
+ *
+ * ==========================================================================
+ */
+
+/* ==========================================================================
+   CSS VARIABLES (Brand Colors)
+   ========================================================================== */
+:root {
+    --ynm-sage: #5F7470;
+    --ynm-teal: #61948B;
+    --ynm-rust: #bd371a;
+    --ynm-paper: #F8FAFA;
+    --ynm-text-dark: #2C3E3A;
+    --ynm-text-medium: #6B7C78;
+    --ynm-gold: #D4AF37;
+    --ynm-border: #E5E7EB;
+    --ynm-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --ynm-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --ynm-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --ynm-radius: 12px;
+}
+
+/* ==========================================================================
+   ARCHIVE GRID LAYOUT
+   ========================================================================== */
+
+/* Target GeoDirectory loop container */
+.geodir-loop-container,
+.geodir-category-list-view,
+.gd-loop-container,
+[class*="geodir-loop"] {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 24px !important;
+    padding: 24px 0 !important;
+}
+
+@media (max-width: 1024px) {
+    .geodir-loop-container,
+    .geodir-category-list-view,
+    .gd-loop-container,
+    [class*="geodir-loop"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .geodir-loop-container,
+    .geodir-category-list-view,
+    .gd-loop-container,
+    [class*="geodir-loop"] {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+}
+
+/* ==========================================================================
+   CARD CONTAINER
+   ========================================================================== */
+
+.geodir-post,
+article.gd_place,
+.gd-post-item {
+    background: #fff !important;
+    border-radius: var(--ynm-radius) !important;
+    box-shadow: var(--ynm-shadow-sm) !important;
+    overflow: hidden !important;
+    transition: all 0.25s ease !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    border: 1px solid var(--ynm-border) !important;
+    margin: 0 !important; /* Reset any margins */
+    float: none !important; /* Reset float-based layouts */
+    width: 100% !important; /* Fill grid cell */
+}
+
+.geodir-post:hover,
+article.gd_place:hover,
+.gd-post-item:hover {
+    box-shadow: var(--ynm-shadow-lg) !important;
+    transform: translateY(-4px) !important;
+    border-color: var(--ynm-teal) !important;
+}
+
+/* ==========================================================================
+   CARD IMAGE
+   ========================================================================== */
+
+.geodir-post-thumbnail,
+.geodir-post .geodir-post-thumbnail,
+.gd-post-item .geodir-post-thumbnail,
+.geodir-image,
+.gd-post-image {
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 10 !important;
+    min-height: 180px !important;
+    max-height: 220px !important;
+    overflow: hidden !important;
+    background: linear-gradient(135deg, var(--ynm-sage) 0%, var(--ynm-teal) 100%) !important;
+}
+
+.geodir-post-thumbnail img,
+.geodir-image img,
+.gd-post-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.3s ease !important;
+}
+
+.geodir-post:hover .geodir-post-thumbnail img,
+.gd-post-item:hover .geodir-post-thumbnail img {
+    transform: scale(1.05) !important;
+}
+
+/* Image fallback - show yoga icon when no image */
+.geodir-post-thumbnail:not(:has(img)),
+.geodir-post-thumbnail img[src=""],
+.geodir-post-thumbnail img:not([src]) {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.geodir-post-thumbnail:not(:has(img))::after {
+    content: "🧘" !important;
+    font-size: 48px !important;
+    opacity: 0.4 !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+/* ==========================================================================
+   FEATURED BADGE
+   ========================================================================== */
+
+.geodir-post .geodir-badge-featured,
+.gd-badge-featured,
+.geodir-featured-badge,
+.featured-badge,
+[class*="featured-badge"],
+.geodir-post.is-featured::before {
+    position: absolute !important;
+    top: 12px !important;
+    left: 12px !important;
+    background: linear-gradient(135deg, var(--ynm-gold) 0%, #F4D03F 100%) !important;
+    color: #1a1a1a !important;
+    padding: 5px 12px !important;
+    border-radius: 4px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    z-index: 10 !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+}
+
+/* Make thumbnail position relative for badge positioning */
+.geodir-post-thumbnail {
+    position: relative !important;
+}
+
+/* ==========================================================================
+   CARD CONTENT AREA
+   ========================================================================== */
+
+.geodir-post-content,
+.geodir-post .geodir-post-content,
+.gd-post-item .geodir-post-content,
+.geodir-entry-content {
+    padding: 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+    gap: 8px !important;
+}
+
+/* ==========================================================================
+   STUDIO NAME / TITLE
+   ========================================================================== */
+
+.geodir-entry-title,
+.geodir-post .geodir-entry-title,
+.gd-post-item .geodir-entry-title,
+.geodir-post-title {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: var(--ynm-text-dark) !important;
+    margin: 0 0 4px 0 !important;
+    padding: 0 !important;
+    line-height: 1.35 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+.geodir-entry-title a,
+.geodir-post-title a {
+    color: inherit !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+.geodir-entry-title a:hover,
+.geodir-post-title a:hover {
+    color: var(--ynm-teal) !important;
+}
+
+/* ==========================================================================
+   LOCATION / ADDRESS
+   ========================================================================== */
+
+.geodir-post .geodir-i-address,
+.geodir-post [class*="address"],
+.gd-post-item .geodir-i-address,
+.geodir-post-address {
+    font-size: 14px !important;
+    color: var(--ynm-text-medium) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    line-height: 1.4 !important;
+}
+
+.geodir-post .geodir-i-address::before,
+.geodir-post-address::before {
+    content: "📍" !important;
+    font-size: 12px !important;
+}
+
+/* Distance badge */
+.geodir-badge-distance,
+.gd-list-distance,
+[class*="distance"] {
+    color: var(--ynm-teal) !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+}
+
+/* ==========================================================================
+   RATING DISPLAY
+   ========================================================================== */
+
+.geodir-post-rating,
+.geodir-post .geodir-post-rating,
+.gd-post-item .geodir-post-rating,
+.geodir-rating-container {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 14px !important;
+    color: var(--ynm-text-dark) !important;
+    font-weight: 500 !important;
+    margin: 4px 0 !important;
+}
+
+/* Star color */
+.geodir-post-rating .fas.fa-star,
+.geodir-post-rating .fa-star,
+.geodir-post-rating i,
+.geodir-rating-stars i {
+    color: #F4D03F !important;
+}
+
+/* HIDE empty ratings / "No Reviews" */
+.geodir-post-rating:empty,
+.geodir-post-rating:has(.geodir-rating-value:empty),
+.geodir-post .gd-no-rating,
+.geodir-post [class*="no-review"],
+.geodir-post-rating:contains("No Reviews"),
+.geodir-post .geodir-rating-count:empty {
+    display: none !important;
+}
+
+/* Hide "No Reviews" text specifically */
+.geodir-post-rating span:only-child:contains("No"),
+.geodir-rating-text:contains("No Reviews") {
+    display: none !important;
+}
+
+/* ==========================================================================
+   YOGA STYLES / CATEGORIES
+   ========================================================================== */
+
+.geodir-post .geodir-category,
+.geodir-post-categories,
+.gd-post-categories {
+    font-size: 13px !important;
+    color: var(--ynm-text-medium) !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    margin: 4px 0 !important;
+}
+
+.geodir-post .geodir-category a,
+.geodir-post-categories a {
+    color: var(--ynm-sage) !important;
+    text-decoration: none !important;
+    background: rgba(95, 116, 112, 0.1) !important;
+    padding: 2px 8px !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    transition: all 0.2s ease !important;
+}
+
+.geodir-post .geodir-category a:hover,
+.geodir-post-categories a:hover {
+    background: var(--ynm-sage) !important;
+    color: #fff !important;
+}
+
+/* ==========================================================================
+   INTRO OFFER DISPLAY (If added via custom field)
+   ========================================================================== */
+
+.geodir-post .intro-offer,
+.geodir-post [class*="intro-offer"],
+.geodir-post .special-offer,
+.ynm-card-offer {
+    background: rgba(189, 55, 26, 0.06) !important;
+    border-left: 3px solid var(--ynm-rust) !important;
+    border-radius: 0 8px 8px 0 !important;
+    padding: 10px 12px !important;
+    margin: 8px 0 !important;
+}
+
+.geodir-post .intro-offer-headline,
+.ynm-card-offer-headline {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: var(--ynm-text-dark) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.geodir-post .intro-offer-headline::before,
+.ynm-card-offer-headline::before {
+    content: "🎁" !important;
+}
+
+.geodir-post .intro-offer-terms,
+.ynm-card-offer-terms {
+    font-size: 12px !important;
+    color: var(--ynm-text-medium) !important;
+    margin-top: 2px !important;
+}
+
+/* ==========================================================================
+   BUSINESS HOURS DISPLAY
+   ========================================================================== */
+
+/* Hide full hours, just show Open/Closed status */
+.geodir-post .geodir-i-business_hours .geodir-bh-expand,
+.geodir-post .geodir-i-business_hours table {
+    display: none !important;
+}
+
+.geodir-post .geodir-i-business_hours,
+.geodir-post [class*="business-hours"] {
+    font-size: 13px !important;
+    color: var(--ynm-text-medium) !important;
+}
+
+/* Open status - green */
+.geodir-post .geodir-i-business_hours .gd-bh-open-text,
+.geodir-post .geodir-open-now {
+    color: #22c55e !important;
+    font-weight: 600 !important;
+}
+
+/* Closed status - muted */
+.geodir-post .geodir-i-business_hours .gd-bh-closed-text,
+.geodir-post .geodir-closed-now {
+    color: var(--ynm-text-medium) !important;
+}
+
+/* ==========================================================================
+   HIDE UNNECESSARY ELEMENTS ON CARDS
+   ========================================================================== */
+
+/* Hide phone, email, website on cards (clutter) */
+.geodir-post .geodir-field-phone,
+.geodir-post .geodir-field-email,
+.geodir-post .geodir-field-website,
+.geodir-post .geodir-i-phone,
+.geodir-post .geodir-i-email,
+.geodir-post .geodir-i-website {
+    display: none !important;
+}
+
+/* Hide Google rating duplicate if showing unified rating */
+.geodir-post .geodir-field-google_rating {
+    display: none !important;
+}
+
+/* Hide excerpt/description on archive cards (save space) */
+.geodir-post .geodir-post-excerpt,
+.geodir-post .excerpt,
+.geodir-post .geodir-entry-excerpt {
+    display: none !important;
+}
+
+/* Hide social links */
+.geodir-post .geodir-field-facebook,
+.geodir-post .geodir-field-instagram,
+.geodir-post .geodir-field-twitter {
+    display: none !important;
+}
+
+/* Hide any raw field labels */
+.geodir-post .geodir-field-label {
+    display: none !important;
+}
+
+/* ==========================================================================
+   CTA BUTTONS (If using custom card template)
+   ========================================================================== */
+
+.geodir-post .ynm-card-actions {
+    display: flex !important;
+    gap: 8px !important;
+    margin-top: auto !important;
+    padding-top: 12px !important;
+}
+
+.geodir-post .ynm-card-btn {
+    flex: 1 !important;
+    padding: 10px 16px !important;
+    border-radius: 6px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+}
+
+.geodir-post .ynm-card-btn--primary {
+    background: var(--ynm-teal) !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.geodir-post .ynm-card-btn--primary:hover {
+    background: var(--ynm-sage) !important;
+}
+
+.geodir-post .ynm-card-btn--secondary {
+    background: transparent !important;
+    color: var(--ynm-rust) !important;
+    border: 2px solid var(--ynm-rust) !important;
+}
+
+.geodir-post .ynm-card-btn--secondary:hover {
+    background: var(--ynm-rust) !important;
+    color: #fff !important;
+}
+
+/* ==========================================================================
+   REMOVE THE CONFUSING COLORED BARS
+   ========================================================================== */
+
+/* Remove any default GeoDirectory colored strips/bars */
+.geodir-post::before,
+.geodir-post::after,
+.geodir-post > *:first-child:not(.geodir-post-thumbnail),
+.geodir-post .gd-cat-color-bar,
+.geodir-post [class*="color-bar"],
+.geodir-post [class*="category-bar"] {
+    display: none !important;
+}
+
+/* If there are bottom bars, remove them */
+.geodir-post-content::after,
+.geodir-post-content::before {
+    display: none !important;
+}
+
+/* ==========================================================================
+   SEARCH/FILTER BAR ABOVE RESULTS
+   ========================================================================== */
+
+.geodir-search-container,
+.gd-search-bar {
+    background: #fff !important;
+    border-radius: var(--ynm-radius) !important;
+    padding: 16px !important;
+    margin-bottom: 24px !important;
+    box-shadow: var(--ynm-shadow-sm) !important;
+    border: 1px solid var(--ynm-border) !important;
+}
+
+/* ==========================================================================
+   PAGINATION
+   ========================================================================== */
+
+.geodir-pagination,
+.gd-pagination,
+.geodir-loop-paging {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin: 32px 0 !important;
+    padding: 16px 0 !important;
+}
+
+.geodir-pagination a,
+.geodir-pagination span,
+.gd-pagination a,
+.gd-pagination span {
+    padding: 10px 16px !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+}
+
+.geodir-pagination a,
+.gd-pagination a {
+    background: #fff !important;
+    color: var(--ynm-text-dark) !important;
+    border: 1px solid var(--ynm-border) !important;
+}
+
+.geodir-pagination a:hover,
+.gd-pagination a:hover {
+    background: var(--ynm-sage) !important;
+    color: #fff !important;
+    border-color: var(--ynm-sage) !important;
+}
+
+.geodir-pagination .current,
+.gd-pagination .current {
+    background: var(--ynm-teal) !important;
+    color: #fff !important;
+    border: 1px solid var(--ynm-teal) !important;
+}
+
+/* ==========================================================================
+   NO RESULTS STATE
+   ========================================================================== */
+
+.geodir-no-listings,
+.gd-no-listings-found,
+[class*="no-results"] {
+    text-align: center !important;
+    padding: 48px 24px !important;
+    background: var(--ynm-paper) !important;
+    border-radius: var(--ynm-radius) !important;
+    color: var(--ynm-text-medium) !important;
+}
+
+.geodir-no-listings h3,
+.gd-no-listings-found h3 {
+    color: var(--ynm-text-dark) !important;
+    margin-bottom: 8px !important;
+}
+
+/* ==========================================================================
+   MAP INTEGRATION (Above Results)
+   ========================================================================== */
+
+.geodir-map-container,
+.gd-map-container {
+    border-radius: var(--ynm-radius) !important;
+    overflow: hidden !important;
+    margin-bottom: 24px !important;
+    box-shadow: var(--ynm-shadow-sm) !important;
+    border: 1px solid var(--ynm-border) !important;
+}
+
+/* ==========================================================================
+   MOBILE OPTIMIZATIONS
+   ========================================================================== */
+
+@media (max-width: 640px) {
+    .geodir-post-thumbnail,
+    .geodir-image {
+        min-height: 160px !important;
+        max-height: 180px !important;
+    }
+
+    .geodir-entry-title {
+        font-size: 16px !important;
+    }
+
+    .geodir-post-content {
+        padding: 12px !important;
+    }
+
+    .ynm-card-actions {
+        flex-direction: column !important;
+    }
+}
+
+/* ==========================================================================
+   PRINT STYLES (Hide map, show clean cards)
+   ========================================================================== */
+
+@media print {
+    .geodir-map-container {
+        display: none !important;
+    }
+
+    .geodir-post {
+        break-inside: avoid !important;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+}

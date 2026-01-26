@@ -1,0 +1,57 @@
+/* ===========================================
+   YogaNearMe.info - humans.txt
+   =========================================== */
+
+/* TEAM */
+Developer: Edward (Ed) Bates - Founder, Business & Operations Lead
+Developer: Lisa Marie Morse - Co-Founder, Yoga Education Lead
+Site: https://yoganearme.info
+Contact: info@yoganearme.info
+Location: Los Angeles, California, USA
+
+/* ABOUT */
+Description: Yoga Near Me is a North American yoga studio directory and education hub.
+We help students find authentic yoga studios and help teachers and studio owners
+grow sustainable, profitable studios through business education and tools.
+
+/* AUTHORS */
+Yoga-Content-Lead: Lisa Marie Morse
+Yoga-Focus:
+- Classical Hatha, Vinyasa, Ashtanga, Iyengar, Yin, Restorative, Power, Rocket, Aerial, Prenatal
+- Meditation, pranayama, and nervous-system-supportive practice
+- Alignment-focused, inclusive, and trauma-aware teaching
+
+Business-Content-Lead: Edward (Ed) Bates
+Business-Focus:
+- Yoga studio business strategy, pricing, and revenue
+- SEO, digital marketing, and local visibility
+- AI, automation, and systems for studio operations
+
+/* BRAND */
+Tagline: Peace within Reach
+Audience:
+- Yoga students looking for studios and styles
+- Yoga teachers and studio owners
+- Curious beginners and returning practitioners
+
+Values:
+- Authenticity
+- Accessibility
+- Inclusivity
+- Integrity
+- Sustainability
+
+/* TECHNOLOGY */
+Platform: WordPress + Elementor Pro + GeoDirectory
+Hosting: Hostinger
+Languages: HTML, CSS, JavaScript, PHP
+Tools: Rank Math, CSV imports, automation and AI-assisted workflows
+
+/* THANKS */
+Thanks-To:
+- The yoga teachers, lineage holders, and studios who keep this practice alive.
+- The students who keep showing up, breath by breath.
+- The open-source and indie dev communities supporting WordPress and directory tooling.
+
+/* LAST UPDATED */
+Last-Updated: 2025-12-07

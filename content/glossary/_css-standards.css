@@ -1,0 +1,191 @@
+/* ===========================================
+   YOGA NEAR ME - GLOSSARY PAGE CSS STANDARDS
+   Version: 1.0
+   Last Updated: December 2025
+   =========================================== */
+
+/* ===========================================
+   HIGHLIGHT BOX SYSTEM - Brand Aligned
+
+   Three types of highlight boxes using brand colors:
+   1. PRIMARY (.highlight-box, .concept-box) - Key concepts
+   2. SECONDARY (.sanskrit-box, .tradition-box) - Etymology/tradition
+   3. CAUTION (.warning-box, .caution-box, .injury-box) - Warnings
+   =========================================== */
+
+/* -----------------------------------------
+   1. PRIMARY BOX - Key concepts, important callouts
+
+   USE FOR:
+   - "Prana isn't just breath" style key insights
+   - Important definitions or distinctions
+   - Key takeaways the reader shouldn't miss
+   - Conceptual explanations
+
+   EXAMPLE:
+   <div class="highlight-box">
+       <strong>Key insight:</strong> Your explanation here...
+   </div>
+   ----------------------------------------- */
+.highlight-box,
+.concept-box {
+    background: linear-gradient(135deg, #F0F3F2 0%, #E8EDEC 100%);
+    border-left: 4px solid var(--primary-slate);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+.highlight-box strong,
+.concept-box strong {
+    color: var(--primary-slate-dark);
+}
+
+/* -----------------------------------------
+   2. SECONDARY BOX - Sanskrit, tradition, cross-cultural
+
+   USE FOR:
+   - Sanskrit etymology and breakdowns
+   - Cross-cultural parallels (Chi, Ki, Mana)
+   - Historical context and lineage
+   - Traditional teaching notes
+
+   EXAMPLE:
+   <div class="sanskrit-box">
+       <strong>Sanskrit roots:</strong> Prana (life) + Ayama (extension)...
+   </div>
+   ----------------------------------------- */
+.sanskrit-box,
+.tradition-box,
+.parallel-box {
+    background: linear-gradient(135deg, #F8FAFA 0%, #EEF1F0 100%);
+    border-left: 4px solid var(--primary-slate-light);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+.sanskrit-box strong,
+.tradition-box strong,
+.parallel-box strong {
+    color: var(--primary-slate-dark);
+}
+
+/* -----------------------------------------
+   3. CAUTION BOX - Warnings, safety, medical
+
+   USE FOR:
+   - Injury warnings and contraindications
+   - "Consult a doctor" disclaimers
+   - Safety precautions
+   - When NOT to do something
+
+   EXAMPLE:
+   <div class="warning-box">
+       <strong>Caution:</strong> Skip this pose if you have...
+   </div>
+   ----------------------------------------- */
+.warning-box,
+.caution-box,
+.injury-box {
+    background: linear-gradient(135deg, #FDF2F0 0%, #FAE8E5 100%);
+    border-left: 4px solid var(--accent-coral);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+    color: #8B3D32;
+}
+.warning-box strong,
+.caution-box strong,
+.injury-box strong {
+    color: #6B2E25;
+}
+
+/* -----------------------------------------
+   GENERAL NOTE BOX (existing)
+
+   USE FOR:
+   - General notes and tips
+   - Additional context
+   - "Good to know" information
+
+   Keep as-is - coral border on gray background
+   ----------------------------------------- */
+.ynm-term-note {
+    background: var(--gray-50);
+    border-left: 4px solid var(--accent-coral);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+.ynm-term-note strong {
+    color: var(--text-primary);
+}
+
+
+/* ===========================================
+   HEADER - Full Width with Responsive Content
+   =========================================== */
+
+.site-header {
+    background: var(--primary-slate);
+    padding: 1rem clamp(1rem, 3vw, 1.5rem);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.site-header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* ===========================================
+   FOOTER - Full Width with Responsive Content
+   =========================================== */
+
+.site-footer {
+    background: var(--primary-slate-dark);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 4rem clamp(1rem, 3vw, 1.5rem) 2rem;
+    margin-top: 4rem;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* ===========================================
+   COLOR REFERENCE (from brand identity)
+
+   Primary:
+   --primary-slate: #667085
+   --primary-slate-dark: #475467
+   --primary-slate-light: #98A2B3
+
+   Accent:
+   --accent-coral: #e95c4b
+   --accent-coral-dark: #bd3000
+   --accent-coral-light: #FFB3A7
+
+   Neutrals:
+   --gray-50: #F9FAFB (page background)
+   --gray-100: #F2F4F7
+   --gray-200: #E4E7EC (borders)
+   --text-primary: #101828
+   --text-secondary: #475467
+   =========================================== */

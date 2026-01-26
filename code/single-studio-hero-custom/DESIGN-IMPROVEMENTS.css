@@ -1,0 +1,520 @@
+/**
+ * DESIGN IMPROVEMENTS - Complete Section Styling
+ * Addresses all design requirements from user feedback
+ * Add to WordPress Customizer → Additional CSS (at the very bottom)
+ */
+
+/* ===================================
+   BREADCRUMBS - Fix Display
+=================================== */
+body.single-gd_place .breadcrumb-section {
+    display: block !important;
+    visibility: visible !important;
+    background: var(--color-white) !important;
+    padding: var(--space-md) 0 !important;
+    border-bottom: 1px solid var(--color-border) !important;
+    max-width: var(--content-width) !important;
+    margin: 0 auto !important;
+    padding-left: var(--space-lg) !important;
+    padding-right: var(--space-lg) !important;
+}
+
+body.single-gd_place .breadcrumb {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-sm) !important;
+    color: var(--color-text-medium) !important;
+    font-size: 0.9rem !important;
+    flex-wrap: wrap !important;
+}
+
+/* ===================================
+   SECTION SPACING - Define Sections
+=================================== */
+body.single-gd_place .elementor-section:nth-child(n+2) {
+    margin-bottom: var(--space-2xl) !important;
+    margin-top: var(--space-xl) !important;
+}
+
+body.single-gd_place .elementor-section:nth-child(n+2) .elementor-container {
+    background: var(--color-white) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-xl) !important;
+    margin-bottom: var(--space-xl) !important;
+    box-shadow: var(--shadow-sm) !important;
+    border: 1px solid var(--color-border) !important;
+}
+
+/* Spacing between Contact Information and buttons */
+body.single-gd_place .elementor-section:has(.contact-information-group),
+body.single-gd_place .elementor-section:has([class*="contact"]) {
+    margin-bottom: var(--space-xl) !important;
+}
+
+body.single-gd_place .elementor-section:has(.contact-information-group) + .elementor-section,
+body.single-gd_place .elementor-section:has([class*="contact"]) + .elementor-section {
+    margin-top: var(--space-xl) !important;
+}
+
+/* ===================================
+   CONTACT INFORMATION CARD
+   (White card with proper styling)
+=================================== */
+body.single-gd_place .contact-information-group,
+body.single-gd_place .elementor-widget:has-text("Contact Information"),
+body.single-gd_place .elementor-widget:has-text("Contact") {
+    background: var(--color-white) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-xl) !important;
+    margin-bottom: var(--space-xl) !important;
+    box-shadow: var(--shadow-sm) !important;
+    border: 1px solid var(--color-border) !important;
+}
+
+/* Contact Information Heading */
+body.single-gd_place .contact-information-group h2,
+body.single-gd_place .contact-information-group h3,
+body.single-gd_place .elementor-widget:has-text("Contact Information") .elementor-heading-title,
+body.single-gd_place .elementor-widget:has-text("Contact") .elementor-heading-title {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: var(--color-text-dark) !important;
+    margin-bottom: var(--space-lg) !important;
+    padding-bottom: var(--space-md) !important;
+    border-bottom: 1px solid var(--color-border) !important;
+    position: relative !important;
+    padding-left: 24px !important;
+}
+
+body.single-gd_place .contact-information-group h2::before,
+body.single-gd_place .contact-information-group h3::before,
+body.single-gd_place .elementor-widget:has-text("Contact Information") .elementor-heading-title::before,
+body.single-gd_place .elementor-widget:has-text("Contact") .elementor-heading-title::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: var(--color-terracotta) !important;
+    font-size: 14px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+}
+
+/* Contact Items - Proper Card Layout */
+body.single-gd_place .contact-item-group,
+body.single-gd_place .geodir-post-meta[data-key*="address"],
+body.single-gd_place .geodir-post-meta[data-key*="phone"],
+body.single-gd_place .geodir-post-meta[data-key*="email"],
+body.single-gd_place .geodir-post-meta[data-key*="website"] {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: var(--space-md) !important;
+    padding: var(--space-md) 0 !important;
+    border-bottom: 1px solid #F0F0F0 !important;
+    background: transparent !important;
+    margin: 0 !important;
+}
+
+body.single-gd_place .contact-item-group:last-child,
+body.single-gd_place .geodir-post-meta[data-key*="website"] {
+    border-bottom: none !important;
+}
+
+/* Contact Icons */
+body.single-gd_place .contact-item-group .icon-wrapper,
+body.single-gd_place .geodir-post-meta .geodir-meta-icon {
+    width: 24px !important;
+    height: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+body.single-gd_place .contact-item-group .icon-wrapper svg,
+body.single-gd_place .geodir-post-meta .geodir-meta-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+    fill: var(--color-sage) !important;
+}
+
+/* Contact Labels (ADDRESS, PHONE, EMAIL, WEBSITE) */
+body.single-gd_place .contact-item-group .label,
+body.single-gd_place .geodir-post-meta .geodir-meta-label {
+    display: block !important;
+    font-size: 0.75rem !important;
+    color: var(--color-text-light) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 4px !important;
+    font-weight: 500 !important;
+}
+
+/* Contact Values */
+body.single-gd_place .contact-item-group .value,
+body.single-gd_place .geodir-post-meta .geodir-meta-value {
+    color: var(--color-text-dark) !important;
+    font-weight: 400 !important;
+    font-size: 15px !important;
+    word-break: break-word !important;
+    line-height: 1.6 !important;
+}
+
+/* Address Formatting - State & USA line up with city */
+body.single-gd_place .geodir-post-meta[data-key*="address"] .geodir-meta-value {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+body.single-gd_place .geodir-post-meta[data-key*="address"] .geodir-meta-value .address-line1,
+body.single-gd_place .geodir-post-meta[data-key*="address"] .geodir-meta-value .address-street {
+    margin-bottom: 4px !important;
+}
+
+body.single-gd_place .geodir-post-meta[data-key*="address"] .geodir-meta-value .address-line2 {
+    display: flex !important;
+    align-items: baseline !important;
+    gap: 4px !important;
+}
+
+/* Links (phone, email, website) - Light purple/teal */
+body.single-gd_place .contact-item-group .value a,
+body.single-gd_place .geodir-post-meta .geodir-meta-value a {
+    color: var(--color-teal) !important;
+    text-decoration: none !important;
+}
+
+body.single-gd_place .contact-item-group .value a:hover,
+body.single-gd_place .geodir-post-meta .geodir-meta-value a:hover {
+    color: var(--color-terracotta) !important;
+    text-decoration: underline !important;
+}
+
+/* Follow Us Section */
+body.single-gd_place .contact-information-group .follow-us-section,
+body.single-gd_place .elementor-widget:has-text("Follow Us") {
+    margin-top: var(--space-xl) !important;
+    padding-top: var(--space-lg) !important;
+    border-top: 1px solid var(--color-border) !important;
+}
+
+body.single-gd_place .contact-information-group .follow-us-heading,
+body.single-gd_place .elementor-widget:has-text("Follow Us") .elementor-heading-title {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: var(--color-text-dark) !important;
+    margin-bottom: var(--space-md) !important;
+    padding-bottom: var(--space-sm) !important;
+    border-bottom: 1px solid var(--color-border) !important;
+}
+
+/* Social Media Icons */
+body.single-gd_place .contact-information-group .social-links,
+body.single-gd_place .elementor-widget-share-buttons,
+body.single-gd_place .elementor-social-icons-wrapper {
+    display: flex !important;
+    gap: var(--space-sm) !important;
+    margin-top: var(--space-md) !important;
+}
+
+body.single-gd_place .contact-information-group .social-link,
+body.single-gd_place .elementor-social-icon {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    background: rgba(97, 148, 139, 0.1) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all var(--transition-fast) !important;
+    border: none !important;
+}
+
+body.single-gd_place .contact-information-group .social-link:hover,
+body.single-gd_place .elementor-social-icon:hover {
+    background: var(--color-teal) !important;
+    transform: translateY(-2px) !important;
+}
+
+body.single-gd_place .contact-information-group .social-link svg,
+body.single-gd_place .elementor-social-icon i,
+body.single-gd_place .elementor-social-icon svg {
+    color: var(--color-teal) !important;
+    fill: var(--color-teal) !important;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+body.single-gd_place .contact-information-group .social-link:hover svg,
+body.single-gd_place .elementor-social-icon:hover i,
+body.single-gd_place .elementor-social-icon:hover svg {
+    color: white !important;
+    fill: white !important;
+}
+
+/* ===================================
+   HOURS OF OPERATION CARD
+=================================== */
+body.single-gd_place .hours-of-operation-group,
+body.single-gd_place .elementor-widget:has-text("Hours of Operation"),
+body.single-gd_place .elementor-widget:has-text("Hours") {
+    background: var(--color-white) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-xl) !important;
+    margin-bottom: var(--space-xl) !important;
+    box-shadow: var(--shadow-sm) !important;
+    border: 1px solid var(--color-border) !important;
+}
+
+/* Hours Heading */
+body.single-gd_place .hours-of-operation-group h2,
+body.single-gd_place .hours-of-operation-group h3,
+body.single-gd_place .elementor-widget:has-text("Hours of Operation") .elementor-heading-title,
+body.single-gd_place .elementor-widget:has-text("Hours") .elementor-heading-title {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: var(--color-text-dark) !important;
+    margin-bottom: var(--space-lg) !important;
+    padding-bottom: var(--space-md) !important;
+    border-bottom: 1px solid var(--color-border) !important;
+    position: relative !important;
+    padding-left: 24px !important;
+}
+
+body.single-gd_place .hours-of-operation-group h2::before,
+body.single-gd_place .hours-of-operation-group h3::before,
+body.single-gd_place .elementor-widget:has-text("Hours of Operation") .elementor-heading-title::before,
+body.single-gd_place .elementor-widget:has-text("Hours") .elementor-heading-title::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: var(--color-terracotta) !important;
+    font-size: 14px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+}
+
+/* Today's Status (Open Now · Closes 9:00 PM) */
+body.single-gd_place .hours-status-group,
+body.single-gd_place .geodir-business-hours .hours-status {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: var(--space-sm) var(--space-md) !important;
+    background: rgba(40, 167, 69, 0.1) !important;
+    border-radius: var(--radius-full) !important;
+    margin-bottom: var(--space-lg) !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    color: var(--color-success) !important;
+}
+
+body.single-gd_place .hours-status-group .status-dot,
+body.single-gd_place .geodir-business-hours .hours-status::before {
+    content: "" !important;
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: var(--color-success) !important;
+    display: inline-block !important;
+    margin-right: 4px !important;
+}
+
+/* Hours List */
+body.single-gd_place .hours-list,
+body.single-gd_place .geodir-business-hours .hours-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+}
+
+/* Today's Hours Row - At Top */
+body.single-gd_place .hours-row-group.today,
+body.single-gd_place .geodir-business-hours .geodir-hours-row.today {
+    order: -1 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: var(--space-sm) 0 !important;
+    border-bottom: 1px solid var(--color-border) !important;
+    margin-bottom: var(--space-sm) !important;
+    font-weight: 600 !important;
+}
+
+/* Regular Hours Rows */
+body.single-gd_place .hours-row-group,
+body.single-gd_place .geodir-business-hours .geodir-hours-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: var(--space-sm) 0 !important;
+    border-bottom: 1px solid #F0F0F0 !important;
+}
+
+body.single-gd_place .hours-row-group:last-child,
+body.single-gd_place .geodir-business-hours .geodir-hours-row:last-child {
+    border-bottom: none !important;
+}
+
+body.single-gd_place .hours-row-group .day,
+body.single-gd_place .geodir-business-hours .geodir-hours-day {
+    color: var(--color-text-medium) !important;
+    font-size: 15px !important;
+}
+
+body.single-gd_place .hours-row-group.today .day,
+body.single-gd_place .geodir-business-hours .geodir-hours-row.today .geodir-hours-day {
+    color: var(--color-text-dark) !important;
+    font-weight: 600 !important;
+}
+
+body.single-gd_place .hours-row-group .time,
+body.single-gd_place .geodir-business-hours .geodir-hours-time {
+    font-weight: 400 !important;
+    color: var(--color-text-dark) !important;
+    font-size: 15px !important;
+}
+
+/* ===================================
+   STUDIO TITLE AREA - Location & Status
+=================================== */
+body.single-gd_place .studio-title-area {
+    margin-bottom: var(--space-lg) !important;
+}
+
+/* Location Pin Below Title */
+body.single-gd_place .studio-location-meta,
+body.single-gd_place .geodir-post-meta[data-key*="address"]:first-of-type {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-sm) !important;
+    margin-top: var(--space-sm) !important;
+    margin-bottom: var(--space-sm) !important;
+    color: var(--color-text-medium) !important;
+    font-size: 0.95rem !important;
+}
+
+body.single-gd_place .studio-location-meta .location-icon,
+body.single-gd_place .geodir-post-meta[data-key*="address"] .geodir-meta-icon {
+    width: 18px !important;
+    height: 18px !important;
+    fill: var(--color-sage) !important;
+}
+
+/* Open/Closes Status Below Title */
+body.single-gd_place .studio-status-meta,
+body.single-gd_place .geodir-post-meta[data-key*="business_hours"]:first-of-type {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-sm) !important;
+    margin-top: var(--space-sm) !important;
+    color: var(--color-text-medium) !important;
+    font-size: 0.95rem !important;
+}
+
+body.single-gd_place .studio-status-meta .status-text {
+    color: var(--color-success) !important;
+    font-weight: 500 !important;
+}
+
+/* ===================================
+   ABOUT SECTION - Info Icon
+=================================== */
+body.single-gd_place .about-section h2::before,
+body.single-gd_place .about-section h3::before,
+body.single-gd_place .elementor-widget:has-text("About") .elementor-heading-title::before {
+    content: "ⓘ" !important;
+    display: inline-block !important;
+    color: var(--color-terracotta) !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    width: 24px !important;
+    height: 24px !important;
+    background: rgba(255, 87, 51, 0.1) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-style: normal !important;
+}
+
+/* Alternative: Use orange circle with white 'i' */
+body.single-gd_place .about-section h2::before,
+body.single-gd_place .about-section h3::before,
+body.single-gd_place .elementor-widget:has-text("About") .elementor-heading-title::before {
+    content: "i" !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    font-style: italic !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    width: 24px !important;
+    height: 24px !important;
+    background: var(--color-terracotta) !important;
+    border-radius: 50% !important;
+}
+
+/* ===================================
+   SECTION HEADINGS - Separator Line
+=================================== */
+body.single-gd_place .section-heading,
+body.single-gd_place .elementor-heading-title:not(h1),
+body.single-gd_place h2:not(.geodir-post-title),
+body.single-gd_place h3 {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: var(--color-text-dark) !important;
+    margin-bottom: var(--space-lg) !important;
+    padding-bottom: var(--space-md) !important;
+    border-bottom: 1px solid var(--color-border) !important;
+    position: relative !important;
+    padding-left: 24px !important;
+}
+
+body.single-gd_place .section-heading::before,
+body.single-gd_place .elementor-heading-title:not(h1)::before,
+body.single-gd_place h2:not(.geodir-post-title)::before,
+body.single-gd_place h3::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: var(--color-terracotta) !important;
+    font-size: 14px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+@media (max-width: 768px) {
+    body.single-gd_place .elementor-section:nth-child(n+2) {
+        margin-bottom: var(--space-lg) !important;
+    }
+    
+    body.single-gd_place .contact-information-group,
+    body.single-gd_place .hours-of-operation-group {
+        padding: var(--space-lg) !important;
+    }
+}
+

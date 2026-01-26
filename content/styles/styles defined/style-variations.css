@@ -1,0 +1,744 @@
+/* ========================================
+   YOGA STYLE VARIATIONS
+   Magazine-Style Blog Template
+   ======================================== */
+
+/* ========================================
+   HATHA YOGA STYLE
+   ======================================== */
+.yoga-style-hatha {
+    --primary-color: #2c5f41;        /* Deep forest green */
+    --secondary-color: #7a9b7a;      /* Sage green */
+    --accent-color: #d4af8c;         /* Warm beige */
+    --light-accent: #f5f1eb;         /* Cream */
+    --text-primary: #2c2c2c;         /* Dark charcoal */
+    --text-secondary: #666666;       /* Medium gray */
+    --text-light: #999999;           /* Light gray */
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Header Art */
+    --header-art: url('/Users/eddieb/Projects/Yoganearme.info/STYLE/HEADER ART/Header_Style_Hatha_1200x630.png');
+    
+    /* Typography adjustments for gentle style */
+    --font-weight-hero: 600;
+    --font-weight-section: 500;
+    --letter-spacing: 0.5px;
+}
+
+.yoga-style-hatha .hero-title {
+    font-weight: var(--font-weight-hero);
+    letter-spacing: var(--letter-spacing);
+    color: var(--primary-color);
+}
+
+.yoga-style-hatha .section-title {
+    font-weight: var(--font-weight-section);
+    color: var(--primary-color);
+}
+
+.yoga-style-hatha .benefit-card {
+    border-left: 4px solid var(--primary-color);
+}
+
+.yoga-style-hatha .timeline-marker {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+/* ========================================
+   VINYASA YOGA STYLE
+   ======================================== */
+.yoga-style-vinyasa {
+    --primary-color: #4a90a4;        /* Ocean blue */
+    --secondary-color: #7bb3c7;      /* Light blue */
+    --accent-color: #f4a261;         /* Sunset orange */
+    --light-accent: #f0f8ff;         /* Light blue tint */
+    --text-primary: #2c2c2c;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Header Art */
+    --header-art: url('/Users/eddieb/Projects/Yoganearme.info/STYLE/HEADER ART/Header_Style_Vinyasa_1200x630.png');
+    
+    /* Typography adjustments for dynamic style */
+    --font-weight-hero: 700;
+    --font-weight-section: 600;
+    --letter-spacing: -0.2px;
+}
+
+.yoga-style-vinyasa .hero-title {
+    font-weight: var(--font-weight-hero);
+    letter-spacing: var(--letter-spacing);
+    color: var(--primary-color);
+}
+
+.yoga-style-vinyasa .section-title {
+    font-weight: var(--font-weight-section);
+    color: var(--primary-color);
+}
+
+.yoga-style-vinyasa .benefit-card {
+    border-left: 4px solid var(--primary-color);
+    background: linear-gradient(135deg, var(--white) 0%, var(--light-accent) 100%);
+}
+
+.yoga-style-vinyasa .timeline-marker {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(74, 144, 164, 0.3);
+}
+
+.yoga-style-vinyasa .cta-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+/* ========================================
+   POWER YOGA STYLE
+   ======================================== */
+.yoga-style-power {
+    --primary-color: #d62828;        /* Bold red */
+    --secondary-color: #f77f00;      /* Energy orange */
+    --accent-color: #fcbf49;         /* Bright yellow */
+    --light-accent: #fff5f5;         /* Light red tint */
+    --text-primary: #2c2c2c;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Typography adjustments for energetic style */
+    --font-weight-hero: 800;
+    --font-weight-section: 700;
+    --letter-spacing: -0.5px;
+}
+
+.yoga-style-power .hero-title {
+    font-weight: var(--font-weight-hero);
+    letter-spacing: var(--letter-spacing);
+    color: var(--primary-color);
+    text-shadow: 0 2px 4px rgba(214, 40, 40, 0.2);
+}
+
+.yoga-style-power .section-title {
+    font-weight: var(--font-weight-section);
+    color: var(--primary-color);
+}
+
+.yoga-style-power .benefit-card {
+    border-left: 4px solid var(--primary-color);
+    background: linear-gradient(135deg, var(--white) 0%, var(--light-accent) 100%);
+    box-shadow: 0 4px 20px rgba(214, 40, 40, 0.1);
+}
+
+.yoga-style-power .benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(214, 40, 40, 0.2);
+}
+
+.yoga-style-power .timeline-marker {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(214, 40, 40, 0.3);
+}
+
+.yoga-style-power .cta-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(214, 40, 40, 0.3);
+}
+
+.yoga-style-power .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(214, 40, 40, 0.4);
+}
+
+/* ========================================
+   YIN YOGA STYLE
+   ======================================== */
+.yoga-style-yin {
+    --primary-color: #6f42c1;        /* Deep purple */
+    --secondary-color: #9c88ff;      /* Light purple */
+    --accent-color: #ffc107;         /* Golden yellow */
+    --light-accent: #f8f5ff;         /* Light purple tint */
+    --text-primary: #2c2c2c;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Typography adjustments for meditative style */
+    --font-weight-hero: 500;
+    --font-weight-section: 400;
+    --letter-spacing: 1px;
+}
+
+.yoga-style-yin .hero-title {
+    font-weight: var(--font-weight-hero);
+    letter-spacing: var(--letter-spacing);
+    color: var(--primary-color);
+}
+
+.yoga-style-yin .section-title {
+    font-weight: var(--font-weight-section);
+    color: var(--primary-color);
+}
+
+.yoga-style-yin .benefit-card {
+    border-left: 4px solid var(--primary-color);
+    background: linear-gradient(135deg, var(--white) 0%, var(--light-accent) 100%);
+    border-radius: 16px;
+}
+
+.yoga-style-yin .timeline-marker {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(111, 66, 193, 0.2);
+}
+
+.yoga-style-yin .cta-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 30px;
+}
+
+/* ========================================
+   ASHTANGA YOGA STYLE
+   ======================================== */
+.yoga-style-ashtanga {
+    --primary-color: #1a365d;        /* Deep navy */
+    --secondary-color: #2d5a87;      /* Medium blue */
+    --accent-color: #e53e3e;         /* Red accent */
+    --light-accent: #f7fafc;         /* Light blue tint */
+    --text-primary: #2c2c2c;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Typography adjustments for traditional style */
+    --font-weight-hero: 700;
+    --font-weight-section: 600;
+    --letter-spacing: 0px;
+}
+
+.yoga-style-ashtanga .hero-title {
+    font-weight: var(--font-weight-hero);
+    letter-spacing: var(--letter-spacing);
+    color: var(--primary-color);
+}
+
+.yoga-style-ashtanga .section-title {
+    font-weight: var(--font-weight-section);
+    color: var(--primary-color);
+}
+
+.yoga-style-ashtanga .benefit-card {
+    border-left: 4px solid var(--primary-color);
+    background: linear-gradient(135deg, var(--white) 0%, var(--light-accent) 100%);
+}
+
+.yoga-style-ashtanga .timeline-marker {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(26, 54, 93, 0.3);
+}
+
+.yoga-style-ashtanga .cta-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+/* ========================================
+   IYENGAR YOGA STYLE
+   ======================================== */
+.yoga-style-iyengar {
+    --primary-color: #2d5016;        /* Forest green */
+    --secondary-color: #68d391;      /* Light green */
+    --accent-color: #f6ad55;         /* Warm orange */
+    --light-accent: #f0fff4;         /* Light green tint */
+    --text-primary: #2c2c2c;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Typography adjustments for precise style */
+    --font-weight-hero: 600;
+    --font-weight-section: 500;
+    --letter-spacing: 0.3px;
+}
+
+.yoga-style-iyengar .hero-title {
+    font-weight: var(--font-weight-hero);
+    letter-spacing: var(--letter-spacing);
+    color: var(--primary-color);
+}
+
+.yoga-style-iyengar .section-title {
+    font-weight: var(--font-weight-section);
+    color: var(--primary-color);
+}
+
+.yoga-style-iyengar .benefit-card {
+    border-left: 4px solid var(--primary-color);
+    background: linear-gradient(135deg, var(--white) 0%, var(--light-accent) 100%);
+}
+
+.yoga-style-iyengar .timeline-marker {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(45, 80, 22, 0.2);
+}
+
+.yoga-style-iyengar .cta-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+/* ========================================
+   KUNDALINI YOGA STYLE
+   ======================================== */
+.yoga-style-kundalini {
+    --primary-color: #7c3aed;        /* Purple */
+    --secondary-color: #a78bfa;      /* Light purple */
+    --accent-color: #fbbf24;         /* Golden yellow */
+    --light-accent: #faf5ff;         /* Light purple tint */
+    --text-primary: #2c2c2c;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Typography adjustments for spiritual style */
+    --font-weight-hero: 600;
+    --font-weight-section: 500;
+    --letter-spacing: 0.8px;
+}
+
+.yoga-style-kundalini .hero-title {
+    font-weight: var(--font-weight-hero);
+    letter-spacing: var(--letter-spacing);
+    color: var(--primary-color);
+}
+
+.yoga-style-kundalini .section-title {
+    font-weight: var(--font-weight-section);
+    color: var(--primary-color);
+}
+
+.yoga-style-kundalini .benefit-card {
+    border-left: 4px solid var(--primary-color);
+    background: linear-gradient(135deg, var(--white) 0%, var(--light-accent) 100%);
+    border-radius: 20px;
+}
+
+.yoga-style-kundalini .timeline-marker {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+.yoga-style-kundalini .cta-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 30px;
+}
+
+/* ========================================
+   BIKRAM/HOT YOGA STYLE
+   ======================================== */
+.yoga-style-bikram {
+    --primary-color: #dc2626;        /* Red */
+    --secondary-color: #f87171;      /* Light red */
+    --accent-color: #fbbf24;         /* Golden yellow */
+    --light-accent: #fef2f2;         /* Light red tint */
+    --text-primary: #2c2c2c;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Typography adjustments for intense style */
+    --font-weight-hero: 800;
+    --font-weight-section: 700;
+    --letter-spacing: -0.3px;
+}
+
+.yoga-style-bikram .hero-title {
+    font-weight: var(--font-weight-hero);
+    letter-spacing: var(--letter-spacing);
+    color: var(--primary-color);
+    text-shadow: 0 2px 4px rgba(220, 38, 38, 0.2);
+}
+
+.yoga-style-bikram .section-title {
+    font-weight: var(--font-weight-section);
+    color: var(--primary-color);
+}
+
+.yoga-style-bikram .benefit-card {
+    border-left: 4px solid var(--primary-color);
+    background: linear-gradient(135deg, var(--white) 0%, var(--light-accent) 100%);
+    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.1);
+}
+
+.yoga-style-bikram .benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(220, 38, 38, 0.2);
+}
+
+.yoga-style-bikram .timeline-marker {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+.yoga-style-bikram .cta-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+/* ========================================
+   AERIAL YOGA STYLE
+   ======================================== */
+.yoga-style-aerial {
+    --primary-color: #059669;        /* Emerald green */
+    --secondary-color: #34d399;      /* Light emerald */
+    --accent-color: #f59e0b;         /* Amber */
+    --light-accent: #ecfdf5;         /* Light green tint */
+    --text-primary: #2c2c2c;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Typography adjustments for aerial style */
+    --font-weight-hero: 700;
+    --font-weight-section: 600;
+    --letter-spacing: 0.2px;
+}
+
+.yoga-style-aerial .hero-title {
+    font-weight: var(--font-weight-hero);
+    letter-spacing: var(--letter-spacing);
+    color: var(--primary-color);
+}
+
+.yoga-style-aerial .section-title {
+    font-weight: var(--font-weight-section);
+    color: var(--primary-color);
+}
+
+.yoga-style-aerial .benefit-card {
+    border-left: 4px solid var(--primary-color);
+    background: linear-gradient(135deg, var(--white) 0%, var(--light-accent) 100%);
+    border-radius: 16px;
+}
+
+.yoga-style-aerial .timeline-marker {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+}
+
+.yoga-style-aerial .cta-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+/* ========================================
+   PRENATAL YOGA STYLE
+   ======================================== */
+.yoga-style-prenatal {
+    --primary-color: #be185d;        /* Pink */
+    --secondary-color: #f472b6;      /* Light pink */
+    --accent-color: #fbbf24;         /* Golden yellow */
+    --light-accent: #fdf2f8;         /* Light pink tint */
+    --text-primary: #2c2c2c;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Typography adjustments for nurturing style */
+    --font-weight-hero: 600;
+    --font-weight-section: 500;
+    --letter-spacing: 0.4px;
+}
+
+.yoga-style-prenatal .hero-title {
+    font-weight: var(--font-weight-hero);
+    letter-spacing: var(--letter-spacing);
+    color: var(--primary-color);
+}
+
+.yoga-style-prenatal .section-title {
+    font-weight: var(--font-weight-section);
+    color: var(--primary-color);
+}
+
+.yoga-style-prenatal .benefit-card {
+    border-left: 4px solid var(--primary-color);
+    background: linear-gradient(135deg, var(--white) 0%, var(--light-accent) 100%);
+    border-radius: 20px;
+}
+
+.yoga-style-prenatal .timeline-marker {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(190, 24, 93, 0.2);
+}
+
+.yoga-style-prenatal .cta-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 30px;
+}
+
+/* ========================================
+   RESTORATIVE YOGA STYLE
+   ======================================== */
+.yoga-style-restorative {
+    --primary-color: #7c2d12;        /* Brown */
+    --secondary-color: #d97706;      /* Orange */
+    --accent-color: #fde68a;         /* Light yellow */
+    --light-accent: #fffbeb;         /* Cream */
+    --text-primary: #2c2c2c;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Typography adjustments for gentle style */
+    --font-weight-hero: 500;
+    --font-weight-section: 400;
+    --letter-spacing: 0.6px;
+}
+
+.yoga-style-restorative .hero-title {
+    font-weight: var(--font-weight-hero);
+    letter-spacing: var(--letter-spacing);
+    color: var(--primary-color);
+}
+
+.yoga-style-restorative .section-title {
+    font-weight: var(--font-weight-section);
+    color: var(--primary-color);
+}
+
+.yoga-style-restorative .benefit-card {
+    border-left: 4px solid var(--primary-color);
+    background: linear-gradient(135deg, var(--white) 0%, var(--light-accent) 100%);
+    border-radius: 20px;
+}
+
+.yoga-style-restorative .timeline-marker {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(124, 45, 18, 0.2);
+}
+
+.yoga-style-restorative .cta-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 30px;
+}
+
+/* ========================================
+   ROCKET YOGA STYLE
+   ======================================== */
+.yoga-style-rocket {
+    --primary-color: #1e40af;        /* Blue */
+    --secondary-color: #60a5fa;      /* Light blue */
+    --accent-color: #f59e0b;         /* Amber */
+    --light-accent: #eff6ff;         /* Light blue tint */
+    --text-primary: #2c2c2c;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Typography adjustments for dynamic style */
+    --font-weight-hero: 800;
+    --font-weight-section: 700;
+    --letter-spacing: -0.4px;
+}
+
+.yoga-style-rocket .hero-title {
+    font-weight: var(--font-weight-hero);
+    letter-spacing: var(--letter-spacing);
+    color: var(--primary-color);
+    text-shadow: 0 2px 4px rgba(30, 64, 175, 0.2);
+}
+
+.yoga-style-rocket .section-title {
+    font-weight: var(--font-weight-section);
+    color: var(--primary-color);
+}
+
+.yoga-style-rocket .benefit-card {
+    border-left: 4px solid var(--primary-color);
+    background: linear-gradient(135deg, var(--white) 0%, var(--light-accent) 100%);
+    box-shadow: 0 4px 20px rgba(30, 64, 175, 0.1);
+}
+
+.yoga-style-rocket .benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(30, 64, 175, 0.2);
+}
+
+.yoga-style-rocket .timeline-marker {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+}
+
+.yoga-style-rocket .cta-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+}
+
+/* ========================================
+   KRIYA YOGA STYLE
+   ======================================== */
+.yoga-style-kriya {
+    --primary-color: #7c3aed;        /* Purple */
+    --secondary-color: #a78bfa;      /* Light purple */
+    --accent-color: #fbbf24;         /* Golden yellow */
+    --light-accent: #faf5ff;         /* Light purple tint */
+    --text-primary: #2c2c2c;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Typography adjustments for spiritual style */
+    --font-weight-hero: 600;
+    --font-weight-section: 500;
+    --letter-spacing: 0.7px;
+}
+
+.yoga-style-kriya .hero-title {
+    font-weight: var(--font-weight-hero);
+    letter-spacing: var(--letter-spacing);
+    color: var(--primary-color);
+}
+
+.yoga-style-kriya .section-title {
+    font-weight: var(--font-weight-section);
+    color: var(--primary-color);
+}
+
+.yoga-style-kriya .benefit-card {
+    border-left: 4px solid var(--primary-color);
+    background: linear-gradient(135deg, var(--white) 0%, var(--light-accent) 100%);
+    border-radius: 20px;
+}
+
+.yoga-style-kriya .timeline-marker {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+.yoga-style-kriya .cta-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 30px;
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 768px) {
+    .yoga-style-power .hero-title,
+    .yoga-style-bikram .hero-title,
+    .yoga-style-rocket .hero-title {
+        font-size: 2.5rem;
+        letter-spacing: -0.2px;
+    }
+    
+    .yoga-style-yin .hero-title,
+    .yoga-style-restorative .hero-title {
+        font-size: 2.8rem;
+        letter-spacing: 0.8px;
+    }
+    
+    .yoga-style-kundalini .hero-title,
+    .yoga-style-kriya .hero-title {
+        font-size: 2.6rem;
+        letter-spacing: 0.6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .yoga-style-power .hero-title,
+    .yoga-style-bikram .hero-title,
+    .yoga-style-rocket .hero-title {
+        font-size: 2rem;
+        letter-spacing: 0px;
+    }
+    
+    .yoga-style-yin .hero-title,
+    .yoga-style-restorative .hero-title {
+        font-size: 2.2rem;
+        letter-spacing: 0.5px;
+    }
+    
+    .yoga-style-kundalini .hero-title,
+    .yoga-style-kriya .hero-title {
+        font-size: 2.1rem;
+        letter-spacing: 0.4px;
+    }
+}
+
+/* ========================================
+   ANIMATION VARIATIONS
+   ======================================== */
+
+/* Gentle styles - subtle animations */
+.yoga-style-hatha .benefit-card,
+.yoga-style-yin .benefit-card,
+.yoga-style-restorative .benefit-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.yoga-style-hatha .benefit-card:hover,
+.yoga-style-yin .benefit-card:hover,
+.yoga-style-restorative .benefit-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Dynamic styles - energetic animations */
+.yoga-style-vinyasa .benefit-card,
+.yoga-style-power .benefit-card,
+.yoga-style-bikram .benefit-card,
+.yoga-style-rocket .benefit-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.yoga-style-vinyasa .benefit-card:hover,
+.yoga-style-power .benefit-card:hover,
+.yoga-style-bikram .benefit-card:hover,
+.yoga-style-rocket .benefit-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Spiritual styles - flowing animations */
+.yoga-style-kundalini .benefit-card,
+.yoga-style-kriya .benefit-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.yoga-style-kundalini .benefit-card:hover,
+.yoga-style-kriya .benefit-card:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+    .yoga-style-hatha,
+    .yoga-style-vinyasa,
+    .yoga-style-power,
+    .yoga-style-yin,
+    .yoga-style-ashtanga,
+    .yoga-style-iyengar,
+    .yoga-style-kundalini,
+    .yoga-style-bikram,
+    .yoga-style-aerial,
+    .yoga-style-prenatal,
+    .yoga-style-restorative,
+    .yoga-style-rocket,
+    .yoga-style-kriya {
+        --primary-color: #000000;
+        --secondary-color: #333333;
+        --accent-color: #666666;
+        --text-primary: #000000;
+        --text-secondary: #333333;
+    }
+}

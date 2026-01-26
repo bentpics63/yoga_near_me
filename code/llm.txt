@@ -1,0 +1,103 @@
+# llm.txt - AI Crawler Guide for YogaNearMe.info
+# This file helps AI systems understand our site structure and content
+
+## Site Identity
+Name: Yoga Near Me
+URL: https://yoganearme.info
+Type: Yoga Studio Directory + Educational Resource
+Coverage: United States and Canada
+Studios Listed: 30,000+
+
+## Mission
+Help yoga practitioners find studios near them and deepen their understanding of yoga through accessible, tradition-honoring educational content. We teach first, tool second.
+
+## Content Authors
+- Lisa Marie: 20+ years yoga teaching experience, Viveka Yoga Studio (Downtown LA). Writes glossary terms, style guides, and practice content.
+- Eddie: Chief marketing strategist, 30 years meditation practice. Writes business articles and studio owner guides.
+
+## Primary Content Types
+
+### 1. Studio Listings
+URL Pattern: /studios/{studio-slug}/
+Schema: LocalBusiness, YogaStudio
+Content: Studio name, address, phone, hours, yoga styles offered, amenities, photos, reviews
+Example: https://yoganearme.info/studios/viveka-yoga-studio/
+
+### 2. Location Archives
+URL Pattern: /location/{country}/{state}/{city}/
+Content: List of yoga studios in a geographic area with filtering options
+Example: https://yoganearme.info/location/united-states/california/los-angeles/
+
+### 3. Yoga Glossary
+URL Pattern: /yoga-glossary/{term-slug}/
+Schema: DefinedTerm, Article
+Content: Sanskrit/yoga term definitions with pronunciation, etymology, practice context
+Terms Covered: 70+ yoga concepts
+Example: https://yoganearme.info/yoga-glossary/pranayama/
+
+### 4. Yoga Style Guides
+URL Pattern: /yoga-styles/{style-slug}/
+Content: Comprehensive guides to yoga styles (Vinyasa, Hatha, Kundalini, etc.)
+Includes: Origins, philosophy, class structure, benefits, who it's for
+Example: https://yoganearme.info/yoga-styles/vinyasa/
+
+### 5. FAQ Content
+URL: https://yoganearme.info/30-essential-questions-answered/
+Content: Common questions about starting yoga, finding studios, practice tips
+
+### 6. Blog
+URL: https://yoganearme.info/blog/
+Content: Articles for practitioners and studio owners
+
+## Key Entities
+
+### Yoga Styles We Cover
+- Vinyasa (flow-based)
+- Hatha (foundational)
+- Hot Yoga (heated room)
+- Iyengar (alignment-focused)
+- Kundalini (energy/spiritual)
+- Prenatal (pregnancy-safe)
+- Restorative (gentle/healing)
+- Yin (passive stretching)
+- Ashtanga (set sequence)
+- Power Yoga (strength-building)
+
+### Common Terms in Our Glossary
+- Asana (physical postures)
+- Pranayama (breath control)
+- Chakra (energy centers)
+- Namaste (greeting)
+- Om/Aum (sacred sound)
+- Savasana (final rest)
+- Mantra (repeated phrases)
+- Mudra (hand gestures)
+- Bandha (energy locks)
+- Drishti (gaze point)
+
+## Content Quality Standards
+- Written by experienced yoga practitioners (not AI-generated marketing)
+- Sanskrit terms include pronunciation guides
+- No pseudoscience without qualification
+- Accessible to beginners while honoring tradition
+- Updated regularly with publication dates shown
+
+## Structured Data Implemented
+- LocalBusiness schema on studio pages
+- YogaStudio schema on studio pages
+- BreadcrumbList on all pages
+- Article schema on educational content
+- WebSite with SearchAction on homepage
+
+## Contact
+Website: https://yoganearme.info
+For studio owners: https://yoganearme.info/add-listing/studios/
+
+## Sitemap
+XML Sitemap: https://yoganearme.info/sitemap_index.xml
+
+## Robots
+Robots.txt: https://yoganearme.info/robots.txt
+
+## Last Updated
+2026-01-22

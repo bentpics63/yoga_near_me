@@ -1,0 +1,162 @@
+/**
+ * OVERRIDE EXISTING STYLES - Add this LAST to WordPress Customizer CSS
+ * This will override your existing orange yoga badges and add heading icons
+ */
+
+/* ============================================
+   OVERRIDE: Change Orange Yoga Badges to Teal Pills
+   ============================================ */
+
+/* Override your existing orange yoga style badges */
+.single-gd_place .geodir-fv-kundalini,
+.single-gd_place .geodir-fv-power,
+.single-gd_place .geodir-fv-vinyassa-yoga,
+.single-gd_place .geodir-fv-hatha-yoga,
+.single-gd_place .geodir-fv-yin-yoga,
+.single-gd_place .geodir-fv-prenatal-yoga,
+.single-gd_place .geodir-fv-ashtanga-yoga,
+.single-gd_place .geodir-fv-restorative-yoga,
+.single-gd_place .geodir-fv-rocket-yoga,
+.single-gd_place .geodir-fv-aerial-yoga,
+.single-gd_place .geodir-fv-iyengar-yoga,
+.single-gd_place .geodir-fv-dharma-yoga {
+    background-color: #FFFFFF !important;
+    color: #61948B !important;
+    border: 2px solid #61948B !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin: 2px 6px 2px 0 !important;
+    position: relative !important;
+}
+
+/* Add star icon BEFORE text */
+.single-gd_place .geodir-fv-kundalini::before,
+.single-gd_place .geodir-fv-power::before,
+.single-gd_place .geodir-fv-vinyassa-yoga::before,
+.single-gd_place .geodir-fv-hatha-yoga::before,
+.single-gd_place .geodir-fv-yin-yoga::before,
+.single-gd_place .geodir-fv-prenatal-yoga::before,
+.single-gd_place .geodir-fv-ashtanga-yoga::before,
+.single-gd_place .geodir-fv-restorative-yoga::before,
+.single-gd_place .geodir-fv-rocket-yoga::before,
+.single-gd_place .geodir-fv-aerial-yoga::before,
+.single-gd_place .geodir-fv-iyengar-yoga::before,
+.single-gd_place .geodir-fv-dharma-yoga::before {
+    content: "★" !important;
+    color: #61948B !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+    margin-right: 0 !important;
+}
+
+/* Hover effect */
+.single-gd_place .geodir-fv-kundalini:hover,
+.single-gd_place .geodir-fv-power:hover,
+.single-gd_place .geodir-fv-vinyassa-yoga:hover,
+.single-gd_place .geodir-fv-hatha-yoga:hover,
+.single-gd_place .geodir-fv-yin-yoga:hover,
+.single-gd_place .geodir-fv-prenatal-yoga:hover,
+.single-gd_place .geodir-fv-ashtanga-yoga:hover,
+.single-gd_place .geodir-fv-restorative-yoga:hover,
+.single-gd_place .geodir-fv-rocket-yoga:hover,
+.single-gd_place .geodir-fv-aerial-yoga:hover,
+.single-gd_place .geodir-fv-iyengar-yoga:hover,
+.single-gd_place .geodir-fv-dharma-yoga:hover {
+    background-color: #F8FAFA !important;
+    color: #61948B !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(97, 148, 139, 0.15) !important;
+}
+
+/* ============================================
+   ADD ORANGE DOTS TO SECTION HEADINGS
+   ============================================ */
+
+/* Target ALL headings except h1 (main title) */
+.single-gd_place h2,
+.single-gd_place h3,
+.single-gd_place h4,
+.single-gd_place .elementor-heading-title:not(h1),
+.single-gd_place .elementor-widget-heading h2.elementor-heading-title,
+.single-gd_place .elementor-widget-heading h3.elementor-heading-title,
+.elementor-location-single h2,
+.elementor-location-single h3 {
+    position: relative !important;
+    padding-left: 24px !important;
+}
+
+/* Add orange dot BEFORE headings */
+.single-gd_place h2::before,
+.single-gd_place h3::before,
+.single-gd_place h4::before,
+.single-gd_place .elementor-heading-title:not(h1)::before,
+.single-gd_place .elementor-widget-heading h2.elementor-heading-title::before,
+.single-gd_place .elementor-widget-heading h3.elementor-heading-title::before,
+.elementor-location-single h2::before,
+.elementor-location-single h3::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+}
+
+/* Make sure h1 (main title) doesn't get an icon */
+.single-gd_place h1::before,
+.single-gd_place .geodir-post-title::before,
+.single-gd_place h1.elementor-heading-title::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* ============================================
+   OVERRIDE: Change Orange Amenity Badges to Teal
+   ============================================ */
+
+.single-gd_place .geodir-fv-parking,
+.single-gd_place .geodir-fv-changing-room,
+.single-gd_place .geodir-fv-restroom,
+.single-gd_place .geodir-fv-heated-room,
+.single-gd_place .geodir-fv-mat-rental,
+.single-gd_place .geodir-fv-props,
+.single-gd_place .geodir-fv-meditation,
+.single-gd_place .geodir-fv-childcare {
+    background-color: #FFFFFF !important;
+    color: #61948B !important;
+    border: 2px solid #61948B !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    font-size: 14px !important;
+    margin: 2px 6px 2px 0 !important;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .single-gd_place h2,
+    .single-gd_place h3,
+    .single-gd_place .elementor-heading-title {
+        padding-left: 20px !important;
+    }
+    
+    .single-gd_place h2::before,
+    .single-gd_place h3::before {
+        font-size: 10px !important;
+    }
+}
+

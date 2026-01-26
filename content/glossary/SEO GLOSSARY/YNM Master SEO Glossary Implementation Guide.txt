@@ -1,0 +1,436 @@
+content = r"""# Yoga Near Me: Master SEO Glossary Implementation Guide
+
+This document contains SEO Titles, Meta Descriptions, Primary Focus Keywords, and "What to Expect" snippets for the Yoga Near Me glossary pages.
+
+---
+
+## 1. PILLAR PAGES
+
+### Yoga Defined
+- **Primary Focus Keyword:** What is Yoga
+- **SEO Title:** Yoga Defined: What is Yoga? Meaning, Styles & History | Yoga Near Me
+- **SEO Description:** Discover the true meaning of yoga. From its ancient roots to modern styles like Vinyasa and Yoga Nidra, learn how this practice connects mind, body, and spirit.
+- **Strategic Category Links:**
+    - Active Styles: [Vinyasa](/vinyasa-defined), [Power Yoga](/power-yoga-defined), [Ashtanga](/ashtanga-defined).
+    - Gentle & Restorative: [Yin](/yin-yoga-defined), [Yoga Nidra](/yoga-nidra-defined), [Restorative](/restorative-yoga-defined).
+    - Precision & Alignment: [Iyengar](/iyengar-defined), [Hatha](/hatha-yoga-defined).
+
+---
+
+## 2. YOGA STYLES & CLASSES
+
+### Vinyasa Yoga
+- **Primary Focus Keyword:** Vinyasa Yoga
+- **SEO Title:** Vinyasa Yoga Defined: Flow, Meaning, and Style | Yoga Near Me
+- **SEO Description:** Discover the meaning of Vinyasa Yoga, a dynamic style that links breath with movement. Learn how Vinyasa "flow" classes work and the benefits for your body and mind.
+- **What to Expect Snippet:**
+    - Continuous Movement: Unlike Hatha, you won’t stay in one pose for long.
+    - Rhythmic Breathing: The teacher will cue "inhale" and "exhale" for every transition.
+    - Creative Sequencing: No two classes are exactly the same.
+    - The "Vinyasa" Transition: Frequent use of Plank to Upward Dog to Downward Dog.
+
+### Hatha Yoga
+- **Primary Focus Keyword:** Hatha Yoga
+- **SEO Title:** Hatha Yoga Defined: The Foundational Style for Beginners | Yoga Near Me
+- **SEO Description:** Learn the definition of Hatha Yoga, the physical foundation of all modern yoga. Discover how this slower-paced style focuses on alignment, breath, and posture.
+- **What to Expect Snippet:**
+    - Slower Pace: No "flow" between poses; you reset between postures.
+    - Focus on Foundations: The perfect place to learn names, shapes, and proper alignment.
+    - Extended Holds: Stay in poses longer to build isometric strength and patience.
+    - Accessible for All: Generally beginner-friendly with a high focus on modifications.
+
+### Ashtanga Yoga
+- **Primary Focus Keyword:** Ashtanga Yoga
+- **SEO Title:** Ashtanga Yoga Defined: The Primary Series & Style | Yoga Near Me
+- **SEO Description:** Explore the meaning of Ashtanga Yoga, a traditional and structured style. Learn about the Primary Series, Tristhana, and what to expect in a Mysore-style class.
+- **What to Expect Snippet:**
+    - Fixed Sequence: You will perform the same poses in the same order every time.
+    - Tristhana: Simultaneous focus on Ujjayi breath, Bandhas, and Drishti.
+    - Mysore vs. Led: "Led" follows the teacher's count; "Mysore" is self-paced with 1-on-1 guidance.
+
+### Kundalini Yoga
+- **Primary Focus Keyword:** Kundalini Yoga
+- **SEO Title:** Kundalini Yoga Defined: Meaning, Kriyas & Awakening | Yoga Near Me
+- **SEO Description:** Explore Kundalini Yoga, the "Yoga of Awareness." Discover how dynamic breathing, repetitive movements (kriyas), and chanting awaken energy.
+- **What to Expect Snippet:**
+    - The Tune-In: Classes begin with the "Adi Mantra" to center the group.
+    - Kriyas: Perform specific "sets" of exercises designed for a specific energetic outcome.
+    - Breath of Fire: Rapid, rhythmic nasal breathing used to build internal heat.
+    - Chanting and Mudras: Use of sacred sound and hand positions to direct energy.
+
+### Rocket Yoga
+- **Primary Focus Keyword:** Rocket Yoga
+- **SEO Title:** Rocket Yoga Defined: The "Fast" Ashtanga Style | Yoga Near Me
+- **SEO Description:** Discover Rocket Yoga, the dynamic style created by Larry Schultz. Learn about Rocket 1, 2, and 3, and how this "rebel" Ashtanga flow works.
+- **What to Expect Snippet:**
+    - High Energy: A fast-paced flow that builds significant cardiovascular heat.
+    - Inversion Opportunities: Frequent invitations to practice handstands and arm balances.
+    - The "Rebel" Vibe: Encouraged to modify poses and skip or add transitions creatively.
+
+### Restorative Yoga
+- **Primary Focus Keyword:** Restorative Yoga
+- **SEO Title:** Restorative Yoga Defined: Benefits, Props & Poses | Yoga Near Me
+- **SEO Description:** Discover the meaning of Restorative Yoga. Learn how this prop-supported practice promotes deep relaxation, stress relief, and nervous system healing.
+- **What to Expect Snippet:**
+    - Abundant Props: Expect to use bolsters, blankets, and blocks for full support.
+    - Deep Stillness: Poses are held for 5 to 20 minutes to settle the nervous system.
+    - Zero Effort: There is no "stretching" or muscular effort; the goal is total surrender.
+
+### Raja Yoga
+- **Primary Focus Keyword:** Raja Yoga
+- **SEO Title:** Raja Yoga Defined: The "Royal Path" of Mind Control | Yoga Near Me
+- **SEO Description:** Learn the definition of Raja Yoga, the "Royal Path" to enlightenment. Discover how this classical system uses the Eight Limbs of Yoga to master the mind.
+- **What to Expect Snippet:**
+    - Focus on Meditation: While it includes asana, the goal is mastering the mind.
+    - Self-Discipline: Emphasizes self-control and moral integrity (Yamas and Niyamas).
+
+### Bhakti Yoga
+- **Primary Focus Keyword:** Bhakti Yoga
+- **SEO Title:** Bhakti Yoga Defined: The Yoga of Devotion & Love | Yoga Near Me
+- **SEO Description:** Discover Bhakti Yoga, the "Path of Devotion." Explore how heart-centered practices like kirtan, chanting, and selfless love lead to spiritual connection.
+- **How to Practice Snippet:**
+    - Heart-Centered Focus: Cultivating a state of love and devotion.
+    - Kirtan & Chanting: Call-and-response chanting to open the heart.
+
+### Chair Yoga
+- **Primary Focus Keyword:** Chair Yoga
+- **SEO Title:** Chair Yoga Defined: Accessible Poses for All Mobilities | Yoga Near Me
+- **SEO Description:** Discover the benefits of Chair Yoga. Learn how this accessible practice uses a seated position to improve flexibility and balance for seniors or office workers.
+- **What to Expect Snippet:**
+    - Full Support: Remain seated or use the chair for balance while standing.
+    - No Floor Work: Ideal for limited mobility; no transitions to a mat.
+
+### Gentle Yoga
+- **Primary Focus Keyword:** Gentle Yoga
+- **SEO Title:** Gentle Yoga Defined: Benefits of a Slower Practice | Yoga Near Me
+- **SEO Description:** What is Gentle Yoga? Explore the benefits of this accessible, slow-paced practice. Learn how gentle stretching and mindful movement support relaxation.
+- **What to Expect Snippet:**
+    - Slow Transitions: Move slowly between poses, giving the body time to adjust.
+    - Low Intensity: Goal is to leave feeling "stretched out" and refreshed.
+
+### Aerial Yoga
+- **Primary Focus Keyword:** Aerial Yoga
+- **SEO Title:** Aerial Yoga Defined: Benefits of "Anti-Gravity" Yoga | Yoga Near Me
+- **SEO Description:** Explore Aerial Yoga, the practice of performing poses in a suspended silk hammock. Learn how "anti-gravity" yoga decompresses the spine.
+- **What to Expect Snippet:**
+    - The Silk Hammock: Use of a suspended fabric hammock to support body weight.
+    - Spinal Decompression: Allows the spine to lengthen without gravity.
+
+### Prenatal Yoga
+- **Primary Focus Keyword:** Prenatal Yoga
+- **SEO Title:** Prenatal Yoga Defined: Benefits & Safe Poses | Yoga Near Me
+- **SEO Description:** Discover the definition and benefits of Prenatal Yoga. Learn how safe, modified poses and breathing techniques support your body and baby.
+- **What to Expect Snippet:**
+    - Modified Postures: Avoid lying flat on your back or deep twists; plenty of room for baby.
+    - Breath for Labor: Focus on techniques designed to help you stay calm during delivery.
+
+### Jnana Yoga
+- **Primary Focus Keyword:** Jnana Yoga
+- **SEO Title:** Jnana Yoga Defined: The Path of Knowledge & Wisdom | Yoga Near Me
+- **SEO Description:** Explore the meaning of Jnana Yoga, the "Path of Knowledge." Learn how self-inquiry, discernment (Viveka), and meditation lead to self-realization.
+- **How to Practice Snippet:**
+    - Self-Inquiry (Atma Vichara): Asking "Who am I?" to peel away the layers of ego.
+    - Neti Neti: Analytical process of negating everything that is not the "True Self."
+
+### Karma Yoga
+- **Primary Focus Keyword:** Karma Yoga
+- **SEO Title:** Karma Yoga Defined: The Yoga of Action & Selfless Service | Yoga Near Me
+- **SEO Description:** Explore the meaning of Karma Yoga, the "Path of Action." Learn how to practice yoga through selfless service (Seva) and non-attachment.
+- **How to Practice Snippet:**
+    - Selfless Service (Seva): Performing actions for others without expecting recognition.
+    - Non-Attachment: Focusing on the quality of work rather than the results.
+
+### Yoga for Back Pain
+- **Primary Focus Keyword:** Yoga for back pain
+- **SEO Title:** Yoga for Back Pain Defined: Relief & Best Poses | Yoga Near Me
+- **SEO Description:** Learn how yoga for back pain works to alleviate tension and improve alignment. Discover the best gentle poses for chronic relief and sciatica.
+
+### Yoga for Flexibility
+- **Primary Focus Keyword:** Yoga for flexibility
+- **SEO Title:** Yoga for Flexibility Defined: Best Styles & Poses | Yoga Near Me
+- **SEO Description:** Learn how yoga for flexibility improves mobility, reduces stiffness, and prevents injury. Explore the best yoga styles and poses to safely increase range of motion.
+- **What to Expect Snippet:**
+    - Consistency over Intensity: Gained through regular, gentle practice rather than pushing into pain.
+
+### Yoga for Stress Relief
+- **Primary Focus Keyword:** Yoga for stress relief
+- **SEO Title:** Yoga for Stress Relief Defined: Best Poses for Calm | Yoga Near Me
+- **SEO Description:** Explore the definition of yoga for stress relief. Learn how mindful movement and breathing techniques lower cortisol and calm the nervous system.
+- **What to Expect Snippet:**
+    - Parasympathetic Activation: Shifting the body out of "fight or flight" and into "rest and digest."
+
+### Yoga Nidra
+- **Primary Focus Keyword:** Yoga Nidra
+- **SEO Title:** Yoga Nidra Defined: Benefits of Yogic Sleep & NSDR | Yoga Near Me
+- **SEO Description:** Learn the definition of Yoga Nidra, the ancient practice of "yogic sleep." Discover how this guided rest promotes deep healing and reduces stress.
+- **What to Expect Snippet:**
+    - Lying Down: Spend the entire session in a comfortable reclined position.
+    - The "Hypnagogic" State: Remain in the state between wakefulness and sleep.
+
+### Intermediate & Advanced Yoga
+- **Primary Focus Keyword:** Advanced Yoga
+- **SEO Title:** Intermediate & Advanced Yoga Defined: Leveling Up Your Practice | Yoga Near Me
+- **SEO Description:** What defines intermediate and advanced yoga? Explore how practitioners progress with complex asanas and advanced mental discipline.
+- **What to Expect Snippet:**
+    - Refinement Over Form: Focus on subtle internal engagements (Bandhas) and alignment.
+
+---
+
+## 3. TECHNIQUES & BREATHWORK
+
+### Pranayama (General)
+- **Primary Focus Keyword:** Pranayama
+- **SEO Title:** Pranayama Defined: Meaning, Techniques & Benefits | Yoga Near Me
+- **SEO Description:** Discover the definition of Pranayama, the fourth limb of yoga. Learn how yogic breathwork techniques regulate energy, reduce stress, and improve focus.
+- **The 4 Parts of Breath Snippet:**
+    - Puraka: Inhalation.
+    - Antar Kumbhaka: Internal Breath Retention.
+    - Rechaka: Exhalation.
+    - Bahir Kumbhaka: External Breath Suspension.
+
+### Pranayama Techniques (Nadi Shodhana & Kapalbhati)
+- **Primary Focus Keyword:** Pranayama Techniques
+- **SEO Title:** Pranayama Techniques: Nadi Shodhana & Kapalbhati Defined | Yoga Near Me
+- **SEO Description:** Master the most powerful Pranayama techniques, including Nadi Shodhana and Kapalbhati. Learn the benefits of yogic breath control for stress relief.
+- **Nadi Shodhana Snippet:**
+    - Balancing the Hemispheres: Balance the logical (left) and emotional (right) sides of the brain.
+    - Nervous System Reset: Stimulates the parasympathetic nervous system for calm.
+- **Kapalbhati Snippet:**
+    - The "Pump": Forceful, short exhalations driven by snapping the low belly inward.
+    - Mental Clarity: Believed to clear "brain fog" and increase oxygen to the frontal lobe.
+
+### Ujjayi Breath
+- **Primary Focus Keyword:** Ujjayi Breath
+- **SEO Title:** Ujjayi Breath Defined: Meaning, Benefits & Ocean Breath | Yoga Near Me
+- **SEO Description:** Learn the meaning of Ujjayi Breath, the "Victorious Breath" of yoga. Discover how this ocean-sounding technique builds heat and focuses the mind.
+- **What to Expect Snippet:**
+    - Audible Sound: Sounds like soft ocean waves or a whisper in the throat.
+    - Warming Sensation: Designed to build internal body heat (tapas).
+
+### Bandhas
+- **Primary Focus Keyword:** Bandhas
+- **SEO Title:** Bandhas Defined: The Meaning of Yoga Energy Locks | Yoga Near Me
+- **SEO Description:** Learn about Bandhas, the internal energy locks used in yoga to create stability and core strength. Discover Mula, Uddiyana, and Jalandhara Bandha.
+- **How to Practice Snippet:**
+    - Subtle Internal Lifts: Involve the gentle engagement of deep internal muscles.
+    - Core Stability: Engaging bandhas makes balance feel significantly lighter.
+
+### Mula Bandha
+- **Primary Focus Keyword:** Mula Bandha
+- **SEO Title:** Mula Bandha Defined: How to Engage the Root Lock | Yoga Near Me
+- **SEO Description:** Discover Mula Bandha, the "Root Lock" of yoga. Learn how to engage the pelvic floor to build core stability and support your practice.
+- **How to Practice Snippet:**
+    - Physical Location: Engagement at the pelvic floor/perineum.
+    - Pelvic Stability: Stabilizes the pelvis and SI joints for grounded balance.
+
+### Mantra
+- **Primary Focus Keyword:** Mantra
+- **SEO Title:** Mantra Defined: Sacred Sound for Focus & Calm | Yoga Near Me
+- **SEO Description:** Explore the definition of Mantra, the "instrument of the mind." Learn how repeating sacred sounds helps focus thoughts and reduce stress.
+- **How to Practice Snippet:**
+    - Vibrational Awareness: Focus on the sensation of the sound vibrating in the body.
+    - Silent vs. Auditory: Can be chanted out loud, whispered, or repeated silently.
+
+### Mudra
+- **Primary Focus Keyword:** Yoga Mudras
+- **SEO Title:** Mudra Defined: Meaning of Yoga Hand Gestures & Mudras | Yoga Near Me
+- **SEO Description:** Discover the definition of Mudra, the "seals" or hand gestures used in yoga. Learn how specific mudras direct energy flow and calm the mind.
+- **How to Practice Snippet:**
+    - Energy Seals: Hand gestures used to direct the flow of prana within the body.
+    - Common Mudras: Anjali Mudra (prayer), Gyan Mudra (wisdom), Hakini Mudra (focus).
+
+### Drishti
+- **Primary Focus Keyword:** Drishti Yoga
+- **SEO Title:** Drishti Defined: The Meaning of Focused Gaze in Yoga | Yoga Near Me
+- **SEO Description:** Discover the meaning of Drishti, the focused yogic gaze. Learn how choosing a specific point of focus improves balance and concentration.
+- **How to Practice Snippet:**
+    - The "Soft Gaze": Relaxed, intentional focus that prevents distraction.
+    - Physical Balance: Fixing eyes on a point makes balancing poses significantly easier.
+
+---
+
+## 4. POSES & ANATOMY
+
+### Asana
+- **Primary Focus Keyword:** Asana
+- **SEO Title:** Asana Defined: Meaning of Yoga Poses & Postures | Yoga Near Me
+- **SEO Description:** Explore the meaning of Asana, the third limb of yoga. Learn how yoga postures build physical strength and prepare the body for meditation.
+- **What to Expect Snippet:**
+    - Steady and Easy: The goal is Sthira (stability) and Sukha (comfort).
+    - Mind-Body Bridge: Focus on physical sensations to tether the mind to the present.
+
+### Tadasana
+- **Primary Focus Keyword:** Tadasana
+- **SEO Title:** Tadasana Defined: Meaning of Mountain Pose | Yoga Near Me
+- **SEO Description:** Learn about Tadasana, or Mountain Pose. Discover why this foundational posture is the blueprint for all yoga alignment and posture.
+- **What to Expect Snippet:**
+    - Stillness and Stability: Vertical, active, and focused pose.
+    - Grounding Feet: Press all four corners of the feet into the mat.
+
+### Downward Dog
+- **Primary Focus Keyword:** Downward Dog
+- **SEO Title:** Downward Dog Defined: Benefits & Proper Alignment | Yoga Near Me
+- **SEO Description:** Learn everything about Downward Dog (Adho Mukha Svanasana). Discover how this iconic pose builds strength and relieves back pain.
+- **What to Expect Snippet:**
+    - Inverted V-Shape: Your body forms an upside-down "V."
+    - Active Hands: Press through palms to protect wrists.
+
+### Chaturanga Dandasana
+- **Primary Focus Keyword:** Chaturanga Dandasana
+- **SEO Title:** Chaturanga Dandasana Defined: Form & Alignment | Yoga Near Me
+- **SEO Description:** Master Chaturanga Dandasana (Four-Limbed Staff Pose). Learn proper alignment for this foundational push-up to protect your shoulders.
+- **What to Expect Snippet:**
+    - The "Yoga Push-up": Elbows stay hugged tightly into your ribs.
+    - 90-Degree Angle: Lower only until elbows reach a 90-degree angle.
+
+### Inversions
+- **Primary Focus Keyword:** Yoga Inversions
+- **SEO Title:** Yoga Inversions Defined: Benefits, Poses & Safety | Yoga Near Me
+- **SEO Description:** Explore the definition of yoga inversions. From Downward Dog to Handstands, learn the benefits of being upside down safely.
+- **What to Expect Snippet:**
+    - Heart Over Head: Any pose where your heart is higher than your head.
+    - Range of Levels: From "Mild" (Downward Dog) to "Advanced" (Handstand).
+
+### Hip Openers
+- **Primary Focus Keyword:** Hip Openers
+- **SEO Title:** Hip Openers Defined: Poses for Flexibility & Relief | Yoga Near Me
+- **SEO Description:** Explore the meaning of hip openers in yoga. Learn how these poses improve flexibility and release stored emotional tension in the hips.
+- **What to Expect Snippet:**
+    - Deep Sensation: Targets deep muscle groups (like psoas) and can feel intense.
+    - Emotional Release: Common for stored stress to surface; stay with your breath.
+
+### Heart Openers
+- **Primary Focus Keyword:** Heart Openers
+- **SEO Title:** Heart Openers Defined: Poses for Posture & Emotional Release | Yoga Near Me
+- **SEO Description:** Discover the benefits of heart openers in yoga. Learn how chest-opening poses counteract "tech neck" and release emotional tension.
+- **What to Expect Snippet:**
+    - Counter-Stretch to Modern Life: Move the spine in opposite direction of "hunching."
+    - Expanded Breathing: Physically expanding the rib cage and lungs.
+
+### Yoga Backbends
+- **Primary Focus Keyword:** Yoga Backbends
+- **SEO Title:** Yoga Backbends Defined: Poses for Spine Flexibility | Yoga Near Me
+- **SEO Description:** Explore the definition of yoga backbends. Learn how spinal extension poses like Bridge and Wheel improve posture and boost energy.
+- **What to Expect Snippet:**
+    - Energizing Effect: Backbends stimulate the nervous system, providing an energy boost.
+    - Length Over Depth: Emphasize "growing tall" to avoid "crunching" the lower back.
+
+### Twists & Spinal Twists
+- **Primary Focus Keyword:** Spinal Twists
+- **SEO Title:** Yoga Twists Defined: Benefits & Poses for Spinal Health | Yoga Near Me
+- **SEO Description:** Explore the meaning and benefits of spinal twists in yoga. Learn how twisting poses improve spinal mobility and aid digestion.
+- **What to Expect Snippet:**
+    - The "Squeeze and Soak" Effect: A massage-like sensation for internal organs.
+    - Neutralizing Reset: Often used as a "counter-pose" after backbends.
+
+### Savasana
+- **Primary Focus Keyword:** Savasana
+- **SEO Title:** Savasana Defined: Meaning & Benefits of Corpse Pose | Yoga Near Me
+- **SEO Description:** Discover why Savasana is considered the most important yoga pose. Learn how Corpse Pose promotes deep relaxation and integrates your practice.
+- **What to Expect Snippet:**
+    - Total Stillness: Goal is to remain as still as possible to settle the nervous system.
+    - No Effort: Zero muscular engagement; you "melt" into the mat.
+
+### Alignment
+- **Primary Focus Keyword:** Yoga Alignment
+- **SEO Title:** Yoga Alignment Defined: Proper Form & Injury Prevention | Yoga Near Me
+- **SEO Description:** Learn the definition of yoga alignment and why proper form is essential for safety. Discover how alignment protects joints and improves posture.
+- **What to Expect Snippet:**
+    - Skeletal Stacking: Stack joints so weight is supported by bones.
+    - Foundation Up: Alignment starts where your body touches the mat.
+
+### Pelvic Floor Yoga
+- **Primary Focus Keyword:** Pelvic Floor Yoga
+- **SEO Title:** Pelvic Floor Yoga Defined: Poses for Strength & Release | Yoga Near Me
+- **SEO Description:** Discover the benefits of Pelvic Floor Yoga. Learn how specific poses and breathing techniques support pelvic health for all stages of life.
+- **What to Expect Snippet:**
+    - Breath-Led Movement: Coordinate pelvic movement with the diaphragm.
+    - Both Strength & Softening: Includes both "toning" and "releasing" poses.
+
+---
+
+## 5. PHILOSOPHY & ENERGY
+
+### Ahimsa
+- **Primary Focus Keyword:** Ahimsa
+- **SEO Title:** Ahimsa Defined: The Meaning of Non-Violence in Yoga | Yoga Near Me
+- **SEO Description:** Discover the meaning of Ahimsa, the first Yama of yoga. Learn how non-violence and compassion applies to your body and life off the mat.
+
+### Satya
+- **Primary Focus Keyword:** Satya
+- **SEO Title:** Satya Defined: The Meaning of Truthfulness in Yoga | Yoga Near Me
+- **SEO Description:** Explore the meaning of Satya, the Second Yama of yoga. Learn how truthfulness in thought and speech leads to a more authentic life.
+- **How to Practice Snippet:**
+    - Honest Speech: Speaking words that are true, necessary, and kind.
+    - Authentic Living: Aligning outward actions with inner values.
+
+### Svadhyaya
+- **Primary Focus Keyword:** Svadhyaya
+- **SEO Title:** Svadhyaya Defined: The Meaning of Self-Study in Yoga | Yoga Near Me
+- **SEO Description:** Explore the definition of Svadhyaya, the Fourth Niyama. Discover how self-study and reflection lead to greater self-awareness and growth.
+- **How to Practice Snippet:**
+    - Introspective Journaling: Reflecting on reactions, thoughts, and habits.
+    - Reading Sacred Texts: Studying the Yoga Sutras, Bhagavad Gita, or other wisdom.
+
+### Surya Namaskar
+- **Primary Focus Keyword:** Surya Namaskar
+- **SEO Title:** Surya Namaskar Defined: Sun Salutation Steps & Meaning | Yoga Near Me
+- **SEO Description:** Learn the meaning and benefits of Surya Namaskar (Sun Salutation). Explore the traditional 12-pose sequence and how it builds heat.
+- **What to Expect Snippet:**
+    - Rhythmic Flow: Each movement is tied to an inhale or an exhale.
+    - Classic Variations: Likely encounter "Sun Salutation A" and "Sun Salutation B."
+
+### Samadhi
+- **Primary Focus Keyword:** Samadhi
+- **SEO Title:** Samadhi Defined: The Meaning of Enlightenment in Yoga | Yoga Near Me
+- **SEO Description:** Explore the meaning of Samadhi, the eighth and final limb of yoga. Learn about this state of intense meditative consciousness and bliss.
+- **The Characteristics Snippet:**
+    - The Eighth Limb: Recognized as the final stage of the Eight Limbs of Yoga.
+    - State of Oneness: Distinction between the meditator and the object disappears.
+
+### Dharma
+- **Primary Focus Keyword:** Dharma
+- **SEO Title:** Dharma Defined: Meaning of Life Purpose & Duty | Yoga Near Me
+- **SEO Description:** Discover the meaning of Dharma, the yogic concept of cosmic law and personal duty. Learn how to align your life with your true purpose.
+
+### Chakra
+- **Primary Focus Keyword:** Chakra
+- **SEO Title:** Chakra Defined: Meaning of the 7 Energy Centers | Yoga Near Me
+- **SEO Description:** Explore the definition of Chakras, the seven energy centers of the body. Learn how these focal points influence physical and emotional health.
+- **What to Expect Snippet:**
+    - The "Seven Centers": Focal points aligned along the spine from tailbone to crown.
+    - Physical/Emotional Connection: Associated with specific organs and emotional states.
+
+### Namaste
+- **Primary Focus Keyword:** Namaste meaning
+- **SEO Title:** Namaste Defined: Meaning & Origin of the Yoga Greeting | Yoga Near Me
+- **SEO Description:** Discover the true meaning of Namaste, the traditional yoga greeting. Learn the Sanskrit origin "I bow to you" and its use in closing practice.
+- **Meaning Snippet:**
+    - Literal Translation: "I bow to you."
+    - Spiritual Recognition: The divine light within recognizing the same light in others.
+
+### Niyama
+- **Primary Focus Keyword:** Niyama
+- **SEO Title:** Niyama Defined: The 5 Internal Observances of Yoga | Yoga Near Me
+- **SEO Description:** Learn the definition of Niyama, the second limb of yoga. Discover the five internal observances for personal growth.
+- **The Five Disciplines Snippet:**
+    - Internal Focus: Saucha (Purity), Santosha (Contentment), Tapas (Self-Discipline), Svadhyaya (Self-Study), Ishvara Pranidhana (Surrender).
+
+### Om / Aum
+- **Primary Focus Keyword:** Om meaning
+- **SEO Title:** Om Aum Defined: Meaning of the Sacred Yoga Sound | Yoga Near Me
+- **SEO Description:** Discover the meaning of Om (Aum), the primordial sound of the universe. Learn why we chant Om and how its four parts represent consciousness.
+- **How to Practice Snippet:**
+    - The Four Parts: A (waking), U (dream), M (sleep), and Silence (pure consciousness).
+
+### Prana
+- **Primary Focus Keyword:** Prana
+- **SEO Title:** Prana Defined: Meaning of Life Force Energy in Yoga | Yoga Near Me
+- **SEO Description:** What is Prana? Discover the meaning of life force energy in yoga. Learn how prana flows through the breath and body to improve vitality.
+- **How to Practice Snippet:**
+    - The "Vital Spark": Universal energy that animates all living things.
+    - Breath as the Vehicle: Use breath to catch, direct, and expand this energy.
+"""
+
+with open("yoga-near-me-seo-guide.md", "w") as f:
+    f.write(content)

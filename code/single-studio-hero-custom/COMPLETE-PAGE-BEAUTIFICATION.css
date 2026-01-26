@@ -1,0 +1,525 @@
+/**
+ * COMPLETE PAGE BEAUTIFICATION CSS
+ * Transform your Elementor single studio page into a beautiful design
+ * Add this to WordPress Customizer → Additional CSS (at the very bottom)
+ * 
+ * This styles:
+ * - Section cards (white with shadows)
+ * - Headings (orange dots, proper typography)
+ * - Buttons (proper colors, white text)
+ * - Text inputs/fields (clean styling)
+ * - Badges (verified teal, featured orange)
+ * - Nearby studios cards (hover effects, shadows)
+ * - Overall spacing and layout
+ */
+
+/* ============================================
+   GLOBAL STYLING
+   ============================================ */
+
+body.single-gd_place {
+    background: #F8F9FA !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    color: #222222 !important;
+    line-height: 1.7 !important;
+}
+
+/* ============================================
+   SECTION CARDS - White cards with shadows
+   ============================================ */
+
+/* Main content sections */
+body.single-gd_place .elementor-section:not(.elementor-section-boxed):not(.elementor-inner-section) .elementor-container,
+body.single-gd_place .elementor-widget-container,
+body.single-gd_place .elementor-column-wrap {
+    background: #FFFFFF !important;
+    border-radius: 12px !important;
+    padding: 32px !important;
+    margin-bottom: 24px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    border: 1px solid #E0E0E0 !important;
+    transition: box-shadow 0.3s ease !important;
+}
+
+body.single-gd_place .elementor-section:not(.elementor-section-boxed):not(.elementor-inner-section) .elementor-container:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Don't double-pad nested sections */
+body.single-gd_place .elementor-section .elementor-section .elementor-container {
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* ============================================
+   HEADINGS - Orange dots, proper typography
+   ============================================ */
+
+/* Remove ALL SVG icons from headings */
+body.single-gd_place .elementor-heading-title svg,
+body.single-gd_place h2 svg,
+body.single-gd_place h3 svg,
+body.single-gd_place h4 svg,
+body.single-gd_place .elementor-widget-heading svg {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Style headings with orange dots */
+body.single-gd_place .elementor-heading-title:not(h1),
+body.single-gd_place h2:not(.geodir-post-title),
+body.single-gd_place h3,
+body.single-gd_place h4 {
+    position: relative !important;
+    padding-left: 24px !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: #222222 !important;
+    margin-bottom: 20px !important;
+    margin-top: 0 !important;
+    font-family: 'Inter', sans-serif !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.2 !important;
+}
+
+/* Add orange dots */
+body.single-gd_place .elementor-heading-title:not(h1)::before,
+body.single-gd_place h2:not(.geodir-post-title)::before,
+body.single-gd_place h3::before,
+body.single-gd_place h4::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: #FF5733 !important;
+    font-size: 14px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+    margin-right: 12px !important;
+}
+
+/* Don't add dots to main title */
+body.single-gd_place h1::before,
+body.single-gd_place .geodir-post-title::before,
+body.single-gd_place h1.elementor-heading-title::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* ============================================
+   STUDIO TITLE & HEADER
+   ============================================ */
+
+body.single-gd_place .geodir-post-title,
+body.single-gd_place h1.geodir-post-title,
+body.single-gd_place .elementor-widget-geodir-post-title .geodir-post-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+    font-weight: 700 !important;
+    color: #222222 !important;
+    margin-bottom: 12px !important;
+    padding-left: 0 !important;
+    font-family: 'Inter', sans-serif !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1.1 !important;
+}
+
+/* ============================================
+   TEXT INPUTS & TEXTAREAS - Clean styling
+   ============================================ */
+
+body.single-gd_place input[type="text"],
+body.single-gd_place input[type="email"],
+body.single-gd_place input[type="tel"],
+body.single-gd_place input[type="url"],
+body.single-gd_place textarea,
+body.single-gd_place .elementor-field-group input,
+body.single-gd_place .elementor-field-group textarea {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E0E0E0 !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 15px !important;
+    color: #222222 !important;
+    transition: border-color 0.2s ease !important;
+    width: 100% !important;
+}
+
+body.single-gd_place input[type="text"]:focus,
+body.single-gd_place input[type="email"]:focus,
+body.single-gd_place input[type="tel"]:focus,
+body.single-gd_place textarea:focus {
+    outline: none !important;
+    border-color: #61948B !important;
+    box-shadow: 0 0 0 3px rgba(97, 148, 139, 0.1) !important;
+}
+
+body.single-gd_place input::placeholder,
+body.single-gd_place textarea::placeholder {
+    color: #9EABA8 !important;
+    opacity: 1 !important;
+}
+
+/* Large text areas (About, Yoga Styles, Amenities) */
+body.single-gd_place textarea {
+    min-height: 120px !important;
+    resize: vertical !important;
+}
+
+/* ============================================
+   BUTTONS - Proper colors and styling
+   ============================================ */
+
+/* All buttons base styling */
+body.single-gd_place .elementor-button,
+body.single-gd_place .elementor-button-link,
+body.single-gd_place a.elementor-button,
+body.single-gd_place button.elementor-button {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    border: none !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    text-decoration: none !important;
+}
+
+/* "Book a Class" - Orange */
+body.single-gd_place .elementor-widget-button:first-of-type .elementor-button,
+body.single-gd_place .elementor-button[href*="book"],
+body.single-gd_place .elementor-button[href*="Book"] {
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+}
+
+body.single-gd_place .elementor-widget-button:first-of-type .elementor-button:hover {
+    background-color: #E64A2A !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(255, 87, 51, 0.25) !important;
+}
+
+/* "Save" - Teal */
+body.single-gd_place .elementor-widget-button:nth-of-type(2) .elementor-button,
+body.single-gd_place .elementor-button[class*="save"] {
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+}
+
+body.single-gd_place .elementor-widget-button:nth-of-type(2) .elementor-button:hover {
+    background-color: #4F7A73 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(97, 148, 139, 0.25) !important;
+}
+
+/* "Edit" - Orange */
+body.single-gd_place .elementor-button[class*="edit"],
+body.single-gd_place .elementor-button[class*="Edit"] {
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+}
+
+/* "Close" - Grey */
+body.single-gd_place .elementor-button[class*="close"],
+body.single-gd_place .elementor-button[class*="Close"] {
+    background-color: #8A9290 !important;
+    color: #FFFFFF !important;
+}
+
+/* "Claim" - Orange */
+body.single-gd_place .elementor-button[class*="claim"],
+body.single-gd_place .elementor-button[class*="Claim"] {
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+}
+
+body.single-gd_place .elementor-button[class*="claim"]:hover {
+    background-color: #E64A2A !important;
+}
+
+/* Button icons */
+body.single-gd_place .elementor-button svg {
+    fill: #FFFFFF !important;
+    width: 18px !important;
+    height: 18px !important;
+}
+
+/* ============================================
+   BADGES - Verified (teal) & Featured (orange)
+   ============================================ */
+
+body.single-gd_place .badge-verified,
+body.single-gd_place .badge.verified,
+body.single-gd_place [class*="verified"],
+body.single-gd_place .studio-badges .badge {
+    background: rgba(97, 148, 139, 0.12) !important;
+    color: #61948B !important;
+    border: none !important;
+    padding: 6px 12px !important;
+    border-radius: 20px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin-right: 8px !important;
+}
+
+body.single-gd_place .badge-featured,
+body.single-gd_place .badge.sponsored,
+body.single-gd_place .badge.featured,
+body.single-gd_place [class*="featured"],
+body.single-gd_place [class*="sponsored"] {
+    background: rgba(255, 87, 51, 0.12) !important;
+    color: #FF5733 !important;
+    border: none !important;
+    padding: 6px 12px !important;
+    border-radius: 20px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+/* ============================================
+   TEXT CONTENT - Proper typography
+   ============================================ */
+
+body.single-gd_place .elementor-widget-text-editor,
+body.single-gd_place .elementor-widget-html,
+body.single-gd_place p {
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+    color: #555555 !important;
+    margin-bottom: 16px !important;
+}
+
+body.single-gd_place .elementor-widget-text-editor p:last-child,
+body.single-gd_place p:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Links */
+body.single-gd_place a:not(.elementor-button):not(.btn) {
+    color: #61948B !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+body.single-gd_place a:not(.elementor-button):not(.btn):hover {
+    color: #FF5733 !important;
+    text-decoration: underline !important;
+}
+
+/* ============================================
+   NEARBY STUDIOS CARDS - Beautiful card design
+   ============================================ */
+
+body.single-gd_place [class*="nearby"] .elementor-post,
+body.single-gd_place [class*="nearby"] .elementor-post__card,
+body.single-gd_place .elementor-posts-container .elementor-post,
+body.single-gd_place .elementor-posts-container .elementor-post__card {
+    background: #FFFFFF !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    border: 1px solid #E0E0E0 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    transition: all 0.3s ease !important;
+    margin-bottom: 24px !important;
+}
+
+body.single-gd_place [class*="nearby"] .elementor-post:hover,
+body.single-gd_place .elementor-posts-container .elementor-post:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+    border-color: #61948B !important;
+}
+
+/* Card images */
+body.single-gd_place [class*="nearby"] .elementor-post__thumbnail,
+body.single-gd_place .elementor-posts-container .elementor-post__thumbnail {
+    height: 200px !important;
+    overflow: hidden !important;
+}
+
+body.single-gd_place [class*="nearby"] .elementor-post__thumbnail img,
+body.single-gd_place .elementor-posts-container .elementor-post__thumbnail img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.3s ease !important;
+}
+
+body.single-gd_place [class*="nearby"] .elementor-post:hover .elementor-post__thumbnail img,
+body.single-gd_place .elementor-posts-container .elementor-post:hover .elementor-post__thumbnail img {
+    transform: scale(1.05) !important;
+}
+
+/* Card content */
+body.single-gd_place [class*="nearby"] .elementor-post__content,
+body.single-gd_place .elementor-posts-container .elementor-post__content {
+    padding: 20px !important;
+}
+
+body.single-gd_place [class*="nearby"] .elementor-post__title,
+body.single-gd_place .elementor-posts-container .elementor-post__title {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: #222222 !important;
+    margin-bottom: 8px !important;
+}
+
+body.single-gd_place [class*="nearby"] .elementor-post__excerpt,
+body.single-gd_place .elementor-posts-container .elementor-post__excerpt {
+    font-size: 14px !important;
+    color: #555555 !important;
+    line-height: 1.6 !important;
+    margin-bottom: 12px !important;
+}
+
+/* ============================================
+   MAP SECTION
+   ============================================ */
+
+body.single-gd_place .elementor-widget-google_maps,
+body.single-gd_place [class*="map"] {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    margin-bottom: 16px !important;
+    border: 1px solid #E0E0E0 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* ============================================
+   CONTACT INFO & HOURS - Clean list styling
+   ============================================ */
+
+body.single-gd_place .contact-item,
+body.single-gd_place .hours-row {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid #F0F0F0 !important;
+}
+
+body.single-gd_place .contact-item:last-child,
+body.single-gd_place .hours-row:last-child {
+    border-bottom: none !important;
+}
+
+body.single-gd_place .contact-label,
+body.single-gd_place .hours-day {
+    font-size: 13px !important;
+    color: #888888 !important;
+    font-weight: 500 !important;
+    min-width: 80px !important;
+}
+
+body.single-gd_place .contact-value,
+body.single-gd_place .hours-time {
+    font-size: 15px !important;
+    color: #222222 !important;
+    font-weight: 500 !important;
+}
+
+/* ============================================
+   REVIEWS SECTION
+   ============================================ */
+
+body.single-gd_place .geodir-post-rating,
+body.single-gd_place .elementor-widget-geodir-post-rating {
+    color: #222222 !important;
+}
+
+body.single-gd_place .geodir-stars svg,
+body.single-gd_place .geodir-rating svg {
+    fill: #F5A623 !important;
+    width: 18px !important;
+    height: 18px !important;
+}
+
+body.single-gd_place .geodir-stars svg.empty {
+    fill: #DDDDDD !important;
+}
+
+/* ============================================
+   PLACEHOLDER TEXT - Subtle styling
+   ============================================ */
+
+body.single-gd_place [class*="placeholder"],
+body.single-gd_place .elementor-widget-text-editor:empty::before {
+    color: #9EABA8 !important;
+    font-style: italic !important;
+}
+
+/* ============================================
+   REMOVE FOOTER DOTS
+   ============================================ */
+
+footer.ynm-footer *::before,
+footer.ynm-footer h1::before,
+footer.ynm-footer h2::before,
+footer.ynm-footer h3::before,
+footer.ynm-footer h4::before {
+    display: none !important;
+    content: none !important;
+}
+
+footer.ynm-footer h1,
+footer.ynm-footer h2,
+footer.ynm-footer h3,
+footer.ynm-footer h4 {
+    padding-left: 0 !important;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1024px) {
+    body.single-gd_place .elementor-section .elementor-container {
+        padding: 24px !important;
+    }
+    
+    body.single-gd_place .elementor-heading-title,
+    body.single-gd_place h2 {
+        font-size: 1.3rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    body.single-gd_place .elementor-section .elementor-container {
+        padding: 20px !important;
+    }
+    
+    body.single-gd_place .elementor-heading-title,
+    body.single-gd_place h2 {
+        font-size: 1.2rem !important;
+        padding-left: 20px !important;
+    }
+    
+    body.single-gd_place .elementor-heading-title::before,
+    body.single-gd_place h2::before {
+        font-size: 12px !important;
+    }
+    
+    body.single-gd_place .elementor-button {
+        padding: 10px 20px !important;
+        font-size: 13px !important;
+    }
+}
+

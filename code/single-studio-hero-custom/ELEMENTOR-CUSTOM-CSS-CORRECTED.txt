@@ -1,0 +1,169 @@
+ELEMENTOR BUTTON CUSTOM CSS - CORRECTED
+========================================
+Use "selector" prefix in Elementor's Custom CSS panel
+
+---
+
+"BOOK A CLASS" BUTTON
+----------------------
+Paste this into the Custom CSS panel:
+
+selector {
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+    border-color: #FF5733 !important;
+}
+
+selector:hover {
+    background-color: #E64A2A !important;
+}
+
+selector svg {
+    fill: #FFFFFF !important;
+}
+
+---
+
+"SAVE" BUTTON
+-------------
+Paste this into the Custom CSS panel:
+
+selector {
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    border-color: #61948B !important;
+}
+
+selector:hover {
+    background-color: #4F7A73 !important;
+}
+
+selector svg {
+    fill: #FFFFFF !important;
+}
+
+---
+
+"SHARE" BUTTON
+--------------
+Paste this into the Custom CSS panel:
+
+selector {
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    border-color: #61948B !important;
+}
+
+selector:hover {
+    background-color: #4F7A73 !important;
+}
+
+selector svg {
+    fill: #FFFFFF !important;
+}
+
+---
+
+"WRITE A REVIEW" BUTTON
+-----------------------
+Paste this into the Custom CSS panel:
+
+selector {
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    border-color: #61948B !important;
+}
+
+selector:hover {
+    background-color: #4F7A73 !important;
+}
+
+selector svg {
+    fill: #FFFFFF !important;
+}
+
+---
+
+"LOAD MORE REVIEWS" BUTTON
+--------------------------
+Paste this into the Custom CSS panel:
+
+selector {
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    border-color: #61948B !important;
+}
+
+selector:hover {
+    background-color: #4F7A73 !important;
+}
+
+---
+
+"CLAIM THIS LISTING" BUTTON
+---------------------------
+Paste this into the Custom CSS panel:
+
+selector {
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+    border-color: #FF5733 !important;
+}
+
+selector:hover {
+    background-color: #E64A2A !important;
+}
+
+selector svg {
+    fill: #FFFFFF !important;
+}
+
+---
+
+"WAS THIS HELPFUL?" BUTTON (Yes button)
+---------------------------------------
+Paste this into the Custom CSS panel:
+
+selector {
+    background-color: #61948B !important;
+    color: #FFFFFF !important;
+    border-color: #61948B !important;
+}
+
+selector:hover {
+    background-color: #4F7A73 !important;
+}
+
+selector svg {
+    fill: #FFFFFF !important;
+}
+
+---
+
+SHARE BUTTONS WIDGET
+--------------------
+Paste this into the Share Buttons widget's Custom CSS panel:
+
+selector .elementor-share-btn,
+selector .elementor-share-buttons__button {
+    background-color: rgba(255, 87, 51, 0.1) !important;
+    border-color: rgba(255, 87, 51, 0.2) !important;
+    color: #FF5733 !important;
+}
+
+selector .elementor-share-btn svg,
+selector .elementor-share-buttons__button svg {
+    fill: #FF5733 !important;
+}
+
+selector .elementor-share-btn:hover,
+selector .elementor-share-buttons__button:hover {
+    background-color: #FF5733 !important;
+    color: #FFFFFF !important;
+}
+
+selector .elementor-share-btn:hover svg,
+selector .elementor-share-buttons__button:hover svg {
+    fill: #FFFFFF !important;
+}
+

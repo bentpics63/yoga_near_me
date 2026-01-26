@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon Style Test v2 - Matching Asana Image</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #F9FAFB;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+        h1 { color: #475467; margin-bottom: 0.5rem; }
+        p { color: #667085; max-width: 600px; text-align: center; }
+        .comparison {
+            display: flex;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+        .icon-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            text-align: center;
+        }
+        .icon-box img, .icon-box svg {
+            width: 200px;
+            height: 200px;
+        }
+        .icon-box h3 {
+            margin-top: 1rem;
+            color: #475467;
+            font-size: 0.9rem;
+        }
+        .poses-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Asana Image Style Matching - v2</h1>
+    <p>Side-by-side comparison with the reference image. Attempting to match the thin, elegant line quality.</p>
+
+    <div class="comparison">
+        <div class="icon-box">
+            <img src="/website design/website art/icon art/Asana Image.png" alt="Reference">
+            <h3>REFERENCE: Asana Image</h3>
+        </div>
+
+        <div class="icon-box">
+            <!-- Attempt to match the Asana Image style exactly -->
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head - elongated oval, slightly narrower -->
+                <ellipse cx="100" cy="32" rx="16" ry="20"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+
+                <!-- Neck - short subtle curve -->
+                <path d="M92 50 Q100 54 108 50"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+
+                <!-- Left shoulder flowing into arm -->
+                <path d="M92 50
+                         Q80 54 68 62
+                         Q56 72 52 86
+                         Q50 96 54 106
+                         Q60 116 72 122
+                         Q82 126 90 126"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+
+                <!-- Right shoulder flowing into arm -->
+                <path d="M108 50
+                         Q120 54 132 62
+                         Q144 72 148 86
+                         Q150 96 146 106
+                         Q140 116 128 122
+                         Q118 126 110 126"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+
+                <!-- Left torso contour -->
+                <path d="M92 52 Q88 75 90 100"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+
+                <!-- Right torso contour -->
+                <path d="M108 52 Q112 75 110 100"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+
+                <!-- Left hand in mudra -->
+                <path d="M90 126
+                         Q86 128 84 132
+                         Q82 136 86 140
+                         Q90 142 96 140
+                         Q100 138 100 134"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+
+                <!-- Right hand in mudra -->
+                <path d="M110 126
+                         Q114 128 116 132
+                         Q118 136 114 140
+                         Q110 142 104 140
+                         Q100 138 100 134"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+
+                <!-- Left leg - outer edge curving to foot -->
+                <path d="M90 100
+                         Q78 108 62 120
+                         Q46 132 38 148
+                         Q34 160 42 170
+                         Q54 180 74 178"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+
+                <!-- Right leg - outer edge curving to foot -->
+                <path d="M110 100
+                         Q122 108 138 120
+                         Q154 132 162 148
+                         Q166 160 158 170
+                         Q146 180 126 178"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+
+                <!-- Left foot/ankle area -->
+                <ellipse cx="58" cy="168" rx="18" ry="10"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+
+                <!-- Right foot/ankle area -->
+                <ellipse cx="142" cy="168" rx="18" ry="10"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+
+                <!-- Inner leg curves suggesting lotus -->
+                <path d="M90 100 Q94 115 100 125"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M110 100 Q106 115 100 125"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+            </svg>
+            <h3>SVG ATTEMPT v2</h3>
+        </div>
+    </div>
+
+    <h2 style="color: #475467; margin-top: 2rem;">Other Poses in Same Style</h2>
+
+    <div class="poses-grid">
+        <!-- Mountain Pose -->
+        <div class="icon-box">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head -->
+                <ellipse cx="100" cy="24" rx="14" ry="18"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Neck -->
+                <path d="M94 40 Q100 44 106 40"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Shoulders -->
+                <path d="M94 40 Q82 46 72 52" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M106 40 Q118 46 128 52" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Torso left -->
+                <path d="M94 42 Q90 70 92 100 Q90 110 88 118" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Torso right -->
+                <path d="M106 42 Q110 70 108 100 Q110 110 112 118" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Left arm -->
+                <path d="M72 52 Q66 70 68 90 Q70 105 76 115" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Right arm -->
+                <path d="M128 52 Q134 70 132 90 Q130 105 124 115" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Left leg outer -->
+                <path d="M88 118 Q84 140 84 165 Q84 180 86 192" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Left leg inner -->
+                <path d="M96 118 Q96 140 96 165 Q96 180 96 192" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Right leg outer -->
+                <path d="M112 118 Q116 140 116 165 Q116 180 114 192" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Right leg inner -->
+                <path d="M104 118 Q104 140 104 165 Q104 180 104 192" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Feet -->
+                <path d="M82 192 L100 192" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M100 192 L118 192" fill="none" stroke="#667085" stroke-width="1"/>
+            </svg>
+            <h3>Mountain Pose (Tadasana)</h3>
+        </div>
+
+        <!-- Tree Pose -->
+        <div class="icon-box">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head -->
+                <ellipse cx="100" cy="22" rx="13" ry="17"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Neck -->
+                <path d="M94 37 Q100 41 106 37" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Arms raised overhead joining -->
+                <path d="M94 37 Q86 32 82 22 Q80 12 88 6 Q96 2 100 4" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M106 37 Q114 32 118 22 Q120 12 112 6 Q104 2 100 4" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Shoulders -->
+                <path d="M94 37 Q84 44 78 52" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M106 37 Q116 44 122 52" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Torso -->
+                <path d="M94 40 Q90 65 92 95 Q90 105 88 115" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M106 40 Q110 65 108 95 Q110 105 112 115" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Standing leg -->
+                <path d="M96 115 Q94 145 94 170 Q94 185 96 195" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M104 115 Q102 130 100 140 Q98 148 100 155" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Bent leg -->
+                <path d="M108 115 Q118 120 130 130 Q142 140 146 150 Q148 158 142 162 Q134 166 124 162 Q116 158 112 150" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Foot of bent leg -->
+                <ellipse cx="112" cy="148" rx="8" ry="5" transform="rotate(-15 112 148)" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Standing foot -->
+                <path d="M90 195 L108 195" fill="none" stroke="#667085" stroke-width="1"/>
+            </svg>
+            <h3>Tree Pose (Vrksasana)</h3>
+        </div>
+
+        <!-- Warrior I -->
+        <div class="icon-box">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head -->
+                <ellipse cx="85" cy="20" rx="13" ry="17"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Neck -->
+                <path d="M79 35 Q85 39 91 35" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Arms raised overhead -->
+                <path d="M79 35 Q70 28 66 18 Q64 8 72 4" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M91 35 Q100 28 104 18 Q106 8 98 4" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Shoulders -->
+                <path d="M79 35 Q70 42 64 50" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M91 35 Q100 42 106 50" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Torso -->
+                <path d="M79 38 Q75 60 77 85 Q75 95 72 105" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M91 38 Q95 60 93 85 Q95 95 98 105" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Front bent leg - left side -->
+                <path d="M72 105 Q62 120 52 140 Q44 160 40 180 Q38 190 46 195" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M82 105 Q74 118 66 135 Q60 152 58 170 Q56 185 62 192" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Back straight leg - right side -->
+                <path d="M98 105 Q115 115 135 135 Q152 152 168 175" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M92 108 Q108 118 126 138 Q142 155 158 178" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Front foot -->
+                <path d="M40 195 L68 195" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Back foot angled -->
+                <path d="M158 178 L172 172" fill="none" stroke="#667085" stroke-width="1"/>
+            </svg>
+            <h3>Warrior I (Virabhadrasana)</h3>
+        </div>
+
+        <!-- Downward Dog -->
+        <div class="icon-box">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head hanging down -->
+                <ellipse cx="44" cy="115" rx="11" ry="14"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Neck into back -->
+                <path d="M52 105 Q62 95 75 85" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Arms going down -->
+                <path d="M44 128 Q40 145 36 165 Q34 180 32 192" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M54 122 Q52 140 48 160 Q46 175 44 192" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Back rising to hips -->
+                <path d="M75 85 Q95 65 115 50 Q130 42 140 40" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M70 92 Q90 72 110 58 Q125 50 135 48" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Hips -->
+                <path d="M140 40 Q146 42 148 48 Q148 54 144 58" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Legs going down -->
+                <path d="M144 58 Q150 90 156 130 Q160 165 162 192" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M138 54 Q144 85 150 125 Q154 160 156 192" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Hands on ground -->
+                <ellipse cx="38" cy="194" rx="10" ry="5" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Feet -->
+                <path d="M152 192 L168 192" fill="none" stroke="#667085" stroke-width="1"/>
+            </svg>
+            <h3>Downward Dog</h3>
+        </div>
+
+        <!-- Child's Pose -->
+        <div class="icon-box">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head resting forward -->
+                <ellipse cx="55" cy="130" rx="12" ry="15"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Back curving from head -->
+                <path d="M65 120 Q85 105 105 100 Q125 98 140 105" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M65 138 Q85 125 105 120 Q125 118 140 125" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Arms extended forward -->
+                <path d="M55 145 Q45 155 35 165 Q28 172 24 180" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M65 142 Q55 152 45 162 Q38 170 34 178" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Hips/bottom raised -->
+                <path d="M140 105 Q155 100 165 108 Q172 118 168 130" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Folded legs underneath -->
+                <path d="M168 130 Q175 145 172 160 Q168 172 158 178 Q145 182 132 178" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M140 125 Q148 138 148 155 Q146 168 138 175 Q128 180 118 178" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Hands on ground -->
+                <ellipse cx="28" cy="182" rx="8" ry="4" fill="none" stroke="#667085" stroke-width="1"/>
+            </svg>
+            <h3>Child's Pose (Balasana)</h3>
+        </div>
+
+        <!-- Cobra -->
+        <div class="icon-box">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head lifted, looking forward -->
+                <ellipse cx="65" cy="65" rx="12" ry="15"
+                    fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Neck arching back -->
+                <path d="M72 78 Q82 88 95 95" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Shoulders -->
+                <path d="M60 78 Q52 88 48 100" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M75 75 Q85 82 92 92" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Back/spine curving down to legs -->
+                <path d="M95 95 Q115 105 140 120 Q165 135 185 150" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M92 100 Q112 112 137 128 Q162 144 182 158" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Arms pressing down -->
+                <path d="M48 100 Q42 115 38 135 Q36 150 38 160" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M58 105 Q54 118 52 135 Q50 148 52 158" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Hands on ground -->
+                <ellipse cx="44" cy="162" rx="9" ry="5" fill="none" stroke="#667085" stroke-width="1"/>
+                <!-- Legs/feet on ground -->
+                <path d="M185 150 L195 155" fill="none" stroke="#667085" stroke-width="1"/>
+                <path d="M182 158 L192 163" fill="none" stroke="#667085" stroke-width="1"/>
+            </svg>
+            <h3>Cobra (Bhujangasana)</h3>
+        </div>
+    </div>
+
+    <p style="margin-top: 2rem; font-size: 0.85rem;">
+        <strong>Technical notes:</strong> Using 1px stroke, #667085 color, bezier curves for all body contours.
+        Attempting to match the elegant, minimal quality of the Asana Image reference.
+    </p>
+</body>
+</html>

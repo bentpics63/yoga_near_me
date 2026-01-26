@@ -1,0 +1,2197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Academy - New York, NY | Yoga Near Me</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-slate: #667085;
+            --primary-slate-dark: #475467;
+            --accent-coral: #e95c4b;
+            --accent-coral-dark: #bd3000;
+            --accent-green: #12B76A;
+            --accent-amber: #F59E0B;
+            --white: #FFFFFF;
+            --gray-50: #F9FAFB;
+            --gray-100: #F2F4F7;
+            --gray-200: #E4E7EC;
+            --gray-300: #D0D5DD;
+            --gray-400: #98A2B3;
+            --gray-500: #667085;
+            --gray-700: #344054;
+            --gray-900: #101828;
+            --text-primary: #101828;
+            --text-secondary: #475467;
+            --text-tertiary: #667085;
+            --border-light: #E4E7EC;
+            --shadow-xs: 0 1px 2px rgba(16, 24, 40, 0.05);
+            --shadow-sm: 0 1px 3px rgba(16, 24, 40, 0.1);
+            --shadow-md: 0 4px 12px rgba(16, 24, 40, 0.08);
+            --shadow-lg: 0 12px 24px rgba(16, 24, 40, 0.12);
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            background: var(--gray-50);
+            line-height: 1.6;
+        }
+
+        /* =====================================================
+           HEADER
+           ===================================================== */
+        .site-header {
+            background: var(--primary-slate);
+            padding: 1rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .logo-yoga { color: white; }
+        .logo-nearme { color: var(--accent-coral); }
+        .logo-info { color: white; }
+
+        .site-nav {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .site-nav a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .site-nav a:hover,
+        .site-nav a.active {
+            color: white;
+        }
+
+        /* =====================================================
+           BREADCRUMB
+           ===================================================== */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8125rem;
+        }
+
+        .breadcrumb a {
+            color: var(--text-tertiary);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-coral);
+        }
+
+        .breadcrumb .separator {
+            color: var(--gray-300);
+        }
+
+        .breadcrumb .current {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* =====================================================
+           MAIN CONTAINER
+           ===================================================== */
+        .listing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        /* =====================================================
+           HERO IMAGE
+           ===================================================== */
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-gallery-btn {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* =====================================================
+           STUDIO HEADER
+           ===================================================== */
+        .studio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .studio-header-left {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .studio-header-right {
+            display: flex;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .studio-identity {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .studio-logo {
+            width: 64px;
+            height: 64px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+            border: 2px solid var(--border-light);
+            flex-shrink: 0;
+        }
+
+        .studio-logo.placeholder {
+            background: linear-gradient(135deg, var(--primary-slate) 0%, var(--primary-slate-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .studio-name {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            line-height: 1.2;
+            margin-bottom: 0.25rem;
+        }
+
+        .studio-tagline {
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.9375rem;
+        }
+
+        .studio-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .rating-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .stars {
+            color: var(--accent-amber);
+            font-size: 0.875rem;
+        }
+
+        .rating-number {
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .review-count {
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+        }
+
+        .meta-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--gray-300);
+            border-radius: 50%;
+        }
+
+        .location-badge,
+        .established-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .location-badge i,
+        .established-badge i {
+            color: var(--accent-coral);
+            font-size: 0.8125rem;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-badge.open {
+            background: #ECFDF3;
+            color: #027A48;
+        }
+
+        .status-badge.closed {
+            background: #FEF3F2;
+            color: #B42318;
+        }
+
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.75rem;
+            background: var(--gray-50);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .trust-badge.yoga-alliance {
+            background: #FFF7ED;
+            border-color: #FDBA74;
+            color: #9A3412;
+        }
+
+        .trust-badge .fa-google { color: #4285F4; }
+        .trust-badge .fa-yelp { color: #D32323; }
+        .trust-badge .fa-check-circle { color: var(--accent-green); }
+
+        /* CTA Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent-coral);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-coral-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: white;
+            border-color: var(--border-light);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-coral);
+            color: var(--accent-coral);
+        }
+
+        /* =====================================================
+           QUICK INFO BAR
+           ===================================================== */
+        .quick-info-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            padding: 1rem 1.5rem;
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-xs);
+        }
+
+        .quick-info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+        }
+
+        .quick-info-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gray-100);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-coral);
+            font-size: 0.875rem;
+        }
+
+        .quick-info-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quick-info-label {
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: var(--text-tertiary);
+        }
+
+        .quick-info-value {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        /* =====================================================
+           CONTENT SECTIONS
+           ===================================================== */
+        .content-section {
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-xs);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent-coral) 0%, #f97066 100%);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.875rem;
+        }
+
+        .section-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        /* =====================================================
+           THREE COLUMN ROW (About, Contact, Map)
+           ===================================================== */
+        .three-col-row {
+            display: grid;
+            grid-template-columns: 1fr 300px 350px;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* About */
+        .about-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Contact Card */
+        .contact-card {
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-xs);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .contact-item:first-child {
+            padding-top: 0;
+        }
+
+        .contact-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gray-100);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-slate);
+            font-size: 0.8125rem;
+            flex-shrink: 0;
+        }
+
+        .contact-label {
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: var(--text-tertiary);
+            margin-bottom: 0.125rem;
+        }
+
+        .contact-value {
+            font-size: 0.875rem;
+            color: var(--gray-900);
+        }
+
+        .contact-value a {
+            color: var(--accent-coral);
+            text-decoration: none;
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            background: var(--gray-100);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: var(--accent-coral);
+            color: white;
+        }
+
+        /* Hours Card */
+        .hours-list {
+            margin-top: 0.5rem;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            font-size: 0.8125rem;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .hours-row:last-child {
+            border-bottom: none;
+        }
+
+        .hours-row.today {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .hours-day {
+            color: var(--text-secondary);
+        }
+
+        .hours-time {
+            color: var(--gray-900);
+        }
+
+        /* Map Card */
+        .map-card {
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-xs);
+        }
+
+        .map-container {
+            height: 200px;
+            background: var(--gray-200);
+            position: relative;
+        }
+
+        .map-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .map-address {
+            padding: 1rem;
+        }
+
+        .map-address-text {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .directions-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 0.625rem;
+            background: var(--gray-50);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--accent-coral);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .directions-btn:hover {
+            background: var(--accent-coral);
+            border-color: var(--accent-coral);
+            color: white;
+        }
+
+        /* =====================================================
+           YOGA STYLES & CLASS LEVELS
+           ===================================================== */
+        .styles-levels-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .style-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .style-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: all 0.2s;
+        }
+
+        .style-tag:hover {
+            border-color: var(--accent-coral);
+            color: var(--accent-coral);
+        }
+
+        .style-tag.primary {
+            background: var(--accent-coral);
+            border-color: var(--accent-coral);
+            color: white;
+        }
+
+        .style-tag .heated-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-left: 0.25rem;
+            padding: 0.125rem 0.5rem;
+            background: #FEF3C7;
+            border-radius: 9999px;
+            font-size: 0.625rem;
+            font-weight: 600;
+            color: #92400E;
+        }
+
+        .class-levels {
+            display: flex;
+            flex-direction: column;
+            gap: 0.375rem;
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+            min-width: 160px;
+        }
+
+        .class-levels-label {
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: var(--text-tertiary);
+            margin-bottom: 0.25rem;
+        }
+
+        .level-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+
+        .level-badge i {
+            color: var(--accent-green);
+            font-size: 0.625rem;
+        }
+
+        /* =====================================================
+           PRICING SECTION
+           ===================================================== */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card {
+            padding: 1.25rem;
+            background: var(--gray-50);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--primary-slate);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, var(--accent-coral) 0%, var(--accent-coral-dark) 100%);
+            border-color: var(--accent-coral);
+            color: white;
+            transform: scale(1.02);
+        }
+
+        .pricing-label {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-tertiary);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card.featured .pricing-label {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .pricing-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .pricing-detail {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        .pricing-card.featured .pricing-detail {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* New Student Offer */
+        .new-student-offer {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+            border: 1px solid var(--accent-green);
+            border-radius: var(--radius-md);
+        }
+
+        .offer-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .offer-content {
+            flex: 1;
+        }
+
+        .offer-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #065F46;
+            margin-bottom: 0.125rem;
+        }
+
+        .offer-details {
+            font-size: 0.8125rem;
+            color: #047857;
+        }
+
+        .offer-btn {
+            padding: 0.625rem 1.25rem;
+            background: var(--accent-green);
+            color: white;
+            border-radius: var(--radius-md);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .offer-btn:hover {
+            background: #059669;
+        }
+
+        /* =====================================================
+           AMENITIES
+           ===================================================== */
+        .amenities-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .amenity-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1rem;
+            background: var(--gray-50);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            color: var(--text-primary);
+        }
+
+        .amenity-tag i {
+            color: var(--primary-slate);
+            font-size: 0.875rem;
+        }
+
+        /* =====================================================
+           TEACHERS
+           ===================================================== */
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .teacher-card {
+            text-align: center;
+            padding: 1.25rem 1rem;
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+            transition: all 0.2s;
+        }
+
+        .teacher-card:hover {
+            border-color: var(--primary-slate);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .teacher-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 0.75rem;
+            border: 3px solid white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .teacher-name {
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.125rem;
+        }
+
+        .teacher-role {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            margin-bottom: 0.5rem;
+        }
+
+        .teacher-credentials {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.25rem;
+        }
+
+        .credential-badge {
+            font-size: 0.625rem;
+            font-weight: 600;
+            padding: 0.125rem 0.5rem;
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 9999px;
+            color: var(--text-secondary);
+        }
+
+        .credential-badge.primary {
+            background: var(--primary-slate);
+            border-color: var(--primary-slate);
+            color: white;
+        }
+
+        .view-all-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1.25rem;
+            background: white;
+            border: 1px dashed var(--border-light);
+            border-radius: var(--radius-md);
+            color: var(--accent-coral);
+            font-weight: 500;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .view-all-link:hover {
+            background: var(--gray-50);
+            border-style: solid;
+            border-color: var(--accent-coral);
+        }
+
+        /* =====================================================
+           PROGRAMS & SERVICES
+           ===================================================== */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+        }
+
+        .program-card {
+            padding: 1.25rem;
+            background: var(--gray-50);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .program-card.available {
+            background: white;
+            border-color: var(--accent-coral);
+        }
+
+        .program-card.available:hover {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .program-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 0.75rem;
+            background: var(--gray-200);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.125rem;
+            color: var(--gray-400);
+        }
+
+        .program-card.available .program-icon {
+            background: var(--accent-coral);
+            color: white;
+        }
+
+        .program-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .program-status {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        .program-card.available .program-status {
+            color: var(--accent-green);
+            font-weight: 500;
+        }
+
+        /* =====================================================
+           FIRST VISIT INFO
+           ===================================================== */
+        .first-visit-box {
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+            border: 1px solid #7DD3FC;
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+        }
+
+        .first-visit-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            color: #0369A1;
+            margin-bottom: 1rem;
+        }
+
+        .first-visit-title i {
+            color: #0EA5E9;
+        }
+
+        .bring-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .bring-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.5rem 0.875rem;
+            background: white;
+            border-radius: var(--radius-sm);
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+
+        .bring-item i {
+            color: var(--accent-green);
+            font-size: 0.75rem;
+        }
+
+        .first-visit-note {
+            font-size: 0.875rem;
+            color: #0369A1;
+            line-height: 1.6;
+        }
+
+        /* =====================================================
+           PRACTICAL INFO
+           ===================================================== */
+        .practical-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .practical-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+        }
+
+        .practical-icon {
+            width: 32px;
+            height: 32px;
+            background: white;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-coral);
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+
+        .practical-label {
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: var(--text-tertiary);
+            margin-bottom: 0.125rem;
+        }
+
+        .practical-value {
+            font-size: 0.875rem;
+            color: var(--text-primary);
+        }
+
+        /* =====================================================
+           REVIEWS
+           ===================================================== */
+        .reviews-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .reviews-summary {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .reviews-score {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            line-height: 1;
+        }
+
+        .reviews-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .breakdown-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+        }
+
+        .breakdown-label {
+            width: 50px;
+            color: var(--text-tertiary);
+        }
+
+        .breakdown-bar {
+            width: 100px;
+            height: 6px;
+            background: var(--gray-200);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .breakdown-fill {
+            height: 100%;
+            background: var(--accent-amber);
+            border-radius: 3px;
+        }
+
+        .breakdown-count {
+            color: var(--text-tertiary);
+            width: 20px;
+            text-align: right;
+        }
+
+        /* =====================================================
+           CLAIM CTA
+           ===================================================== */
+        .claim-cta {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border: 2px solid var(--accent-amber);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .claim-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--accent-amber);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .claim-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #92400E;
+            margin-bottom: 0.5rem;
+        }
+
+        .claim-text {
+            color: #A16207;
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .claim-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .claim-benefit {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-size: 0.8125rem;
+            color: #92400E;
+        }
+
+        .claim-benefit i {
+            color: var(--accent-green);
+        }
+
+        /* =====================================================
+           NEARBY STUDIOS
+           ===================================================== */
+        .nearby-section {
+            margin-top: 2rem;
+        }
+
+        .nearby-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .nearby-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .nearby-link {
+            color: var(--accent-coral);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .nearby-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .nearby-card {
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .nearby-card:hover {
+            border-color: var(--primary-slate);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .nearby-image {
+            height: 160px;
+            background: var(--gray-200);
+        }
+
+        .nearby-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nearby-content {
+            padding: 1rem;
+        }
+
+        .nearby-name {
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .nearby-location {
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nearby-location i {
+            color: var(--accent-coral);
+            font-size: 0.75rem;
+        }
+
+        .nearby-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8125rem;
+        }
+
+        .nearby-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: var(--gray-900);
+        }
+
+        .nearby-rating i {
+            color: var(--accent-amber);
+        }
+
+        .nearby-distance {
+            color: var(--text-tertiary);
+        }
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+        .site-footer {
+            background: var(--primary-slate-dark);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 4rem 1.5rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand {
+            max-width: 280px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-tagline {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .footer-nav h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-nav ul {
+            list-style: none;
+        }
+
+        .footer-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-nav a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .footer-nav a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+        }
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+        @media (max-width: 1024px) {
+            .three-col-row {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nearby-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-nav {
+                display: none;
+            }
+
+            .hero-image {
+                height: 280px;
+            }
+
+            .studio-header {
+                flex-direction: column;
+            }
+
+            .studio-header-right {
+                width: 100%;
+            }
+
+            .studio-header-right .btn {
+                flex: 1;
+            }
+
+            .quick-info-bar {
+                gap: 1rem;
+            }
+
+            .quick-info-item {
+                flex: 1 1 45%;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .styles-levels-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nearby-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .new-student-offer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="/" class="site-logo">
+                <span class="logo-yoga">Yoga</span><span class="logo-nearme">NearMe</span><span class="logo-info">.info</span>
+            </a>
+            <nav>
+                <ul class="site-nav">
+                    <li><a href="/studios/">Find Studios</a></li>
+                    <li><a href="/yoga-glossary/">Yoga Glossary</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/add-studio/">Add Studio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="separator">›</span>
+        <a href="/studios/">Studios</a>
+        <span class="separator">›</span>
+        <a href="/studios/new-york/">New York</a>
+        <span class="separator">›</span>
+        <span class="current">Yoga Academy</span>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="listing-container">
+
+        <!-- Hero Image -->
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1200&h=400&fit=crop" alt="Yoga Academy Studio">
+            <a href="#" class="hero-gallery-btn">
+                <i class="fas fa-images"></i> View all 12 photos
+            </a>
+        </div>
+
+        <!-- Studio Header -->
+        <div class="studio-header">
+            <div class="studio-header-left">
+                <div class="studio-identity">
+                    <div class="studio-logo placeholder">
+                        <i class="fas fa-om"></i>
+                    </div>
+                    <div>
+                        <h1 class="studio-name">Yoga Academy</h1>
+                        <p class="studio-tagline">"Where tradition meets transformation in the heart of Downtown"</p>
+                    </div>
+                </div>
+
+                <div class="studio-meta">
+                    <div class="rating-badge">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </span>
+                        <span class="rating-number">4.8</span>
+                        <span class="review-count">(127 reviews)</span>
+                    </div>
+                    <span class="meta-dot"></span>
+                    <span class="location-badge">
+                        <i class="fas fa-map-marker-alt"></i> Downtown, New York
+                    </span>
+                    <span class="meta-dot"></span>
+                    <span class="status-badge open">
+                        <i class="fas fa-circle" style="font-size: 6px;"></i> Open · Closes 9 PM
+                    </span>
+                    <span class="meta-dot"></span>
+                    <span class="established-badge">
+                        <i class="fas fa-calendar-alt"></i> Est. 2015
+                    </span>
+                </div>
+
+                <div class="trust-badges">
+                    <span class="trust-badge yoga-alliance">
+                        <i class="fas fa-certificate"></i> Yoga Alliance RYS-200
+                    </span>
+                    <span class="trust-badge">
+                        <i class="fab fa-google"></i> 4.7 (89)
+                    </span>
+                    <span class="trust-badge">
+                        <i class="fab fa-yelp"></i> 4.5 (156)
+                    </span>
+                    <span class="trust-badge">
+                        <i class="fas fa-check-circle"></i> Verified
+                    </span>
+                </div>
+            </div>
+
+            <div class="studio-header-right">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-calendar-check"></i> Book a Class
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-globe"></i> Website
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i> Call
+                </a>
+            </div>
+        </div>
+
+        <!-- Quick Info Bar -->
+        <div class="quick-info-bar">
+            <div class="quick-info-item">
+                <div class="quick-info-icon"><i class="fas fa-dollar-sign"></i></div>
+                <div class="quick-info-content">
+                    <span class="quick-info-label">Drop-in</span>
+                    <span class="quick-info-value">$25</span>
+                </div>
+            </div>
+            <div class="quick-info-item">
+                <div class="quick-info-icon"><i class="fas fa-fire-alt"></i></div>
+                <div class="quick-info-content">
+                    <span class="quick-info-label">Heated</span>
+                    <span class="quick-info-value">Yes</span>
+                </div>
+            </div>
+            <div class="quick-info-item">
+                <div class="quick-info-icon"><i class="fas fa-users"></i></div>
+                <div class="quick-info-content">
+                    <span class="quick-info-label">Studio Size</span>
+                    <span class="quick-info-value">Medium (25 max)</span>
+                </div>
+            </div>
+            <div class="quick-info-item">
+                <div class="quick-info-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                <div class="quick-info-content">
+                    <span class="quick-info-label">Teachers</span>
+                    <span class="quick-info-value">8 instructors</span>
+                </div>
+            </div>
+            <div class="quick-info-item">
+                <div class="quick-info-icon"><i class="fas fa-signal"></i></div>
+                <div class="quick-info-content">
+                    <span class="quick-info-label">Levels</span>
+                    <span class="quick-info-value">All Levels</span>
+                </div>
+            </div>
+            <div class="quick-info-item">
+                <div class="quick-info-icon"><i class="fas fa-video"></i></div>
+                <div class="quick-info-content">
+                    <span class="quick-info-label">Virtual</span>
+                    <span class="quick-info-value">Available</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Three Column Row: About, Contact/Hours, Map -->
+        <div class="three-col-row">
+            <!-- About -->
+            <div class="content-section">
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-info"></i></div>
+                    <h2 class="section-title">About Our Studio</h2>
+                </div>
+                <div class="about-content">
+                    <p>We love helping people feel their best. Our studio offers a welcoming environment for practitioners of all levels, from complete beginners to advanced yogis. Our experienced teachers bring decades of combined practice to every class, focusing on proper alignment, breath awareness, and the transformative power of consistent practice.</p>
+                    <p style="margin-top: 1rem;">Whether you're looking to build strength, increase flexibility, reduce stress, or simply find a moment of peace in your busy day, Yoga Academy has a class for you.</p>
+                </div>
+            </div>
+
+            <!-- Contact & Hours -->
+            <div class="contact-card">
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-address-book"></i></div>
+                    <h2 class="section-title">Contact</h2>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <div>
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-value"><a href="tel:+12125551234">(212) 555-1234</a></div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value"><a href="mailto:info@yogaacademy.com">info@yogaacademy.com</a></div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-globe"></i></div>
+                    <div>
+                        <div class="contact-label">Website</div>
+                        <div class="contact-value"><a href="#">www.yogaacademy.com</a></div>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" class="social-link" title="Website"><i class="fas fa-globe"></i></a>
+                    <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" title="Schedule"><i class="fas fa-calendar-alt"></i></a>
+                </div>
+
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--gray-100);">
+                    <div class="section-header" style="margin-bottom: 0.5rem;">
+                        <h3 style="font-size: 0.9375rem; font-weight: 600; color: var(--gray-900);">Hours</h3>
+                    </div>
+                    <div class="hours-list">
+                        <div class="hours-row">
+                            <span class="hours-day">Monday</span>
+                            <span class="hours-time">6 AM - 9 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="hours-day">Tuesday</span>
+                            <span class="hours-time">6 AM - 9 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="hours-day">Wednesday</span>
+                            <span class="hours-time">6 AM - 9 PM</span>
+                        </div>
+                        <div class="hours-row today">
+                            <span class="hours-day">Thursday</span>
+                            <span class="hours-time">6 AM - 9 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="hours-day">Friday</span>
+                            <span class="hours-time">6 AM - 8 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="hours-day">Saturday</span>
+                            <span class="hours-time">8 AM - 6 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="hours-day">Sunday</span>
+                            <span class="hours-time">8 AM - 6 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map -->
+            <div class="map-card">
+                <div class="map-container">
+                    <img src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/-73.9857,40.7484,14,0/350x200@2x?access_token=pk.placeholder" alt="Map">
+                </div>
+                <div class="map-address">
+                    <p class="map-address-text">
+                        <strong>123 Main Street, Suite 200</strong><br>
+                        New York, NY 10001
+                    </p>
+                    <a href="#" class="directions-btn">
+                        <i class="fas fa-directions"></i> Get Directions
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Yoga Styles & Class Levels -->
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-om"></i></div>
+                <h2 class="section-title">Yoga Styles Offered</h2>
+            </div>
+            <div class="styles-levels-row">
+                <div class="style-tags">
+                    <span class="style-tag primary"><i class="fas fa-star"></i> Vinyasa Flow</span>
+                    <span class="style-tag">Hatha</span>
+                    <span class="style-tag">Hot Yoga <span class="heated-badge"><i class="fas fa-fire-alt"></i> Heated</span></span>
+                    <span class="style-tag">Yin</span>
+                    <span class="style-tag">Restorative</span>
+                    <span class="style-tag">Power Yoga</span>
+                    <span class="style-tag">Prenatal</span>
+                    <span class="style-tag">Yoga Nidra</span>
+                </div>
+                <div class="class-levels">
+                    <span class="class-levels-label">Class Levels</span>
+                    <span class="level-badge"><i class="fas fa-check-circle"></i> Beginner</span>
+                    <span class="level-badge"><i class="fas fa-check-circle"></i> All Levels</span>
+                    <span class="level-badge"><i class="fas fa-check-circle"></i> Intermediate</span>
+                    <span class="level-badge"><i class="fas fa-check-circle"></i> Advanced</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pricing -->
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-tag"></i></div>
+                <h2 class="section-title">Pricing</h2>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-label">Drop-In</div>
+                    <div class="pricing-amount">$25</div>
+                    <div class="pricing-detail">Single class</div>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-label">5-Class Pack</div>
+                    <div class="pricing-amount">$100</div>
+                    <div class="pricing-detail">$20/class · 60 days</div>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-label">10-Class Pack</div>
+                    <div class="pricing-amount">$180</div>
+                    <div class="pricing-detail">$18/class · 90 days</div>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-label">Monthly Unlimited</div>
+                    <div class="pricing-amount">$150</div>
+                    <div class="pricing-detail">Best value for regulars</div>
+                </div>
+            </div>
+            <div class="new-student-offer">
+                <div class="offer-icon"><i class="fas fa-gift"></i></div>
+                <div class="offer-content">
+                    <div class="offer-title">New Student Special: 2 Weeks Unlimited for $40</div>
+                    <div class="offer-details">First-time visitors only · No commitment required</div>
+                </div>
+                <a href="#" class="offer-btn">Claim Offer</a>
+            </div>
+        </div>
+
+        <!-- Amenities -->
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-check-circle"></i></div>
+                <h2 class="section-title">Amenities & Features</h2>
+            </div>
+            <div class="amenities-grid">
+                <span class="amenity-tag"><i class="fas fa-parking"></i> Free Parking</span>
+                <span class="amenity-tag"><i class="fas fa-box"></i> Props Provided</span>
+                <span class="amenity-tag"><i class="fas fa-scroll"></i> Mat Rentals</span>
+                <span class="amenity-tag"><i class="fas fa-door-open"></i> Changing Rooms</span>
+                <span class="amenity-tag"><i class="fas fa-shower"></i> Showers</span>
+                <span class="amenity-tag"><i class="fas fa-lock"></i> Lockers</span>
+                <span class="amenity-tag"><i class="fas fa-wifi"></i> Free WiFi</span>
+                <span class="amenity-tag"><i class="fas fa-tint"></i> Filtered Water</span>
+                <span class="amenity-tag"><i class="fas fa-shopping-bag"></i> Retail Shop</span>
+            </div>
+        </div>
+
+        <!-- Teachers -->
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                <h2 class="section-title">Our Teachers</h2>
+            </div>
+            <div class="teachers-grid">
+                <div class="teacher-card">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&h=64&fit=crop&crop=face" alt="Jane Smith" class="teacher-avatar">
+                    <div class="teacher-name">Jane Smith</div>
+                    <div class="teacher-role">Studio Owner</div>
+                    <div class="teacher-credentials">
+                        <span class="credential-badge primary">E-RYT 500</span>
+                        <span class="credential-badge">YACEP</span>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face" alt="Mike Johnson" class="teacher-avatar">
+                    <div class="teacher-name">Mike Johnson</div>
+                    <div class="teacher-role">Lead Teacher</div>
+                    <div class="teacher-credentials">
+                        <span class="credential-badge primary">RYT-500</span>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=64&h=64&fit=crop&crop=face" alt="Sarah Lee" class="teacher-avatar">
+                    <div class="teacher-name">Sarah Lee</div>
+                    <div class="teacher-role">Prenatal Specialist</div>
+                    <div class="teacher-credentials">
+                        <span class="credential-badge primary">RYT-200</span>
+                        <span class="credential-badge">RPYT</span>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face" alt="David Chen" class="teacher-avatar">
+                    <div class="teacher-name">David Chen</div>
+                    <div class="teacher-role">Hot Yoga</div>
+                    <div class="teacher-credentials">
+                        <span class="credential-badge primary">RYT-200</span>
+                    </div>
+                </div>
+                <a href="#" class="view-all-link">
+                    <i class="fas fa-users"></i> View All 8 Teachers
+                </a>
+            </div>
+        </div>
+
+        <!-- Programs & Services -->
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-th-large"></i></div>
+                <h2 class="section-title">Programs & Services</h2>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card available">
+                    <div class="program-icon"><i class="fas fa-user"></i></div>
+                    <div class="program-name">Private Sessions</div>
+                    <div class="program-status"><i class="fas fa-check"></i> From $100/hr</div>
+                </div>
+                <div class="program-card available">
+                    <div class="program-icon"><i class="fas fa-chalkboard"></i></div>
+                    <div class="program-name">Workshops</div>
+                    <div class="program-status"><i class="fas fa-check"></i> Monthly</div>
+                </div>
+                <div class="program-card available">
+                    <div class="program-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="program-name">200-Hour YTT</div>
+                    <div class="program-status"><i class="fas fa-check"></i> RYS-200</div>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon"><i class="fas fa-mountain"></i></div>
+                    <div class="program-name">Retreats</div>
+                    <div class="program-status">Not offered</div>
+                </div>
+                <div class="program-card available">
+                    <div class="program-icon"><i class="fas fa-video"></i></div>
+                    <div class="program-name">Online Classes</div>
+                    <div class="program-status"><i class="fas fa-check"></i> Live & On-demand</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- First Visit Info -->
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-info-circle"></i></div>
+                <h2 class="section-title">First Visit Information</h2>
+            </div>
+            <div class="first-visit-box">
+                <div class="first-visit-title">
+                    <i class="fas fa-check-double"></i> What to Bring
+                </div>
+                <div class="bring-grid">
+                    <span class="bring-item"><i class="fas fa-check"></i> Yoga mat (rentals $3)</span>
+                    <span class="bring-item"><i class="fas fa-check"></i> Towel for hot classes</span>
+                    <span class="bring-item"><i class="fas fa-check"></i> Water bottle</span>
+                    <span class="bring-item"><i class="fas fa-check"></i> Comfortable clothing</span>
+                </div>
+                <p class="first-visit-note">
+                    <strong>First-time visitors:</strong> Please arrive 15 minutes early to complete registration and get oriented to the studio. Our studio is located on the 2nd floor with elevator access available. Changing rooms and lockers are provided at no extra charge.
+                </p>
+            </div>
+        </div>
+
+        <!-- Practical Info -->
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-clipboard-list"></i></div>
+                <h2 class="section-title">Practical Information</h2>
+            </div>
+            <div class="practical-grid">
+                <div class="practical-item">
+                    <div class="practical-icon"><i class="fas fa-parking"></i></div>
+                    <div>
+                        <div class="practical-label">Parking</div>
+                        <div class="practical-value">Free lot behind building (enter from Oak St). Street parking also available.</div>
+                    </div>
+                </div>
+                <div class="practical-item">
+                    <div class="practical-icon"><i class="fas fa-subway"></i></div>
+                    <div>
+                        <div class="practical-label">Public Transit</div>
+                        <div class="practical-value">2 blocks from 34th Street Station (1, 2, 3 lines). Bus routes M20, M34 stop nearby.</div>
+                    </div>
+                </div>
+                <div class="practical-item">
+                    <div class="practical-icon"><i class="fas fa-clock"></i></div>
+                    <div>
+                        <div class="practical-label">Cancellation Policy</div>
+                        <div class="practical-value">Please cancel at least 4 hours before class to avoid losing your spot.</div>
+                    </div>
+                </div>
+                <div class="practical-item">
+                    <div class="practical-icon"><i class="fas fa-credit-card"></i></div>
+                    <div>
+                        <div class="practical-label">Payment Methods</div>
+                        <div class="practical-value">Credit/Debit, Cash, Apple Pay, HSA/FSA accepted</div>
+                    </div>
+                </div>
+                <div class="practical-item">
+                    <div class="practical-icon"><i class="fas fa-language"></i></div>
+                    <div>
+                        <div class="practical-label">Languages</div>
+                        <div class="practical-value">English, Spanish</div>
+                    </div>
+                </div>
+                <div class="practical-item">
+                    <div class="practical-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <div>
+                        <div class="practical-label">Booking</div>
+                        <div class="practical-value">MindBody app or website. Walk-ins welcome when space available.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews -->
+        <div class="content-section">
+            <div class="reviews-header">
+                <div style="display: flex; align-items: center; gap: 0.625rem;">
+                    <div class="section-icon"><i class="fas fa-star"></i></div>
+                    <h2 class="section-title">Reviews</h2>
+                </div>
+                <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-pen"></i> Write a Review
+                </a>
+            </div>
+            <div class="reviews-summary">
+                <div class="reviews-score">4.8</div>
+                <div>
+                    <div class="rating-badge" style="margin-bottom: 0.5rem;">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </span>
+                        <span class="review-count">127 reviews</span>
+                    </div>
+                    <div class="reviews-breakdown">
+                        <div class="breakdown-row">
+                            <span class="breakdown-label">5 stars</span>
+                            <div class="breakdown-bar"><div class="breakdown-fill" style="width: 85%;"></div></div>
+                            <span class="breakdown-count">98</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span class="breakdown-label">4 stars</span>
+                            <div class="breakdown-bar"><div class="breakdown-fill" style="width: 40%;"></div></div>
+                            <span class="breakdown-count">21</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span class="breakdown-label">3 stars</span>
+                            <div class="breakdown-bar"><div class="breakdown-fill" style="width: 12%;"></div></div>
+                            <span class="breakdown-count">5</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span class="breakdown-label">2 stars</span>
+                            <div class="breakdown-bar"><div class="breakdown-fill" style="width: 5%;"></div></div>
+                            <span class="breakdown-count">2</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span class="breakdown-label">1 star</span>
+                            <div class="breakdown-bar"><div class="breakdown-fill" style="width: 2%;"></div></div>
+                            <span class="breakdown-count">1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Claim CTA (shown for unclaimed studios) -->
+        <!--
+        <div class="claim-cta">
+            <div class="claim-icon"><i class="fas fa-store"></i></div>
+            <h3 class="claim-title">Is This Your Studio?</h3>
+            <p class="claim-text">Claim your listing to update information, respond to reviews, and connect with new students.</p>
+            <div class="claim-benefits">
+                <span class="claim-benefit"><i class="fas fa-check"></i> Update hours, photos & contact info</span>
+                <span class="claim-benefit"><i class="fas fa-check"></i> Respond to student reviews</span>
+                <span class="claim-benefit"><i class="fas fa-check"></i> Access analytics & insights</span>
+            </div>
+            <a href="#" class="btn btn-primary" style="padding: 1rem 2rem;">
+                <i class="fas fa-check"></i> Claim This Listing
+            </a>
+        </div>
+        -->
+
+        <!-- Nearby Studios -->
+        <div class="nearby-section">
+            <div class="nearby-header">
+                <h2 class="nearby-title">Nearby Yoga Studios</h2>
+                <a href="#" class="nearby-link">View All in New York →</a>
+            </div>
+            <div class="nearby-grid">
+                <a href="#" class="nearby-card">
+                    <div class="nearby-image">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=160&fit=crop" alt="YogaWorks Downtown">
+                    </div>
+                    <div class="nearby-content">
+                        <h3 class="nearby-name">YogaWorks Downtown</h3>
+                        <div class="nearby-location"><i class="fas fa-map-marker-alt"></i> Arts District</div>
+                        <div class="nearby-meta">
+                            <span class="nearby-rating"><i class="fas fa-star"></i> 4.6 (89)</span>
+                            <span class="nearby-distance">0.4 mi</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="nearby-card">
+                    <div class="nearby-image">
+                        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=160&fit=crop" alt="Liberation Yoga">
+                    </div>
+                    <div class="nearby-content">
+                        <h3 class="nearby-name">Liberation Yoga</h3>
+                        <div class="nearby-location"><i class="fas fa-map-marker-alt"></i> Little Tokyo</div>
+                        <div class="nearby-meta">
+                            <span class="nearby-rating"><i class="fas fa-star"></i> 4.7 (156)</span>
+                            <span class="nearby-distance">0.6 mi</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="nearby-card">
+                    <div class="nearby-image">
+                        <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=400&h=160&fit=crop" alt="Modo Yoga NYC">
+                    </div>
+                    <div class="nearby-content">
+                        <h3 class="nearby-name">Modo Yoga NYC</h3>
+                        <div class="nearby-location"><i class="fas fa-map-marker-alt"></i> Chinatown</div>
+                        <div class="nearby-meta">
+                            <span class="nearby-rating"><i class="fas fa-star"></i> 4.9 (203)</span>
+                            <span class="nearby-distance">0.8 mi</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <span class="logo-yoga">Yoga</span><span class="logo-nearme">NearMe</span><span class="logo-info">.info</span>
+                    </a>
+                    <p class="footer-tagline">Connecting practitioners with studios, teachers, and the yoga community across the US & Canada.</p>
+                </div>
+                <nav class="footer-nav">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="/studios/">Find Studios</a></li>
+                        <li><a href="/yoga-glossary/">Yoga Glossary</a></li>
+                        <li><a href="/yoga-styles/">Yoga Styles</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <h4>For Studios</h4>
+                    <ul>
+                        <li><a href="/add-studio/">Add Your Studio</a></li>
+                        <li><a href="/claim-listing/">Claim Listing</a></li>
+                        <li><a href="/studio-resources/">Resources</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about/">About Us</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                        <li><a href="/privacy/">Privacy Policy</a></li>
+                        <li><a href="/terms/">Terms of Service</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Yoga Near Me. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="/privacy/">Privacy</a>
+                    <a href="/terms/">Terms</a>
+                    <a href="/sitemap/">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

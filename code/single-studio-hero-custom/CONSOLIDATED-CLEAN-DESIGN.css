@@ -1,0 +1,2340 @@
+/**
+ * CONSOLIDATED CLEAN DESIGN CSS
+ * Combines reference design CSS with clean Elementor fixes
+ * Preserves all design tokens, footer styling, and hero/content sections
+ * Removes excessive shadows/borders from nested Elementor widgets
+ * Add to WordPress Customizer → Additional CSS (at the very bottom)
+ */
+
+/* ===================================
+   CSS VARIABLES & DESIGN TOKENS
+   (PRESERVED FROM YOUR CSS)
+=================================== */
+:root {
+  --color-sage: #5F7470;
+  --color-terracotta: #FF5733;
+  --color-terracotta-hover: #E64A2A;
+  --color-teal: #61948B;
+
+  --color-white: #FFFFFF;
+  --color-bg-light: #F8F9FA;
+  --color-bg-off-white: #FAFAFA;
+  --color-border: #E0E0E0;
+  --color-text-dark: #222222;
+  --color-text-medium: #555555;
+  --color-text-light: #888888;
+
+  --color-star: #F5A623;
+  --color-success: #28A745;
+  --color-verified: #61948B;
+
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-accent: 'Crimson Pro', Georgia, serif;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.16);
+
+  --transition-fast: 200ms ease-out;
+  --transition-medium: 300ms ease-out;
+
+  --content-width: 1200px;
+}
+
+/* ===================================
+   DEFAULT TEXT COLOR
+   (Standard text color throughout page)
+=================================== */
+body.single-gd_place,
+body.single-gd_place p,
+body.single-gd_place div,
+body.single-gd_place span,
+body.single-gd_place .elementor-widget-text-editor,
+body.single-gd_place .elementor-widget-text-editor p {
+    color: var(--color-text-dark) !important;
+}
+
+/* Exceptions - keep specific colors for links, headings, etc. */
+body.single-gd_place a {
+    color: var(--color-teal) !important;
+}
+
+body.single-gd_place a:hover {
+    color: var(--color-terracotta) !important;
+}
+
+/* ===================================
+   REMOVE EXCESSIVE SHADOWS & BORDERS
+   FROM NESTED ELEMENTOR ELEMENTS
+   (CLEAN DESIGN FIX)
+=================================== */
+
+/* Remove shadows from deeply nested Elementor containers */
+body.single-gd_place .elementor-widget-container .elementor-widget-container,
+body.single-gd_place .elementor-column-wrap .elementor-column-wrap,
+body.single-gd_place .elementor-element .elementor-element,
+body.single-gd_place .elementor-widget .elementor-widget-container {
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Remove borders from nested Elementor sections */
+body.single-gd_place .elementor-section .elementor-section,
+body.single-gd_place .elementor-section .elementor-section .elementor-section {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Remove shadow from nested sections inside main content cards */
+body.single-gd_place .elementor-section .elementor-section .elementor-container {
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ===================================
+   BREADCRUMB
+   (PRESERVED FROM YOUR CSS)
+=================================== */
+.breadcrumb-section {
+  background: var(--color-white);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-border);
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-text-medium);
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+}
+.breadcrumb a {
+  color: var(--color-sage);
+  transition: color var(--transition-fast);
+  text-decoration: none;
+}
+.breadcrumb a:hover { 
+  color: var(--color-terracotta); 
+  text-decoration: underline;
+}
+.breadcrumb .current { 
+  color: var(--color-text-dark); 
+  font-weight: 500; 
+}
+.breadcrumb .separator { 
+  opacity: 0.4; 
+  color: var(--color-text-light);
+}
+
+/* ===================================
+   STUDIO BADGES (HTML Widget)
+   (For use with shortcode [ynm_studio_badges])
+=================================== */
+.studio-badges {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-verified {
+  background: rgba(97, 148, 139, 0.12);
+  color: var(--color-verified);
+}
+
+.badge-featured {
+  background: rgba(255, 87, 51, 0.12);
+  color: var(--color-terracotta);
+}
+
+/* ===================================
+   HERO / GALLERY
+   (PRESERVED FROM YOUR CSS)
+=================================== */
+.studio-hero {
+  background: var(--color-white);
+  padding: var(--space-lg) 0 var(--space-xl);
+}
+
+.hero-gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 200px 200px;
+  gap: var(--space-md);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.hero-gallery .main-image {
+  grid-row: 1 / 3;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-medium);
+}
+
+.hero-gallery .gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.hero-gallery .gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-more {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  gap: var(--space-sm);
+}
+
+.gallery-more svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* ===================================
+   STUDIO HEADER INFO
+   (PRESERVED FROM YOUR CSS)
+=================================== */
+.studio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.studio-title-block { flex: 1; min-width: 300px; }
+
+.studio-badges {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-verified {
+  background: rgba(97, 148, 139, 0.12);
+  color: var(--color-verified);
+}
+
+.badge-verified svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.badge-featured {
+  background: rgba(255, 87, 51, 0.12);
+  color: var(--color-terracotta);
+}
+
+.studio-name {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-heading);
+}
+
+.studio-tagline {
+  font-family: var(--font-accent);
+  font-size: 1.15rem;
+  color: var(--color-text-medium);
+  font-style: italic;
+  margin-bottom: var(--space-md);
+}
+
+.studio-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.rating-block {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.stars svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--color-star);
+}
+
+.stars svg.empty {
+  fill: #ddd;
+}
+
+.rating-text {
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.review-count {
+  color: var(--color-text-medium);
+  font-size: 0.95rem;
+}
+
+.review-count a {
+  color: var(--color-teal);
+  text-decoration: underline;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-text-medium);
+  font-size: 0.95rem;
+}
+
+.meta-item svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--color-sage);
+  flex-shrink: 0;
+}
+
+.studio-actions {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+  font-family: var(--font-body);
+}
+
+.btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.btn-primary {
+  background: var(--color-terracotta);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--color-terracotta-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: var(--color-white);
+  color: var(--color-text-dark);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  background: var(--color-bg-light);
+  border-color: var(--color-sage);
+}
+
+/* ===================================
+   MAIN LAYOUT
+   (PRESERVED FROM YOUR CSS)
+=================================== */
+.studio-content {
+  padding: var(--space-xl) 0 var(--space-3xl);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.main-content { min-width: 0; }
+
+/* ===================================
+   CONTENT CARDS
+   (PRESERVED FROM YOUR CSS + CLEAN FIXES)
+=================================== */
+.content-card {
+  background: var(--color-bg-off-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+}
+
+/* Main content sections - subtle shadow ONLY on top-level cards */
+body.single-gd_place .elementor-section:nth-child(n+2) .elementor-container {
+    background: var(--color-bg-off-white) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-xl) !important;
+    margin-bottom: var(--space-lg) !important;
+    box-shadow: var(--shadow-sm) !important;
+    border: 1px solid var(--color-border) !important;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  font-family: var(--font-heading);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.card-title svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--color-terracotta);
+}
+
+/* Section headings with orange dot */
+body.single-gd_place .section-heading,
+body.single-gd_place .elementor-heading-title:not(h1),
+body.single-gd_place h2:not(.geodir-post-title),
+body.single-gd_place h3 {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: var(--color-text-dark) !important;
+    margin-bottom: 20px !important;
+    position: relative !important;
+    padding-left: 24px !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+body.single-gd_place .section-heading::before,
+body.single-gd_place .elementor-heading-title:not(h1)::before,
+body.single-gd_place h2:not(.geodir-post-title)::before,
+body.single-gd_place h3::before {
+    content: "●" !important;
+    display: inline-block !important;
+    color: var(--color-terracotta) !important;
+    font-size: 14px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+}
+
+/* About Section */
+.about-content p {
+  color: var(--color-text-medium);
+  line-height: 1.8;
+  margin-bottom: var(--space-md);
+}
+
+.about-content p:last-child {
+  margin-bottom: 0;
+}
+
+.read-more-toggle {
+  color: var(--color-terracotta);
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+
+.read-more-toggle svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  transition: transform var(--transition-fast);
+}
+
+/* Yoga Styles Tags */
+.styles-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.style-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  color: var(--color-text-dark);
+  transition: all var(--transition-fast);
+}
+
+.style-tag:hover {
+  background: var(--color-teal);
+  color: white;
+  border-color: var(--color-teal);
+}
+
+.style-tag svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--color-teal);
+}
+
+.style-tag:hover svg {
+  fill: white;
+}
+
+/* Yoga styles - clean pills (CLEAN DESIGN FIX) */
+body.single-gd_place .yoga-styles-group,
+body.single-gd_place .geodir-post-meta[data-key*="yoga"] {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    margin-top: 20px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+body.single-gd_place .yoga-style-item,
+body.single-gd_place .geodir-post-meta[data-key*="yoga"] .geodir-meta-value {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 8px 16px !important;
+    background: #FFFFFF !important;
+    border: 2px solid #61948B !important;
+    border-radius: 20px !important;
+    color: #61948B !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    box-shadow: none !important;
+}
+
+body.single-gd_place .yoga-style-item::before {
+    content: "★" !important;
+    color: #61948B !important;
+    font-size: 12px !important;
+}
+
+/* Amenities Grid */
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-md);
+}
+
+.amenity-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--color-bg-light);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  color: var(--color-text-dark);
+}
+
+.amenity-item svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-teal);
+  flex-shrink: 0;
+}
+
+/* Amenities - clean grid (CLEAN DESIGN FIX) */
+body.single-gd_place .amenities-group,
+body.single-gd_place .geodir-post-meta[data-key*="amenities"] {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 16px !important;
+    margin-top: 20px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+body.single-gd_place .amenity-item-group,
+body.single-gd_place .geodir-post-meta[data-key*="amenities"] .geodir-meta-value {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+body.single-gd_place .amenity-item-group .amenity-icon,
+body.single-gd_place .geodir-post-meta .geodir-meta-icon {
+    width: 18px !important;
+    height: 18px !important;
+    fill: #61948B !important;
+    flex-shrink: 0 !important;
+}
+
+body.single-gd_place .amenity-item-group .amenity-label,
+body.single-gd_place .geodir-post-meta .geodir-meta-value {
+    color: var(--color-text-dark) !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+}
+
+/* Class Schedule */
+.schedule-tabs {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  overflow-x: auto;
+  padding-bottom: var(--space-sm);
+}
+
+.schedule-tab {
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.schedule-tab.active {
+  background: var(--color-sage);
+  color: white;
+  border-color: var(--color-sage);
+}
+
+.schedule-tab:hover:not(.active) {
+  border-color: var(--color-sage);
+}
+
+.class-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.class-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-md);
+  background: var(--color-bg-light);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.class-time {
+  min-width: 100px;
+}
+
+.class-time-value {
+  font-weight: 700;
+  color: var(--color-text-dark);
+  font-size: 1.1rem;
+}
+
+.class-duration {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+.class-details { flex: 1; }
+
+.class-name {
+  font-weight: 600;
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-xs);
+}
+
+.class-teacher {
+  font-size: 0.9rem;
+  color: var(--color-text-medium);
+}
+
+.class-level {
+  padding: var(--space-xs) var(--space-sm);
+  background: rgba(97, 148, 139, 0.1);
+  color: var(--color-teal);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Reviews Section */
+.reviews-summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  padding: var(--space-lg);
+  background: var(--color-bg-light);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.rating-big {
+  text-align: center;
+}
+
+.rating-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1;
+}
+
+.rating-bars { flex: 1; }
+
+.rating-bar-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.rating-bar-label {
+  font-size: 0.85rem;
+  color: var(--color-text-medium);
+  width: 60px;
+}
+
+.rating-bar {
+  flex: 1;
+  height: 8px;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.rating-bar-fill {
+  height: 100%;
+  background: var(--color-star);
+  border-radius: var(--radius-full);
+}
+
+.rating-bar-count {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  width: 30px;
+  text-align: right;
+}
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.review-item {
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.review-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.reviewer-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-teal);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.reviewer-info { flex: 1; }
+
+.reviewer-name {
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.review-date {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+.review-rating {
+  display: flex;
+  gap: 2px;
+}
+
+.review-rating svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--color-star);
+}
+
+.review-text {
+  color: var(--color-text-medium);
+  line-height: 1.7;
+}
+
+.review-helpful {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+.helpful-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.helpful-btn:hover {
+  border-color: var(--color-sage);
+  background: var(--color-bg-light);
+}
+
+.helpful-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--color-text-light);
+}
+
+/* ===================================
+   SIDEBAR
+   (PRESERVED FROM YOUR CSS)
+=================================== */
+.sidebar {
+  position: sticky;
+  top: var(--space-lg);
+}
+
+.sidebar-card {
+  background: var(--color-bg-off-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+}
+
+.sidebar-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Contact Card */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-sage);
+}
+
+.contact-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-label {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.contact-value {
+  color: var(--color-text-dark);
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.contact-value a {
+  color: var(--color-teal);
+}
+
+.contact-value a:hover {
+  text-decoration: underline;
+}
+
+/* Contact Information - Group Without Cards (CLEAN DESIGN FIX) */
+body.single-gd_place .contact-information-group,
+body.single-gd_place .elementor-widget:has-text("Contact") .elementor-widget-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Contact info cards - off-white background */
+body.single-gd_place .contact-item-group,
+body.single-gd_place .geodir-post-meta[data-key*="contact"] .geodir-meta-value,
+body.single-gd_place .geodir-post-meta[data-key*="email"],
+body.single-gd_place .geodir-post-meta[data-key*="phone"],
+body.single-gd_place .geodir-post-meta[data-key*="website"],
+body.single-gd_place .geodir-post-meta[data-key*="address"] {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 12px 16px !important;
+    border-bottom: 1px solid #F0F0F0 !important;
+    background: var(--color-bg-off-white) !important;
+    box-shadow: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    margin: 0 0 8px 0 !important;
+    border-radius: var(--radius-md) !important;
+}
+
+body.single-gd_place .contact-item-group:last-child,
+body.single-gd_place .geodir-post-meta:last-child {
+    border-bottom: none !important;
+}
+
+body.single-gd_place .contact-item-group .icon-wrapper,
+body.single-gd_place .geodir-post-meta .geodir-meta-icon {
+    width: 20px !important;
+    height: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+body.single-gd_place .contact-item-group .icon-wrapper svg,
+body.single-gd_place .geodir-post-meta .geodir-meta-icon svg {
+    width: 18px !important;
+    height: 18px !important;
+    fill: #5F7470 !important;
+}
+
+body.single-gd_place .contact-item-group .info-wrapper,
+body.single-gd_place .geodir-post-meta .geodir-meta-value {
+    flex: 1 !important;
+    min-width: 0 !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+body.single-gd_place .contact-item-group .label,
+body.single-gd_place .geodir-post-meta .geodir-meta-label {
+    display: none !important;
+}
+
+body.single-gd_place .contact-item-group .value,
+body.single-gd_place .geodir-post-meta .geodir-meta-value {
+    color: var(--color-text-dark) !important;
+    font-weight: 400 !important;
+    font-size: 15px !important;
+    word-break: break-word !important;
+    line-height: 1.6 !important;
+}
+
+body.single-gd_place .contact-item-group .value a,
+body.single-gd_place .geodir-post-meta .geodir-meta-value a {
+    color: #61948B !important;
+    text-decoration: none !important;
+}
+
+body.single-gd_place .contact-item-group .value a:hover,
+body.single-gd_place .geodir-post-meta .geodir-meta-value a:hover {
+    text-decoration: underline !important;
+}
+
+/* Hours Card */
+.hours-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hours-row:last-child {
+  border-bottom: none;
+}
+
+.hours-day {
+  color: var(--color-text-medium);
+}
+
+.hours-row.today .hours-day {
+  color: var(--color-text-dark);
+  font-weight: 600;
+}
+
+.hours-time {
+  font-weight: 500;
+  color: var(--color-text-dark);
+}
+
+.hours-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.hours-status.open {
+  background: rgba(40, 167, 69, 0.1);
+  color: var(--color-success);
+}
+
+.hours-status.closed {
+  background: rgba(255, 87, 51, 0.1);
+  color: var(--color-terracotta);
+}
+
+.hours-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Hours - Simple List, No Cards (CLEAN DESIGN FIX) */
+body.single-gd_place .hours-group,
+body.single-gd_place .elementor-widget:has-text("Hours") .elementor-widget-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+body.single-gd_place .hours-status-group {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 0 0 16px 0 !important;
+    background: transparent !important;
+    border: none !important;
+    margin-bottom: 16px !important;
+}
+
+body.single-gd_place .hours-status-group .status-dot {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: #28A745 !important;
+}
+
+body.single-gd_place .hours-status-group .status-text {
+    color: var(--color-text-dark) !important;
+    font-weight: 400 !important;
+    font-size: 15px !important;
+}
+
+body.single-gd_place .hours-row-group,
+body.single-gd_place .geodir-post-meta[data-key*="hours"] .geodir-meta-value {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 8px 0 !important;
+    border-bottom: 1px solid #F0F0F0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+}
+
+body.single-gd_place .hours-row-group:last-child {
+    border-bottom: none !important;
+}
+
+body.single-gd_place .hours-row-group .day {
+    color: #6B7C78 !important;
+    font-size: 15px !important;
+}
+
+body.single-gd_place .hours-row-group.today .day {
+    color: var(--color-text-dark) !important;
+    font-weight: 600 !important;
+}
+
+body.single-gd_place .hours-row-group .time {
+    font-weight: 400 !important;
+    color: var(--color-text-dark) !important;
+    font-size: 15px !important;
+}
+
+/* Map Card */
+.map-placeholder {
+  height: 200px;
+  background: var(--color-bg-light);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+  border: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.map-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-overlay-btn {
+  padding: var(--space-sm) var(--space-md);
+  background: white;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.map-overlay-btn:hover {
+  background: var(--color-bg-light);
+}
+
+.map-overlay-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--color-sage);
+}
+
+.directions-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Claim Card */
+.claim-card {
+  background: linear-gradient(135deg, var(--color-sage) 0%, var(--color-teal) 100%);
+  color: white;
+  text-align: center;
+}
+
+.claim-card-title {
+  color: white;
+  border-bottom-color: rgba(255,255,255,0.2);
+}
+
+.claim-text {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: var(--space-md);
+}
+
+.claim-btn {
+  width: 100%;
+  background: white;
+  color: var(--color-sage);
+}
+
+.claim-btn:hover {
+  background: var(--color-bg-light);
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+.social-link {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-bg-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.social-link:hover {
+  background: var(--color-teal);
+}
+
+.social-link svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-sage);
+  transition: fill var(--transition-fast);
+}
+
+.social-link:hover svg {
+  fill: white;
+}
+
+/* ===================================
+   NEARBY STUDIOS
+   (PRESERVED FROM YOUR CSS)
+=================================== */
+.nearby-section {
+  background: var(--color-white);
+  padding: var(--space-2xl) 0;
+  margin-top: var(--space-xl);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xl);
+}
+
+.section-title-main {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  font-family: var(--font-heading);
+}
+
+.view-all-link {
+  color: var(--color-teal);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.view-all-link:hover {
+  text-decoration: underline;
+}
+
+.view-all-link svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.nearby-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.studio-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-medium);
+}
+
+.studio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.studio-card-image {
+  height: 160px;
+  overflow: hidden;
+}
+
+.studio-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-medium);
+}
+
+.studio-card:hover .studio-card-image img {
+  transform: scale(1.05);
+}
+
+.studio-card-content {
+  padding: var(--space-md);
+}
+
+.studio-card-name {
+  font-weight: 600;
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-xs);
+}
+
+.studio-card-location {
+  font-size: 0.85rem;
+  color: var(--color-text-medium);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.studio-card-location svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--color-text-light);
+}
+
+.studio-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.studio-card-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 0.85rem;
+}
+
+.studio-card-rating svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--color-star);
+}
+
+.studio-card-distance {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+}
+
+/* ===================================
+   FOOTER — HIGH SPECIFICITY OVERRIDES
+   (PRESERVED FROM YOUR CSS - CRITICAL)
+=================================== */
+footer.ynm-footer,
+footer.ynm-footer * {
+  box-sizing: border-box !important;
+}
+
+footer.ynm-footer {
+  background: #5f7470 !important;
+  color: #fff !important;
+  padding: 60px 0 30px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  line-height: 1.5 !important;
+}
+
+footer.ynm-footer::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 4px !important;
+  background: linear-gradient(90deg, #61948B, #FF5733, #61948B) !important;
+}
+
+footer.ynm-footer .ynm-footer-container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
+}
+
+footer.ynm-footer .ynm-footer-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 40px !important;
+  margin-bottom: 40px !important;
+}
+
+footer.ynm-footer .ynm-footer-section h3,
+footer.ynm-footer h3 {
+  color: #fff !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  margin: 0 0 16px 0 !important;
+  padding: 0 0 10px 0 !important;
+  position: relative !important;
+  line-height: 1.3 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  border: none !important;
+  background: none !important;
+}
+
+footer.ynm-footer .ynm-footer-section h3::after,
+footer.ynm-footer h3::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 30px !important;
+  height: 2px !important;
+  background: #61948B !important;
+}
+
+footer.ynm-footer p,
+footer.ynm-footer .ynm-footer-section p {
+  color: rgba(255,255,255,0.85) !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  margin: 0 0 16px 0 !important;
+  padding: 0 !important;
+  background: none !important;
+}
+
+footer.ynm-footer ul,
+footer.ynm-footer .ynm-footer-section ul {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+}
+
+footer.ynm-footer li,
+footer.ynm-footer .ynm-footer-section li {
+  margin: 0 0 10px 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  background: none !important;
+}
+
+footer.ynm-footer a,
+footer.ynm-footer .ynm-footer-section a,
+footer.ynm-footer .ynm-footer-section ul li a,
+footer.ynm-footer ul li a {
+  color: rgba(255,255,255,0.85) !important;
+  font-size: 14px !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+  display: inline-block !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+footer.ynm-footer a:hover,
+footer.ynm-footer .ynm-footer-section a:hover,
+footer.ynm-footer .ynm-footer-section ul li a:hover,
+footer.ynm-footer ul li a:hover {
+  color: #fff !important;
+  text-decoration: none !important;
+  background: none !important;
+}
+
+footer.ynm-footer .ynm-brand-stat {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: rgba(255,255,255,0.1) !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  border-radius: 999px !important;
+  padding: 5px 12px !important;
+  font-size: 13px !important;
+  color: rgba(255,255,255,0.9) !important;
+  margin: 0 0 16px 0 !important;
+}
+
+footer.ynm-footer .ynm-brand-stat svg {
+  width: 14px !important;
+  height: 14px !important;
+  fill: #FF5733 !important;
+}
+
+footer.ynm-footer .ynm-social-links {
+  display: flex !important;
+  gap: 10px !important;
+  margin-top: 8px !important;
+  padding: 0 !important;
+  background: none !important;
+}
+
+footer.ynm-footer .ynm-social-links a {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+  padding: 0 !important;
+}
+
+footer.ynm-footer .ynm-social-links a:hover {
+  background: rgba(255,255,255,0.2) !important;
+}
+
+footer.ynm-footer .ynm-social-links svg {
+  width: 18px !important;
+  height: 18px !important;
+  fill: #fff !important;
+}
+
+footer.ynm-footer .ynm-cities-label {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: rgba(255,255,255,0.6) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  margin: 24px 0 10px 0 !important;
+  padding: 0 !important;
+  background: none !important;
+}
+
+footer.ynm-footer .ynm-cities-grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  margin: 0 0 12px 0 !important;
+  padding: 0 !important;
+  background: none !important;
+}
+
+footer.ynm-footer .ynm-city-chip {
+  background: rgba(0, 0, 0, 0.25) !important;
+  padding: 10px 16px !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: rgba(255,255,255,0.95) !important;
+  text-decoration: none !important;
+  transition: background 0.2s ease !important;
+  border: none !important;
+  display: inline-block !important;
+}
+
+footer.ynm-footer .ynm-city-chip:hover {
+  background: rgba(0, 0, 0, 0.35) !important;
+  color: #fff !important;
+}
+
+footer.ynm-footer .ynm-newsletter-form {
+  margin-top: 12px !important;
+  background: none !important;
+  padding: 0 !important;
+}
+
+footer.ynm-footer .ynm-newsletter-form input[type="email"] {
+  width: 100% !important;
+  padding: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 6px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+  margin: 0 0 10px 0 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+footer.ynm-footer .ynm-newsletter-form input[type="email"]::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+footer.ynm-footer .ynm-newsletter-form input[type="email"]:focus {
+  border-color: rgba(255,255,255,0.35) !important;
+  background: rgba(255,255,255,0.12) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+footer.ynm-footer .ynm-newsletter-form button {
+  width: 100% !important;
+  padding: 12px !important;
+  background: #FF5733 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: background 0.2s ease !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  box-shadow: none !important;
+}
+
+footer.ynm-footer .ynm-newsletter-form button:hover {
+  background: #E64A2A !important;
+}
+
+footer.ynm-footer .ynm-newsletter-form button svg {
+  width: 14px !important;
+  height: 14px !important;
+  fill: #fff !important;
+}
+
+footer.ynm-footer .ynm-newsletter-note {
+  font-size: 12px !important;
+  color: rgba(255,255,255,0.5) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  margin: 8px 0 0 0 !important;
+  padding: 0 !important;
+  background: none !important;
+}
+
+footer.ynm-footer .ynm-newsletter-note svg {
+  width: 10px !important;
+  height: 10px !important;
+  fill: currentColor !important;
+}
+
+footer.ynm-footer .ynm-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  padding: 24px 0 0 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 16px !important;
+  background: none !important;
+}
+
+footer.ynm-footer .ynm-footer-bottom-links {
+  display: flex !important;
+  gap: 24px !important;
+  flex-wrap: wrap !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  list-style: none !important;
+}
+
+footer.ynm-footer .ynm-footer-bottom a {
+  color: rgba(255,255,255,0.6) !important;
+  text-decoration: none !important;
+  font-size: 13px !important;
+}
+
+footer.ynm-footer .ynm-footer-bottom a:hover {
+  color: #fff !important;
+}
+
+footer.ynm-footer .ynm-copyright {
+  color: rgba(255,255,255,0.6) !important;
+  font-size: 13px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+}
+
+footer.ynm-footer .ynm-visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+  border: 0 !important;
+}
+
+/* ===================================
+   GEODIRECTORY WIDGETS - TARGET & STYLE
+   (CRITICAL: Must use GeoDirectory widgets for data)
+=================================== */
+
+/* GeoDirectory Post Meta Widget - Base Styling */
+body.single-gd_place .geodir-post-meta,
+body.single-gd_place .geodir-widget,
+body.single-gd_place [class*="geodir-widget"],
+body.single-gd_place [class*="geodir-post-meta"] {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* GeoDirectory Post Meta Container */
+body.single-gd_place .geodir-post-meta-container,
+body.single-gd_place .geodir-meta-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* GeoDirectory Meta Label - Hide if not needed, or style minimally */
+body.single-gd_place .geodir-meta-label {
+    font-size: 0.8rem !important;
+    color: var(--color-text-light) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 2px !important;
+    font-weight: 500 !important;
+}
+
+/* Hide GeoDirectory labels when we want clean display */
+body.single-gd_place .geodir-post-meta[data-key*="contact"] .geodir-meta-label,
+body.single-gd_place .geodir-post-meta[data-key*="email"] .geodir-meta-label,
+body.single-gd_place .geodir-post-meta[data-key*="phone"] .geodir-meta-label,
+body.single-gd_place .geodir-post-meta[data-key*="website"] .geodir-meta-label,
+body.single-gd_place .geodir-post-meta[data-key*="hours"] .geodir-meta-label {
+    display: none !important;
+}
+
+/* GeoDirectory Meta Value - Style the actual data */
+body.single-gd_place .geodir-meta-value {
+    color: var(--color-text-dark) !important;
+    font-weight: 400 !important;
+    font-size: 15px !important;
+    word-break: break-word !important;
+    line-height: 1.6 !important;
+}
+
+body.single-gd_place .geodir-meta-value a {
+    color: var(--color-teal) !important;
+    text-decoration: none !important;
+}
+
+body.single-gd_place .geodir-meta-value a:hover {
+    text-decoration: underline !important;
+    color: var(--color-terracotta) !important;
+}
+
+/* GeoDirectory Meta Icon */
+body.single-gd_place .geodir-meta-icon {
+    width: 18px !important;
+    height: 18px !important;
+    fill: var(--color-sage) !important;
+    flex-shrink: 0 !important;
+    margin-right: 8px !important;
+}
+
+body.single-gd_place .geodir-meta-icon svg {
+    width: 18px !important;
+    height: 18px !important;
+    fill: var(--color-sage) !important;
+}
+
+/* Hide Empty GeoDirectory Fields */
+body.single-gd_place .geodir-post-meta:empty,
+body.single-gd_place .geodir-post-meta .geodir-meta-value:empty,
+body.single-gd_place .geodir-post-meta .geodir-meta-value:has-text(""),
+body.single-gd_place .geodir-field-empty,
+body.single-gd_place .geodir-post-meta[data-value=""],
+body.single-gd_place .geodir-post-meta:not(:has(.geodir-meta-value)) {
+    display: none !important;
+}
+
+/* Hide specific unused GeoDirectory fields (customize based on your needs) */
+body.single-gd_place .geodir-post-meta[data-key*="fax"],
+body.single-gd_place .geodir-post-meta[data-key*="twitter"],
+body.single-gd_place .geodir-post-meta[data-key*="linkedin"],
+body.single-gd_place .geodir-post-meta[data-key*="youtube"],
+body.single-gd_place .geodir-post-meta[data-key*="tiktok"],
+body.single-gd_place .geodir-post-meta[data-key*="pinterest"] {
+    display: none !important;
+}
+
+/* GeoDirectory Post Title Widget - Studio Name (H1) */
+body.single-gd_place .geodir-post-title,
+body.single-gd_place h1.geodir-post-title,
+body.single-gd_place h1:first-of-type,
+body.single-gd_place .elementor-heading-title.elementor-size-default:first-of-type {
+    font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+    font-weight: 700 !important;
+    color: var(--color-text-dark) !important;
+    line-height: 1.2 !important;
+    margin-bottom: var(--space-sm) !important;
+    font-family: var(--font-heading) !important;
+}
+
+/* GeoDirectory Post Content Widget */
+body.single-gd_place .geodir-post-content,
+body.single-gd_place .geodir-post-content p {
+    color: var(--color-text-medium) !important;
+    line-height: 1.8 !important;
+    margin-bottom: var(--space-md) !important;
+}
+
+/* GeoDirectory Post Images/Gallery Widget */
+body.single-gd_place .geodir-post-images,
+body.single-gd_place .geodir-gallery {
+    border-radius: var(--radius-xl) !important;
+    overflow: hidden !important;
+}
+
+body.single-gd_place .geodir-post-images img,
+body.single-gd_place .geodir-gallery img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    transition: transform var(--transition-medium) !important;
+}
+
+body.single-gd_place .geodir-post-images img:hover,
+body.single-gd_place .geodir-gallery img:hover {
+    transform: scale(1.05) !important;
+}
+
+/* GeoDirectory Rating Widget */
+body.single-gd_place .geodir-rating,
+body.single-gd_place .geodir-post-rating {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-sm) !important;
+}
+
+body.single-gd_place .geodir-rating .geodir-rating-stars,
+body.single-gd_place .geodir-post-rating .geodir-rating-stars {
+    display: flex !important;
+    gap: 2px !important;
+}
+
+body.single-gd_place .geodir-rating .geodir-rating-stars svg,
+body.single-gd_place .geodir-post-rating .geodir-rating-stars svg {
+    width: 18px !important;
+    height: 18px !important;
+    fill: var(--color-star) !important;
+}
+
+body.single-gd_place .geodir-rating .geodir-rating-value,
+body.single-gd_place .geodir-post-rating .geodir-rating-value {
+    font-weight: 700 !important;
+    color: var(--color-text-dark) !important;
+}
+
+/* GeoDirectory Reviews Widget */
+body.single-gd_place .geodir-reviews,
+body.single-gd_place .geodir-post-reviews {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-lg) !important;
+}
+
+body.single-gd_place .geodir-review-item {
+    padding-bottom: var(--space-lg) !important;
+    border-bottom: 1px solid var(--color-border) !important;
+}
+
+body.single-gd_place .geodir-review-item:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+}
+
+/* GeoDirectory Business Hours Widget */
+body.single-gd_place .geodir-business-hours,
+body.single-gd_place .geodir-post-hours {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+}
+
+body.single-gd_place .geodir-business-hours .geodir-hours-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 8px 0 !important;
+    border-bottom: 1px solid #F0F0F0 !important;
+}
+
+body.single-gd_place .geodir-business-hours .geodir-hours-row:last-child {
+    border-bottom: none !important;
+}
+
+body.single-gd_place .geodir-business-hours .geodir-hours-day {
+    color: #6B7C78 !important;
+    font-size: 15px !important;
+}
+
+body.single-gd_place .geodir-business-hours .geodir-hours-row.today .geodir-hours-day {
+    color: var(--color-text-dark) !important;
+    font-weight: 600 !important;
+}
+
+body.single-gd_place .geodir-business-hours .geodir-hours-time {
+    font-weight: 400 !important;
+    color: var(--color-text-dark) !important;
+    font-size: 15px !important;
+}
+
+/* GeoDirectory Map Widget */
+body.single-gd_place .geodir-map,
+body.single-gd_place .geodir-post-map {
+    border-radius: var(--radius-md) !important;
+    overflow: hidden !important;
+    margin-bottom: var(--space-md) !important;
+    border: 1px solid var(--color-border) !important;
+}
+
+body.single-gd_place .geodir-map iframe,
+body.single-gd_place .geodir-post-map iframe {
+    width: 100% !important;
+    height: 200px !important;
+    border: none !important;
+}
+
+/* GeoDirectory Nearby Places Widget */
+body.single-gd_place .geodir-nearby-places,
+body.single-gd_place .geodir-nearby-posts {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: var(--space-lg) !important;
+}
+
+body.single-gd_place .geodir-nearby-place-item,
+body.single-gd_place .geodir-nearby-post-item {
+    background: var(--color-white) !important;
+    border-radius: var(--radius-lg) !important;
+    overflow: hidden !important;
+    border: 1px solid var(--color-border) !important;
+    transition: all var(--transition-medium) !important;
+}
+
+body.single-gd_place .geodir-nearby-place-item:hover,
+body.single-gd_place .geodir-nearby-post-item:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+/* GeoDirectory Custom Fields - Yoga Styles */
+body.single-gd_place .geodir-post-meta[data-key*="yoga_style"],
+body.single-gd_place .geodir-post-meta[data-key*="yoga_styles"],
+body.single-gd_place .geodir-post-meta[data-key*="yoga"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 8px 16px !important;
+    background: #FFFFFF !important;
+    border: 2px solid #61948B !important;
+    border-radius: 20px !important;
+    color: #61948B !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin-right: 8px !important;
+    margin-bottom: 8px !important;
+    box-shadow: none !important;
+}
+
+body.single-gd_place .geodir-post-meta[data-key*="yoga"] .geodir-meta-value::before {
+    content: "★" !important;
+    color: #61948B !important;
+    font-size: 12px !important;
+    margin-right: 4px !important;
+}
+
+/* GeoDirectory Custom Fields - Amenities */
+body.single-gd_place .geodir-post-meta[data-key*="amenities"] .geodir-meta-value,
+body.single-gd_place .geodir-post-meta[data-key*="amenity"] .geodir-meta-value {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove excessive styling from GeoDirectory widget containers */
+body.single-gd_place .elementor-widget-geodir_post_meta .elementor-widget-container,
+body.single-gd_place .elementor-widget-geodir_post_title .elementor-widget-container,
+body.single-gd_place .elementor-widget-geodir_post_content .elementor-widget-container,
+body.single-gd_place .elementor-widget-geodir_post_images .elementor-widget-container,
+body.single-gd_place .elementor-widget-geodir_post_rating .elementor-widget-container,
+body.single-gd_place .elementor-widget-geodir_post_reviews .elementor-widget-container,
+body.single-gd_place .elementor-widget-geodir_business_hours .elementor-widget-container,
+body.single-gd_place .elementor-widget-geodir_post_map .elementor-widget-container,
+body.single-gd_place .elementor-widget-geodir_nearby_posts .elementor-widget-container {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ===================================
+   REMOVE SEARCH SECTION
+   (CLEAN DESIGN FIX)
+=================================== */
+body.single-gd_place .elementor-widget-search-form,
+body.single-gd_place .elementor-search-form,
+body.single-gd_place .search-form,
+body.single-gd_place [class*="search"],
+body.single-gd_place [id*="search"],
+body.single-gd_place input[type="search"],
+body.single-gd_place input[placeholder*="Search"],
+body.single-gd_place .elementor-section:has(.search-form),
+body.single-gd_place .elementor-section:has([class*="search"]) {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+
+/* ===================================
+   REMOVE PLACEHOLDER STYLING
+   (CLEAN DESIGN FIX)
+=================================== */
+body.single-gd_place input[value=""],
+body.single-gd_place input:empty,
+body.single-gd_place .placeholder {
+    background: transparent !important;
+    border: none !important;
+    color: inherit !important;
+    font-style: normal !important;
+}
+
+body.single-gd_place .elementor-widget:has-text("Placeholder"),
+body.single-gd_place .elementor-widget:has-text("placeholder"),
+body.single-gd_place .geodir-field-empty:has-text("Placeholder") {
+    display: none !important;
+}
+
+/* ===================================
+   MAIN LAYOUT
+   (CLEAN DESIGN FIX)
+=================================== */
+body.single-gd_place .elementor-location-single,
+body.single-gd_place {
+    background: var(--color-white) !important;
+}
+
+body.single-gd_place .elementor-location-single {
+    background: var(--color-white) !important;
+}
+
+body.single-gd_place .elementor-section:first-child {
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+body.single-gd_place .elementor-section:nth-child(n+2) {
+    max-width: var(--content-width) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: var(--space-lg) !important;
+    padding-right: var(--space-lg) !important;
+}
+
+/* Two-column layout */
+body.single-gd_place .elementor-section:nth-child(n+2) .elementor-row {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr !important;
+    gap: var(--space-lg) !important;
+}
+
+/* ===================================
+   RESPONSIVE
+   (PRESERVED FROM YOUR CSS + CLEAN FIXES)
+=================================== */
+@media (max-width: 1024px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: relative;
+    top: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .sidebar-card {
+    margin-bottom: 0;
+  }
+
+  .nearby-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  body.single-gd_place .elementor-section:nth-child(n+2) .elementor-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  footer.ynm-footer .ynm-footer-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 32px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  footer.ynm-footer .ynm-footer-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 32px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: 250px 100px;
+  }
+
+  .hero-gallery .main-image {
+    grid-row: 1;
+  }
+
+  .hero-gallery .gallery-item:first-of-type {
+    display: none;
+  }
+
+  .studio-header {
+    flex-direction: column;
+  }
+
+  .studio-actions {
+    width: 100%;
+  }
+
+  .studio-actions .btn {
+    flex: 1;
+  }
+
+  .sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .nearby-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reviews-summary {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .schedule-tabs {
+    justify-content: flex-start;
+  }
+
+  body.single-gd_place .elementor-section:nth-child(n+2) .elementor-container {
+    padding: var(--space-lg) var(--space-md) !important;
+  }
+
+  body.single-gd_place .amenities-group {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  footer.ynm-footer .ynm-footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  footer.ynm-footer .ynm-footer-bottom {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+
+  footer.ynm-footer .ynm-footer-bottom-links {
+    justify-content: center !important;
+  }
+
+  .studio-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .class-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .class-time {
+    min-width: auto;
+    display: flex;
+    gap: var(--space-md);
+    align-items: baseline;
+  }
+
+  body.single-gd_place .amenities-group {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+

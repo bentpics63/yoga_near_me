@@ -1,0 +1,111 @@
+/**
+ * BUTTON POSITIONING FIX
+ * Add this AFTER the FINAL-COMPLETE-STYLING.css
+ * This ensures buttons are positioned horizontally in a row like the design
+ */
+
+/* ============================================
+   BUTTON CONTAINER LAYOUT
+   ============================================ */
+
+/* Studio Actions Container - Horizontal flex row */
+body.single-gd_place .studio-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 16px !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+}
+
+/* Elementor Button Widgets - Make them inline */
+body.single-gd_place .elementor-widget-button {
+    display: inline-flex !important;
+    flex-shrink: 0 !important;
+    margin-right: 16px !important;
+    margin-bottom: 0 !important;
+    vertical-align: middle !important;
+}
+
+body.single-gd_place .elementor-widget-button:last-child {
+    margin-right: 0 !important;
+}
+
+/* Button Wrapper - Inline */
+body.single-gd_place .elementor-widget-button .elementor-button-wrapper {
+    display: inline-flex !important;
+    margin: 0 !important;
+}
+
+/* ============================================
+   HERO SECTION LAYOUT
+   ============================================ */
+
+/* If buttons are in the hero section with title */
+body.single-gd_place .elementor-section .elementor-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 24px !important;
+    align-items: flex-start !important;
+}
+
+/* Elementor Row - Flex layout */
+body.single-gd_place .elementor-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 16px !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+}
+
+/* Column containing buttons - Horizontal layout */
+body.single-gd_place .elementor-column .elementor-widget-button {
+    display: inline-flex !important;
+    margin-right: 16px !important;
+}
+
+/* ============================================
+   SPECIFIC BUTTON POSITIONING
+   ============================================ */
+
+/* If "Book a Class" and "Save" are in same row */
+body.single-gd_place .elementor-widget-button:first-of-type,
+body.single-gd_place .elementor-widget-button:nth-of-type(2) {
+    display: inline-flex !important;
+    margin-right: 16px !important;
+}
+
+/* Ensure buttons don't stack vertically */
+body.single-gd_place .elementor-widget-button {
+    float: none !important;
+    clear: none !important;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Stack buttons on mobile if needed */
+    body.single-gd_place .studio-actions {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    
+    body.single-gd_place .elementor-widget-button {
+        width: 100% !important;
+        margin-right: 0 !important;
+        margin-bottom: 12px !important;
+        display: flex !important;
+    }
+    
+    body.single-gd_place .elementor-widget-button:last-child {
+        margin-bottom: 0 !important;
+    }
+    
+    body.single-gd_place .elementor-widget-button .elementor-button {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+

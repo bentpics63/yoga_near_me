@@ -1,0 +1,86 @@
+/**
+ * YogaNearMe - Hide Placeholder Emails (CSS Fallback)
+ *
+ * PURPOSE: Hides email fields containing placeholder values
+ * NOTE: CSS cannot read text content, so this uses attribute selectors
+ *       for links containing the placeholder email in the href
+ *
+ * INSTALLATION: Add to Elementor > Custom CSS or your child theme's style.css
+ *
+ * LIMITATION: Only works for mailto: links, not plain text displays
+ */
+
+/* ============================================
+   HIDE PLACEHOLDER EMAIL LINKS
+   ============================================ */
+
+/* Hide any mailto link containing the placeholder email */
+a[href="mailto:info@yoganearme.info"],
+a[href="mailto:contact@yoganearme.info"],
+a[href="mailto:hello@yoganearme.info"] {
+    display: none !important;
+}
+
+/* Hide the parent contact-item-wrapper if it contains the placeholder email link */
+.contact-item-wrapper:has(a[href="mailto:info@yoganearme.info"]),
+.contact-item-wrapper:has(a[href="mailto:contact@yoganearme.info"]) {
+    display: none !important;
+}
+
+/* Hide GeoDirectory email meta blocks with placeholder */
+.geodir-post-meta-row:has(a[href="mailto:info@yoganearme.info"]),
+.geodir-post-meta:has(a[href="mailto:info@yoganearme.info"]) {
+    display: none !important;
+}
+
+/* Alternative: Target by data attribute if GeoDirectory sets one */
+[data-email="info@yoganearme.info"],
+[data-value="info@yoganearme.info"] {
+    display: none !important;
+}
+
+
+/* ============================================
+   ALTERNATIVE: SHOW "TBD" STYLE (if using PHP)
+   ============================================ */
+
+/* If you prefer to show "TBD" instead of hiding completely,
+   use the PHP shortcode with show_tbd="true" and style like this: */
+
+.contact-value .email-tbd {
+    color: var(--ynm-text-medium, #6B7C78);
+    font-style: italic;
+}
+
+
+/* ============================================
+   JAVASCRIPT FALLBACK (if CSS :has() not supported)
+   ============================================
+
+   Add this to your site's custom JS if you need
+   to support older browsers that don't support :has()
+
+   <script>
+   document.addEventListener('DOMContentLoaded', function() {
+       var placeholderEmails = [
+           'info@yoganearme.info',
+           'contact@yoganearme.info'
+       ];
+
+       placeholderEmails.forEach(function(email) {
+           var links = document.querySelectorAll('a[href="mailto:' + email + '"]');
+           links.forEach(function(link) {
+               // Hide the link
+               link.style.display = 'none';
+
+               // Try to hide parent contact wrapper
+               var parent = link.closest('.contact-item-wrapper');
+               if (parent) {
+                   parent.style.display = 'none';
+               }
+           });
+       });
+   });
+   </script>
+
+   ============================================ */
