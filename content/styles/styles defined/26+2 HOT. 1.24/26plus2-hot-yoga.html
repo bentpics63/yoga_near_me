@@ -1295,6 +1295,122 @@
                 justify-content: center;
             }
         }
+
+        /* ===================================
+           BENEFITS PREVIEW SECTION
+        =================================== */
+        .benefits-preview-section {
+            background: linear-gradient(135deg, #61948B 0%, #5F7470 100%);
+            padding: 96px 0;
+            margin: 96px calc(-50vw + 50%);
+            width: 100vw;
+            position: relative;
+        }
+
+        .benefits-preview-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .benefits-preview-header {
+            text-align: center;
+            color: #FFFFFF;
+            margin-bottom: 64px;
+        }
+
+        .benefits-preview-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefits-preview-header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-style: italic;
+            font-family: 'Crimson Pro', Georgia, serif;
+        }
+
+        .benefits-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .benefit-preview-card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 4px solid #FF5733;
+            transition: all 0.3s ease-out;
+            color: #FFFFFF;
+        }
+
+        .benefit-preview-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .benefit-preview-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #FF5733;
+            margin-bottom: 8px;
+            line-height: 1;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefit-preview-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #FFFFFF;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefit-preview-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .benefits-cta {
+            text-align: center;
+            margin-top: 64px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .benefits-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+
+        .benefits-cta-button {
+            display: inline-block;
+            background: #FF5733;
+            color: #FFFFFF;
+            padding: 16px 64px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease-out;
+            box-shadow: 0 4px 12px rgba(255, 87, 51, 0.3);
+        }
+
+        .benefits-cta-button:hover {
+            background: #E64A2A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 87, 51, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -1623,69 +1739,56 @@
                         </div>
                     </section>
 
+                    <!-- Benefits Section -->
                     <section id="benefits" class="article-section">
-                        <h2 class="section-title">Benefits of 26+2 Hot Yoga</h2>
-                        <div class="section-content">
-                            <p>The combination of the specific 26-posture sequence and the heated environment creates a unique set of benefits that distinguish this practice from other yoga styles:</p>
-
-                            <div class="two-column-layout">
-                                <div class="column">
-                                    <h3>Physical Benefits</h3>
-                                    <ul>
-                                        <li><strong>Exceptional Flexibility:</strong> Heat allows muscles to stretch safely beyond typical range</li>
-                                        <li><strong>Cardiovascular Fitness:</strong> Elevated heart rate provides aerobic conditioning</li>
-                                        <li><strong>Strength Building:</strong> Holding challenging postures builds muscular endurance</li>
-                                        <li><strong>Weight Management:</strong> High calorie burn (400-1000 calories per session)</li>
-                                        <li><strong>Improved Posture:</strong> Spinal strengthening and lengthening</li>
-                                        <li><strong>Injury Rehabilitation:</strong> Originally designed for healing injuries</li>
-                                        <li><strong>Better Balance:</strong> Challenging balancing postures improve proprioception</li>
-                                        <li><strong>Detoxification:</strong> Profuse sweating eliminates toxins through skin</li>
-                                        <li><strong>Enhanced Immune Function:</strong> Regular practice strengthens immunity</li>
-                                        <li><strong>Improved Circulation:</strong> Heat and movement optimize blood flow</li>
-                                    </ul>
-
-                                    <h3>Respiratory Benefits</h3>
-                                    <ul>
-                                        <li><strong>Increased Lung Capacity:</strong> Pranayama exercises expand respiratory capability</li>
-                                        <li><strong>Improved Breathing Efficiency:</strong> Better oxygen utilization</li>
-                                        <li><strong>Respiratory System Cleansing:</strong> Kapalbhati breathing purifies lungs</li>
-                                    </ul>
+                        <div class="benefits-preview-section">
+                            <div class="benefits-preview-container">
+                                <div class="benefits-preview-header">
+                                    <h2>Benefits of 26&2 Hot Yoga</h2>
+                                    <p class="subtitle">Heat, discipline, and transformation</p>
                                 </div>
-                                <div class="column">
-                                    <h3>Mental & Emotional Benefits</h3>
-                                    <ul>
-                                        <li><strong>Mental Toughness:</strong> Practicing in heat builds psychological resilience</li>
-                                        <li><strong>Stress Reduction:</strong> Intense focus pushes out mental clutter</li>
-                                        <li><strong>Enhanced Concentration:</strong> Demanding practice sharpens mental focus</li>
-                                        <li><strong>Emotional Regulation:</strong> Learning composure under stress</li>
-                                        <li><strong>Confidence Building:</strong> Accomplishing difficult practice boosts self-esteem</li>
-                                        <li><strong>Depression and Anxiety Relief:</strong> Endorphin release and mindfulness</li>
-                                        <li><strong>Better Sleep:</strong> Physical exhaustion and stress relief improve sleep quality</li>
-                                    </ul>
 
-                                    <h3>Therapeutic & Systemic Benefits</h3>
-                                    <ul>
-                                        <li><strong>Organ Stimulation:</strong> Compression and extension massage internal organs</li>
-                                        <li><strong>Hormonal Balance:</strong> Stress on endocrine system promotes regulation</li>
-                                        <li><strong>Digestive Health:</strong> Twists and compressions aid digestive function</li>
-                                        <li><strong>Lymphatic Drainage:</strong> Movement and heat promote lymph flow</li>
-                                        <li><strong>Pain Relief:</strong> Many report relief from chronic pain conditions</li>
-                                        <li><strong>Skin Health:</strong> Regular sweating cleanses pores and improves complexion</li>
-                                    </ul>
+                                <div class="benefits-preview-grid">
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">1</div>
+                                        <h3>Deep Detoxification</h3>
+                                        <p>Profuse sweating in the heated room helps flush toxins and purify the body.</p>
+                                    </div>
 
-                                    <h3>Lifestyle Benefits</h3>
-                                    <ul>
-                                        <li><strong>Discipline Development:</strong> Regular 90-minute practice builds life discipline</li>
-                                        <li><strong>Community Connection:</strong> Strong bonds form among regular practitioners</li>
-                                        <li><strong>Consistent Practice:</strong> Same sequence makes it easy to maintain routine</li>
-                                    </ul>
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">2</div>
+                                        <h3>Enhanced Flexibility</h3>
+                                        <p>Heat allows muscles to stretch deeper and safer than in room-temperature practice.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">3</div>
+                                        <h3>Cardiovascular Conditioning</h3>
+                                        <p>The heat elevates heart rate, providing cardiovascular benefits similar to aerobic exercise.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">4</div>
+                                        <h3>Mental Discipline</h3>
+                                        <p>Practicing in challenging conditions builds mental toughness and focus.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">5</div>
+                                        <h3>Weight Management</h3>
+                                        <p>Elevated metabolism and calorie burn support healthy weight maintenance.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">6</div>
+                                        <h3>Consistent Progress</h3>
+                                        <p>The fixed sequence allows you to track and measure your progress over time.</p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="highlight-box" style="margin-top: 2rem;">
-                                <div class="highlight-content">
-                                    <h4>Important Considerations</h4>
-                                    <p>While the benefits are substantial, 26+2 Hot Yoga is intense and not suitable for everyone. Individuals with certain health conditions—including uncontrolled high blood pressure, heart conditions, pregnancy, or heat sensitivity—should consult a physician before practicing. Proper hydration before, during, and after class is essential, as is listening to your body and taking breaks when needed.</p>
+                                <div class="benefits-cta">
+                                    <p>Discover all 12 transformative benefits of 26&2 Hot Yoga</p>
+                                    <a href="https://yoganearme.info/yoga-styles/hot-yoga/12-benefits/" class="benefits-cta-button">Explore All 12 Benefits →</a>
                                 </div>
                             </div>
                         </div>

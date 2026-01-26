@@ -656,6 +656,122 @@
             line-height: 1.5;
         }
 
+        /* ===================================
+           BENEFITS PREVIEW SECTION
+        =================================== */
+        .benefits-preview-section {
+            background: linear-gradient(135deg, #61948B 0%, #5F7470 100%);
+            padding: 96px 0;
+            margin: 96px calc(-50vw + 50%);
+            width: 100vw;
+            position: relative;
+        }
+
+        .benefits-preview-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .benefits-preview-header {
+            text-align: center;
+            color: #FFFFFF;
+            margin-bottom: 64px;
+        }
+
+        .benefits-preview-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefits-preview-header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-style: italic;
+            font-family: 'Crimson Pro', Georgia, serif;
+        }
+
+        .benefits-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .benefit-preview-card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 4px solid #FF5733;
+            transition: all 0.3s ease-out;
+            color: #FFFFFF;
+        }
+
+        .benefit-preview-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .benefit-preview-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #FF5733;
+            margin-bottom: 8px;
+            line-height: 1;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefit-preview-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #FFFFFF;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefit-preview-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .benefits-cta {
+            text-align: center;
+            margin-top: 64px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .benefits-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+
+        .benefits-cta-button {
+            display: inline-block;
+            background: #FF5733;
+            color: #FFFFFF;
+            padding: 16px 64px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease-out;
+            box-shadow: 0 4px 12px rgba(255, 87, 51, 0.3);
+        }
+
+        .benefits-cta-button:hover {
+            background: #E64A2A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 87, 51, 0.4);
+        }
+
         .author-bio {
             background: #f8f9fa;
             padding: 2rem;
@@ -1444,54 +1560,56 @@
                         </div>
                     </section>
 
+                    <!-- Benefits Section -->
                     <section id="benefits" class="article-section">
-                        <h2 class="section-title">Benefits of Vinyasa Yoga</h2>
-                        <div class="section-content">
-                            <p>The combination of continuous movement, breath synchronization, and creative sequencing creates a unique set of benefits:</p>
-
-                            <div class="two-column-layout">
-                                <div class="column">
-                                    <h3>Physical Benefits</h3>
-                                    <ul>
-                                        <li><strong>Enhanced Strength:</strong> Weight-bearing poses and transitions build functional muscle</li>
-                                        <li><strong>Improved Flexibility:</strong> Dynamic stretching increases range of motion</li>
-                                        <li><strong>Cardiovascular Fitness:</strong> Continuous movement elevates heart rate</li>
-                                        <li><strong>Better Balance:</strong> Standing sequences challenge proprioception</li>
-                                        <li><strong>Weight Management:</strong> Burns 400-600 calories per vigorous session</li>
-                                        <li><strong>Increased Endurance:</strong> Building stamina through sustained practice</li>
-                                    </ul>
-
-                                    <h3>Respiratory Benefits</h3>
-                                    <ul>
-                                        <li><strong>Lung Capacity:</strong> Ujjayi breath expands respiratory function</li>
-                                        <li><strong>Breath Control:</strong> Learning to regulate breath under exertion</li>
-                                        <li><strong>Oxygenation:</strong> Improved blood oxygen levels</li>
-                                    </ul>
+                        <div class="benefits-preview-section">
+                            <div class="benefits-preview-container">
+                                <div class="benefits-preview-header">
+                                    <h2>Benefits of Vinyasa Yoga</h2>
+                                    <p class="subtitle">Dynamic flow for body and mind</p>
                                 </div>
-                                <div class="column">
-                                    <h3>Mental & Emotional Benefits</h3>
-                                    <ul>
-                                        <li><strong>Stress Relief:</strong> Moving meditation quiets the mind</li>
-                                        <li><strong>Focus Enhancement:</strong> Breath-movement coordination sharpens concentration</li>
-                                        <li><strong>Mood Elevation:</strong> Endorphin release and mindful movement</li>
-                                        <li><strong>Creative Expression:</strong> The freedom of flow encourages self-expression</li>
-                                        <li><strong>Present-Moment Awareness:</strong> No time for distraction in dynamic practice</li>
-                                    </ul>
 
-                                    <h3>Lifestyle Benefits</h3>
-                                    <ul>
-                                        <li><strong>Adaptability:</strong> Fits any schedule with varied class lengths</li>
-                                        <li><strong>Accessibility:</strong> Modifications make it available to all levels</li>
-                                        <li><strong>Variety:</strong> Never boring—each class is different</li>
-                                        <li><strong>Community:</strong> Popular style means easy to find classes anywhere</li>
-                                    </ul>
+                                <div class="benefits-preview-grid">
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">1</div>
+                                        <h3>Enhanced Strength & Power</h3>
+                                        <p>Weight-bearing poses and dynamic transitions build functional muscle and full-body strength.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">2</div>
+                                        <h3>Cardiovascular Fitness</h3>
+                                        <p>Continuous movement elevates heart rate, improving endurance and burning 400-600 calories per session.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">3</div>
+                                        <h3>Improved Flexibility</h3>
+                                        <p>Dynamic stretching through flowing sequences increases range of motion throughout the body.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">4</div>
+                                        <h3>Stress Relief & Calm</h3>
+                                        <p>Moving meditation quiets the mind while endorphin release elevates mood naturally.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">5</div>
+                                        <h3>Enhanced Focus & Presence</h3>
+                                        <p>Breath-movement coordination sharpens concentration and cultivates present-moment awareness.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">6</div>
+                                        <h3>Creative Expression</h3>
+                                        <p>The freedom of flow encourages self-expression and keeps practice fresh with endless variety.</p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="highlight-box" style="margin-top: 2rem;">
-                                <div class="highlight-content">
-                                    <h4>Important Considerations</h4>
-                                    <p>While Vinyasa is highly adaptable, the pace can be challenging for complete beginners. If you're new to yoga, look for "Beginner Vinyasa" or "Slow Flow" classes. Those with injuries should inform the teacher beforehand and take modifications as needed.</p>
+                                <div class="benefits-cta">
+                                    <p>Discover all 12 transformative benefits of Vinyasa Yoga</p>
+                                    <a href="https://yoganearme.info/yoga-styles/vinyasa-yoga/12-benefits/" class="benefits-cta-button">Explore All 12 Benefits →</a>
                                 </div>
                             </div>
                         </div>

@@ -656,6 +656,122 @@
             line-height: 1.5;
         }
 
+        /* ===================================
+           BENEFITS PREVIEW SECTION
+        =================================== */
+        .benefits-preview-section {
+            background: linear-gradient(135deg, #61948B 0%, #5F7470 100%);
+            padding: 96px 0;
+            margin: 96px calc(-50vw + 50%);
+            width: 100vw;
+            position: relative;
+        }
+
+        .benefits-preview-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .benefits-preview-header {
+            text-align: center;
+            color: #FFFFFF;
+            margin-bottom: 64px;
+        }
+
+        .benefits-preview-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefits-preview-header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-style: italic;
+            font-family: 'Crimson Pro', Georgia, serif;
+        }
+
+        .benefits-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .benefit-preview-card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 4px solid #FF5733;
+            transition: all 0.3s ease-out;
+            color: #FFFFFF;
+        }
+
+        .benefit-preview-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .benefit-preview-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #FF5733;
+            margin-bottom: 8px;
+            line-height: 1;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefit-preview-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #FFFFFF;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefit-preview-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .benefits-cta {
+            text-align: center;
+            margin-top: 64px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .benefits-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+
+        .benefits-cta-button {
+            display: inline-block;
+            background: #FF5733;
+            color: #FFFFFF;
+            padding: 16px 64px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease-out;
+            box-shadow: 0 4px 12px rgba(255, 87, 51, 0.3);
+        }
+
+        .benefits-cta-button:hover {
+            background: #E64A2A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 87, 51, 0.4);
+        }
+
         .author-bio {
             background: #f8f9fa;
             padding: 2rem;
@@ -1418,60 +1534,56 @@
                         </div>
                     </section>
 
+                    <!-- Benefits Section -->
                     <section id="benefits" class="article-section">
-                        <h2 class="section-title">Benefits of Kriya Yoga</h2>
-                        <div class="section-content">
-                            <p>The combination of breathwork, energy circulation, and deep meditation creates a unique set of benefits:</p>
+                        <div class="benefits-preview-section">
+                            <div class="benefits-preview-container">
+                                <div class="benefits-preview-header">
+                                    <h2>Benefits of Kriya Yoga</h2>
+                                    <p class="subtitle">Ancient techniques for spiritual awakening</p>
+                                </div>
 
-                            <div class="benefits-grid">
-                                <div class="benefit-card">
-                                    <div class="benefit-icon">
-                                        <i class="fas fa-heart"></i>
+                                <div class="benefits-preview-grid">
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">1</div>
+                                        <h3>Accelerated Spiritual Growth</h3>
+                                        <p>Powerful techniques designed to speed up the natural process of spiritual evolution.</p>
                                     </div>
-                                    <h3>Physical Benefits</h3>
-                                    <p>Reduced stress, improved breathing, enhanced vitality, better sleep, and potential cardiovascular improvements.</p>
-                                </div>
-                                <div class="benefit-card">
-                                    <div class="benefit-icon">
-                                        <i class="fas fa-brain"></i>
-                                    </div>
-                                    <h3>Mental Clarity</h3>
-                                    <p>Greater mental clarity and concentration, reduced anxiety, increased self-awareness and insight.</p>
-                                </div>
-                                <div class="benefit-card">
-                                    <div class="benefit-icon">
-                                        <i class="fas fa-peace"></i>
-                                    </div>
-                                    <h3>Emotional Balance</h3>
-                                    <p>Deep inner peace and equanimity, reduced emotional reactivity, enhanced creativity and intuition.</p>
-                                </div>
-                                <div class="benefit-card">
-                                    <div class="benefit-icon">
-                                        <i class="fas fa-sun"></i>
-                                    </div>
-                                    <h3>Spiritual Awakening</h3>
-                                    <p>Direct experience of expanded consciousness, connection to inner guidance, progress toward self-realization.</p>
-                                </div>
-                                <div class="benefit-card">
-                                    <div class="benefit-icon">
-                                        <i class="fas fa-bolt"></i>
-                                    </div>
-                                    <h3>Energy Vitality</h3>
-                                    <p>Awakening of spiritual potential, increased prana flow, sense of connection to something greater.</p>
-                                </div>
-                                <div class="benefit-card">
-                                    <div class="benefit-icon">
-                                        <i class="fas fa-om"></i>
-                                    </div>
-                                    <h3>Deep Meditation</h3>
-                                    <p>Systematic techniques for reaching profound meditative states, accessible to dedicated practitioners.</p>
-                                </div>
-                            </div>
 
-                            <div class="highlight-box" style="margin-top: 2rem;">
-                                <div class="highlight-content">
-                                    <h4>Important Considerations</h4>
-                                    <p>Kriya Yoga is primarily a spiritual practice, not a physical one. Those seeking physical fitness should explore styles like <a href="https://yoganearme.info/yoga-glossary/yoga-styles/vinyasa-yoga/">Vinyasa</a> or <a href="https://yoganearme.info/yoga-glossary/yoga-styles/power-yoga/">Power Yoga</a>. Kriya requires patience, commitment, and readiness for inner work.</p>
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">2</div>
+                                        <h3>Deepened Meditation</h3>
+                                        <p>Pranayama and concentration practices prepare the mind for profound meditative states.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">3</div>
+                                        <h3>Nervous System Balance</h3>
+                                        <p>Specific breathing techniques harmonize and strengthen the entire nervous system.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">4</div>
+                                        <h3>Energy Awakening</h3>
+                                        <p>Practices designed to awaken and direct prana through the subtle energy channels.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">5</div>
+                                        <h3>Mental Clarity & Peace</h3>
+                                        <p>Regular practice calms the mind and brings lasting peace and emotional stability.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">6</div>
+                                        <h3>Self-Realization</h3>
+                                        <p>Direct experience of higher states of consciousness and connection to the divine.</p>
+                                    </div>
+                                </div>
+
+                                <div class="benefits-cta">
+                                    <p>Discover all 12 transformative benefits of Kriya Yoga</p>
+                                    <a href="https://yoganearme.info/yoga-styles/kriya-yoga/12-benefits/" class="benefits-cta-button">Explore All 12 Benefits →</a>
                                 </div>
                             </div>
                         </div>

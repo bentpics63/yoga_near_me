@@ -656,6 +656,122 @@
             line-height: 1.5;
         }
 
+        /* ===================================
+           BENEFITS PREVIEW SECTION
+        =================================== */
+        .benefits-preview-section {
+            background: linear-gradient(135deg, #61948B 0%, #5F7470 100%);
+            padding: 96px 0;
+            margin: 96px calc(-50vw + 50%);
+            width: 100vw;
+            position: relative;
+        }
+
+        .benefits-preview-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .benefits-preview-header {
+            text-align: center;
+            color: #FFFFFF;
+            margin-bottom: 64px;
+        }
+
+        .benefits-preview-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefits-preview-header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-style: italic;
+            font-family: 'Crimson Pro', Georgia, serif;
+        }
+
+        .benefits-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .benefit-preview-card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 4px solid #FF5733;
+            transition: all 0.3s ease-out;
+            color: #FFFFFF;
+        }
+
+        .benefit-preview-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .benefit-preview-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #FF5733;
+            margin-bottom: 8px;
+            line-height: 1;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefit-preview-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #FFFFFF;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefit-preview-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .benefits-cta {
+            text-align: center;
+            margin-top: 64px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .benefits-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+
+        .benefits-cta-button {
+            display: inline-block;
+            background: #FF5733;
+            color: #FFFFFF;
+            padding: 16px 64px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease-out;
+            box-shadow: 0 4px 12px rgba(255, 87, 51, 0.3);
+        }
+
+        .benefits-cta-button:hover {
+            background: #E64A2A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 87, 51, 0.4);
+        }
+
         .author-bio {
             background: #f8f9fa;
             padding: 2rem;
@@ -1441,98 +1557,56 @@
                         </div>
                     </section>
 
+                    <!-- Benefits Section -->
                     <section id="benefits" class="article-section">
-                        <h2 class="section-title">Benefits of Aerial Yoga</h2>
-                        <div class="section-content">
-                            <p>The combination of suspension, inversions, and creative movement creates a unique set of benefits:</p>
+                        <div class="benefits-preview-section">
+                            <div class="benefits-preview-container">
+                                <div class="benefits-preview-header">
+                                    <h2>Benefits of Aerial Yoga</h2>
+                                    <p class="subtitle">Defy gravity, transform your practice</p>
+                                </div>
 
-                            <div class="two-column-layout">
-                                <div class="column">
-                                    <h3>Physical Benefits</h3>
-                                    <ul>
-                                        <li><strong>Spinal Decompression:</strong> Relief from compression and back tension</li>
-                                        <li><strong>Improved Flexibility:</strong> Gravity-assisted stretching for greater range</li>
-                                        <li><strong>Core Strength:</strong> Deep stabilization through suspended movement</li>
-                                        <li><strong>Joint Relief:</strong> Low-impact inversions reduce joint pressure</li>
-                                        <li><strong>Better Balance:</strong> Enhanced proprioception and coordination</li>
-                                        <li><strong>Circulation:</strong> Inversions improve blood flow</li>
-                                    </ul>
+                                <div class="benefits-preview-grid">
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">1</div>
+                                        <h3>Spinal Decompression</h3>
+                                        <p>Inverted poses use gravity to gently lengthen the spine and relieve compression.</p>
+                                    </div>
 
-                                    <h3>Mental Benefits</h3>
-                                    <ul>
-                                        <li><strong>Stress Relief:</strong> Novelty and play quiet the busy mind</li>
-                                        <li><strong>Focus Enhancement:</strong> Movement demands present-moment awareness</li>
-                                        <li><strong>Confidence Building:</strong> Overcoming fear creates empowerment</li>
-                                    </ul>
-                                </div>
-                                <div class="column">
-                                    <h3>Emotional Benefits</h3>
-                                    <ul>
-                                        <li><strong>Release of Fear:</strong> Learning to trust and let go</li>
-                                        <li><strong>Joy and Playfulness:</strong> Reconnecting with childlike wonder</li>
-                                        <li><strong>Body Confidence:</strong> Discovering new capabilities</li>
-                                        <li><strong>Emotional Processing:</strong> Inversions can release stored tension</li>
-                                    </ul>
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">2</div>
+                                        <h3>Increased Flexibility</h3>
+                                        <p>The hammock supports deeper stretches and allows the body to open with less strain.</p>
+                                    </div>
 
-                                    <h3>Community Benefits</h3>
-                                    <ul>
-                                        <li><strong>Shared Joy:</strong> Cheering each other through challenges</li>
-                                        <li><strong>Vulnerability:</strong> Safe space to try new things</li>
-                                        <li><strong>Connection:</strong> Bonding through playful exploration</li>
-                                        <li><strong>Support:</strong> Community encouragement builds courage</li>
-                                    </ul>
-                                </div>
-                            </div>
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">3</div>
+                                        <h3>Core Strength</h3>
+                                        <p>Stabilizing in the hammock engages deep core muscles throughout every movement.</p>
+                                    </div>
 
-                            <div class="benefits-grid">
-                                <div class="benefit-card">
-                                    <div class="benefit-icon">
-                                        <i class="fas fa-spine"></i>
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">4</div>
+                                        <h3>Improved Balance</h3>
+                                        <p>Navigating an unstable surface sharpens proprioception and body awareness.</p>
                                     </div>
-                                    <h3>Spinal Decompression</h3>
-                                    <p>Relief from compression and tension through supported inversions and traction.</p>
-                                </div>
-                                <div class="benefit-card">
-                                    <div class="benefit-icon">
-                                        <i class="fas fa-dumbbell"></i>
-                                    </div>
-                                    <h3>Core Strength</h3>
-                                    <p>Build deep core stability through suspended movements and balance challenges.</p>
-                                </div>
-                                <div class="benefit-card">
-                                    <div class="benefit-icon">
-                                        <i class="fas fa-child"></i>
-                                    </div>
-                                    <h3>Flexibility</h3>
-                                    <p>Deepen stretches safely with hammock support for greater range of motion.</p>
-                                </div>
-                                <div class="benefit-card">
-                                    <div class="benefit-icon">
-                                        <i class="fas fa-balance-scale"></i>
-                                    </div>
-                                    <h3>Balance & Awareness</h3>
-                                    <p>Enhance proprioception and spatial awareness through three-dimensional movement.</p>
-                                </div>
-                                <div class="benefit-card">
-                                    <div class="benefit-icon">
-                                        <i class="fas fa-heart"></i>
-                                    </div>
-                                    <h3>Stress Relief</h3>
-                                    <p>Find calm through playful movement and the meditative quality of floating.</p>
-                                </div>
-                                <div class="benefit-card">
-                                    <div class="benefit-icon">
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <h3>Confidence Building</h3>
-                                    <p>Overcome fear and discover new physical capabilities in a supportive environment.</p>
-                                </div>
-                            </div>
 
-                            <div class="highlight-box" style="margin-top: 2rem;">
-                                <div class="highlight-content">
-                                    <h4>Important Considerations</h4>
-                                    <p>While Aerial Yoga is generally accessible, inversions may not be suitable for everyone. Those with vertigo, glaucoma, uncontrolled blood pressure, or certain spinal conditions should consult a healthcare provider. Pregnant practitioners should seek specialized prenatal aerial classes.</p>
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">5</div>
+                                        <h3>Stress Relief & Joy</h3>
+                                        <p>The playful, floating sensation releases tension and brings childlike delight.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">6</div>
+                                        <h3>Accessible Inversions</h3>
+                                        <p>The hammock makes inversions available to those who can't do them on the floor.</p>
+                                    </div>
+                                </div>
+
+                                <div class="benefits-cta">
+                                    <p>Discover all 12 transformative benefits of Aerial Yoga</p>
+                                    <a href="https://yoganearme.info/yoga-styles/aerial-yoga/12-benefits/" class="benefits-cta-button">Explore All 12 Benefits →</a>
                                 </div>
                             </div>
                         </div>

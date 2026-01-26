@@ -657,6 +657,122 @@
             line-height: 1.5;
         }
 
+        /* ===================================
+           BENEFITS PREVIEW SECTION
+        =================================== */
+        .benefits-preview-section {
+            background: linear-gradient(135deg, #61948B 0%, #5F7470 100%);
+            padding: 96px 0;
+            margin: 96px calc(-50vw + 50%);
+            width: 100vw;
+            position: relative;
+        }
+
+        .benefits-preview-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .benefits-preview-header {
+            text-align: center;
+            color: #FFFFFF;
+            margin-bottom: 64px;
+        }
+
+        .benefits-preview-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefits-preview-header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-style: italic;
+            font-family: 'Crimson Pro', Georgia, serif;
+        }
+
+        .benefits-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .benefit-preview-card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 4px solid #FF5733;
+            transition: all 0.3s ease-out;
+            color: #FFFFFF;
+        }
+
+        .benefit-preview-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .benefit-preview-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #FF5733;
+            margin-bottom: 8px;
+            line-height: 1;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefit-preview-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #FFFFFF;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefit-preview-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .benefits-cta {
+            text-align: center;
+            margin-top: 64px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .benefits-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+
+        .benefits-cta-button {
+            display: inline-block;
+            background: #FF5733;
+            color: #FFFFFF;
+            padding: 16px 64px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease-out;
+            box-shadow: 0 4px 12px rgba(255, 87, 51, 0.3);
+        }
+
+        .benefits-cta-button:hover {
+            background: #E64A2A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 87, 51, 0.4);
+        }
+
         .author-bio {
             background: #f8f9fa;
             padding: 2rem;
@@ -1432,55 +1548,56 @@
                         </div>
                     </section>
 
+                    <!-- Benefits Section -->
                     <section id="benefits" class="article-section">
-                        <h2 class="section-title">Benefits of Yin Yoga</h2>
-                        <div class="section-content">
-                            <p>The unique approach of Yin Yoga—passive, sustained, and meditative—creates benefits that complement and extend those of active practices:</p>
-
-                            <div class="two-column-layout">
-                                <div class="column">
-                                    <h3>Physical Benefits</h3>
-                                    <ul>
-                                        <li><strong>Increased Flexibility:</strong> Deep, sustained stretching lengthens connective tissue</li>
-                                        <li><strong>Joint Health:</strong> Gentle stress maintains joint mobility and synovial fluid</li>
-                                        <li><strong>Fascia Release:</strong> Breaks down adhesions and improves tissue hydration</li>
-                                        <li><strong>Reduced Stiffness:</strong> Particularly effective for hips, lower back, shoulders</li>
-                                        <li><strong>Better Posture:</strong> Releases chronic tension patterns</li>
-                                        <li><strong>Injury Prevention:</strong> Complements active practice to prevent overuse</li>
-                                    </ul>
-
-                                    <h3>Energetic Benefits</h3>
-                                    <ul>
-                                        <li><strong>Meridian Stimulation:</strong> Poses target energy channels of Chinese medicine</li>
-                                        <li><strong>Chi/Prana Flow:</strong> Releases blockages in subtle energy body</li>
-                                        <li><strong>Balance:</strong> Provides yin counterbalance to yang activities</li>
-                                    </ul>
+                        <div class="benefits-preview-section">
+                            <div class="benefits-preview-container">
+                                <div class="benefits-preview-header">
+                                    <h2>Benefits of Yin Yoga</h2>
+                                    <p class="subtitle">Deep restoration for body and soul</p>
                                 </div>
-                                <div class="column">
-                                    <h3>Mental & Emotional Benefits</h3>
-                                    <ul>
-                                        <li><strong>Deep Stress Relief:</strong> Activates parasympathetic nervous system</li>
-                                        <li><strong>Emotional Processing:</strong> Creates space for stored feelings to surface</li>
-                                        <li><strong>Improved Sleep:</strong> Calms the nervous system before rest</li>
-                                        <li><strong>Patience Cultivation:</strong> Training in being with discomfort</li>
-                                        <li><strong>Present-Moment Awareness:</strong> Extended holds demand attention</li>
-                                        <li><strong>Self-Compassion:</strong> Practice of accepting what arises</li>
-                                    </ul>
 
-                                    <h3>Lifestyle Benefits</h3>
-                                    <ul>
-                                        <li><strong>Complements Active Practice:</strong> Essential recovery for athletes and yogis</li>
-                                        <li><strong>Meditation Gateway:</strong> Prepares body and mind for sitting practice</li>
-                                        <li><strong>Accessible:</strong> Props and modifications make it available to most bodies</li>
-                                        <li><strong>Counterbalance:</strong> Antidote to modern life's constant stimulation</li>
-                                    </ul>
+                                <div class="benefits-preview-grid">
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">1</div>
+                                        <h3>Deep Connective Tissue Release</h3>
+                                        <p>Long-held poses target fascia, ligaments, and joints that active practices don't reach.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">2</div>
+                                        <h3>Increased Flexibility</h3>
+                                        <p>Sustained stretches gradually lengthen muscles and improve joint mobility over time.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">3</div>
+                                        <h3>Stress & Anxiety Relief</h3>
+                                        <p>Stillness and breath activate the parasympathetic nervous system for deep calm.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">4</div>
+                                        <h3>Improved Joint Health</h3>
+                                        <p>Gentle stress on connective tissue maintains joint lubrication and range of motion.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">5</div>
+                                        <h3>Enhanced Meditation Practice</h3>
+                                        <p>Learning to be still and present prepares the mind for deeper meditation.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">6</div>
+                                        <h3>Balanced Energy Flow</h3>
+                                        <p>Poses target meridian lines, promoting the healthy flow of chi throughout the body.</p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="highlight-box" style="margin-top: 2rem;">
-                                <div class="highlight-content">
-                                    <h4>Important Considerations</h4>
-                                    <p>Yin is not recommended for those with hypermobility or joint instability without careful guidance—the long holds can overstretch already-loose ligaments. If you have specific injuries or conditions, consult a healthcare provider and inform your teacher before class.</p>
+                                <div class="benefits-cta">
+                                    <p>Discover all 12 transformative benefits of Yin Yoga</p>
+                                    <a href="https://yoganearme.info/yoga-styles/yin-yoga/12-benefits/" class="benefits-cta-button">Explore All 12 Benefits →</a>
                                 </div>
                             </div>
                         </div>

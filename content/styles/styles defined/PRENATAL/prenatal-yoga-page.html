@@ -661,6 +661,122 @@
             line-height: 1.5;
         }
 
+        /* ===================================
+           BENEFITS PREVIEW SECTION
+        =================================== */
+        .benefits-preview-section {
+            background: linear-gradient(135deg, #61948B 0%, #5F7470 100%);
+            padding: 96px 0;
+            margin: 96px calc(-50vw + 50%);
+            width: 100vw;
+            position: relative;
+        }
+
+        .benefits-preview-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .benefits-preview-header {
+            text-align: center;
+            color: #FFFFFF;
+            margin-bottom: 64px;
+        }
+
+        .benefits-preview-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefits-preview-header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-style: italic;
+            font-family: 'Crimson Pro', Georgia, serif;
+        }
+
+        .benefits-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .benefit-preview-card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 4px solid #FF5733;
+            transition: all 0.3s ease-out;
+            color: #FFFFFF;
+        }
+
+        .benefit-preview-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .benefit-preview-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #FF5733;
+            margin-bottom: 8px;
+            line-height: 1;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefit-preview-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #FFFFFF;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefit-preview-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .benefits-cta {
+            text-align: center;
+            margin-top: 64px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .benefits-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+
+        .benefits-cta-button {
+            display: inline-block;
+            background: #FF5733;
+            color: #FFFFFF;
+            padding: 16px 64px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease-out;
+            box-shadow: 0 4px 12px rgba(255, 87, 51, 0.3);
+        }
+
+        .benefits-cta-button:hover {
+            background: #E64A2A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 87, 51, 0.4);
+        }
+
         .author-bio {
             background: #f8f9fa;
             padding: 2rem;
@@ -1405,39 +1521,56 @@
                         </div>
                     </section>
 
+                    <!-- Benefits Section -->
                     <section id="benefits" class="article-section">
-                        <h2 class="section-title">Benefits of Prenatal Yoga</h2>
-                        <div class="section-content">
-                            <p>Prenatal Yoga offers a wide array of benefits that support holistic well-being throughout pregnancy and beyond:</p>
-
-                            <div class="two-column-layout">
-                                <div class="column">
-                                    <h3>Physical Benefits</h3>
-                                    <ul>
-                                        <li>Relief from common discomforts (e.g., back pain, hip tightness, swelling)</li>
-                                        <li>Improved posture, balance, and circulation</li>
-                                        <li>Strengthening of muscles used in labor and delivery</li>
-                                        <li>Gentle toning and flexibility maintenance</li>
-                                        <li>Easier postpartum recovery</li>
-                                    </ul>
-
-                                    <h3>Mental and Emotional Benefits</h3>
-                                    <ul>
-                                        <li>Reduced anxiety and overwhelm</li>
-                                        <li>Enhanced body confidence and trust in the birthing process</li>
-                                        <li>Emotional release and space for reflection</li>
-                                        <li>Stronger mind-body awareness</li>
-                                        <li>Deeper sense of calm, presence, and preparation</li>
-                                    </ul>
+                        <div class="benefits-preview-section">
+                            <div class="benefits-preview-container">
+                                <div class="benefits-preview-header">
+                                    <h2>Benefits of Prenatal Yoga</h2>
+                                    <p class="subtitle">Nurturing practice for mother and baby</p>
                                 </div>
-                                <div class="column">
-                                    <h3>Energetic and Subtle Benefits</h3>
-                                    <ul>
-                                        <li>Grounding of Vata energy (important during pregnancy)</li>
-                                        <li>Strengthening of Svadisthana (sacral) and Muladhara (root) chakras</li>
-                                        <li>Nourishment of intuition, creation, and trust</li>
-                                        <li>Expansion of love and subtle awareness between mother and child</li>
-                                    </ul>
+
+                                <div class="benefits-preview-grid">
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">1</div>
+                                        <h3>Reduced Pregnancy Discomfort</h3>
+                                        <p>Gentle stretches and poses relieve common aches like back pain and hip tightness.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">2</div>
+                                        <h3>Better Sleep Quality</h3>
+                                        <p>Relaxation techniques and gentle movement promote deeper, more restful sleep.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">3</div>
+                                        <h3>Labor Preparation</h3>
+                                        <p>Breathing techniques and hip-opening poses help prepare the body for childbirth.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">4</div>
+                                        <h3>Stress & Anxiety Relief</h3>
+                                        <p>Mindful movement and breathwork calm the nervous system during this transformative time.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">5</div>
+                                        <h3>Maintained Strength & Flexibility</h3>
+                                        <p>Safe, modified poses help maintain fitness and mobility throughout pregnancy.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">6</div>
+                                        <h3>Community & Connection</h3>
+                                        <p>Connect with other expecting mothers and build a supportive community.</p>
+                                    </div>
+                                </div>
+
+                                <div class="benefits-cta">
+                                    <p>Discover all 12 transformative benefits of Prenatal Yoga</p>
+                                    <a href="https://yoganearme.info/yoga-styles/prenatal-yoga/12-benefits/" class="benefits-cta-button">Explore All 12 Benefits →</a>
                                 </div>
                             </div>
                         </div>

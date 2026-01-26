@@ -656,6 +656,122 @@
             line-height: 1.5;
         }
 
+        /* ===================================
+           BENEFITS PREVIEW SECTION
+        =================================== */
+        .benefits-preview-section {
+            background: linear-gradient(135deg, #61948B 0%, #5F7470 100%);
+            padding: 96px 0;
+            margin: 96px calc(-50vw + 50%);
+            width: 100vw;
+            position: relative;
+        }
+
+        .benefits-preview-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .benefits-preview-header {
+            text-align: center;
+            color: #FFFFFF;
+            margin-bottom: 64px;
+        }
+
+        .benefits-preview-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefits-preview-header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-style: italic;
+            font-family: 'Crimson Pro', Georgia, serif;
+        }
+
+        .benefits-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .benefit-preview-card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 4px solid #FF5733;
+            transition: all 0.3s ease-out;
+            color: #FFFFFF;
+        }
+
+        .benefit-preview-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .benefit-preview-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #FF5733;
+            margin-bottom: 8px;
+            line-height: 1;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefit-preview-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #FFFFFF;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .benefit-preview-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .benefits-cta {
+            text-align: center;
+            margin-top: 64px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .benefits-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+
+        .benefits-cta-button {
+            display: inline-block;
+            background: #FF5733;
+            color: #FFFFFF;
+            padding: 16px 64px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease-out;
+            box-shadow: 0 4px 12px rgba(255, 87, 51, 0.3);
+        }
+
+        .benefits-cta-button:hover {
+            background: #E64A2A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 87, 51, 0.4);
+        }
+
         .author-bio {
             background: #f8f9fa;
             padding: 2rem;
@@ -1396,53 +1512,56 @@
                         </div>
                     </section>
 
+                    <!-- Benefits Section -->
                     <section id="benefits" class="article-section">
-                        <h2 class="section-title">Benefits of Rocket Yoga</h2>
-                        <div class="section-content">
-                            <p>The combination of dynamic flow, arm balance focus, and accessible modifications creates a unique set of benefits:</p>
-
-                            <div class="two-column-layout">
-                                <div class="column">
-                                    <h3>Physical Benefits</h3>
-                                    <ul>
-                                        <li><strong>Upper Body Strength:</strong> Arm balances build significant strength in arms, shoulders, and core</li>
-                                        <li><strong>Improved Balance:</strong> Challenging poses develop proprioception and equilibrium</li>
-                                        <li><strong>Wrist Strength:</strong> Gradual loading builds wrist stability</li>
-                                        <li><strong>Flexibility with Strength:</strong> Dynamic stretching alongside strengthening</li>
-                                        <li><strong>Cardiovascular Conditioning:</strong> Continuous flow elevates heart rate</li>
-                                    </ul>
-
-                                    <h3>Practice Development</h3>
-                                    <ul>
-                                        <li><strong>Accelerated Progress:</strong> Access to advanced poses earlier than traditional systems</li>
-                                        <li><strong>Body Mechanics:</strong> Understanding leverage and balance principles</li>
-                                        <li><strong>Freedom from Rules:</strong> Personal exploration over rigid progression</li>
-                                    </ul>
+                        <div class="benefits-preview-section">
+                            <div class="benefits-preview-container">
+                                <div class="benefits-preview-header">
+                                    <h2>Benefits of Rocket Yoga</h2>
+                                    <p class="subtitle">Accelerated growth and playful challenge</p>
                                 </div>
-                                <div class="column">
-                                    <h3>Mental & Emotional Benefits</h3>
-                                    <ul>
-                                        <li><strong>Confidence Building:</strong> Attempting challenging poses builds self-belief</li>
-                                        <li><strong>Playfulness:</strong> Decreased fear of falling or failing</li>
-                                        <li><strong>Resilience:</strong> Learning to work with difficulty</li>
-                                        <li><strong>Focus:</strong> Complex sequences demand concentration</li>
-                                        <li><strong>Joy:</strong> Celebration and community in practice</li>
-                                    </ul>
 
-                                    <h3>Lifestyle Benefits</h3>
-                                    <ul>
-                                        <li><strong>Accessibility:</strong> Modifications make it available to varying levels</li>
-                                        <li><strong>Community:</strong> Supportive, non-judgmental atmosphere</li>
-                                        <li><strong>Variety:</strong> Three sequences keep practice fresh</li>
-                                        <li><strong>Foundation:</strong> Prepares you for other dynamic styles</li>
-                                    </ul>
+                                <div class="benefits-preview-grid">
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">1</div>
+                                        <h3>Accelerated Strength Building</h3>
+                                        <p>Challenging arm balances and inversions build exceptional upper body and core strength.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">2</div>
+                                        <h3>Enhanced Flexibility</h3>
+                                        <p>Dynamic sequences with pose modifications open the body faster than traditional methods.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">3</div>
+                                        <h3>Playful Exploration</h3>
+                                        <p>Freedom to modify and experiment cultivates creativity and joy in your practice.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">4</div>
+                                        <h3>Accessible Advancement</h3>
+                                        <p>Modified sequences make advanced poses accessible to practitioners at all levels.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">5</div>
+                                        <h3>Cardiovascular Fitness</h3>
+                                        <p>Dynamic flow and challenging sequences elevate heart rate and build endurance.</p>
+                                    </div>
+
+                                    <div class="benefit-preview-card">
+                                        <div class="benefit-preview-number">6</div>
+                                        <h3>Confidence & Courage</h3>
+                                        <p>Attempting challenging poses builds mental strength and self-belief on and off the mat.</p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="highlight-box" style="margin-top: 2rem;">
-                                <div class="highlight-content">
-                                    <h4>Important Considerations</h4>
-                                    <p>While Rocket is modification-friendly, the pace can be challenging for complete beginners. If you're new to yoga, consider building a foundation with <a href="https://yoganearme.info/yoga-glossary/yoga-styles/vinyasa-yoga/">Vinyasa</a> or beginner <a href="https://yoganearme.info/yoga-glossary/yoga-styles/ashtanga-yoga/">Ashtanga</a> classes first. Those with wrist injuries should inform the teacher and take extra care with arm balances.</p>
+                                <div class="benefits-cta">
+                                    <p>Discover all 12 transformative benefits of Rocket Yoga</p>
+                                    <a href="https://yoganearme.info/yoga-styles/rocket-yoga/12-benefits/" class="benefits-cta-button">Explore All 12 Benefits →</a>
                                 </div>
                             </div>
                         </div>
