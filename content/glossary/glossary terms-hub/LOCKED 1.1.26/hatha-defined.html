@@ -161,7 +161,7 @@
             transition: opacity 0.3s ease;
         }
         .site-logo:hover { opacity: 0.8; }
-        .logo-icon { width: 40px; height: 40px; flex-shrink: 0; }
+        .logo-icon{height:32px;width:auto;flex-shrink:0}
         .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
         .logo-text-main { font-size: 1.25rem; font-weight: 700; color: white; letter-spacing: 0.5px; }
         .logo-text-sub { font-size: 0.7rem; color: rgba(255, 255, 255, 0.8); letter-spacing: 1.5px; text-transform: uppercase; }
@@ -729,6 +729,37 @@
         .guide-link:hover { color: var(--accent-coral); }
         .guide-link::before { content: "→"; color: var(--accent-coral); font-size: 0.8rem; }
 
+    
+    /* Icon circle styling */
+    .icon-circle {
+        width: 48px;
+        height: 48px;
+        background: var(--accent-coral, #e95c4b);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 0.75rem auto;
+    }
+    .icon-circle i {
+        font-size: 1.25rem;
+        color: #fff;
+    }
+    .layer-icon, .target-icon, .hammock-icon, .tenet-icon {
+        width: 48px;
+        height: 48px;
+        background: var(--accent-coral, #e95c4b);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 0.75rem auto;
+    }
+    .layer-icon i, .target-icon i, .hammock-icon i, .tenet-icon i {
+        font-size: 1.25rem;
+        color: #fff;
+    }
+
     </style>
 </head>
 
@@ -737,10 +768,6 @@
     <div class="container">
       <a href="/" class="site-logo" aria-label="Yoga Near Me - Home">
         <img src="https://yoganearme.info/wp-content/uploads/2026/01/yoganearme-logo-v3.svg" alt="Yoga Near Me" class="logo-icon">
-        <div class="logo-text">
-          <span class="logo-text-main">YOGA</span>
-          <span class="logo-text-sub">NEAR ME</span>
-        </div>
       </a>
       <nav aria-label="Main navigation">
         <ul class="site-nav">
@@ -781,11 +808,11 @@
 
       <div class="duality-box">
         <div class="duality-side ha">
-          <h4>☀️ Ha (Sun)</h4>
+          <h4><i class="fas fa-sun" style="margin-right:0.5rem;color:var(--accent-coral,#e95c4b);"></i> Ha (Sun)</h4>
           <p>Active, heating, masculine, effort, doing, right side of body, inhale, sympathetic nervous system</p>
         </div>
         <div class="duality-side tha">
-          <h4>🌙 Tha (Moon)</h4>
+          <h4><i class="fas fa-moon" style="margin-right:0.5rem;color:var(--accent-coral,#e95c4b);"></i> Tha (Moon)</h4>
           <p>Receptive, cooling, feminine, ease, being, left side of body, exhale, parasympathetic nervous system</p>
         </div>
       </div>

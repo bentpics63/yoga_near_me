@@ -177,7 +177,7 @@
         .site-header .container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .site-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; transition: opacity 0.3s ease; }
         .site-logo:hover { opacity: 0.8; }
-        .logo-icon { width: 40px; height: 40px; flex-shrink: 0; }
+        .logo-icon{height:32px;width:auto;flex-shrink:0}
         .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
         .logo-text-main { font-size: 1.25rem; font-weight: 700; color: white; letter-spacing: 0.5px; }
         .logo-text-sub { font-size: 0.7rem; color: rgba(255, 255, 255, 0.8); letter-spacing: 1.5px; text-transform: uppercase; }
@@ -487,6 +487,37 @@
         @media (max-width: 900px) { .footer-content { grid-template-columns: repeat(2, 1fr); gap: 40px 24px; } }
         @media (max-width: 768px) { .ynm-term-hero { grid-template-columns: 1fr; } .hero-symbol { display: none; } h1 { font-size: 1.75rem; } }
         @media (max-width: 640px) { .site-nav { display: none; } .logo-text-sub { display: none; } .ynm-term-page { padding-left: 1rem; padding-right: 1rem; } .ynm-term-hero { padding: 2rem 1.5rem; } .ynm-btn-group { flex-direction: column; width: 100%; } .ynm-btn { width: 100%; } .footer-content { grid-template-columns: 1fr; gap: 40px; padding: 0 16px; } .footer-bottom { flex-direction: column; text-align: center; padding-left: 16px; padding-right: 16px; } .footer-bottom { flex-direction: column; text-align: center; } .footer-bottom-links { justify-content: center; } }
+    
+    /* Icon circle styling */
+    .icon-circle {
+        width: 48px;
+        height: 48px;
+        background: var(--accent-coral, #e95c4b);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 0.75rem auto;
+    }
+    .icon-circle i {
+        font-size: 1.25rem;
+        color: #fff;
+    }
+    .layer-icon, .target-icon, .hammock-icon, .tenet-icon {
+        width: 48px;
+        height: 48px;
+        background: var(--accent-coral, #e95c4b);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 0.75rem auto;
+    }
+    .layer-icon i, .target-icon i, .hammock-icon i, .tenet-icon i {
+        font-size: 1.25rem;
+        color: #fff;
+    }
+
     </style>
 </head>
 
@@ -495,7 +526,6 @@
     <div class="container">
       <a href="https://yoganearme.info/" class="site-logo" aria-label="Yoga Near Me - Home">
         <img src="https://yoganearme.info/wp-content/uploads/2026/01/yoganearme-logo-v3.svg" alt="Yoga Near Me" class="logo-icon">
-        <div class="logo-text"><span class="logo-text-main">YOGA</span><span class="logo-text-sub">NEAR ME</span></div>
       </a>
       <nav aria-label="Main navigation">
         <ul class="site-nav">
@@ -541,15 +571,15 @@
 
       <div class="dimensions-grid">
         <div class="dimension-card">
-          <h4>🏃 Physical</h4>
+          <h4><i class="fas fa-person-running" style="margin-right:0.5rem;color:var(--accent-coral,#e95c4b);"></i> Physical</h4>
           <p>Sleep, nutrition, movement, medical care, rest, hygiene—the body's basic needs that are easy to neglect under stress.</p>
         </div>
         <div class="dimension-card">
-          <h4>💭 Emotional</h4>
+          <h4><i class="fas fa-comment" style="margin-right:0.5rem;color:var(--accent-coral,#e95c4b);"></i> Emotional</h4>
           <p>Processing feelings, setting boundaries, asking for help, therapy, journaling—tending to your inner life.</p>
         </div>
         <div class="dimension-card">
-          <h4>🧠 Mental</h4>
+          <h4><i class="fas fa-brain" style="margin-right:0.5rem;color:var(--accent-coral,#e95c4b);"></i> Mental</h4>
           <p>Managing stress, limiting overwhelm, challenging negative self-talk, learning, intellectual stimulation.</p>
         </div>
         <div class="dimension-card">
@@ -557,7 +587,7 @@
           <p>Nurturing supportive relationships, setting limits with draining ones, community, connection, belonging.</p>
         </div>
         <div class="dimension-card">
-          <h4>🙏 Spiritual</h4>
+          <h4><i class="fas fa-hands-praying" style="margin-right:0.5rem;color:var(--accent-coral,#e95c4b);"></i> Spiritual</h4>
           <p><a href="https://yoganearme.info/yoga-glossary/meditation-defined/">Meditation</a>, prayer, nature, meaning-making, practices that connect you to something larger than yourself.</p>
         </div>
         <div class="dimension-card">
