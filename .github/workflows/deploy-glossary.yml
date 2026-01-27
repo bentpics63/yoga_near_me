@@ -17,15 +17,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy via SFTP
+      - name: Prepare files for deployment
+        run: |
+          mkdir -p ./deploy-staging
+          cp -r "./content/glossary/glossary terms-hub/LOCKED 1.1.26/"* ./deploy-staging/
+
+      - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./content/glossary/glossary terms-hub/LOCKED 1.1.26/
+          local-dir: ./deploy-staging/
           server-dir: /public_html/glossary/
           dangerous-clean-slate: false
+          timeout: 60000
 
       - name: Deployment complete
         run: echo "✓ Glossary pages deployed to yoganearme.info/glossary/"
