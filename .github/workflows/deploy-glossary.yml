@@ -1,0 +1,31 @@
+name: Deploy Glossary Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/glossary/**'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy to Hostinger
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy via SFTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./content/glossary/glossary terms-hub/LOCKED 1.1.26/
+          server-dir: /public_html/glossary/
+          dangerous-clean-slate: false
+
+      - name: Deployment complete
+        run: echo "✓ Glossary pages deployed to yoganearme.info/glossary/"
