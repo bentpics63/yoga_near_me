@@ -711,32 +711,31 @@
             .footer-bottom-links { justify-content: center; }
         }
 
-    </style>
+    
+.logo-wordmark{font-size:1.5rem;font-weight:700;text-decoration:none;letter-spacing:-0.02em}.logo-yoga{color:#fff}.logo-nearme{color:#FF5733}.logo-info{color:#fff}
+
+.site-header{background:var(--primary-slate);padding:1rem clamp(1rem, 3vw, 1.5rem);box-shadow:var(--shadow-md);position:relative;top:0;z-index:1000}.site-header .container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}.site-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none}.site-nav{display:flex;gap:2rem;list-style:none}.site-nav a{color:rgba(255,255,255,0.9);text-decoration:none;font-weight:500;font-size:0.95rem}.site-nav a.active{color:white}.logo-wordmark{font-size:1.5rem;font-weight:700;text-decoration:none;letter-spacing:-0.02em}.logo-yoga{color:#fff}.logo-nearme{color:#FF5733}.logo-info{color:#fff}
+</style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
-    <header class="ynm-header">
-        <div class="ynm-header-content">
-            <a href="/" class="ynm-logo">
-                <svg class="ynm-logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="45" fill="none" stroke="white" stroke-width="2" opacity="0.3"/>
-                    <circle cx="50" cy="50" r="35" fill="none" stroke="white" stroke-width="2" opacity="0.5"/>
-                    <circle cx="50" cy="50" r="25" fill="none" stroke="white" stroke-width="2" opacity="0.7"/>
-                    <circle cx="50" cy="50" r="15" fill="none" stroke="white" stroke-width="2"/>
-                    <path d="M50,5 L50,25 M50,75 L50,95 M5,50 L25,50 M75,50 L95,50" stroke="white" stroke-width="2" opacity="0.6"/>
-                    <circle cx="50" cy="50" r="5" fill="white"/>
-                </svg>
-                <span>Yoga Near Me</span>
-            </a>
-            <nav class="ynm-nav" aria-label="Main navigation">
-                <a href="/studios/">Find Studios</a>
-                <a href="/yoga-styles/">Styles</a>
-                <a href="/yoga-glossary/">Yoga Glossary</a>
-                <a href="/about/">About</a>
-            </nav>
-        </div>
-    </header>
+    <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo" aria-label="Yoga Near Me - Home">
+        <span class="logo-wordmark"><span class="logo-yoga">yoga</span><span class="logo-nearme">nearme</span><span class="logo-info">.info</span></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="site-nav">
+          <li><a href="/studios/">Find Studios</a></li>
+          <li><a href="/yoga-glossary/" class="active">Yoga Glossary</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/add-studio">Add Studio</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
     <!-- Breadcrumb -->
     <nav class="ynm-breadcrumb" aria-label="Breadcrumb">
