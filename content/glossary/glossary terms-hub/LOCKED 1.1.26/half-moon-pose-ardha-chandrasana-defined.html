@@ -107,7 +107,10 @@
         @media (max-width: 900px) { .footer-content { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) { .ynm-term-hero { grid-template-columns: 1fr; } .hero-image.sanskrit-text { display: none; } h1 { font-size: 1.75rem; } }
         @media (max-width: 640px) { .site-nav { display: none; } .logo-text-sub { display: none; } .ynm-btn-group { flex-direction: column; width: 100%; } .ynm-btn { width: 100%; } .footer-content { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; text-align: center; } }
+    
+    .logo-wordmark{font-size:1.5rem;font-weight:700;text-decoration:none;letter-spacing:-0.02em}.logo-yoga{color:#fff}.logo-nearme{color:#FF5733}.logo-info{color:#fff}
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -116,7 +119,15 @@
       <a href="/" class="site-logo" aria-label="Yoga Near Me - Home">
         <span class="logo-wordmark"><span class="logo-yoga">yoga</span><span class="logo-nearme">nearme</span><span class="logo-info">.info</span></span>
       </a>
-      <nav><ul class="site-nav"><li><a href="/studios/">Find Studios</a></li><li><a href="/yoga-glossary/" class="active">Yoga Glossary</a></li><li><a href="/blog">Blog</a></li><li><a href="/add-studio">Add Studio</a></li></ul></nav>
+      <nav aria-label="Main navigation">
+        <ul class="site-nav">
+          <li><a href="/studios/">Find Studios</a></li>
+          <li><a href="/yoga-glossary/" class="active">Yoga Glossary</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/add-studio">Add Studio</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
